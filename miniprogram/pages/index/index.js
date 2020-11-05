@@ -1,4 +1,6 @@
 //index.js
+
+// ckkkx
 const app = getApp()
 
 Page({
