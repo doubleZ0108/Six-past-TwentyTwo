@@ -1,0 +1,6 @@
+<!--miniprogram/pages/test/test.wxml-->
+<text>miniprogram/pages/test/test.wxml</text>
+
+<example-component mytext="customer text from [Page test]">
+  <text>This is inner text.</text>
+</example-component>

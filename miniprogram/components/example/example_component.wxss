@@ -1,0 +1,4 @@
+/* components/example/example_component.wxss */
+.example-component {
+  color: red;
+}
