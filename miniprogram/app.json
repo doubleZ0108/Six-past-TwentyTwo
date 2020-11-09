@@ -1,15 +1,26 @@
 {
   "pages": [
+    "pages/wall/wall",
     "pages/test/test",
     "pages/index/index"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "backgroundColor": "#333",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#333",
+    "navigationBarTitleText": "二十二点零六",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/wall/wall",
+      "text": "表白墙",
+      "iconPath": "resource/img/icon/wall/wall.png",
+      "selectedIconPath": "resource/img/icon/wall/wall_selected.png"
+    }, {
+      "pagePath": "pages/test/test",
+      "text": "测试"
+    }]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
