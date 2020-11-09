@@ -1,5 +1,7 @@
 <!--miniprogram/pages/wall/wall.wxml-->
-<wave />
+<wave>
+  <hero />
+</wave>
 
 <view class="card-group">
   <card />
