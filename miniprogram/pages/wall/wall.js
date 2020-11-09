@@ -1,11 +1,4 @@
-
-//index.js
-
-const app = getApp()
-
-
-// miniprogram/pages/index/index.js
-
+// miniprogram/pages/wall/wall.js
 Page({
 
   /**

@@ -1,0 +1,6 @@
+<!--miniprogram/pages/wall/wall.wxml-->
+<wave />
+
+<view class="card-group">
+  <card />
+</view>

@@ -1,0 +1,98 @@
+/* components/wall/wave/wave.wxss */
+.wave-container {
+  background: linear-gradient(189.16deg, rgb(67, 22, 219) 13.57%, rgb(144, 118, 231) 98.38%);
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-wrapper {
+  position: relative;
+  top: -130px;
+}
+
+.wave-1-layer {
+  position: absolute;
+  width: 100%;
+  /* background-position: center top; */
+  background-position: 25% 0%;
+  background-repeat: no-repeat;
+  /* background-size: 100%; */
+  top: 137px;
+  height: 900px;
+}
+
+.wave-2-layer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 800px;
+  backdrop-filter: blur(60px);
+}
+
+.wave-3-layer {
+  position: absolute;
+  width: 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 180%;
+  top: 400px;
+  left: 0px;
+  height: 600px;
+}
+
+.wave-4-layer {
+  /* background: linear-gradient(rgba(190, 255, 255, 0.25) -18.72%, rgb(242, 246, 255) 37.6%); */
+  background: linear-gradient(rgba(31, 31, 71, 0.25) -18.72%, rgb(31, 31, 71) 37.6%);
+  position: absolute;
+  width: 100%;
+  background-position: 75% 0%;
+  background-repeat: no-repeat;
+  top: 520px;
+  height: 500px;
+  z-index: 999;
+}
+
+.hero-container {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  justify-content: center;
+
+  /* TODO: font setting */
+  color: white;
+  font-size: 40rpx;
+}
+
+.hero-inner-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: center;
+  justify-content: center;
+  grid-gap: 40px;
+}
+
+.hero-container .hero-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.hero-container .info-motto {
+  text-align: center;
+}
+
+.hero-container .info-container {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 10px;
+}
+
+.hero-container .other-info-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);   /* TODO: 如果还有其他信息 修改这里 */
+  grid-gap: 20px;
+}
