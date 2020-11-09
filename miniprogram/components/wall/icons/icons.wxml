@@ -1,0 +1,22 @@
+<!--components/wall/icons/icons.wxml-->
+<view class="icons-container">
+  <view class="icon-group icon-selected">
+    <icon type="search" size="25" color="rgba(255, 255, 255, .7)"></icon>
+    <text class="icon-text">主页</text>
+  </view>
+
+  <view class="icon-group">
+    <icon type="search" size="25" color="rgba(255, 255, 255, .7)"></icon>
+    <text class="icon-text">主页</text>
+  </view>
+
+  <view class="icon-group">
+    <icon type="search" size="25" color="rgba(255, 255, 255, .7)"></icon>
+    <text class="icon-text">主页</text>
+  </view>
+
+  <view class="icon-group">
+    <icon type="search" size="25" color="rgba(255, 255, 255, .7)"></icon>
+    <text class="icon-text">主页</text>
+  </view>
+</view>

@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "wave": "../../components/wall/wave/wave",
+    "hero": "../../components/wall/hero/hero",
+    "icons": "../../components/wall/icons/icons",
     "card": "../../components/wall/card/card"
   }
 }

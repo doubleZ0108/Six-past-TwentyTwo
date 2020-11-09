@@ -1,0 +1,14 @@
+<!--components/wall/hero/hero.wxml-->
+<view class="hero-container">
+  <view class="hero-inner-container">
+    <image class="hero-avatar" src="../../../resource/img/avatar.jpg"></image>
+    <view class="info-container">
+      <text class="info-name">doubleZ</text>
+      <view class="other-info-container">
+        <text class="info-gender">男</text>
+        <text>other information</text>
+      </view>
+    </view>
+  </view>
+  <text class="info-motto">二十二点零六</text>
+</view>
