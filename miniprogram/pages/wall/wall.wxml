@@ -1,5 +1,8 @@
 <!--miniprogram/pages/wall/wall.wxml-->
-<wave />
+<wave>
+  <hero />  <!-- 150px height / 25px margin-top-->
+  <icons />
+</wave>
 
 <view class="card-group">
   <card />
