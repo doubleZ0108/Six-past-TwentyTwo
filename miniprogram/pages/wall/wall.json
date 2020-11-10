@@ -3,6 +3,7 @@
     "wave": "../../components/wall/wave/wave",
     "hero": "../../components/wall/hero/hero",
     "icons": "../../components/wall/icons/icons",
+    "notice": "../../components/wall/notice/notice",
     "card": "../../components/wall/card/card"
   }
 }

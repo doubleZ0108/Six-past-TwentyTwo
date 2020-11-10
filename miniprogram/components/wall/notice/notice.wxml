@@ -1,0 +1,5 @@
+<!--components/wall/notice/notice.wxml-->
+<view class="notice-container">
+  <text class="iconfont iconshouye notice-icon"></text>
+  <text class="notice-info">公告: {{ notice }}</text>
+</view>
