@@ -1,2 +1,12 @@
 <!--components/wall/card/card.wxml-->
-<text>components/wall/card/card.wxml</text>
+<view class="card-container">
+  <view class="card-people">
+    <text>Person1</text>
+    <text class="iconfont iconshouye"></text>
+    <text>Person2</text>
+  </view>
+  <view class="card-info">
+    <image src="../../../resource/img/avatar.jpg"></image>
+    <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
+  </view>
+</view>

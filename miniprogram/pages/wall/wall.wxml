@@ -8,4 +8,8 @@
 
 <view class="card-group">
   <card />
+  <card />
+  <card />
+  <card />
+  <card />
 </view>
