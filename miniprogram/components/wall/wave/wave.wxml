@@ -2,11 +2,16 @@
 <view class="wave-container">
   <view class="wave-wrapper">
     <view class="wave-1-layer" style="background-image: url(../../../resource/img/wave/wave1.svg);"></view>
-    <!-- <view class="wave-1-layer" style="background-image: url(https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201109181346.svg);"></view> -->
     <view class="wave-2-layer"></view>
     <view class="wave-3-layer" style="background-image: url(../../../resource/img/wave/wave2.svg);"></view>
-    <!-- <view class="wave-3-layer" style="background-image: url(https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201109181416.svg);"></view> -->
     <view class="wave-4-layer" style="background-image: url(../../../resource/img/wave/wave3.svg);"></view>
+    
+    <!-- for mobile test -->
+    <!-- <view class="wave-1-layer" style="background-image: url(https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201109181346.svg);"></view>
+    <view class="wave-2-layer"></view>
+    <view class="wave-3-layer" style="background-image: url(https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201109181416.svg);"></view>
+    <view class="wave-4-layer" style="background-image: url(https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201110113439.svg);"></view> -->
+
   </view>
 
   <slot></slot>
