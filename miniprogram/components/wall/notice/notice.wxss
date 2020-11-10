@@ -1,0 +1,37 @@
+/* components/wall/notice/notice.wxss */
+@import '../../../style/iconfont.wxss';
+
+.notice-container {
+  --notice-width: 90%;
+  position: absolute;
+  top: 245px;
+  height: 25px;
+  width: var(--notice-width);
+  left: calc(calc(100% - var(--notice-width)) / 2);
+
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+
+  border-bottom: rgba(255, 255, 255, .5) 5rpx dashed;
+}
+
+.notice-icon {
+  font-size: 50rpx;
+  margin: 0 5px;
+  color: rgba(255,255,255,.5);
+}
+
+.notice-info {
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  font-size: 30rpx;
+  justify-self: flex-end;
+  align-self: flex-end;
+  color: rgba(255,255,255,.5);
+}
