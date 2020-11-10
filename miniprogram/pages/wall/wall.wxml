@@ -1,12 +1,13 @@
 <!--miniprogram/pages/wall/wall.wxml-->
 <wave>
   <hero />  <!-- 150px height / 25px margin-top -->
-  <icons /> <!-- 50px height / 10px margin-top-bottom -->
   <notice /> <!-- 25px height / 20px margin-top-bottom -->
+  <icons /> <!-- 50px height / 10px margin-top-bottom -->
+
   <!-- <vipcard /> -->
 </wave>
 
-<view class="card-group" style="transform: translateY(-100px);">
+<view class="card-group" style="transform: translateY(-130px);">
   <vipcard />
   <card />
   <card />
@@ -14,3 +15,5 @@
   <card />
   <card />
 </view>
+
+<view class="wave-decorate-1-layer" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_1.svg);"></view>

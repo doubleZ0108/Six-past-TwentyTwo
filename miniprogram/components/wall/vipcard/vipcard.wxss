@@ -5,21 +5,31 @@
   --vipcard-width: 80%;
   /* position: absolute;
   top: 350px; */
-  height: 200px;
+  height: 290rpx;
 
   width: var(--vipcard-width);
   left: calc(calc(100% - var(--vipcard-width)) / 2);
 
-  margin: 0px auto 75px;
+  margin: 0px auto 90rpx;
+
+  background: linear-gradient(104deg, rgb(243, 237, 231), rgb(240, 223, 186));
+  border-radius: 50rpx;
+  box-shadow: 0 9rpx 30rpx rgba(228, 219, 198, 0.6);
+}
+
+.vipcard-container .vipcard-bgdecorate {
+  --vipcard-width: 80%;
+  /* position: absolute;
+  top: 350px; */
+  height: 290rpx;
+
+  /* width: var(--vipcard-width); */
+  /* left: calc(calc(100% - var(--vipcard-width)) / 2); */
 
   display: grid;
   grid-template-rows: repeat(2, auto);
-  grid-gap: 10px;
+  grid-gap: 15rpx;
   justify-items: center;
-
-  background: linear-gradient(104deg, rgba(245, 202, 12), rgba(206, 93, 18));
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(255, 217, 0, 0.616);
 }
 
 .vipcard-people {
@@ -30,23 +40,26 @@
   grid-template-columns: 3fr 1fr 3fr;
   justify-items: center;
 
-  grid-gap: 10px;
+  grid-gap: 15rpx;
   align-items: center;
 }
 
 .vipcard-people text {
-  color: goldenrod;
-  font-size: 25px;
+  color: rgb(174,125,79);
+  font-size: 45rpx;
   font-weight: 600;
 
   /* TODO: 这里只是展示渐变色文字怎么用 方便你调整 */
-  background: linear-gradient(23deg, rgba(206, 93, 18),rgba(245, 202, 12));
+  background: linear-gradient(170deg, rgb(214, 165, 57),rgba(174,125,79)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .vipcard-people .iconfont {
-  font-size: 50px;
+  font-size: 60rpx;
+  background: linear-gradient(23deg, rgba(224, 99, 125),rgba(255, 146, 186)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .vipcard-info {
@@ -60,14 +73,17 @@
 }
 
 .vipcard-info image {
-  width: 75px;
-  height: 75px;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
+  margin-right: 25rpx;
 }
 
 .vipcard-info text {
-  color: rgba(0, 0, 0, .75);
-  width: 90%;
+  color: rgba(0, 0, 0, .6);
+  /* width: 90%; */
+
+  font-size: 25rpx;
 
   overflow: hidden;
   text-overflow: ellipsis;

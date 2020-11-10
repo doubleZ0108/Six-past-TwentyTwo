@@ -4,34 +4,35 @@
 .notice-container {
   --notice-width: 90%;
   position: absolute;
-  top: 245px;
-  height: 25px;
+  top: 305rpx;
+  height: 30rpx;
   width: var(--notice-width);
   left: calc(calc(100% - var(--notice-width)) / 2);
 
-  margin: 20px auto;
+  margin: 30rpx auto;
   display: flex;
   flex-direction: row;
 
-  border-bottom: rgba(255, 255, 255, .5) 5rpx dashed;
+  padding-top: 10rpx;
+  border-top: rgba(255, 255, 255, .4) 3rpx solid;
 }
 
 .notice-icon {
-  font-size: 50rpx;
-  margin: 0 5px;
-  color: rgba(255,255,255,.5);
+  font-size: 25rpx;
+  margin: 0 10rpx;
+  color: rgba(255,255,255,.83);
 }
 
 .notice-info {
-  width: 90%;
+  width: 95%;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 
-  font-size: 30rpx;
+  font-size: 23rpx;
   justify-self: flex-end;
   align-self: flex-end;
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.7);
 }

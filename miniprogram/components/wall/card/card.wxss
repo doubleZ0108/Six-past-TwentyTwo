@@ -3,19 +3,21 @@
 
 .card-container {
   --card-width: 80%;
-  height: 125px;
+  height: 230rpx;
   width: var(--card-width);
-  margin: 50px auto;
+  margin: 90rpx auto;
 
   display: grid;
   grid-template-rows: repeat(2, auto);
-  grid-gap: 10px;
+  grid-gap: 15rpx;
   justify-items: center;
 
-  background: linear-gradient(104deg, rgba(101, 12, 245, 0.5), rgba(65, 95, 158, 0.5));
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(101, 12, 245, 0.5);
-  backdrop-filter: blur(50px);
+  background: linear-gradient(68deg, rgba(19, 162, 206, 0.15),rgba(19, 122, 206, 0.15), rgba(33, 26, 74, 0.38), rgba(65, 95, 158, 0.38));
+  border-radius: 50rpx;
+  box-shadow: 0 10rpx 30rpx rgba(55, 12, 245, 0.15);
+  backdrop-filter: blur(90rpx);
+
+  border: rgba(52, 88, 121, .38) 1rpx solid;
 }
 
 /* .card-container:nth-child(1) {
@@ -30,18 +32,21 @@
   grid-template-columns: 3fr 1fr 3fr;
   justify-items: center;
 
-  grid-gap: 10px;
+  grid-gap: 15rpx;
   align-items: center;
 }
 
 .card-people text {
-  color: rgba(255,255,255,.75);
-  font-size: 20px;
+  color: rgba(255,255,255,.83);
+  font-size: 45rpx;
   font-weight: 400;
 }
 
 .card-people .iconfont {
-  font-size: 35px;
+  font-size: 60rpx;
+  background: linear-gradient(130deg, rgb(110, 240, 201),rgb(152, 163, 223), rgb(66, 210, 247)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .card-info {
@@ -55,14 +60,17 @@
 }
 
 .card-info image {
-  width: 50px;
-  height: 50px;
+  width: 90rpx;
+  height: 90rpx;
   border-radius: 50%;
+  margin-right: 30rpx;
 }
 
 .card-info text {
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.6);
   width: 90%;
+
+  font-size: 25rpx;
 
   overflow: hidden;
   text-overflow: ellipsis;
