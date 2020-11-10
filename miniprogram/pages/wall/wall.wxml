@@ -3,6 +3,7 @@
   <hero />  <!-- 150px height / 25px margin-top -->
   <icons /> <!-- 50px height / 10px margin-top-bottom -->
   <notice /> <!-- 25px height / 20px margin-top-bottom -->
+  <vipcard />
 </wave>
 
 <view class="card-group">
