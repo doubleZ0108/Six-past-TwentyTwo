@@ -15,7 +15,7 @@
   grid-gap: 10px;
   justify-items: center;
 
-  background-color: gold;
+  background: linear-gradient(104deg, rgba(245, 202, 12), rgba(206, 93, 18));
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(255, 217, 0, 0.616);
 }
@@ -33,6 +33,11 @@
   color: goldenrod;
   font-size: 25px;
   font-weight: 600;
+
+  /* TODO: 这里只是展示渐变色文字怎么用 方便你调整 */
+  background: linear-gradient(23deg, rgba(206, 93, 18),rgba(245, 202, 12));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .vipcard-people .iconfont {
