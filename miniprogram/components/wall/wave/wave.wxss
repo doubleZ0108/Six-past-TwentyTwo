@@ -1,7 +1,7 @@
 /* components/wall/wave/wave.wxss */
 .wave-container {
   background: linear-gradient(189.16deg, rgb(67, 22, 219) 13.57%, rgb(144, 118, 231) 98.38%);
-  height: 80vh;
+  height: 60vh;
   position: relative;
   overflow: hidden;
 }

@@ -3,12 +3,14 @@
 
 .vipcard-container {
   --vipcard-width: 80%;
-  position: absolute;
-  top: 350px;
+  /* position: absolute;
+  top: 350px; */
   height: 200px;
 
   width: var(--vipcard-width);
   left: calc(calc(100% - var(--vipcard-width)) / 2);
+
+  margin: 0px auto 75px;
 
   display: grid;
   grid-template-rows: repeat(2, auto);
@@ -74,7 +76,7 @@
   -webkit-box-orient: vertical;
 }
 
-.vipcard-bg {
+/* .vipcard-bg {
   --vipcard-bg-width: 80%;
   position: absolute;
   top: 350px;
@@ -82,4 +84,4 @@
 
   width: var(--vipcard-bg-width);
   left: calc(calc(100% - var( --vipcard-bg-width)) / 2);
-}
+} */

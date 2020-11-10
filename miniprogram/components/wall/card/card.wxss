@@ -18,6 +18,10 @@
   backdrop-filter: blur(50px);
 }
 
+/* .card-container:nth-child(1) {
+  margin-top: 0;
+} */
+
 .card-people {
   align-self: flex-end;
   width: 80%;
