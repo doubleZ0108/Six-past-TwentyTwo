@@ -1,4 +1,6 @@
 /* components/wall/icons/icons.wxss */
+@import '../../../style/iconfont.wxss';
+
 .icons-container {
   position: absolute;
   top: 175px;
@@ -22,7 +24,7 @@
   align-items: center;
   justify-content: center;
 
-  border-top: rgba(255, 255, 255, .5) 5rpx solid;
+  border-top: rgba(255, 255, 255, .5) 5rpx dashed;
 }
 
 .icon-selected {
