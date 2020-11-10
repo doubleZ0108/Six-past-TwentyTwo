@@ -1,0 +1,14 @@
+<!--components/wall/vipcard/vipcard.wxml-->
+<view class="vipcard-container">
+  <view class="vipcard-people">
+    <text>Person1</text>
+    <text class="iconfont iconshouye"></text>
+    <text>Person2</text>
+  </view>
+  <view class="vipcard-info">
+    <image src="../../../resource/img/avatar.jpg"></image>
+    <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
+  </view>
+</view>
+
+<image class="vipcard-bg" src="../../../resource/img/card/line.svg"></image>
