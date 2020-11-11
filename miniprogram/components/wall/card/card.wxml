@@ -1,5 +1,5 @@
 <!--components/wall/card/card.wxml-->
-<view class="card-container">
+<view class="card-container card-container-unfold">
   <view class="card-people">
     <text>Person1</text>
     <text class="iconfont iconshouye"></text>
@@ -8,5 +8,12 @@
   <view class="card-info">
     <image src="../../../resource/img/avatar.jpg"></image>
     <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
+  </view>
+
+  <!-- hover后展示的详细信息 -->
+  <view class="card-info-unfold">
+    <text>111111111111111</text>
+    <text>222222222222222</text>
+    <text>333333333333333</text>
   </view>
 </view>

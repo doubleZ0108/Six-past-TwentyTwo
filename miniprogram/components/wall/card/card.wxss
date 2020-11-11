@@ -3,30 +3,24 @@
 
 .card-container {
   --card-width: 80%;
-  height: 230rpx;
+  --card-height: 230rpx;
+  height: var(--card-height);
   width: var(--card-width);
   margin: 90rpx auto;
-
-  display: grid;
-  grid-template-rows: repeat(2, auto);
-  grid-gap: 15rpx;
-  justify-items: center;
 
   background: linear-gradient(68deg, rgba(19, 162, 206, 0.15),rgba(19, 122, 206, 0.15), rgba(33, 26, 74, 0.38), rgba(65, 95, 158, 0.38));
   border-radius: 50rpx;
   box-shadow: 0 10rpx 30rpx rgba(55, 12, 245, 0.15);
   backdrop-filter: blur(90rpx);
-
   border: rgba(52, 88, 121, .38) 1rpx solid;
+
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* .card-container:nth-child(1) {
-  margin-top: 0;
-} */
-
 .card-people {
-  align-self: flex-end;
   width: 80%;
+  height: calc(var(--card-height)*0.5);
+  margin: 0 auto;
 
   display: grid;
   grid-template-columns: 3fr 1fr 3fr;
@@ -40,6 +34,8 @@
   color: rgba(255,255,255,.83);
   font-size: 45rpx;
   font-weight: 400;
+
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .card-people .iconfont {
@@ -47,16 +43,21 @@
   background: linear-gradient(130deg, rgb(110, 240, 201),rgb(152, 163, 223), rgb(66, 210, 247)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .card-info {
-  align-self: flex-start;
   width: 80%;
+  height: calc(var(--card-height)*0.4);
+  margin: 0 auto;
 
   display: grid;
   grid-template-columns: repeat(2, auto);
   justify-items: center;
   align-items: center;
+
+  transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .card-info image {
@@ -77,4 +78,38 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+
+/********** AFTER TAP ***********/
+.card-container:hover{
+  --card-width: 85%;
+  --card-height-unfold: 750rpx;
+  height: var(--card-height-unfold);
+}
+
+.card-container:hover .card-people .iconfont {
+  font-size: 100rpx;
+}
+
+.card-container:hover .card-info {
+  opacity: 0;
+  display: none;
+}
+
+/********** unfold card ***********/
+.card-info-unfold {
+  opacity: 0;
+  /* display: none; */
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-info-unfold text {
+  display: block;
+}
+
+.card-container:hover .card-info-unfold {
+  opacity: 1;
+  height: calc(var(--card-height-unfold) - calc(var(--card-height)*0.5));
+  width: 80%;
+  margin: 0 auto;
 }
