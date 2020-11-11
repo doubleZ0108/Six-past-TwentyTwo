@@ -1,0 +1,38 @@
+<!--components/wall/navigation_system/navigation_system.wxml-->
+
+<scroll-view class="icons-container"
+  scroll-x scroll-with-animation
+  scroll-left="scrollLeft">
+
+  <view wx:for="{{ tabbarItem }}" wx:key="{{ index }}"
+    class="icon-group {{ currentTab == index ? 'icon-selected' : '' }}"
+    data-current="{{ index }}" catchtap="swichNavigator">
+    <view class="icon-wrapper">
+      <text class="iconfont {{ item.iconfont }}"></text>
+      <text class="icon-text">{{ item.name }}</text>
+    </view>
+  </view>
+
+</scroll-view>
+
+<swiper current="{{ currentTab }}" bindchange="switchTab">
+  <swiper-item wx:for="{{ tabbarItem }}" wx:key="{{ index }}">
+    <scroll-view scroll-y>
+      <text>content</text>
+    </scroll-view>
+  </swiper-item>
+  <!-- <swiper-item>
+    <view class="card-group" style="transform: translateY(-130px);">
+      <vipcard />
+      <card />
+      <card />
+      <card />
+      <card />
+      <card />
+    </view>
+  </swiper-item>
+
+  <swiper-item></swiper-item>
+  <swiper-item></swiper-item>
+  <swiper-item></swiper-item> -->
+</swiper>

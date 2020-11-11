@@ -2,8 +2,7 @@
   "usingComponents": {
     "wave": "../../components/wall/wave/wave",
     "hero": "../../components/wall/hero/hero",
-    "navigator": "../../components/wall/navigator/navigator",
-    "contents": "../../components/wall/contents/contents",
+    "navigation-system": "../../components/wall/navigation_system/navigation_system",
     "notice": "../../components/wall/notice/notice",
     "decorate": "../../components/wall/decorate/decorate"
   }

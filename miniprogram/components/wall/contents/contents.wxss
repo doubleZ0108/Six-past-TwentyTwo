@@ -1,4 +1,0 @@
-/* components/wall/contents/contents.wxss */
-swiper {
-  height: 100vh;
-}
