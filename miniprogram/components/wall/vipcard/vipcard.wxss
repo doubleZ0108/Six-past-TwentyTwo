@@ -3,8 +3,8 @@
 
 .vipcard-container {
   --vipcard-width: 80%;
-  /* position: absolute;
-  top: 350px; */
+  position: absolute;
+  top: 550rpx;
   height: 290rpx;
 
   width: var(--vipcard-width);

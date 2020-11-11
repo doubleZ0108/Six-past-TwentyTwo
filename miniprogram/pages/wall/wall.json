@@ -4,6 +4,8 @@
     "hero": "../../components/wall/hero/hero",
     "navigation-system": "../../components/wall/navigation_system/navigation_system",
     "notice": "../../components/wall/notice/notice",
+    "vipcard": "../../components/wall/vipcard/vipcard",
     "decorate": "../../components/wall/decorate/decorate"
+
   }
 }

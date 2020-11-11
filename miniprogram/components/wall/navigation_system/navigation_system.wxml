@@ -23,8 +23,8 @@
     </scroll-view>
   </swiper-item> -->
   <swiper-item>
-    <scroll-view class="card-group" style="transform: translateY(-130px);" scroll-y>
-      <vipcard />
+    <scroll-view class="card-group" style="transform: translateY(-70rpx);" scroll-y>
+      
       <card />
       <card />
       <card />
