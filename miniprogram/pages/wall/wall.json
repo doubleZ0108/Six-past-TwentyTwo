@@ -5,6 +5,7 @@
     "icons": "../../components/wall/icons/icons",
     "notice": "../../components/wall/notice/notice",
     "vipcard": "../../components/wall/vipcard/vipcard",
-    "card": "../../components/wall/card/card"
+    "card": "../../components/wall/card/card",
+    "decorate": "../../components/wall/decorate/decorate"
   }
 }

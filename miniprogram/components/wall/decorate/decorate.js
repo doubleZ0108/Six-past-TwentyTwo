@@ -1,4 +1,4 @@
-// components/wall/card/card.js
+// components/wall/decorate/decorate.js
 Component({
   /**
    * 组件的属性列表
@@ -18,8 +18,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onCardTap: function(event) {
-      // event.target.classList.add('');
-    }
+
   }
 })
