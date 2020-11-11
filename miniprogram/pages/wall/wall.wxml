@@ -16,4 +16,4 @@
   <card />
 </view>
 
-<view class="wave-decorate-1-layer" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_1.svg);"></view>
+<decorate />

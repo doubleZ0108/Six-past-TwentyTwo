@@ -1,0 +1,4 @@
+<!--components/wall/decorate/decorate.wxml-->
+<view class="decorate-container">
+  <view class="decorate-1-layer" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_1.svg);"></view>
+</view>

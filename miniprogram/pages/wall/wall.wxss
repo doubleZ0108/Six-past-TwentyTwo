@@ -1,12 +1,1 @@
 /* miniprogram/pages/wall/wall.wxss */
-.wave-decorate-1-layer {
-    /* background: linear-gradient(rgba(31, 31, 71, 0.25) -18.72%, rgb(31, 31, 71) 37.6%); */
-    position: absolute;
-    width: 100%;
-    /* background-position: 75% 0%; */
-    background-repeat: no-repeat;
-    top: 900rpx;
-    height: 500rpx;
-    z-index: -1;
-
-}
