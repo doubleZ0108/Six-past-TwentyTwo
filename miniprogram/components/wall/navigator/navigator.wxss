@@ -56,3 +56,7 @@
   font-size: 40rpx;
   margin-right: 3rpx;
 }
+
+swiper {
+  height: auto;
+}

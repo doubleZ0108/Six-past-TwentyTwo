@@ -36,12 +36,24 @@ Component({
    */
   methods: {
     swichNavigator: function(e) {
-      let current = e.currentTarget.dataset.current;
-      console.log(current);
+      let current = e.currentTarget.dataset.current
       if(this.data.currentTab == current) {
-        return false;
+        return false
       } else {
         this.setData({ currentTab: current })
+      }
+    },
+    switchTab: function(e) {
+      let that = this
+      that.setData({ currentTab: e.detail.current })
+      that.checkBoundary()
+    },
+    checkBoundary: function() {
+      let that = this;
+      if(that.data.currentTab > 3) {
+        that.setData({ scrollLeft: 300 })
+      } else {
+        that.setData({ scrollLeft: 0 })
       }
     }
   }
