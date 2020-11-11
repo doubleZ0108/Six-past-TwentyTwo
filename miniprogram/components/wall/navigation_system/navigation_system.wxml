@@ -15,24 +15,25 @@
 
 </scroll-view>
 
-<swiper current="{{ currentTab }}" bindchange="switchTab">
-  <swiper-item wx:for="{{ tabbarItem }}" wx:key="{{ index }}">
+<swiper current="{{ currentTab }}" bindchange="switchTab"
+  style="height:{{winHeight}}px">
+  <!-- <swiper-item wx:for="{{ tabbarItem }}" wx:key="{{ index }}">
     <scroll-view scroll-y>
-      <text>content</text>
+      <text>{{ item.name }}</text>
     </scroll-view>
-  </swiper-item>
-  <!-- <swiper-item>
-    <view class="card-group" style="transform: translateY(-130px);">
+  </swiper-item> -->
+  <swiper-item>
+    <scroll-view class="card-group" style="transform: translateY(-130px);" scroll-y>
       <vipcard />
       <card />
       <card />
       <card />
       <card />
       <card />
-    </view>
+    </scroll-view>
   </swiper-item>
 
-  <swiper-item></swiper-item>
-  <swiper-item></swiper-item>
-  <swiper-item></swiper-item> -->
+  <swiper-item>222</swiper-item>
+  <swiper-item>333</swiper-item>
+  <swiper-item>444</swiper-item>
 </swiper>
