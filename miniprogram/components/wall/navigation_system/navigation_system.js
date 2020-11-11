@@ -18,7 +18,8 @@ Component({
       }
     ],
     currentTab: 0,
-    scrollLeft: 0
+    scrollLeft: 0,
+    winHeight: 0
   },
 
   methods: {
@@ -45,6 +46,21 @@ Component({
       } else {
         that.setData({ scrollLeft: 0 })
       }
+    }
+  },
+  lifetimes: {
+    attached: function() {
+      let that = this;
+      //  高度自适应
+      wx.getSystemInfo({
+        success: function (res) {
+          let calc = res.windowHeight; //顶部脱离文档流了(- res.windowWidth / 750 * 100);
+          // console.log('==顶部高度==',calc)
+          that.setData({
+            winHeight: calc
+          });
+        }
+      });
     }
   }
 })

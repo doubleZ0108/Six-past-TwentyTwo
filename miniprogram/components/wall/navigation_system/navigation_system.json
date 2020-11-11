@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "vipcard": "../vipcard/vipcard",
+    "card": "../card/card"
+  }
 }
