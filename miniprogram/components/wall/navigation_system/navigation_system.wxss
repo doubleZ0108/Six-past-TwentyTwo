@@ -1,4 +1,4 @@
-/* components/wall/icons/icons.wxss */
+/* components/wall/navigation_system/navigation_system.wxss */
 @import '../../../style/iconfont.wxss';
 
 .icons-container {
@@ -55,4 +55,10 @@
 .icon-group .iconfont {
   font-size: 40rpx;
   margin-right: 3rpx;
+}
+
+
+/*********************************/
+swiper {
+  height: 100vh;
 }

@@ -1,4 +1,5 @@
-module.exports = Behavior({
+// components/wall/navigation_system/navigation_system.js
+Component({
   data: {
     tabbarItem: [
       {
@@ -33,7 +34,6 @@ module.exports = Behavior({
 
     /** for content */
     switchTab: function(e) {
-      console.log("tab...")
       let that = this
       that.setData({ currentTab: e.detail.current })
       that.checkBoundary()
