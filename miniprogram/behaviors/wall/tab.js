@@ -1,15 +1,4 @@
-// components/wall/icons/icons.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    
-  },
-
-  /**
-   * 组件的初始数据
-   */
+module.exports = Behavior({
   data: {
     tabbarItem: [
       {
@@ -31,17 +20,30 @@ Component({
     scrollLeft: 0
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
+    /** for navigator */
     swichNavigator: function(e) {
-      let current = e.currentTarget.dataset.current;
-      console.log(current);
+      let current = e.currentTarget.dataset.current
       if(this.data.currentTab == current) {
-        return false;
+        return false
       } else {
         this.setData({ currentTab: current })
+      }
+    },
+
+    /** for content */
+    switchTab: function(e) {
+      console.log("tab...")
+      let that = this
+      that.setData({ currentTab: e.detail.current })
+      that.checkBoundary()
+    },
+    checkBoundary: function() {
+      let that = this;
+      if(that.data.currentTab > 3) {
+        that.setData({ scrollLeft: 300 })
+      } else {
+        that.setData({ scrollLeft: 0 })
       }
     }
   }

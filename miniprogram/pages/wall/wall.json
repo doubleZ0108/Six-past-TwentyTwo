@@ -2,10 +2,9 @@
   "usingComponents": {
     "wave": "../../components/wall/wave/wave",
     "hero": "../../components/wall/hero/hero",
-    "icons": "../../components/wall/icons/icons",
+    "navigator": "../../components/wall/navigator/navigator",
+    "contents": "../../components/wall/contents/contents",
     "notice": "../../components/wall/notice/notice",
-    "vipcard": "../../components/wall/vipcard/vipcard",
-    "card": "../../components/wall/card/card",
     "decorate": "../../components/wall/decorate/decorate"
   }
 }

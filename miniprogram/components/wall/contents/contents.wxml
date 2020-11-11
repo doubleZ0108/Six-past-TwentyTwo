@@ -1,0 +1,23 @@
+<!--components/wall/contents/contents.wxml-->
+
+<swiper current="{{ currentTab }}" bindchange="switchTab">
+  <swiper-item wx:for="{{ tabbarItem }}" wx:key="{{ index }}">
+    <scroll-view scroll-y>
+      <text>content</text>
+    </scroll-view>
+  </swiper-item>
+  <!-- <swiper-item>
+    <view class="card-group" style="transform: translateY(-130px);">
+      <vipcard />
+      <card />
+      <card />
+      <card />
+      <card />
+      <card />
+    </view>
+  </swiper-item>
+
+  <swiper-item></swiper-item>
+  <swiper-item></swiper-item>
+  <swiper-item></swiper-item> -->
+</swiper>
