@@ -80,8 +80,19 @@
   -webkit-box-orient: vertical;
 }
 
-/********** AFTER TAP ***********/
-.card-container:hover{
+
+/********** unfold card ***********/
+.card-info-unfold {
+  opacity: 0;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-info-unfold text {
+  display: block;
+}
+
+/********** AFTER HOVER ***********/
+/* .card-container:hover{
   --card-width: 85%;
   --card-height-unfold: 750rpx;
   height: var(--card-height-unfold);
@@ -96,20 +107,16 @@
   display: none;
 }
 
-/********** unfold card ***********/
-.card-info-unfold {
-  opacity: 0;
-  /* display: none; */
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.card-info-unfold text {
-  display: block;
-}
-
 .card-container:hover .card-info-unfold {
   opacity: 1;
   height: calc(var(--card-height-unfold) - calc(var(--card-height)*0.5));
   width: 80%;
   margin: 0 auto;
-}
+} */
+
+/********** AFTER TAB ***********/
+/* .card-container-unfold {
+  --card-width: 85%;
+  --card-height-unfold: 750rpx;
+  height: var(--card-height-unfold);
+} */

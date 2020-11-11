@@ -4,3 +4,63 @@
 <example-component mytext="customer text from [Page test]">
   <text>This is inner text.</text>
 </example-component>
+
+<!-- <scroll-view 
+  class="scroll-view" 
+  scroll-x="true"
+
+  scroll-with-animation="true"
+  enable-back-to-top="true"
+  scroll-anchoring="true"
+  overflow-anchor="true"
+  
+  enhanced="true"
+  bounces="true"
+  showScrollbar="false"
+  paging-enabled="true"
+  >
+  <view id="demo1" class="scroll-view-item demo-text-1"></view>
+  <view id="demo2"  class="scroll-view-item demo-text-2"></view>
+  <view id="demo3" class="scroll-view-item demo-text-3"></view>
+</scroll-view> -->
+
+<!-- <swiper id="myswiper"
+  bindchange="onSwiperChange"
+  easing-function="easeOutCubic">
+    <swiper-item>
+      <view class="item"></view>
+    </swiper-item>
+
+    <swiper-item>
+      <view class="item"></view>
+    </swiper-item>
+
+    <swiper-item>
+      <view class="item"></view>
+    </swiper-item>
+</swiper> -->
+
+
+
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <scroll-view scroll-x scroll-with-animation class="tab-view" scroll-left="{{scrollLeft}}">
+    <view wx:for="{{tabbar}}" wx:key="{{index}}" class="tab-bar-item {{currentTab==index ? 'active' : ''}}"
+      data-current="{{index}}" catchtap="swichNav">
+      <text class="tab-bar-title">{{item}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 内容 -->
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+    style="height:{{winHeight}}px">
+    <swiper-item wx:for="{{tabbar}}" wx:key="{{index}}">
+      <scroll-view scroll-y class="scoll-y">
+        <!-- 内容 -->
+        <text style="color: white;">text</text>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+

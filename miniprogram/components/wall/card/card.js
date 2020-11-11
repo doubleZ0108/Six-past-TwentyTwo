@@ -11,7 +11,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    unfold: null
   },
 
   /**
@@ -19,7 +19,9 @@ Component({
    */
   methods: {
     onCardTap: function(event) {
-      // event.target.classList.add('');
+      this.setData({
+        unfold: "card-container-unfold"
+      })
     }
   }
 })
