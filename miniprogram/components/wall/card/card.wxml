@@ -1,5 +1,5 @@
 <!--components/wall/card/card.wxml-->
-<view class="card-container card-container-unfold">
+<view class="card-container {{ unfold }}" bindtap="onCardTap">
   <view class="card-people">
     <text>Person1</text>
     <text class="iconfont iconshouye"></text>
