@@ -3,7 +3,7 @@
 <swiper current="{{ currentTab }}" bindchange="switchTab">
   <swiper-item wx:for="{{ tabbarItem }}" wx:key="{{ index }}">
     <scroll-view scroll-y>
-      <text>{{ item.name }}</text>
+      <text>content</text>
     </scroll-view>
   </swiper-item>
   <!-- <swiper-item>

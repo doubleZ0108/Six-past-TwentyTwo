@@ -1,22 +1,18 @@
 // components/wall/contents/contents.js
+
+let tabControl = require("../../../behaviors/wall/tab")
+
 Component({
-  /**
-   * 组件的属性列表
-   */
+  behaviors: [tabControl],
+
   properties: {
 
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
 
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
 
   }
