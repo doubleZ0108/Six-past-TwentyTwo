@@ -6,13 +6,4 @@
 
 <navigation-system />
 
-<!-- <view class="card-group" style="transform: translateY(-130px);">
-  <vipcard />
-  <card />
-  <card />
-  <card />
-  <card />
-  <card />
-</view> -->
-
 <decorate />

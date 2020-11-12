@@ -32,9 +32,10 @@
 
 .card-people text {
   color: rgba(255,255,255,.83);
-  font-size: 45rpx;
+  font-size: 30rpx;
   font-weight: 400;
 
+  overflow: hidden;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -92,7 +93,7 @@
 }
 
 /********** AFTER HOVER ***********/
-/* .card-container:hover{
+.card-container:hover{
   --card-width: 85%;
   --card-height-unfold: 750rpx;
   height: var(--card-height-unfold);
@@ -112,7 +113,7 @@
   height: calc(var(--card-height-unfold) - calc(var(--card-height)*0.5));
   width: 80%;
   margin: 0 auto;
-} */
+}
 
 /********** AFTER TAB ***********/
 /* .card-container-unfold {
