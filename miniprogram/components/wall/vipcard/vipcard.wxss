@@ -92,12 +92,20 @@
   -webkit-box-orient: vertical;
 }
 
-/* .vipcard-bg {
-  --vipcard-bg-width: 80%;
-  position: absolute;
-  top: 350px;
-  height: 200px;
+/********** overlay ************/
 
-  width: var(--vipcard-bg-width);
-  left: calc(calc(100% - var( --vipcard-bg-width)) / 2);
-} */
+.vipcard-overlay {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #1b1b1b;
+  height: 100vh;
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 9999;
+}
+
+.vipcard-overlay .iconfont {
+  float: right;
+  font-size: 50rpx;
+}
