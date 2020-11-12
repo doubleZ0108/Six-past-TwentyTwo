@@ -32,9 +32,10 @@
 
 .card-people text {
   color: rgba(255,255,255,.83);
-  font-size: 45rpx;
+  font-size: 30rpx;
   font-weight: 400;
 
+  overflow: hidden;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -115,8 +116,8 @@
 } */
 
 /********** AFTER TAB ***********/
-/* .card-container-unfold {
+.card-container-unfold {
   --card-width: 85%;
   --card-height-unfold: 750rpx;
   height: var(--card-height-unfold);
-} */
+}

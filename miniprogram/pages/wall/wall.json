@@ -3,6 +3,8 @@
     "wave": "../../components/wall/wave/wave",
     "hero": "../../components/wall/hero/hero",
     "navigation-system": "../../components/wall/navigation_system/navigation_system",
+    "vipcard": "../../components/wall/vipcard/vipcard",
+    "card": "../../components/wall/card/card",
     "notice": "../../components/wall/notice/notice",
     "decorate": "../../components/wall/decorate/decorate"
   }
