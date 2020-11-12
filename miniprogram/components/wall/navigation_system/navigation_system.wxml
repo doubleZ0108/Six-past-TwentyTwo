@@ -29,7 +29,7 @@
         name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
         avatar_url="{{ item.avatar_url }}"
         description="{{ item.description }}"
-        fold_class="{{ item.fold_class }}"
+        refresh_flag="{{ item.refresh_flag }}"
       />
     </scroll-view>
   </swiper-item>

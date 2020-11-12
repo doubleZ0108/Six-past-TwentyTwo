@@ -24,21 +24,21 @@ Component({
         name_right: "DynamicName2",
         avatar_url: "../../../resource/img/avatar.jpg",
         description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长",
-        fold_class: "card-fold"
+        refresh_flag: "refresh"
       },
       {
         name_left: "DynamicName3",
         name_right: "DynamicName4",
         avatar_url: "../../../resource/img/avatar.jpg",
         description: "一句话告白",
-        fold_class: "card-fold"
+        refresh_flag: "refresh"
       },
       {
         name_left: "DynamicName5",
         name_right: "DynamicName6",
         avatar_url: "../../../resource/img/avatar.jpg",
         description: "好的我爱你",
-        fold_class: "card-fold"
+        refresh_flag: "refresh"
       }
     ],
     currentTab: 0,
@@ -56,8 +56,6 @@ Component({
       } else {
         this.setData({ currentTab: current })
       }
-
-      this.setData({ navigatorLeft: this.data.currentTab * 25 + "%" })
     },
 
     /** for content */
@@ -65,8 +63,6 @@ Component({
       let that = this
       that.setData({ currentTab: e.detail.current })
       that.checkBoundary()
-
-      this.setData({ navigatorLeft: this.data.currentTab * 25 + "%" })
     },
     checkBoundary: function() {
       let that = this;
@@ -87,11 +83,13 @@ Component({
       console.log(e);
       
       for(let index=0; index<this.data.cardsItem.length; ++index){
-        this.data.cardsItem[index].fold_class = "card-fold";
+        this.data.cardsItem[index].refresh_flag = "refresh";
       }
       let that = this;
       this.setData({ cardsItem: that.data.cardsItem })
+    
 
+    
       // const query = wx.createSelectorQuery()      
       // let cardContainers = query.selectAll(".card-container")
       // console.log(cardContainers)
@@ -118,6 +116,12 @@ Component({
           });
         }
       });
+    }
+  },
+
+  observers: {
+    'currentTab': function(currentTab) {
+      this.setData({ navigatorLeft: this.data.currentTab * 25 + "%" })
     }
   }
 })

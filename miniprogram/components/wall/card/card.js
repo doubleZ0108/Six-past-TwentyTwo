@@ -20,7 +20,7 @@ Component({
       type: String,
       value: "告白从心开始"
     },
-    fold_class: {
+    refresh_flag: {
       type: String,
       valud: ""
     }
@@ -41,6 +41,14 @@ Component({
       console.log("card tap..")
       this.setData({
         unfold: "card-container-unfold"
+      })
+    }
+  },
+
+  observers: {
+    'refresh_flag': function(fold_class) {
+      this.setData({
+        unfold: ""
       })
     }
   }
