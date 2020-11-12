@@ -93,7 +93,7 @@
 }
 
 /********** AFTER HOVER ***********/
-.card-container:hover{
+/* .card-container:hover{
   --card-width: 85%;
   --card-height-unfold: 750rpx;
   height: var(--card-height-unfold);
@@ -113,9 +113,23 @@
   height: calc(var(--card-height-unfold) - calc(var(--card-height)*0.5));
   width: 80%;
   margin: 0 auto;
-}
+} */
+
 
 /********** AFTER TAB ***********/
+
+.card-fold {
+  --card-width: 80%;
+  --card-height: 230rpx;
+  height: var(--card-height);
+}
+
+/* .card-unfold {
+  --card-width: 85%;
+  --card-height-unfold: 750rpx;
+  height: var(--card-height-unfold);
+} */
+
 .card-container-unfold {
   --card-width: 85%;
   --card-height-unfold: 750rpx;

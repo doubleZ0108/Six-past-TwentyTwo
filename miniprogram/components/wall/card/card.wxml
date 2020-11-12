@@ -1,5 +1,5 @@
 <!--components/wall/card/card.wxml-->
-<view class="card-container {{ unfold }}" capture-bind:tap="onCardTap">
+<view class="card-container {{ unfold }} {{ fold_class }}" capture-bind:tap="onCardTap">
   <view class="card-people">
     <text>{{ name_left }}</text>
     <text class="iconfont iconshouye"></text>

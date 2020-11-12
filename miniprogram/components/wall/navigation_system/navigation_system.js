@@ -23,24 +23,28 @@ Component({
         name_left: "DynamicName1",
         name_right: "DynamicName2",
         avatar_url: "../../../resource/img/avatar.jpg",
-        description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长"
+        description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长",
+        fold_class: "card-fold"
       },
       {
         name_left: "DynamicName3",
         name_right: "DynamicName4",
         avatar_url: "../../../resource/img/avatar.jpg",
-        description: "一句话告白"
+        description: "一句话告白",
+        fold_class: "card-fold"
       },
       {
         name_left: "DynamicName5",
         name_right: "DynamicName6",
         avatar_url: "../../../resource/img/avatar.jpg",
-        description: "好的我爱你"
+        description: "好的我爱你",
+        fold_class: "card-fold"
       }
     ],
     currentTab: 0,
     scrollLeft: 0,
-    winHeight: 0
+    winHeight: 0,
+    navigatorLeft: 0,
   },
 
   methods: {
@@ -52,6 +56,8 @@ Component({
       } else {
         this.setData({ currentTab: current })
       }
+
+      this.setData({ navigatorLeft: this.data.currentTab * 25 + "%" })
     },
 
     /** for content */
@@ -59,6 +65,8 @@ Component({
       let that = this
       that.setData({ currentTab: e.detail.current })
       that.checkBoundary()
+
+      this.setData({ navigatorLeft: this.data.currentTab * 25 + "%" })
     },
     checkBoundary: function() {
       let that = this;
@@ -76,9 +84,17 @@ Component({
     onCardGroupTap: function(e) {
       console.log("card group tap...")
 
-      const query = wx.createSelectorQuery()      
-      let cardContainers = query.selectAll(".card-container")
-      console.log(cardContainers)
+      console.log(e);
+      
+      for(let index=0; index<this.data.cardsItem.length; ++index){
+        this.data.cardsItem[index].fold_class = "card-fold";
+      }
+      let that = this;
+      this.setData({ cardsItem: that.data.cardsItem })
+
+      // const query = wx.createSelectorQuery()      
+      // let cardContainers = query.selectAll(".card-container")
+      // console.log(cardContainers)
 
       // let cardContainers = this.selectAllComponents(".card-container")
 
