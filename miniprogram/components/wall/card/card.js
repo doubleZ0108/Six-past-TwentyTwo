@@ -33,9 +33,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onCardTap: function(event) {
+    onCardTap: function(e) {
+      console.log("card tap..")
       this.setData({
         unfold: "card-container-unfold"
+      })
+    },
+    foldCard: function() {
+      this.setData({
+        unfold: ""
       })
     }
   }

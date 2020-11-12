@@ -67,6 +67,26 @@ Component({
       } else {
         that.setData({ scrollLeft: 0 })
       }
+    },
+
+
+    /**
+     * TAP
+     */
+    onCardGroupTap: function(e) {
+      console.log("card group tap...")
+
+      const query = wx.createSelectorQuery()      
+      let cardContainers = query.selectAll(".card-container")
+      console.log(cardContainers)
+
+      // let cardContainers = this.selectAllComponents(".card-container")
+
+      // cardContainers.forEach(function(card){
+      //   console.log(card)
+
+      // })
+
     }
   },
   lifetimes: {
