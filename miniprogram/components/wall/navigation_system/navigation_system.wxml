@@ -4,6 +4,8 @@
   scroll-x scroll-with-animation
   scroll-left="scrollLeft">
 
+  <view class="icon-selected-bg" style="left: {{ navigatorLeft }};"></view>
+
   <view wx:for="{{ tabbarItem }}" wx:key="{{ index }}"
     class="icon-group {{ currentTab == index ? 'icon-selected' : '' }}"
     data-current="{{ index }}" catchtap="swichNavigator">
@@ -27,6 +29,7 @@
         name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
         avatar_url="{{ item.avatar_url }}"
         description="{{ item.description }}"
+        fold_class="{{ item.fold_class }}"
       />
     </scroll-view>
   </swiper-item>

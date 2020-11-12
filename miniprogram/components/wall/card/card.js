@@ -19,6 +19,10 @@ Component({
     description: {
       type: String,
       value: "告白从心开始"
+    },
+    fold_class: {
+      type: String,
+      valud: ""
     }
   },
 
@@ -26,7 +30,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    unfold: null
+    unfold: ""
   },
 
   /**
@@ -37,11 +41,6 @@ Component({
       console.log("card tap..")
       this.setData({
         unfold: "card-container-unfold"
-      })
-    },
-    foldCard: function() {
-      this.setData({
-        unfold: ""
       })
     }
   }
