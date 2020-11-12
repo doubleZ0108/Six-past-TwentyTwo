@@ -4,7 +4,22 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    name_left: {
+      type: String,
+      value: "PersonLeft"
+    },
+    name_right: {
+      type: String,
+      value: "PersonRight"
+    },
+    avatar_url: {
+      type: String,
+      value: "../../../resource/img/default_avatar.png"
+    },
+    description: {
+      type: String,
+      value: "告白从心开始"
+    }
   },
 
   /**
@@ -18,9 +33,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onCardTap: function(event) {
+    onCardTap: function(e) {
+      console.log("card tap..")
       this.setData({
         unfold: "card-container-unfold"
+      })
+    },
+    foldCard: function() {
+      this.setData({
+        unfold: ""
       })
     }
   }
