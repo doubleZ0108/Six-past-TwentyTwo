@@ -118,11 +118,11 @@
 
 /********** AFTER TAB ***********/
 
-.card-fold {
+/* .card-fold {
   --card-width: 80%;
   --card-height: 230rpx;
   height: var(--card-height);
-}
+} */
 
 /* .card-unfold {
   --card-width: 85%;
