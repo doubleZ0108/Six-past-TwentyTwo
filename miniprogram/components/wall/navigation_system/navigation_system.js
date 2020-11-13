@@ -39,27 +39,6 @@ Component({
         avatar_url: "../../../resource/img/avatar.jpg",
         description: "好的我爱你",
         refresh_flag: "refresh"
-      },
-      {
-        name_left: "DynamicName5",
-        name_right: "DynamicName6",
-        avatar_url: "../../../resource/img/avatar.jpg",
-        description: "好的我爱你",
-        refresh_flag: "refresh"
-      },
-      {
-        name_left: "DynamicName5",
-        name_right: "DynamicName6",
-        avatar_url: "../../../resource/img/avatar.jpg",
-        description: "好的我爱你",
-        refresh_flag: "refresh"
-      },
-      {
-        name_left: "DynamicName5",
-        name_right: "DynamicName6",
-        avatar_url: "../../../resource/img/avatar.jpg",
-        description: "好的我爱你",
-        refresh_flag: "refresh"
       }
     ],
     currentTab: 0,
@@ -99,16 +78,18 @@ Component({
      * TAP
      */
     onCardGroupTap: function(e) {
-      // console.log("card group tap...")
+      console.log("card group tap...")
+
+      console.log(e);
       
       for(let index=0; index<this.data.cardsItem.length; ++index){
         this.data.cardsItem[index].refresh_flag = "refresh";
       }
       let that = this;
       this.setData({ cardsItem: that.data.cardsItem })
-
     }
   },
+  
   lifetimes: {
     attached: function() {
       let that = this;
