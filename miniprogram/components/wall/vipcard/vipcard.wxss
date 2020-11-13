@@ -21,12 +21,7 @@
 
 .vipcard-container .vipcard-bgdecorate {
   --vipcard-width: 80%;
-  /* position: absolute;
-  top: 350px; */
   height: 290rpx;
-
-  /* width: var(--vipcard-width); */
-  /* left: calc(calc(100% - var(--vipcard-width)) / 2); */
 
   background-repeat: no-repeat;
   display: grid;
@@ -95,25 +90,7 @@
   -webkit-box-orient: vertical;
 }
 
-/********** overlay ************/
-
-.vipcard-overlay {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #1b1b1b;
-  height: 100vh;
-  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  z-index: 9999;
-}
-
-.vipcard-overlay .iconfont {
-  float: right;
-  font-size: 50rpx;
-}
-
-
+/********** unfold ************/
 .vipcard-container-unfold {
   position: fixed;
   top: 0;
@@ -124,3 +101,99 @@
   border-radius: 0;
   z-index: 9999;
 }
+
+
+/********** envelop ************/
+.vipcard-envelop {
+  --envelop-head-height: 225rpx;
+  --envelop-body-height: 400rpx;
+  display: none;
+  position: absolute;
+  bottom: 25rpx;
+  width: 80%;
+  height: 60vh;
+  left: 10%;
+}
+
+.vipcard-container-unfold .vipcard-envelop {
+  display: block;
+}
+
+.vipcard-envelop image {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.vipcard-envelop .envelop-head {
+  position: absolute;
+  bottom: calc(var(--envelop-body-height) - var(--envelop-head-height));
+  height: var(--envelop-head-height);
+
+  transform: rotateX(0deg) translate3d(0, 0, 0);
+  z-index: 12;
+
+  transform-origin: center top;
+  transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.vipcard-envelop:hover .envelop-head {
+  z-index: -1;
+  transform: rotateX(179deg) translate3d(0, 0, 0);
+}
+
+.vipcard-envelop .envelop-body {
+  position: absolute;
+  bottom: 0;
+  height: var(--envelop-body-height);
+  z-index: 11;
+}
+
+.vipcard-envelop .envelop-content {
+  height: calc(var(--envelop-body-height)*0.9);
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+
+  width: 90%;
+  margin: 0 auto;
+  background-color: lightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+
+  z-index: 10;
+
+  transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.vipcard-envelop:hover .envelop-content {
+  height: 60vh;
+}
+
+.vipcard-envelop .envelop-content text {
+  color: black;
+  display: block;
+
+  /* TODO 这里都很怪 定位/居中/border 等等都有问题 交给你美化了 */
+  width: 80%;
+  height: 100%;
+  margin: 20rpx auto;
+  text-align: center;
+  border-bottom: 3rpx solid gray;
+  font-size: 20rpx;
+  line-height: 2;
+  letter-spacing: 15rpx;
+}
+
+/* @keyframes HeadTurnOverAnimation {
+  from {
+    transform: rotateX(0deg) translate3d(0, 0, 0);
+    z-index: 12;
+  }
+  to {
+    z-index: -1;
+    transform: rotateX(-179deg) translate3d(0, 0, 0);
+  }
+} */

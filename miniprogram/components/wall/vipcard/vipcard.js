@@ -12,12 +12,14 @@ Component({
    */
   data: {
     scaleFactor: 0,
-    fold_class: "",
+    fold_class: "vipcard-container-unfold",
+    vipcard_height: "100vh",
+    // fold_class: "",
+    // vipcard_height: "290rpx",
     touchDotX: 0,
     touchDotY: 0,
     interval: 0,
-    time: 0,
-    vipcard_height: "290rpx"
+    time: 0
   },
 
   /**
