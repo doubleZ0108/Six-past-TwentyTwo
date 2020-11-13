@@ -1,5 +1,8 @@
 <!--components/wall/vipcard/vipcard.wxml-->
-<view class="vipcard-container" bindtap="taggleVipCardTap">
+<view class="vipcard-container {{ fold_class }}"
+  style="height: {{ vipcard_height }};"
+  bindtap="onVipCardTap" catchtouchmove="true"
+  bindtouchstart="touchStart" catchtouchmove="touchMove" bindtouchend="touchEnd">
   <view class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/line.svg);">
     <view class="vipcard-people">
       <text>Person1</text>
@@ -13,12 +16,10 @@
   </view>
 </view>
 
-<view class="vipcard-overlay" catchtouchmove="true"
-  style="transform: scale({{ scaleFactor }});"> <!-- 禁止手指滚动 调试时鼠标滚轮仍不会阻止 -->
+<!-- <view class="vipcard-overlay" catchtouchmove="true"
+  style="transform: scale({{ scaleFactor }});">
   <text class="iconfont iconshouye" bindtap="taggleVipCardTap"></text>
   <view class="vipcard-overlay-content">
     <text>hello world</text>
   </view>
-</view>
-
-<!-- <image class="vipcard-bg" src="../../../resource/img/card/line.svg"></image> -->
+</view> -->
