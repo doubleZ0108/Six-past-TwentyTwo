@@ -23,7 +23,7 @@
   >
 
   <swiper-item>
-    <scroll-view class="card-group" scroll-y
+    <view class="card-group" scroll-y
       capture-bind:tap="onCardGroupTap">
       <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
         name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
@@ -31,7 +31,7 @@
         description="{{ item.description }}"
         refresh_flag="{{ item.refresh_flag }}"
       />
-    </scroll-view>
+  </view>
   </swiper-item>
 
   <swiper-item>page2</swiper-item>
