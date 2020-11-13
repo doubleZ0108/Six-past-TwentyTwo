@@ -12,8 +12,48 @@
 
   <!-- hover后展示的详细信息 -->
   <view class="card-info-unfold">
-    <text>111111111111111</text>
-    <text>222222222222222</text>
-    <text>333333333333333</text>
+
+    <view class="card-info-unfold-tag">
+      <text>tag1</text>
+      <text>tagtagtagtag2</text>
+    </view>
+
+    <view class="card-info-unfold-bubble">
+      <view class="unfold-info-group unfold-left-person">
+        <view class="unfold-bubble">
+            <text>左侧测左侧测试文本左侧测试文本</text>
+        </view>
+      </view>
+      <view class="unfold-info-group unfold-right-person">
+        <view class="unfold-bubble">
+          <text>右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本</text>
+        </view>
+      </view>
+    </view>
+
+    <scroll-view class="card-info-unfold-description" scroll-y>
+      <text>这是一条表白，它非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长</text>
+    </scroll-view>
+
+    <view class="card-info-unfold-function">
+      <view class="function-favorite">
+        <text class="iconfont iconshouye"></text>
+      </view>
+      <view class="function-star">
+        <text class="iconfont iconshouye"></text>
+        <text>99</text>
+      </view>
+      <view class="function-comment">
+        <view class="function-comment-num">
+          <text class="iconfont iconshouye"></text>
+          <text>5</text>
+        </view>
+        <view class="function-comment-write">
+          <text class="iconfont iconshouye"></text>
+          <text>编写评论</text>
+        </view>
+      </view>
+    </view>
+
   </view>
 </view>

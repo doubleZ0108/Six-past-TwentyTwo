@@ -38,7 +38,7 @@ Component({
    */
   methods: {
     onCardTap: function(e) {
-      console.log("card tap..")
+      // console.log("card tap..")
       this.setData({
         unfold: "card-container-unfold"
       })
@@ -48,7 +48,8 @@ Component({
   observers: {
     'refresh_flag': function(fold_class) {
       this.setData({
-        unfold: ""
+        unfold: ""   // this is correct
+        // unfold: "card-container-unfold"  // for card unfold style
       })
     }
   }
