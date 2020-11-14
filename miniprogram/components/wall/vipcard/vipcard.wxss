@@ -121,6 +121,7 @@
   background-position: center center;
   /* background-size: cover; */
   /* object-fit: cover; */
+  z-index: -1;
 }
 
 /********** envelop ************/
@@ -129,7 +130,7 @@
   --envelop-body-height: 400rpx;
   display: none;
   position: absolute;
-  bottom: 25rpx;
+  bottom: 120rpx;
   width: 80%;
   height: 60vh;
   left: 10%;
@@ -149,8 +150,8 @@
 
 .vipcard-envelop .envelop-head {
   position: absolute;
-  /* TODO: 这里换成top定位吧，图片下方有自带阴影 */
-  bottom: calc(var(--envelop-body-height) - var(--envelop-head-height) - 15rpx);
+  
+  bottom: calc(var(--envelop-body-height) - var(--envelop-head-height) - 13rpx);
   height: var(--envelop-head-height);
 
   transform: rotateX(0deg) translate3d(0, 0, 0);
@@ -192,19 +193,19 @@
 }
 
 .vipcard-envelop .envelop-content .envelop-content-word {
-  color: black;
+  color: rgba(0,0,0,.83);
   display: block;
 
   /* TODO 这里都很怪 定位/居中/border 等等都有问题 交给你美化了 */
   width: 80%;
   /* height: 100%; */
   min-height: calc(var(--envelop-body-height)*0.9 - 5rpx);
-  margin: 20rpx auto;
+  margin: 50rpx auto;
   text-align: left;
-  border-bottom: 3rpx solid gray;
-  font-size: 20rpx;
-  line-height: 2;
-  letter-spacing: 15rpx;
+  border-bottom: 3rpx solid rgba(0,0,0,.11);
+  font-size: 28rpx;
+  line-height: 30rpx;
+  letter-spacing: 5rpx;
 }
 
 .vipcard-envelop .envelop-content .envelop-content-motto {
@@ -282,21 +283,22 @@
 /*========== tag ============*/
 .vipcard-info-unfold-tag {
   width: 100%;
-  border-bottom: 3rpx solid red;
+  border-bottom: 3rpx solid rgba(179, 74, 74, 0.6);
 }
 .vipcard-info-unfold-tag text {
   font-size: 25rpx;
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.38);
+  color: rgba(255,255,255,.8);
   border-radius: 15rpx;
-  padding: 10rpx;
-  margin: 0 10rpx 15rpx;
+  padding: 5rpx 10rpx;
+  margin: 15rpx 10rpx;
 }
 
 /*========== bubble ============*/
 .vipcard-info-unfold-bubble {
   width: 100%;
-  border-bottom: 3rpx solid red;
+  border-bottom: 3rpx solid rgba(179, 74, 74, 0.6);
 }
 
 .unfold-info-group {

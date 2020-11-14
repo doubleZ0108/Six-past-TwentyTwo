@@ -17,12 +17,12 @@
             <text></text>
           </view>
           <view class="name-gender-group">
-            <text>男生 //切换</text>
-            <input type="text" placeholder="我的昵称" auto-focus="" placeholder-style="color: rgba(255,255,255,.4);" />
+            <text>男生｜切换</text>
+            <input type="text" placeholder="我的昵称" auto-focus="" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
           </view>
           <view class="name-gender-group">
-            <text>女生 //切换</text>
-            <input type="text" placeholder="TA的昵称" placeholder-style="color: rgba(255,255,255,.4);" />
+            <text>女生｜切换</text>
+            <input type="text" placeholder="TA的昵称" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
           </view>
         </view>
 
@@ -40,8 +40,8 @@
             <text>一句话描述</text>
             <text></text>
           </view>
-          <input type="text" placeholder="我对自己的描述" placeholder-style="color: rgba(255,255,255,.4);" />
-          <input type="text" placeholder="我对TA的描述" placeholder-style="color: rgba(255,255,255,.4);" />
+          <input type="text" placeholder="我对自己的描述" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
+          <input type="text" placeholder="我对TA的描述" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
         </view>
 
         <view class="writecard-block writecard-textarea">

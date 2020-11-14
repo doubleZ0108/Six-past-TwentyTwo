@@ -26,8 +26,9 @@
   margin: 0 auto;
   text-align: center;
   font-size: 40rpx;
-  color: rgba(255,255,255,0.9);
-  font-family: Arial, Helvetica, sans-serif;  /* TODO 这里要换个字体 太丑了 */
+  color: rgb(44,37,86);
+  letter-spacing: 10rpx;
+  font-family: Weibei SC, NSimSun, STXinwei, STSong;  /* TODO 这里要换个字体 太丑了 */
   transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -86,10 +87,12 @@
 }
 .writecard-container-unfold .writecard-title-group text:nth-child(1) {
   width: 40%;
+  color: rgba(255,255,255,.83);
+  font-family: Microsoft YaHei;
 }
 .writecard-container-unfold .writecard-title-group text:nth-child(2) {
   width: 60%;
-  border-top: solid #fff 4rpx; 
+  border-top: solid rgba(255,255,255,.6) 2rpx; 
   margin: 13rpx 0;
 }
 
@@ -106,7 +109,7 @@
   left: 10%;
   top: 0;
 
-  background-color: rgba(255,255,255,0.5);
+  background: linear-gradient(100deg, rgba(177,233,233,0.3), rgba(155,155,155,.03),rgba(155,155,155,.1), rgba(240, 245, 181, .3));
   width: 62%;
   height: 35rpx;
   padding: 15rpx;
@@ -119,10 +122,12 @@
   right: -5%;
   top: 0;
 
-  width: 55%;
-  height: 40rpx;
+  width: 33%;
+  /* height: 80%; */
   padding: 18rpx;
   border-radius: 50rpx;
+
+  font-size: 26rpx;
   text-align: right;
 }
 .writecard-container-unfold .name-gender-group:nth-child(2) text {
@@ -140,8 +145,10 @@
   height: 35rpx;
   padding: 15rpx;
   border-radius: 50rpx;
-  background-color: rgba(255,255,255,0.5);
-  color: rgba(255,255,255,.4);
+  background: linear-gradient(0deg, rgba(255,255,255,0.1), rgba(255,255,255,0),rgba(255,255,255,0));
+
+  font-size: 26rpx;
+  color: rgba(255,255,255,.6);
 }
 
 /*============ description ============*/
@@ -155,10 +162,10 @@
 }
 
 .writecard-container-unfold .writecard-description input:nth-child(2) {
-  background-color: rgba(50, 160, 202, .5);
+  background: linear-gradient(104deg, rgba(158, 232, 240, 0.6),rgba(132,157,172,.6),rgba(132,157,172,.3), rgb(27,238,192,.3));
 }
 .writecard-container-unfold .writecard-description input:nth-child(3) {
-  background-color: rgba(208, 97, 126, .5);
+  background: linear-gradient(104deg, rgba(187, 158, 240, 0.6),rgba(172,137,151,.6),rgba(172,137,151,.3), rgba(241, 170, 182, 0.5));
 }
 
 /*============ textarea ============*/
@@ -167,12 +174,12 @@
   margin: 15rpx auto;
   height: 250rpx;
   padding: 20rpx;
-  background-color: rgba(255,255,255,0.5);
+  background: linear-gradient(40deg, rgba(193, 252, 242, .3),rgba(147,147,147,0.05),rgba(147,147,147,0.1),rgba(231, 214, 209, .3));
   border-radius: 20rpx;
 }
 
 .writecard-container-unfold button {
   width: 40%;
-  color: rgba(255,255,255,0.5);
-  background: linear-gradient(104deg, rgb(50, 160, 202),rgb(208, 97, 126));
+  color: rgb(44,42,85);
+  background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210));
 }
