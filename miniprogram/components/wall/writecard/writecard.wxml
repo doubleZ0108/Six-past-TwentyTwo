@@ -1,4 +1,61 @@
 <!--components/wall/writecard/writecard.wxml-->
-<view class="writecard-container" style="left: {{ posLeft }};">
+<view class="writecard-container {{ fold_class }}"
+  style="height: {{ writecard_height }}; left: {{ posLeft }};"
+  bindtap="onWriteCardTap" catchtouchmove="true"
+  bindtouchstart="touchStart" bindtouchend="touchEnd">
+
+  <view class="writecard-info" style="background-image: url({{ writecard_bg }});">
+    <text class="writecard-info-motto">写下你的表白</text>
+
+    <view class="writecard-info-unfold">
+      <view class="writecard-gap"></view>
+      <form action="">
+
+        <view class="writecard-block writecard-name-gender">
+          <view class="writecard-title-group">
+            <text>昵称和性别</text>
+            <text></text>
+          </view>
+          <view class="name-gender-group">
+            <text>男生 //切换</text>
+            <input type="text" placeholder="我的昵称" auto-focus="" placeholder-style="color: rgba(255,255,255,.4);" />
+          </view>
+          <view class="name-gender-group">
+            <text>女生 //切换</text>
+            <input type="text" placeholder="TA的昵称" placeholder-style="color: rgba(255,255,255,.4);" />
+          </view>
+        </view>
+
+        <view class="writecard-block writecard-ta-info">
+          <view class="writecard-title-group">
+            <text>TA的信息</text>
+            <text></text>
+          </view>
+          <picker>学院: </picker>
+          <picker>年级: </picker>
+        </view>
+
+        <view class="writecard-block writecard-description">
+          <view class="writecard-title-group">
+            <text>一句话描述</text>
+            <text></text>
+          </view>
+          <input type="text" placeholder="我对自己的描述" placeholder-style="color: rgba(255,255,255,.4);" />
+          <input type="text" placeholder="我对TA的描述" placeholder-style="color: rgba(255,255,255,.4);" />
+        </view>
+
+        <view class="writecard-block writecard-textarea">
+          <view class="writecard-title-group">
+            <text>想说的话</text>
+            <text></text>
+          </view>
+          <textarea></textarea>
+        </view>
+
+        <button>发送表白</button>
+
+      </form>
+    </view>
+  </view>
 
 </view>
