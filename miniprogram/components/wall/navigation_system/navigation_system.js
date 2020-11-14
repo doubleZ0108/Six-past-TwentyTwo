@@ -22,21 +22,21 @@ Component({
       {
         name_left: "DynamicName1",
         name_right: "DynamicName2",
-        avatar_url: "../../../resource/img/avatar.jpg",
+        avatar_url: "../../../resource/img/avatar/avatar.jpg",
         description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长",
         refresh_flag: "refresh"
       },
       {
         name_left: "DynamicName3",
         name_right: "DynamicName4",
-        avatar_url: "../../../resource/img/avatar.jpg",
+        avatar_url: "../../../resource/img/avatar/avatar.jpg",
         description: "一句话告白",
         refresh_flag: "refresh"
       },
       {
         name_left: "DynamicName5",
         name_right: "DynamicName6",
-        avatar_url: "../../../resource/img/avatar.jpg",
+        avatar_url: "../../../resource/img/avatar/avatar.jpg",
         description: "好的我爱你",
         refresh_flag: "refresh"
       }

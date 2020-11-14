@@ -19,7 +19,7 @@ Component({
     vipcard_height: "290rpx",
     // fold_class: "vipcard-container-unfold",    // for vipcard unfold test
     // vipcard_height: "100vh",
-    turn_class_class: "",
+    turn_over_class: "",
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,
     touchDotY: 0,
@@ -40,8 +40,8 @@ Component({
     },
 
     onEnvelopTap: function() {
-      // let turn_over_now = this.data.turn_class_class=="" ? "envelop-turn-over": ""
-      if(this.data.turn_class_class != "envelop-turn-over") {
+      // let turn_over_now = this.data.turn_over_class=="" ? "envelop-turn-over": ""
+      if(this.data.turn_over_class != "envelop-turn-over") {
         this.setData({ turn_over_class: "envelop-turn-over" })
       }
     },
@@ -89,7 +89,8 @@ Component({
     'fold_class': function() {
       let that = this;
       this.setData({
-        vipcard_height: that.data.fold_class == "vipcard-container-unfold"? "100vh" : "290rpx"
+        vipcard_height: that.data.fold_class == "vipcard-container-unfold"? "100vh" : "290rpx",
+        posLeft: that.data.fold_class == "vipcard-container-unfold" ? "0" : "10%"
       })
     }
   }

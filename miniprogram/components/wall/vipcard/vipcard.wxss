@@ -2,9 +2,10 @@
 @import '../../../style/iconfont.wxss';
 
 .vipcard-container {
+  --vipcard-height: 290rpx;
   position: absolute;
   top: 550rpx;
-  height: 290rpx;
+  height: var(--vipcard-height);
 
   width: 80%;
   /* left: 10%; */
@@ -19,19 +20,18 @@
 }
 
 .vipcard-container .vipcard-bgdecorate {
-  --vipcard-width: 80%;
   height: 290rpx;
-
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-repeat: no-repeat;
-  display: grid;
-  grid-template-rows: repeat(2, auto);
-  grid-gap: 15rpx;
-  justify-items: center;
 }
 
 .vipcard-people {
-  align-self: flex-end;
   width: 80%;
+  height: calc(var(--vipcard-height)*0.3);
+  margin: calc(var(--vipcard-height)*0.1) auto 0;
   
   display: grid;
   grid-template-columns: 3fr 1fr 3fr;
@@ -60,11 +60,12 @@
 }
 
 .vipcard-info {
-  align-self: flex-start;
   width: 80%;
+  height: calc(var(--vipcard-height)*0.5);
+  margin: 0 auto calc(var(--vipcard-height)*0.1);
 
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: 1fr 3fr;
   justify-items: center;
   align-items: center;
 }
@@ -81,6 +82,9 @@
   /* width: 90%; */
 
   font-size: 25rpx;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -101,6 +105,23 @@
   z-index: 9999;
 }
 
+.vipcard-info-unfold  {
+  opacity: 0;
+  transition: 0s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.vipcard-info-unfold .vipcard-bgdecorate-unfold {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* TODO 不太好做示意图里下半部分充满 全屏充满比较好实现*/
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* background-size: cover; */
+  /* object-fit: cover; */
+}
 
 /********** envelop ************/
 .vipcard-envelop {
@@ -160,7 +181,7 @@
 
   width: 90%;
   margin: 0 auto;
-  background-color: lightblue;
+  backdrop-filter: blur(50rpx);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   overflow: hidden;
 
@@ -182,6 +203,15 @@
   font-size: 20rpx;
   line-height: 2;
   letter-spacing: 15rpx;
+}
+
+.envelop-content image {
+  display: block;
+}
+
+.envelop-content .envelop-gap {
+  height: calc(var(--envelop-body-height)*0.75);
+  width: 100%;
 }
 
 .envelop-turn-over .envelop-head {
@@ -218,4 +248,99 @@
   to {
     height: 60vh;
   }
+}
+
+/********** AFTER TAB ***********/
+.vipcard-container-unfold .vipcard-bgdecorate, 
+.vipcard-container-unfold .vipcard-info {
+  display: none;
+}
+
+.vipcard-container-unfold .vipcard-info-unfold {
+  opacity: 1;
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+/*========== tag ============*/
+.vipcard-info-unfold-tag {
+  width: 100%;
+  border-bottom: 3rpx solid red;
+}
+.vipcard-info-unfold-tag text {
+  font-size: 25rpx;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15rpx;
+  padding: 10rpx;
+  margin: 0 10rpx 15rpx;
+}
+
+/*========== bubble ============*/
+.vipcard-info-unfold-bubble {
+  width: 100%;
+  border-bottom: 3rpx solid red;
+}
+
+.unfold-info-group {
+  width: fit-content;
+  height: fit-content;
+  max-width: 80%;
+  color: rgba(255,255,255,.83);
+}
+
+.unfold-bubble {
+  word-break: break-all;
+  border-radius: 7px;
+  font-size: 20rpx;
+  padding: 15rpx;
+}
+
+.unfold-bubble text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.unfold-left-person {
+  margin: 10px 0 10px 12px;
+}
+
+.unfold-left-person .unfold-bubble {
+  background: rgb(50, 160, 202);
+  position: relative;
+}
+.unfold-left-person .unfold-bubble:before {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 10px;
+  left: -13px;
+  border: solid 8px;
+  border-color: transparent rgb(50, 160, 202) transparent transparent;
+  font-size: 0;
+}
+
+.unfold-right-person {
+  margin: 10px 12px 10px auto;
+}
+
+.unfold-right-person .unfold-bubble {
+  background: rgb(208, 97, 126);
+  position: relative;
+}
+.unfold-right-person .unfold-bubble:after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 10px;
+  right: -13px;
+  border: solid 8px;
+  border-color: transparent transparent transparent rgb(208, 97, 126);
+  font-size: 0;
 }
