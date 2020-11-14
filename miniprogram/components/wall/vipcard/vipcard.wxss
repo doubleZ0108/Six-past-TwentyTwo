@@ -149,7 +149,8 @@
 
 .vipcard-envelop .envelop-head {
   position: absolute;
-  bottom: calc(var(--envelop-body-height) - var(--envelop-head-height));
+  /* TODO: 这里换成top定位吧，图片下方有自带阴影 */
+  bottom: calc(var(--envelop-body-height) - var(--envelop-head-height) - 15rpx);
   height: var(--envelop-head-height);
 
   transform: rotateX(0deg) translate3d(0, 0, 0);
@@ -190,19 +191,34 @@
   transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.vipcard-envelop .envelop-content text {
+.vipcard-envelop .envelop-content .envelop-content-word {
   color: black;
   display: block;
 
   /* TODO 这里都很怪 定位/居中/border 等等都有问题 交给你美化了 */
   width: 80%;
-  height: 100%;
+  /* height: 100%; */
+  min-height: calc(var(--envelop-body-height)*0.9 - 5rpx);
   margin: 20rpx auto;
-  text-align: center;
+  text-align: left;
   border-bottom: 3rpx solid gray;
   font-size: 20rpx;
   line-height: 2;
   letter-spacing: 15rpx;
+}
+
+.vipcard-envelop .envelop-content .envelop-content-motto {
+  display: block;
+  width: 100%;
+  color: gold;
+  text-align: center;
+}
+
+.vipcard-envelop .envelop-content .envelop-content-sign {
+  display: block;
+  width: 100%;
+  color: gold;
+  text-align: right;
 }
 
 .envelop-content image {
@@ -210,7 +226,7 @@
 }
 
 .envelop-content .envelop-gap {
-  height: calc(var(--envelop-body-height)*0.75);
+  height: calc(var(--envelop-body-height)*1);
   width: 100%;
 }
 

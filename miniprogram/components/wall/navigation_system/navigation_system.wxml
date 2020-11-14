@@ -18,6 +18,7 @@
 </scroll-view>
 
 <vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}" />
+<!-- <vipcard /> -->
 <writecard posLeft="{{ (posLeft_base + 1)*100+ '%' }}"/>
 
 <swiper style="height: {{ winHeight }}rpx;" 
