@@ -47,7 +47,7 @@
         <text class="envelop-content-word">这是一封很长的信，很长很长很长很长很长很这是一封很长的信，很长很长很长很长很长很这是一封很长的信，很长很长很长很长很长很</text>
         <image src="../../../resource/img/envelop/picture.svg"></image>
         <text class="envelop-content-motto">有情人终成眷属</text>
-        <text class="envelop-content-sign">——是屑团队</text>
+        <text class="envelop-content-sign">—— 二十二点零六团队</text>
         <view class="envelop-gap"></view>
       </scroll-view>
     </view>

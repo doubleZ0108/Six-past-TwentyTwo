@@ -14,7 +14,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    scaleFactor: 0,
     fold_class: "",
     vipcard_height: "290rpx",
     // fold_class: "vipcard-container-unfold",    // for vipcard unfold test
@@ -23,8 +22,6 @@ Component({
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,
     touchDotY: 0,
-    interval: 0,
-    time: 0
   },
 
   /**
