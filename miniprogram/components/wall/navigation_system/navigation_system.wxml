@@ -17,7 +17,10 @@
 
 </scroll-view>
 
-<swiper style="height: 300vh" 
+<vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}" />
+<writecard posLeft="{{ (posLeft_base + 1)*100+ '%' }}"/>
+
+<swiper style="height: {{ winHeight }}rpx;" 
   current="{{ currentTab }}" 
   bindchange="switchTab"
   >

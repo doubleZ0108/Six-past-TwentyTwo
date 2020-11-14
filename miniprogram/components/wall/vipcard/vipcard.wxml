@@ -1,6 +1,6 @@
 <!--components/wall/vipcard/vipcard.wxml-->
 <view class="vipcard-container {{ fold_class }}"
-  style="height: {{ vipcard_height }};"
+  style="height: {{ vipcard_height }}; left: {{ posLeft }};"
   bindtap="onVipCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
   <view class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/line.svg);">

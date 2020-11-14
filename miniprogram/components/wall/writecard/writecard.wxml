@@ -1,0 +1,4 @@
+<!--components/wall/writecard/writecard.wxml-->
+<view class="writecard-container" style="left: {{ posLeft }};">
+
+</view>
