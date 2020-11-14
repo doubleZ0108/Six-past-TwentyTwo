@@ -3,24 +3,52 @@
   style="height: {{ vipcard_height }}; left: {{ posLeft }};"
   bindtap="onVipCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
-  <view class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/line.svg);">
-    <view class="vipcard-people">
-      <text>Person1</text>
-      <text class="iconfont iconshouye"></text>
-      <text>Person2</text>
+
+  <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/vipcard_bgdecorate.svg);"></image>
+
+  <view class="vipcard-people">
+    <text>Person1</text>
+    <text class="iconfont iconshouye"></text>
+    <text>Person2</text>
+  </view>
+  <view class="vipcard-info">
+    <image src="../../../resource/img/avatar/avatar.jpg"></image>
+    <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
+  </view>
+
+  <view class="vipcard-info-unfold">
+
+    <image class="vipcard-bgdecorate-unfold" src="../../../resource/img/card/vipcard_bgdecorate_unfold.svg"></image>
+
+    <view class="vipcard-info-unfold-tag">
+      <text>tag1</text>
+      <text>tagtagtagtag2</text>
     </view>
-    <view class="vipcard-info">
-      <image src="../../../resource/img/avatar.jpg"></image>
-      <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
+
+    <view class="vipcard-info-unfold-bubble">
+      <view class="unfold-info-group unfold-left-person">
+        <view class="unfold-bubble">
+            <text>左侧测左侧测试文本左侧测试文本</text>
+        </view>
+      </view>
+      <view class="unfold-info-group unfold-right-person">
+        <view class="unfold-bubble">
+          <text>右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本</text>
+        </view>
+      </view>
     </view>
 
     <view class="vipcard-envelop {{ turn_over_class }}" catchtap="onEnvelopTap">
       <image class="envelop-head" src="../../../resource/img/envelop/head.png"></image>
       <image class="envelop-beneath" src="../../../resource/img/envelop/beneath.png"></image>
       <image class="envelop-body" src="../../../resource/img/envelop/body.png"></image>
-      <scroll-view class="envelop-content" scroll-y>
-        <text>这是一封很长的信，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</text>
+      <scroll-view class="envelop-content" scroll-y enable-flex>
+        <!-- <text>这是一封很长的信，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</text> -->
+        <text>这是一封很长的信，很长很长很长很长很长很这是一封很长的信，很长很长很长很长很长很这是一封很长的信，很长很长很长很长很长很</text>
+        <image src="../../../resource/img/envelop/picture.svg"></image>
+        <view class="envelop-gap"></view>
       </scroll-view>
     </view>
   </view>
+
 </view>

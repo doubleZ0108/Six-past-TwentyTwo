@@ -14,7 +14,7 @@ Component({
     },
     avatar_url: {
       type: String,
-      value: "../../../resource/img/default_avatar.png"
+      value: "../../../resource/img/avatar/default_avatar.png"
     },
     description: {
       type: String,

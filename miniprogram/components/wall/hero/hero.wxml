@@ -1,7 +1,7 @@
 <!--components/wall/hero/hero.wxml-->
 <view class="hero-container">
   <view class="hero-inner-container">
-    <image class="hero-avatar" src="../../../resource/img/avatar.jpg"></image>
+    <image class="hero-avatar" src="../../../resource/img/avatar/avatar.jpg"></image>
     <view class="info-container">
       <text class="info-name">doubleZ</text>
       <view class="other-info-container">

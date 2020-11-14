@@ -5,6 +5,7 @@
   /* 这个背景container跟卡片不应该是并列关系*/
   position: relative;
   overflow: hidden;
+  overflow-x: hidden;
 }
 
 .wave-wrapper {
