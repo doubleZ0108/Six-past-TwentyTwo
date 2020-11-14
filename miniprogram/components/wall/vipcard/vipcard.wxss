@@ -139,9 +139,11 @@
   transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.vipcard-envelop:hover .envelop-head {
-  z-index: -1;
-  transform: rotateX(179deg) translate3d(0, 0, 0);
+.vipcard-envelop .envelop-beneath {
+  position: absolute;
+  bottom: 0;
+  height: var(--envelop-body-height);
+  z-index: 9;
 }
 
 .vipcard-envelop .envelop-body {
@@ -168,10 +170,6 @@
   transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.vipcard-envelop:hover .envelop-content {
-  height: 60vh;
-}
-
 .vipcard-envelop .envelop-content text {
   color: black;
   display: block;
@@ -187,13 +185,38 @@
   letter-spacing: 15rpx;
 }
 
-/* @keyframes HeadTurnOverAnimation {
-  from {
-    transform: rotateX(0deg) translate3d(0, 0, 0);
+.envelop-turn-over .envelop-head {
+  /* z-index: -1;
+  transform: rotateX(179deg) translate3d(0, 0, 0); */
+  animation: 2s HeadTurnOverAnimation linear forwards;
+}
+
+.envelop-turn-over .envelop-content {
+  /* height: 60vh; */
+  animation: 2s ContentStretchAnimation ease-out forwards;
+  animation-delay: 2s;  /* >= time of HeadTurnOverAnimation*/
+}
+
+@keyframes HeadTurnOverAnimation {
+  0% {
+    transform: rotateX(0deg);
     z-index: 12;
   }
-  to {
-    z-index: -1;
-    transform: rotateX(-179deg) translate3d(0, 0, 0);
+  99% {
+    transform: rotateX(179deg) translate3d(0, 0, 0);
+    z-index: 12;
   }
-} */
+  100% {
+    z-index: -1;
+    transform: rotateX(179deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ContentStretchAnimation {
+  from {
+    height: calc(var(--envelop-body-height)*0.9);
+  }
+  to {
+    height: 60vh;
+  }
+}

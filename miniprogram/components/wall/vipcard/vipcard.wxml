@@ -2,7 +2,7 @@
 <view class="vipcard-container {{ fold_class }}"
   style="height: {{ vipcard_height }};"
   bindtap="onVipCardTap" catchtouchmove="true"
-  bindtouchstart="touchStart" catchtouchmove="touchMove" bindtouchend="touchEnd">
+  bindtouchstart="touchStart" bindtouchend="touchEnd">
   <view class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/line.svg);">
     <view class="vipcard-people">
       <text>Person1</text>
@@ -14,8 +14,9 @@
       <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
     </view>
 
-    <view class="vipcard-envelop">
+    <view class="vipcard-envelop {{ turn_over_class }}" catchtap="onEnvelopTap">
       <image class="envelop-head" src="../../../resource/img/envelop/head.png"></image>
+      <image class="envelop-beneath" src="../../../resource/img/envelop/beneath.png"></image>
       <image class="envelop-body" src="../../../resource/img/envelop/body.png"></image>
       <scroll-view class="envelop-content" scroll-y>
         <text>这是一封很长的信，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</text>
