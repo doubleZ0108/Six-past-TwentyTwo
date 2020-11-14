@@ -1,5 +1,17 @@
 //app.js
 App({
+  // "tabBar": {
+  //   "list": [{
+  //     "pagePath": "pages/wall/wall",
+  //     "text": "表白墙",
+  //     "iconPath": "resource/img/icon/wall/wall.png",
+  //     "selectedIconPath": "resource/img/icon/wall/wall_selected.png"
+  //   }, {
+  //     "pagePath": "pages/test/test",
+  //     "text": "测试"
+  //   }]
+  // },
+
   onLaunch: function () {
     
     if (!wx.cloud) {
