@@ -45,6 +45,7 @@ Component({
     scrollLeft: 0,
     winHeight: 0,
     navigatorLeft: 0,
+    posLeft_base: 0.1
   },
 
   methods: {
@@ -99,7 +100,7 @@ Component({
           let calc = res.windowHeight; //顶部脱离文档流了(- res.windowWidth / 750 * 100);
           // console.log('==顶部高度==',calc)
           that.setData({
-            winHeight: calc
+            winHeight: calc + 800 + 100   // 文档流的高度 + 展开一张卡片 + 底部留白
           });
         }
       });
@@ -108,7 +109,10 @@ Component({
 
   observers: {
     'currentTab': function(currentTab) {
-      this.setData({ navigatorLeft: this.data.currentTab * 25 + "%" })
+      this.setData({ 
+        navigatorLeft: this.data.currentTab * 25 + "%",
+        posLeft_base: this.data.currentTab * -1 + 0.1
+      })
     }
   }
 })

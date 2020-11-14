@@ -2,13 +2,12 @@
 @import '../../../style/iconfont.wxss';
 
 .vipcard-container {
-  --vipcard-width: 80%;
   position: absolute;
   top: 550rpx;
   height: 290rpx;
 
-  width: var(--vipcard-width);
-  left: calc(calc(100% - var(--vipcard-width)) / 2);
+  width: 80%;
+  /* left: 10%; */
 
   margin: 0px auto 90rpx;
 

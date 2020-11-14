@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    posLeft: {
+      type: String,
+      value: "10%"
+    }
   },
 
   /**
@@ -12,10 +15,10 @@ Component({
    */
   data: {
     scaleFactor: 0,
-    // fold_class: "",
-    // vipcard_height: "290rpx",
-    fold_class: "vipcard-container-unfold",    // for vipcard unfold test
-    vipcard_height: "100vh",
+    fold_class: "",
+    vipcard_height: "290rpx",
+    // fold_class: "vipcard-container-unfold",    // for vipcard unfold test
+    // vipcard_height: "100vh",
     turn_class_class: "",
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,

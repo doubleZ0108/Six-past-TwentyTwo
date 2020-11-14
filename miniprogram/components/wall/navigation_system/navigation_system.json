@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "vipcard": "../vipcard/vipcard",
-    "card": "../card/card"
+    "card": "../card/card",
+    "writecard": "../writecard/writecard"
   }
 }

@@ -1,0 +1,17 @@
+/* components/wall/writecard/writecard.wxss */
+.writecard-container {
+  position: absolute;
+  top: 550rpx;
+  height: 290rpx;
+
+  width: 80%;
+  /* left: 110%; */
+
+  margin: 0px auto 90rpx;
+
+  background: linear-gradient(104deg, rgb(25, 184, 104), rgb(73, 197, 219));
+  border-radius: 50rpx;
+  box-shadow: 0 9rpx 30rpx rgba(228, 219, 198, 0.6);
+
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
