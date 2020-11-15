@@ -117,7 +117,7 @@
   backdrop-filter: blur(30rpx);
 }
 
-.writecard-container-unfold .name-gender-group text {
+.writecard-container-unfold .name-gender-group .gender-switcher {
   position: absolute;
   right: -5%;
   top: 0;
@@ -130,12 +130,61 @@
   font-size: 26rpx;
   text-align: right;
 }
-.writecard-container-unfold .name-gender-group:nth-child(2) text {
+.writecard-container-unfold .name-gender-group:nth-child(2) .gender-switcher {
   background-color: rgb(50, 160, 202);
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.writecard-container-unfold .name-gender-group:nth-child(3) text {
+.writecard-container-unfold .name-gender-group:nth-child(3) .gender-switcher {
   background-color: rgb(208, 97, 126);
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.writecard-container-unfold .name-gender-group .gender-switcher.gender-now-male {
+  animation: 1.2s Gender2MaleAnimation linear forwards;
+}
+
+.writecard-container-unfold .name-gender-group .gender-switcher.gender-now-female {
+  animation: 1.2s Gender2FemaleAnimation linear forwards;
+}
+
+@keyframes Gender2FemaleAnimation {
+  0% {
+    background-color: rgb(50, 160, 202);
+    right: -5%;
+  }
+  40% {
+    background-color: rgb(50, 160, 202);
+    right: -18%;
+  }
+  60% {
+    background-color: rgb(208, 97, 126);
+    right: -18%;
+  }
+  100% {
+    background-color: rgb(208, 97, 126);
+    right: -5%;
+  }
+}
+
+
+@keyframes Gender2MaleAnimation {
+  0% {
+    background-color: rgb(208, 97, 126);
+    right: -5%;
+  }
+  40% {
+    background-color: rgb(208, 97, 126);
+    right: -15%;
+  }
+  60% {
+    background-color: rgb(50, 160, 202);
+    right: -15%;
+  }
+  100% {
+    background-color: rgb(50, 160, 202);
+    right: -5%;
+  }
 }
 
 /*============ ta info ============*/
