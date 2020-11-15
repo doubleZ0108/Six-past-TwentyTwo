@@ -21,7 +21,11 @@ Component({
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,
     touchDotY: 0,
-    writecard_bg: "../../../resource/img/write/fold_bg.svg"
+    writecard_bg: "../../../resource/img/write/fold_bg.svg",
+    switcher1_gender_now: "",
+    switcher1_text: "男生",
+    switcher2_gender_now: "",
+    switcher2_text: "女生"
   },
 
   /**
@@ -31,6 +35,35 @@ Component({
     onWriteCardTap: function() {
       if(this.data.fold_class != "writecard-container-unfold") {
         this.setData({ fold_class: "writecard-container-unfold" })
+      }
+    },
+
+    onSwitcher1Tap: function() {
+      let that = this
+      if(this.data.switcher1_gender_now == "" || this.data.switcher1_gender_now == "gender-now-male") {
+        this.setData({ switcher1_gender_now: "gender-now-female" })
+        setTimeout(function(){
+          that.setData({ switcher1_text: "女生" })
+        }, 600)
+      } else {
+        this.setData({ switcher1_gender_now: "gender-now-male" })
+        setTimeout(function(){
+          that.setData({ switcher1_text: "男生" })
+        }, 600)
+      }
+    },
+    onSwitcher2Tap: function() {
+      let that = this
+      if(this.data.switcher2_gender_now == "" || this.data.switcher2_gender_now == "gender-now-female") {
+        this.setData({ switcher2_gender_now: "gender-now-male" })
+        setTimeout(function(){
+          that.setData({ switcher2_text: "男生" })
+        }, 600)
+      } else {
+        this.setData({ switcher2_gender_now: "gender-now-female" })
+        setTimeout(function(){
+          that.setData({ switcher2_text: "女生" })
+        }, 600)
       }
     },
 

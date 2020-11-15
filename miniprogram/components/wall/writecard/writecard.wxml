@@ -17,11 +17,15 @@
             <text></text>
           </view>
           <view class="name-gender-group">
-            <text>男生｜切换</text>
+            <view class="gender-switcher {{ switcher1_gender_now }}" catchtap="onSwitcher1Tap">
+              <text>{{ switcher1_text }}｜切换</text>
+            </view>
             <input type="text" placeholder="我的昵称" auto-focus="" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
           </view>
           <view class="name-gender-group">
-            <text>女生｜切换</text>
+            <view class="gender-switcher {{ switcher2_gender_now }}" catchtap="onSwitcher2Tap">
+              <text>{{ switcher2_text }}｜切换</text>
+            </view>
             <input type="text" placeholder="TA的昵称" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
           </view>
         </view>
