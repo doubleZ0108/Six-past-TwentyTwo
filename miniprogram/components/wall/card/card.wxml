@@ -50,7 +50,7 @@
         </view>
         <view class="function-comment-write">
           <text class="iconfont iconshouye"></text>
-          <text>编写评论</text>
+          <navigator url="../comment/comment?commentId={{ commentId }}">编写评论</navigator>
         </view>
       </view>
     </view>

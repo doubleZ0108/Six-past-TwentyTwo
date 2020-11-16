@@ -53,6 +53,9 @@
 </view>
 
 <view class="comment-textarea-container">
-  <textarea placeholder="写下你的评论"></textarea>
-  <button>发送</button>
+  <form bindsubmit="commentSubmit">
+    <textarea placeholder="写下你的评论" name="comment" placeholder-style="color: rgba(255,255,255,.6);"
+      auto-focus fixed adjust-position disable-default-padding></textarea>
+    <button form-type="submit">发送</button>
+  </form>
 </view>

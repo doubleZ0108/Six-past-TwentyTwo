@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/comment/comment",
     "pages/wall/wall",
     "pages/test/test",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundColor": "#333",

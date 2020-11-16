@@ -124,6 +124,52 @@
   z-index: -1;
 }
 
+
+
+/*========== function ============*/
+.vipcard-info-unfold-function {
+  width: 100%;
+  height: 35rpx;
+  margin: 10rpx auto 0;
+  padding-top: 15rpx;
+  /* background-color: green; */
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  color: rgba(0,0,0,.6);
+}
+
+.vipcard-info-unfold-function .iconfont {
+  font-size: 35rpx;
+}
+
+.function-star {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 15rpx;
+}
+
+.function-comment {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 0 auto;
+}
+
+.function-comment-num {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 15rpx;
+}
+
+.function-comment-write {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
 /********** envelop ************/
 .vipcard-envelop {
   --envelop-head-height: 225rpx;
@@ -263,7 +309,7 @@
     height: calc(var(--envelop-body-height)*0.9);
   }
   to {
-    height: 60vh;
+    height: 58vh;
   }
 }
 

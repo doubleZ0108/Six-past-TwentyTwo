@@ -79,9 +79,7 @@ Component({
      * TAP
      */
     onCardGroupTap: function(e) {
-      console.log("card group tap...")
-
-      console.log(e);
+      // console.log("card group tap...")
       
       for(let index=0; index<this.data.cardsItem.length; ++index){
         this.data.cardsItem[index].refresh_flag = "refresh";
