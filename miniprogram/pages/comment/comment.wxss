@@ -10,12 +10,19 @@
   z-index: -2;
 }
 
+.card-title-icon {
+  display: block;
+  margin-top: 40rpx;
+  text-align: center;
+  font-size: 80rpx;
+}
+
 .card-container {
   --card-width: 80%;
   --card-height: 230rpx;
   height: var(--card-height);
   width: var(--card-width);
-  margin: 90rpx auto 0;
+  margin: 30rpx auto 0;
 
   background: linear-gradient(68deg, rgba(19, 162, 206, 0.15),rgba(19, 122, 206, 0.15), rgba(33, 26, 74, 0.38), rgba(65, 95, 158, 0.38));
   border-radius: 50rpx;
@@ -119,27 +126,34 @@
 .card-info-unfold-function {
   width: 80%;
   height: 50rpx;
-  margin: 25rpx auto 0;
+  margin: 20rpx auto 0;
+  padding-top: 5rpx;
   display: flex;
   flex-direction: row;
-  font-size: 28rpx;
   border-top: 3rpx solid rgba(255,255,255,.15);
 }
 
 .card-info-unfold-function .iconfont {
-  font-size: 50rpx;
-  color: rgba(255,255,255.8);
+  font-size: 40rpx;
+  color: rgba(255,255,255,.6);
 }
 
 .function-favorite {
   margin-left: 25rpx;
+  font-size: 40rpx;
 }
 
 .function-star {
   display: flex;
+  font-size: 25rpx;
   flex-direction: row;
   align-items: center;
   margin: 0 15rpx;
+  color: rgba(255,255,255,.6);
+}
+
+.function-star .iconfont{
+  font-size: 40rpx;
 }
 
 /************* textarea ***************/
@@ -147,28 +161,35 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 275rpx;
+  min-height: 100rpx;
+  background: linear-gradient(160deg, rgba(177, 247, 229, .38),rgba(29,32,65,.2),rgba(29,32,65,.1),rgba(29,32,65,.1), rgba(240, 210, 166, .2));
+  backdrop-filter: blur(30rpx);
+  border-top: 1rpx rgba(255,255,255,.38) solid;
 }
 .comment-textarea-container textarea {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  padding: 20rpx;
-  background: rgba(0, 0, 0, .6);
-  backdrop-filter: blur(30rpx);
-  color: rgba(255,255,255,.6);
+  height: 40%;
+  width: 66%;
+  margin: 15rpx;
+  padding: 15rpx;
+  background: rgba(29,32,65,.38);
+  /* backdrop-filter: blur(30rpx); */
+  /* border: 1rpx rgba(40,52,78,.83) solid; */
 }
 
-.comment-textarea-container button {
+.comment-textarea-container text {
   /* TODO button有默认padding 只能去掉之后调小 */
   position: absolute;
-  bottom: 5%;
-  right: 5%;
-  width: 150rpx;
-  height: 30rpx;
+  display: block;
+  bottom: 20rpx;
+  right: 3%;
+  width: 20%;
+  height: 60rpx;
   color: rgb(44,42,85);
   font-size: 30rpx;
+  line-height: 60rpx;
   border-radius: 50rpx;
+  text-align: center;
   background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210));
 }
 
@@ -200,8 +221,9 @@
 }
 
 .comment-text-group {
-  border-bottom: 3rpx white solid;
-  color: white;
+  padding-top: 20rpx;
+  border-top: 2rpx rgba(255,255,255,.38) solid;
+  color: rgba(255,255,255,.83);
 }
 
 .comment-text-group view {
@@ -212,8 +234,15 @@
 
 .comment-name {
   font-size: 40rpx;
+  line-height: 40rpx;
+}
+.comment-floor {
+  font-size: 20rpx;
+  color: rgba(255,255,255,.5);
 }
 .comment-content {
+  display: block;
+  margin-top: 15rpx;
   font-size: 20rpx;
-  color: rgba(255,255,255,.83);
+  color: rgba(255,255,255,.6);
 }
