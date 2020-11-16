@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    drawer: false
+  },
 
+  heroTap: function() {
+    let that = this
+    this.setData({ drawer: !that.data.drawer })
   },
 
   /**

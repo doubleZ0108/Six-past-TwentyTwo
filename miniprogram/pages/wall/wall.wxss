@@ -1,1 +1,14 @@
 /* miniprogram/pages/wall/wall.wxss */
+
+.wall-container {
+  background: rgb(31, 31, 71);
+  overflow-x: hidden;
+  transform: rotate(0deg) scale(1) translate(0%,0%); 
+  transition: .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.wall-container.wall-contaienr-drawer {
+  transform: rotate(0deg) scale(.8) translate(40%,0%);
+  height: 100vh!important;
+  overflow-x: hidden;
+}
