@@ -2,7 +2,9 @@
 
 <image class="bg-container" src="../../resource/img/comment/bg.png"></image>
 
-<view class="card-container .card-container-unfold">
+<text class="iconfont iconshouye card-title-icon"></text>
+
+<view class="card-container card-container-unfold">
  
   <view class="card-people">
     <text>leftName</text>
@@ -56,6 +58,6 @@
   <form bindsubmit="commentSubmit">
     <textarea placeholder="写下你的评论" name="comment" placeholder-style="color: rgba(255,255,255,.6);"
       auto-focus fixed adjust-position disable-default-padding></textarea>
-    <button form-type="submit">发送</button>
+    <text form-type="submit">发送</text>
   </form>
 </view>
