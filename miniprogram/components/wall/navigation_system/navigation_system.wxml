@@ -25,6 +25,7 @@
   bindchange="switchTab"
   >
 
+  <!-- 主页 -->
   <swiper-item>
     <view class="card-group" scroll-y
       capture-bind:tap="onCardGroupTap">
@@ -34,11 +35,46 @@
         description="{{ item.description }}"
         refresh_flag="{{ item.refresh_flag }}"
       />
-  </view>
+    </view>
   </swiper-item>
 
-  <swiper-item>page2</swiper-item>
-  <swiper-item>page3</swiper-item>
-  <swiper-item>page4</swiper-item>
+  <!-- 空间 -->
+  <swiper-item>
+    <view class="card-group" scroll-y
+      capture-bind:tap="onCardGroupTap">
+      <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
+        name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
+        avatar_url="{{ item.avatar_url }}"
+        description="{{ item.description }}"
+        refresh_flag="{{ item.refresh_flag }}"
+      />
+    </view>
+  </swiper-item>
+
+  <!-- 收藏 -->
+  <swiper-item>
+    <view class="card-group" scroll-y
+      capture-bind:tap="onCardGroupTap">
+      <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
+        name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
+        avatar_url="{{ item.avatar_url }}"
+        description="{{ item.description }}"
+        refresh_flag="{{ item.refresh_flag }}"
+      />
+    </view>
+  </swiper-item>
+
+  <!-- 搜索 -->
+  <swiper-item>
+    <view class="card-group" scroll-y
+      capture-bind:tap="onCardGroupTap">
+      <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
+        name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
+        avatar_url="{{ item.avatar_url }}"
+        description="{{ item.description }}"
+        refresh_flag="{{ item.refresh_flag }}"
+      />
+    </view>
+  </swiper-item>
 
 </swiper>

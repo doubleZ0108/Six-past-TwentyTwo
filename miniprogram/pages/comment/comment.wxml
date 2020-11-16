@@ -1,0 +1,58 @@
+<!--miniprogram/pages/comment/comment.wxml-->
+
+<image class="bg-container" src="../../resource/img/comment/bg.png"></image>
+
+<view class="card-container .card-container-unfold">
+ 
+  <view class="card-people">
+    <text>leftName</text>
+    <text class="iconfont iconshouye"></text>
+    <text>rightName</text>
+  </view>
+  
+  <view class="card-info-unfold">
+
+    <view class="card-info-unfold-tag">
+      <text>tag1</text>
+      <text>tagtagtagtag2</text>
+    </view>
+
+    <scroll-view class="card-info-unfold-description" scroll-y>
+      <text>这是一条表白，它非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长</text>
+    </scroll-view>
+
+  </view>
+</view>
+
+<view class="card-info-unfold-function">
+  <view class="function-favorite">
+    <text class="iconfont iconshouye"></text>
+  </view>
+  <view class="function-star">
+    <text class="iconfont iconshouye"></text>
+    <text>99</text>
+  </view>
+</view>
+
+<view class="comment-list-container">
+
+  <view wx:for="{{ commentItem }}" wx:key="{{ index }}"
+    class="comment-group">
+    <image src="{{ item.avatarSrc }}"></image>
+    <view class="comment-text-group">
+      <view>
+        <text class="comment-name">{{ item.name }}</text>
+        <text class="comment-floor">{{ index+1 }}楼</text>
+      </view>
+      <text class="comment-content">{{ item.content }}</text>
+    </view>
+  </view>
+
+  <view class="comment-gap"></view>
+
+</view>
+
+<view class="comment-textarea-container">
+  <textarea placeholder="写下你的评论"></textarea>
+  <button>发送</button>
+</view>

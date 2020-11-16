@@ -25,7 +25,15 @@ Component({
     switcher1_gender_now: "",
     switcher1_text: "男生",
     switcher2_gender_now: "",
-    switcher2_text: "女生"
+    switcher2_text: "女生",
+    academy_array: [
+      "软件学院","土木学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
+    ],
+    academy_index: 0,
+    grade_array: [
+      "大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
+    ],
+    grade_index: 0,
   },
 
   /**
@@ -67,6 +75,30 @@ Component({
       }
     },
 
+    bindAcademyChange: function(e) {
+      this.setData({ academy_index: e.detail.value })
+    },
+
+    bindGradeChange: function(e) {
+      this.setData({ grade_index: e.detail.value })
+    },
+
+    formSubmit: function(e) {
+      let writeData = {
+        myName: e.detail.value.myName,
+        taName: e.detail.value.taName,
+        myGender: this.data.switcher1_text,
+        taGender: this.data.switcher2_text,
+        academy: this.data.academy_array[this.data.academy_index],
+        grade: this.data.grade_array[this.data.grade_index],
+        myDescription: e.detail.value.myDescription,
+        taDescription: e.detail.value.taDescription,
+        textarea: e.detail.value.textarea
+      }
+      // @BACK
+      console.log(writeData)
+    },
+
     touchStart: function(e) {
       if(this.data.fold_class === "writecard-container-unfold") {
         this.setData({
@@ -95,6 +127,8 @@ Component({
         } 
       }
     }
+
+    // TODO 提交表单的时候要恢复性别信息
   },
 
   observers: {
@@ -103,8 +137,7 @@ Component({
       this.setData({
         writecard_height: that.data.fold_class == "writecard-container-unfold"? "100vh" : "330rpx",
         posLeft: that.data.fold_class == "writecard-container-unfold" ? "0" : "10%",
-        // writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "../../../resource/img/write/unfold_bg.png" : "../../../resource/img/write/fold_bg.svg"
-        writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201114201650.png" : "https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201114201658.svg"
+        writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "../../../resource/img/write/unfold_bg.png" : "../../../resource/img/write/fold_bg.svg"
       })
     }
   }

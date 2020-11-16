@@ -124,7 +124,7 @@
   --card-width: 85%;
   --card-height-unfold: 800rpx;
   height: var(--card-height-unfold);
-  color: rgba(255,255,255,.83)
+  color: rgba(255,255,255,.83);
 }
 
 .card-container-unfold .card-people text {
