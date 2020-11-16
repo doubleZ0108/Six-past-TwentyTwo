@@ -1,9 +1,11 @@
 <!--miniprogram/pages/wall/wall.wxml-->
-<wave>
-  <hero />  <!-- 150px height / 25px margin-top -->
-  <notice /> <!-- 25px height / 20px margin-top-bottom -->
-</wave>
+<view class="wall-container {{ drawer ? 'wall-contaienr-drawer' : ''}}">
+  <wave>
+    <hero bindtap="heroTap" />  <!-- 150px height / 25px margin-top -->
+    <notice /> <!-- 25px height / 20px margin-top-bottom -->
+  </wave>
 
-<navigation-system />
+  <navigation-system />
 
-<decorate />
+  <decorate />
+</view>

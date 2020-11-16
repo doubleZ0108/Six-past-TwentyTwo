@@ -34,6 +34,12 @@ Component({
       "大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
     ],
     grade_index: 0,
+
+    myName: "",
+    taName: "",
+    myDescription: "",
+    taDescription: "",
+    textarea: ""
   },
 
   /**
@@ -95,6 +101,27 @@ Component({
         taDescription: e.detail.value.taDescription,
         textarea: e.detail.value.textarea
       }
+
+      for(var index in writeData){
+        if(writeData[index] == ""){
+          wx.showToast({
+            title: "请完善所有内容",
+            mask: true,
+            icon: "none",
+            duration: 2000
+          })
+          return
+        }
+      }
+
+      this.setData({
+        myName: "",
+        taName: "",
+        myDescription: "",
+        taDescription: "",
+        textarea: ""
+      })
+
       // @BACK
       console.log(writeData)
     },

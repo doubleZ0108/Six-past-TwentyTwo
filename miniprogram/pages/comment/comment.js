@@ -29,11 +29,20 @@ Page({
     ]
   },
 
+
+  commentSubmit: function(e) {
+    // @BACK
+    console.log(e.detail.value.comment)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.commentId)
+    if(options.vipcard) {
+      console.log("this is from vipcard navigator!!!")
+    }
   },
 
   /**

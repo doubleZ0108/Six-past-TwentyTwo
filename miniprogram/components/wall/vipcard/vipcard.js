@@ -22,6 +22,7 @@ Component({
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,
     touchDotY: 0,
+    commentId: 999,
   },
 
   /**

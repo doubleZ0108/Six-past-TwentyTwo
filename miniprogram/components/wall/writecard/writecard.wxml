@@ -20,14 +20,14 @@
             <view class="gender-switcher {{ switcher1_gender_now }}" catchtap="onSwitcher1Tap">
               <text>{{ switcher1_text }}｜切换</text>
             </view>
-            <input type="text" name="myName"
+            <input type="text" name="myName" value="{{ myName }}"
               placeholder="我的昵称" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" auto-focus />
           </view>
           <view class="name-gender-group">
             <view class="gender-switcher {{ switcher2_gender_now }}" catchtap="onSwitcher2Tap">
               <text>{{ switcher2_text }}｜切换</text>
             </view>
-            <input type="text" name="taName"
+            <input type="text" name="taName" value="{{ taName }}"
               placeholder="TA的昵称" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
           </view>
         </view>
@@ -51,9 +51,9 @@
             <text>一句话描述</text>
             <text></text>
           </view>
-          <input type="text" name="myDescription"
+          <input type="text" name="myDescription" value="{{ myDescription }}"
             placeholder="我对自己的描述" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
-          <input type="text" name="taDescription"
+          <input type="text" name="taDescription" value="{{ taDescription }}"
             placeholder="我对TA的描述" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
         </view>
 
@@ -62,10 +62,10 @@
             <text>想说的话</text>
             <text></text>
           </view>
-          <textarea name="textarea"></textarea>
+          <textarea name="textarea" value="{{ textarea }}"></textarea>
         </view>
 
-        <button formType="submit">发送表白</button>
+        <button form-type="submit">发送表白</button>
       </form>
 
     </view>

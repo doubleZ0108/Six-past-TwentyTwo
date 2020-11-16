@@ -30,7 +30,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    unfold: ""
+    unfold: "",
+    commentId: 123
   },
 
   /**

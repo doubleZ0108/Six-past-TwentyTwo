@@ -38,6 +38,26 @@
       </view>
     </view>
 
+    <view class="vipcard-info-unfold-function">
+      <view class="function-favorite">
+        <text class="iconfont iconshouye"></text>
+      </view>
+      <view class="function-star">
+        <text class="iconfont iconshouye"></text>
+        <text>99</text>
+      </view>
+      <view class="function-comment">
+        <view class="function-comment-num">
+          <text class="iconfont iconshouye"></text>
+          <text>5</text>
+        </view>
+        <view class="function-comment-write">
+          <text class="iconfont iconshouye"></text>
+          <navigator url="../comment/comment?vipcard=true&commentId={{ commentId }}">编写评论</navigator>
+        </view>
+      </view>
+    </view>
+
     <view class="vipcard-envelop {{ turn_over_class }}" catchtap="onEnvelopTap">
       <image class="envelop-head" src="../../../resource/img/envelop/head.png"></image>
       <image class="envelop-beneath" src="../../../resource/img/envelop/beneath.png"></image>
