@@ -3,6 +3,8 @@
   "usingComponents": {
     "vipcard": "../vipcard/vipcard",
     "card": "../card/card",
-    "writecard": "../writecard/writecard"
+    "writecard": "../writecard/writecard",
+    "favoritecard": "../favoritecard/favoritecard",
+    "searchcard": "../searchcard/searchcard"
   }
 }

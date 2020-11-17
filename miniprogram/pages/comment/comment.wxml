@@ -39,7 +39,7 @@
 <view class="comment-list-container">
 
   <view wx:for="{{ commentItem }}" wx:key="{{ index }}"
-    class="comment-group">
+    class="comment-group {{ item.animate ? 'comment-group-animate' : ''}}" id="comment-{{ index }}">
     <image src="{{ item.avatarSrc }}"></image>
     <view class="comment-text-group">
       <view>
@@ -57,7 +57,7 @@
 <view class="comment-textarea-container">
   <form bindsubmit="commentSubmit">
     <textarea placeholder="写下你的评论" name="comment" placeholder-style="color: rgba(255,255,255,.6);"
-      auto-focus fixed adjust-position disable-default-padding></textarea>
+      fixed adjust-position disable-default-padding></textarea>
     <text form-type="submit">发送</text>
   </form>
 </view>

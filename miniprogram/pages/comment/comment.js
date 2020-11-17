@@ -9,24 +9,40 @@ Page({
       {
         avatarSrc: "../../resource/img/avatar/avatar.jpg",
         name: "名字",
-        content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论"
+        content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论",
+        animate: false
       },
       {
         avatarSrc: "../../resource/img/avatar/avatar.jpg",
         name: "名字",
-        content: "这是一条很短的评论"
+        content: "这是一条很短的评论",
+        animate: false
       },
       {
         avatarSrc: "../../resource/img/avatar/avatar.jpg",
         name: "名字",
-        content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论"
+        content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论",
+        animate: false
       },
       {
         avatarSrc: "../../resource/img/avatar/avatar.jpg",
         name: "名字",
-        content: "这是一条很短的评论"
-      }
-    ]
+        content: "这是一条很短的评论",
+        animate: false
+      },
+      {
+        avatarSrc: "../../resource/img/avatar/avatar.jpg",
+        name: "名字",
+        content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论",
+        animate: false
+      },
+      {
+        avatarSrc: "../../resource/img/avatar/avatar.jpg",
+        name: "名字",
+        content: "这是一条很短的评论",
+        animate: false
+      },
+    ],
   },
 
 
@@ -56,7 +72,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let that = this;
 
+    const query = wx.createSelectorQuery()
+    query.selectAll(".comment-group").fields({
+      id: true,
+      context: true,
+      node: true
+    }, function (resList) {
+      resList.forEach((res)=>{
+        wx.createIntersectionObserver().relativeToViewport().observe('#'+res.id, (node) => {
+          // console.log(res.id, node.intersectionRatio)
+          let commentIndex = parseInt(res.id.substr(8))
+          if(node.intersectionRatio != 0) {
+            that.data.commentItem[commentIndex].animate = true
+          } else {
+            that.data.commentItem[commentIndex].animate = false
+          }
+          that.setData({ commentItem: that.data.commentItem })
+        })
+      })
+    }).exec()
+
+    
   },
 
   /**

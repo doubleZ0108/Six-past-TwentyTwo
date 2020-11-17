@@ -1,4 +1,37 @@
 /* miniprogram/pages/wall/wall.wxss */
+.wall-page {
+  background: url(https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201116211446.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  object-fit: cover;
+  background-attachment: fixed;
+  transition: .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.wall-slidebar {
+  display: block;
+  position: fixed;
+  width: 40%;
+  left: -40%;
+  top: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: .8s cubic-bezier(.2,.8,.2,1);
+}
+.wall-slidebar text {
+  margin: 25rpx auto;
+  font-size: 50rpx;
+  color: white;
+}
+
+.wall-slidebar.wall-slidebar-display {
+  left: 0;
+}
 
 .wall-container {
   background: rgb(31, 31, 71);

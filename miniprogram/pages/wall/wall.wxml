@@ -1,11 +1,20 @@
 <!--miniprogram/pages/wall/wall.wxml-->
-<view class="wall-container {{ drawer ? 'wall-contaienr-drawer' : ''}}">
-  <wave>
-    <hero bindtap="heroTap" />  <!-- 150px height / 25px margin-top -->
-    <notice /> <!-- 25px height / 20px margin-top-bottom -->
-  </wave>
+<view class="wall-page">
+  <view class="wall-slidebar {{ drawer ? 'wall-slidebar-display' : ''}}">
+    <text>个人信息</text>
+    <text>应用设置</text>
+    <text>联系我们</text>
+    <text>这是名字</text>
+  </view>
 
-  <navigation-system />
+  <view class="wall-container {{ drawer ? 'wall-contaienr-drawer' : ''}}">
+    <wave>
+      <hero bindtap="heroTap" />  <!-- 150px height / 25px margin-top -->
+      <notice /> <!-- 25px height / 20px margin-top-bottom -->
+    </wave>
 
-  <decorate />
+    <navigation-system />
+
+    <decorate />
+  </view>
 </view>
