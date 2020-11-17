@@ -1,0 +1,9 @@
+<!--components/wall/searchcard/searchcard.wxml-->
+<view class="searchcard-container"
+  style="left: {{ posLeft }};">
+
+  <view class="searchcard-info">
+    <text>搜索</text>
+  </view>
+
+</view>
