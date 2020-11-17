@@ -114,6 +114,12 @@ Component({
         }
       }
 
+      wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 1000
+      })
+
       this.setData({
         myName: "",
         taName: "",

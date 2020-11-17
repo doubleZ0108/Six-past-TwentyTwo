@@ -43,12 +43,41 @@ Page({
         animate: false
       },
     ],
+    textarea: ""
   },
 
 
-  commentSubmit: function(e) {
-    // @BACK
-    console.log(e.detail.value.comment)
+  onTextareaBlur: function(e) {
+    this.setData({ textarea: e.detail.value })
+  },
+
+  commentSubmit: function() {
+
+    let that = this
+
+    setTimeout(function(){
+      if(that.data.textarea == "") {
+        wx.showToast({
+          title: "请完善所有内容",
+          mask: true,
+          icon: "none",
+          duration: 2000
+        })
+      } else {
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 1000
+        })
+
+        // @BACK
+        let commentData = {
+          comment: that.data.textarea
+        }
+        that.setData({ textarea: "" })
+        console.log(commentData)
+      }
+    }, 500)    // 让blur事件执行完
   },
 
   /**
