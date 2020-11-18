@@ -4,7 +4,7 @@
 
 <text class="iconfont iconshouye card-title-icon"></text>
 
-<view class="card-container card-container-unfold">
+<view class="card-container card-container-unfold {{ fromVip ? 'xxx': ''}}">
  
   <view class="card-people">
     <text>leftName</text>
