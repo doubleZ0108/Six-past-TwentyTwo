@@ -1,10 +1,14 @@
 <!--miniprogram/pages/comment/comment.wxml-->
 
-<image class="bg-container" src="../../resource/img/comment/bg.png"></image>
+
+<image class="bg-container" src="{{ fromVip ? '../../resource/img/comment/vipbg.png' : '../../resource/img/comment/bg.png' }}"></image>
 
 <text class="iconfont iconshouye card-title-icon"></text>
 
-<view class="card-container card-container-unfold {{ fromVip ? 'xxx': ''}}">
+
+
+<view class="card-container card-container-unfold {{ fromVip ? 'vipcard-confirm' : ''}}">
+
  
   <view class="card-people">
     <text>leftName</text>
@@ -26,7 +30,7 @@
   </view>
 </view>
 
-<view class="card-info-unfold-function">
+<view class="card-info-unfold-function {{ fromVip ? 'vipcard-confirm' : ''}}">
   <view class="function-favorite">
     <text class="iconfont iconshouye"></text>
   </view>
@@ -36,7 +40,7 @@
   </view>
 </view>
 
-<view class="comment-list-container">
+<view class="comment-list-container {{ fromVip ? 'vipcard-confirm' : ''}}">
 
   <view wx:for="{{ commentItem }}" wx:key="{{ index }}"
     class="comment-group {{ item.animate ? 'comment-group-animate' : ''}}" id="comment-{{ index }}">
@@ -54,7 +58,7 @@
 
 </view>
 
-<view class="comment-textarea-container">
+<view class="comment-textarea-container {{ fromVip ? 'vipcard-confirm' : ''}}">
   <form>
     <textarea placeholder="写下你的评论" name="comment" value="{{ textarea }}" placeholder-style="color: rgba(255,255,255,.6);"
       fixed adjust-position disable-default-padding bindblur="onTextareaBlur"></textarea>
