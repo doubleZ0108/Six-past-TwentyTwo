@@ -43,7 +43,8 @@ Page({
         animate: false
       },
     ],
-    textarea: ""
+    textarea: "",
+    fromVip: false
   },
 
 
@@ -87,6 +88,7 @@ Page({
     console.log(options.commentId)
     if(options.vipcard) {
       console.log("this is from vipcard navigator!!!")
+      this.setData({ fromVip: true })
     }
   },
 

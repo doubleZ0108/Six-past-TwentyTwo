@@ -57,7 +57,7 @@
 
 .card-people .iconfont {
   font-size: 50rpx;
-  background: linear-gradient(130deg, rgb(110, 240, 201),rgb(152, 163, 223), rgb(66, 210, 247)); 
+  background: linear-gradient(130deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -100,6 +100,7 @@
   width: 100%;
   border-bottom: 3rpx solid rgba(255,255,255,.15);
 }
+
 .card-info-unfold-tag text {
   font-size: 25rpx;
 
@@ -119,7 +120,6 @@
   text-align: center;
   text-indent: 1rem;
   word-break: break-all;
-  
 }
 
 /*========== function ============*/
@@ -130,7 +130,7 @@
   padding-top: 5rpx;
   display: flex;
   flex-direction: row;
-  border-top: 3rpx solid rgba(255,255,255,.15);
+  border-top: 3rpx solid rgba(255,255,255, 0.15);
 }
 
 .card-info-unfold-function .iconfont {
@@ -166,6 +166,7 @@
   backdrop-filter: blur(30rpx);
   border-top: 1rpx rgba(255,255,255,.38) solid;
 }
+
 .comment-textarea-container textarea {
   position: absolute;
   height: 40%;
@@ -193,6 +194,7 @@
   text-align: center;
   background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210));
 }
+
 
 
 /************* comment list ***************/
@@ -262,4 +264,115 @@
   margin-top: 15rpx;
   font-size: 20rpx;
   color: rgba(255,255,255,.6);
+}
+
+
+
+/* =======  vipcard  ======= */
+.vipcard-confirm.card-container {
+  --card-width: 80%;
+  --card-height: 230rpx;
+  height: auto;
+  width: var(--card-width);
+  margin: 30rpx auto 0;
+
+  background: linear-gradient(68deg, rgba(139, 108, 99, 0.65),rgba(82, 64, 52, 0.8), rgba(137, 116, 95, 0.6));
+  border-radius: 50rpx;
+  box-shadow: 0 10rpx 30rpx rgba(228, 153, 15, 0.15);
+  backdrop-filter: blur(90rpx);
+  border: rgba(159, 137, 116, 0.38) 1rpx solid;
+
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+
+.vipcard-confirm .card-people .iconfont {
+  font-size: 50rpx;
+  background: linear-gradient(130deg, rgb(238, 171, 202),rgb(252, 134, 144), rgb(241, 154, 143)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.vipcard-confirm.card-info-unfold-function {
+  width: 80%;
+  height: 50rpx;
+  margin: 20rpx auto 0;
+  padding-top: 5rpx;
+  display: flex;
+  flex-direction: row;
+  border-top: 3rpx solid rgba(112, 87, 71,.15);
+}
+
+.vipcard-confirm.card-info-unfold-function .iconfont {
+  font-size: 40rpx;
+  color: rgba(112,87,71,.6);
+}
+
+.vipcard-confirm .function-star {
+  display: flex;
+  font-size: 25rpx;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 15rpx;
+  color: rgba(112,87,71,.6);
+}
+
+.vipcard-confirm.comment-textarea-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 100rpx;
+  background: linear-gradient(160deg, rgba(247, 177, 230, 0.38),rgba(73, 74, 87, 0.2),rgba(29,32,65,.1),rgba(29,32,65,.1), rgba(240, 210, 166, .2));
+  backdrop-filter: blur(30rpx);
+  border-top: 1rpx rgba(255,255,255,.38) solid;
+}
+
+.vipcard-confirm.comment-textarea-container textarea {
+  position: absolute;
+  height: 40%;
+  width: 66%;
+  margin: 15rpx;
+  padding: 15rpx;
+  background: rgba(94, 67, 51, 0.38);
+  color: rgba(255,255,255,.6);
+  /* backdrop-filter: blur(30rpx); */
+  /* border: 1rpx rgba(40,52,78,.83) solid; */
+}
+
+.vipcard-confirm.comment-textarea-container text {
+  /* TODO button有默认padding 只能去掉之后调小 */
+  position: absolute;
+  display: block;
+  bottom: 20rpx;
+  right: 3%;
+  width: 20%;
+  height: 60rpx;
+  color: rgb(59, 37, 29);
+  font-size: 30rpx;
+  line-height: 60rpx;
+  border-radius: 50rpx;
+  text-align: center;
+  background: linear-gradient(104deg, rgb(238, 171, 202),rgb(252, 134, 144), rgb(241, 154, 143));
+}
+
+.vipcard-confirm .comment-text-group {
+
+  padding-top: 20rpx;
+  border-top: 2rpx rgba(112,87,71,.38) solid;
+  color: rgba(112,87,71,.83);
+}
+
+.vipcard-confirm .comment-floor {
+  font-size: 20rpx;
+  color: rgba(112,87,71,.5);
+}
+
+.vipcard-confirm .comment-content {
+  display: block;
+  margin-top: 15rpx;
+  font-size: 20rpx;
+  color: rgba(112,87,71,.6);
 }
