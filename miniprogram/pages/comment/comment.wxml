@@ -6,7 +6,9 @@
 <text class="iconfont iconshouye card-title-icon"></text>
 
 
+
 <view class="card-container card-container-unfold {{ fromVip ? 'vipcard-confirm' : ''}}">
+
  
   <view class="card-people">
     <text>leftName</text>
