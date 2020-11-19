@@ -2,7 +2,7 @@
 <view class="searchcard-container"
   style="left: {{ posLeft }};">
   
-  <view class="searchcard-info" style="background: url(../../../resource/img/search/bg_decorate.png);">
+  <view class="searchcard-info" style="background-image: url(../../../resource/img/search/bg_decorate.png);">
     <view class="searchcard-info-row1">
 
       <view class="searchcard-academy">
