@@ -1,10 +1,10 @@
 <!--components/wall/favoritecard/favoritecard.wxml-->
 <view class="vipcard-container {{ fold_class }}"
-  style="height: {{ vipcard_height }}; left: {{ posLeft }};"
+  style="height: {{ vipcard_height }}; left: {{ posLeft }}; background-image: url(../../../../../resource/img/favorite/card.png)"
   bindtap="onVipCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
-  <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/vipcard_bgdecorate.svg);"></image>
+  <!-- <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/favorite/card.png);"></image> -->
 
   <view class="vipcard-people">
     <text>Person1</text>
@@ -18,7 +18,7 @@
 
   <view class="vipcard-info-unfold">
 
-    <image class="vipcard-bgdecorate-unfold" src="../../../resource/img/write/unfold_bg.png"></image>
+    <image class="vipcard-bgdecorate-unfold" src="../../../resource/img/favorite/bg.png"></image>
 
     <view class="vipcard-info-unfold-tag">
       <text>tag1</text>
