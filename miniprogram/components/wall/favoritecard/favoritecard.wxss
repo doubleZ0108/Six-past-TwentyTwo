@@ -13,6 +13,7 @@
   margin: 0px auto 90rpx;
 
   background: linear-gradient(104deg, rgb(207, 115, 23), rgb(216, 204, 178));
+  background-size: cover;
   border-radius: 50rpx;
   box-shadow: 0 9rpx 30rpx rgba(228, 219, 198, 0.6);
 
@@ -42,19 +43,21 @@
 }
 
 .vipcard-people text {
-  color: rgb(174,125,79);
+  color: rgba(0,0,0,.6);
   font-size: 45rpx;
   font-weight: 600;
 
   /* TODO: 这里只是展示渐变色文字怎么用 方便你调整 */
-  background: linear-gradient(170deg, rgb(214, 165, 57),rgba(174,125,79)); 
+  /* background: linear-gradient(170deg, rgb(214, 165, 57),rgba(174,125,79));  */
+  background: rgba(0,0,0,.5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .vipcard-people .iconfont {
   font-size: 60rpx;
-  background: linear-gradient(23deg, rgba(224, 99, 125),rgba(255, 146, 186)); 
+  background: linear-gradient(23deg, rgb(226, 55, 89),rgb(233, 46, 115)); 
+  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -135,6 +138,7 @@
   flex-direction: row;
   font-size: 28rpx;
   color: rgba(0,0,0,.6);
+  border-top: 2rpx rgba(0,0,0,.38) solid;
 }
 
 .vipcard-info-unfold-function .iconfont {
@@ -184,7 +188,7 @@
 /*========== tag ============*/
 .vipcard-info-unfold-tag {
   width: 100%;
-  border-bottom: 3rpx solid rgba(179, 74, 74, 0.6);
+  border-bottom: 3rpx solid rgba(0, 0, 0, 0.38);
 }
 .vipcard-info-unfold-tag text {
   font-size: 25rpx;
@@ -199,7 +203,7 @@
 /*========== bubble ============*/
 .vipcard-info-unfold-bubble {
   width: 100%;
-  border-bottom: 3rpx solid rgba(179, 74, 74, 0.6);
+  border-bottom: 3rpx solid rgba(0,0,0, 0.38);
 }
 
 .unfold-info-group {
@@ -267,15 +271,15 @@
 
 /*========== description ============*/
 .card-info-unfold-description {
-  width: 95%;
+  width: 90%;
   margin: 25rpx auto 35rpx auto;
   font-size: 25rpx;  
   text-align: center;
   text-indent: 1rem;
   word-break: break-all;
   
-  background-color: gray;
-  color: white;
+  /* background-color: rgba(255,255,255,.05); */
+  color: rgba(0,0,0,.6);
   padding: 15rpx;
   border-radius: 15rpx;
 }
