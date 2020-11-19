@@ -54,29 +54,36 @@ Component({
     },
     touchEnd: function(e) {
       if(this.data.fold_class === "vipcard-container-unfold") {
-        let touchMoveX = e.changedTouches[0].pageX;
-        let touchMoveY = e.changedTouches[0].pageY;
-        let tmX = touchMoveX - this.data.touchDotX;
-        let tmY = touchMoveY - this.data.touchDotY;
+        let touchMoveX = e.changedTouches[0].pageX
+        let touchMoveY = e.changedTouches[0].pageY
+        let tmX = touchMoveX - this.data.touchDotX
+        let tmY = touchMoveY - this.data.touchDotY
 
-        let absX = Math.abs(tmX);
-        let absY = Math.abs(tmY);
+        let absX = Math.abs(tmX)
+        let absY = Math.abs(tmY)
+
         if (absX > 2 * absY) {
           if (tmX<0){
             console.log("左滑=====")
-          }else{
+          }else if(tmX > this.data.slip_tolerance) {
             console.log("右滑=====")
+            this.setData({ 
+              fold_class: "",
+              turn_over_class: ""
+            })
+            return
           }
         }
         if (absY > absX * 2) {
           if(tmY < 0){
-            console.log("上滑动=====")
+            console.log("上滑动=====  x")
           } else if(tmY > this.data.slip_tolerance) {
             console.log("下滑动=====")
             this.setData({ 
               fold_class: "",
               turn_over_class: ""
             })
+            return
           }
         } 
       }

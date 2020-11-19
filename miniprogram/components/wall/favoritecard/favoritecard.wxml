@@ -1,1 +1,67 @@
 <!--components/wall/favoritecard/favoritecard.wxml-->
+<view class="vipcard-container {{ fold_class }}"
+  style="height: {{ vipcard_height }}; left: {{ posLeft }};"
+  bindtap="onVipCardTap" catchtouchmove="true"
+  bindtouchstart="touchStart" bindtouchend="touchEnd">
+
+  <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/vipcard_bgdecorate.svg);"></image>
+
+  <view class="vipcard-people">
+    <text>Person1</text>
+    <text class="iconfont iconshouye"></text>
+    <text>Person2</text>
+  </view>
+  <view class="vipcard-info">
+    <image src="../../../resource/img/avatar/avatar.jpg"></image>
+    <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
+  </view>
+
+  <view class="vipcard-info-unfold">
+
+    <image class="vipcard-bgdecorate-unfold" src="../../../resource/img/write/unfold_bg.png"></image>
+
+    <view class="vipcard-info-unfold-tag">
+      <text>tag1</text>
+      <text>tagtagtagtag2</text>
+    </view>
+
+    <view class="vipcard-info-unfold-bubble">
+      <view class="unfold-info-group unfold-left-person">
+        <view class="unfold-bubble">
+            <text>左侧测左侧测试文本左侧测试文本</text>
+        </view>
+      </view>
+      <view class="unfold-info-group unfold-right-person">
+        <view class="unfold-bubble">
+          <text>右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="card-info-unfold-description" scroll-y>
+      <text>这是一条表白，它非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长</text>
+    </view>
+
+    <view class="vipcard-info-unfold-function">
+      <view class="function-favorite">
+        <text class="iconfont iconshouye"></text>
+      </view>
+      <view class="function-star">
+        <text class="iconfont iconshouye"></text>
+        <text>99</text>
+      </view>
+      <view class="function-comment">
+        <view class="function-comment-num">
+          <text class="iconfont iconshouye"></text>
+          <text>5</text>
+        </view>
+        <view class="function-comment-write">
+          <text class="iconfont iconshouye"></text>
+          <navigator url="../comment/comment?vipcard=true&commentId={{ commentId }}">编写评论</navigator>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

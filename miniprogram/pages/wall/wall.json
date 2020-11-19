@@ -7,7 +7,8 @@
     "card": "../../components/wall/card/card",
     "notice": "../../components/wall/notice/notice",
     "vipcard": "../../components/wall/vipcard/vipcard",
-    "decorate": "../../components/wall/decorate/decorate"
-
-  }
+    "decorate": "../../components/wall/decorate/decorate",
+    "confetti": "../../components/wall/confetti/confetti"
+  },
+  "enablePullDownRefresh": true
 }

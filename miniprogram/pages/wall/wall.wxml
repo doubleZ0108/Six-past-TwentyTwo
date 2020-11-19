@@ -8,6 +8,8 @@
   </view>
 
   <view class="wall-container {{ drawer ? 'wall-contaienr-drawer' : ''}}">
+    <confetti id='confetti' duration="15000" />
+
     <wave>
       <hero bindtap="heroTap" />  <!-- 150px height / 25px margin-top -->
       <notice /> <!-- 25px height / 20px margin-top-bottom -->
@@ -18,3 +20,4 @@
     <decorate />
   </view>
 </view>
+

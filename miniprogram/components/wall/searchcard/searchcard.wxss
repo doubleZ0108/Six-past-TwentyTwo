@@ -52,7 +52,7 @@ button {
   }
   10% {
     bottom: 20%;
-    right: 10%;
+    right: 20%;
   }
   50% {
     bottom: 20%;

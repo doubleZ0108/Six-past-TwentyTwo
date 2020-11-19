@@ -52,7 +52,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    console.log("pull down")
+    this.showConfetti()
+  },
 
+  showConfetti: function() {
+    this.confetti = this.selectComponent("#confetti")
+    this.confetti.showConfetti()
   },
 
   /**
