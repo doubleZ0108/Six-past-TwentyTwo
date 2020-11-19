@@ -59,6 +59,9 @@ Page({
   showConfetti: function() {
     this.confetti = this.selectComponent("#confetti")
     this.confetti.showConfetti()
+    setTimeout(function(){
+      wx.stopPullDownRefresh()
+    }, 1000)
   },
 
   /**

@@ -1,31 +1,29 @@
 <!--components/wall/favoritecard/favoritecard.wxml-->
-<view class="vipcard-container {{ fold_class }}"
-  style="height: {{ vipcard_height }}; left: {{ posLeft }}; background-image: url(../../../../../resource/img/favorite/card.png)"
-  bindtap="onVipCardTap" catchtouchmove="true"
+<view class="favoritecard-container {{ fold_class }}"
+  style="height: {{ favorite_height }}; left: {{ posLeft }}; background-image: url(../../../../../resource/img/favorite/card.png)"
+  bindtap="onFavoriteCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
-  <!-- <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/favorite/card.png);"></image> -->
-
-  <view class="vipcard-people">
+  <view class="favoritecard-people">
     <text>Person1</text>
     <text class="iconfont iconshouye"></text>
     <text>Person2</text>
   </view>
-  <view class="vipcard-info">
+  <view class="favoritecard-info">
     <image src="../../../resource/img/avatar/avatar.jpg"></image>
     <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
   </view>
 
-  <view class="vipcard-info-unfold">
+  <view class="favoritecard-info-unfold">
 
-    <image class="vipcard-bgdecorate-unfold" src="../../../resource/img/favorite/bg.png"></image>
+    <image class="favoritecard-bgdecorate-unfold" src="../../../resource/img/favorite/bg.png"></image>
 
-    <view class="vipcard-info-unfold-tag">
+    <view class="favoritecard-info-unfold-tag">
       <text>tag1</text>
       <text>tagtagtagtag2</text>
     </view>
 
-    <view class="vipcard-info-unfold-bubble">
+    <view class="favoritecard-info-unfold-bubble">
       <view class="unfold-info-group unfold-left-person">
         <view class="unfold-bubble">
             <text>左侧测左侧测试文本左侧测试文本</text>
@@ -38,11 +36,11 @@
       </view>
     </view>
 
-    <view class="card-info-unfold-description" scroll-y>
+    <view class="favoritecard-info-unfold-description" scroll-y>
       <text>这是一条表白，它非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长</text>
     </view>
 
-    <view class="vipcard-info-unfold-function">
+    <view class="favoritecard-info-unfold-function">
       <view class="function-favorite">
         <text class="iconfont iconshouye"></text>
       </view>
@@ -57,7 +55,7 @@
         </view>
         <view class="function-comment-write">
           <text class="iconfont iconshouye"></text>
-          <navigator url="../comment/comment?vipcard=true&commentId={{ commentId }}">编写评论</navigator>
+          <navigator url="../comment/comment?commentId={{ commentId }}">编写评论</navigator>
         </view>
       </view>
     </view>

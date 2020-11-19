@@ -1,11 +1,11 @@
 /* components/wall/favoritecard/favoritecard.wxss */
 @import '../../../style/iconfont.wxss';
 
-.vipcard-container {
-  --vipcard-height: 290rpx;
+.favoritecard-container {
+  --favoritecard-height: 290rpx;
   position: absolute;
   top: 550rpx;
-  height: var(--vipcard-height);
+  height: var(--favoritecard-height);
 
   width: 80%;
   /* left: 10%; */
@@ -20,7 +20,7 @@
   transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.vipcard-container .vipcard-bgdecorate {
+.favoritecard-container .favoritecard-bgdecorate {
   height: 290rpx;
   width: 100%;
   position: absolute;
@@ -29,10 +29,10 @@
   background-repeat: no-repeat;
 }
 
-.vipcard-people {
+.favoritecard-people {
   width: 80%;
-  height: calc(var(--vipcard-height)*0.3);
-  margin: calc(var(--vipcard-height)*0.1) auto 0;
+  height: calc(var(--favoritecard-height)*0.3);
+  margin: calc(var(--favoritecard-height)*0.1) auto 0;
   
   display: grid;
   grid-template-columns: 3fr 1fr 3fr;
@@ -42,7 +42,7 @@
   align-items: center;
 }
 
-.vipcard-people text {
+.favoritecard-people text {
   color: rgba(0,0,0,.6);
   font-size: 45rpx;
   font-weight: 600;
@@ -54,7 +54,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.vipcard-people .iconfont {
+.favoritecard-people .iconfont {
   font-size: 60rpx;
   background: linear-gradient(23deg, rgb(226, 55, 89),rgb(233, 46, 115)); 
   
@@ -62,10 +62,10 @@
   -webkit-text-fill-color: transparent;
 }
 
-.vipcard-info {
+.favoritecard-info {
   width: 80%;
-  height: calc(var(--vipcard-height)*0.5);
-  margin: 0 auto calc(var(--vipcard-height)*0.1);
+  height: calc(var(--favoritecard-height)*0.5);
+  margin: 0 auto calc(var(--favoritecard-height)*0.1);
 
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -73,14 +73,14 @@
   align-items: center;
 }
 
-.vipcard-info image {
+.favoritecard-info image {
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
   margin-right: 25rpx;
 }
 
-.vipcard-info text {
+.favoritecard-info text {
   color: rgba(0, 0, 0, .6);
   /* width: 90%; */
 
@@ -97,7 +97,7 @@
 }
 
 /********** unfold ************/
-.vipcard-container-unfold {
+.favoritecard-container-unfold {
   position: fixed;
   top: 0;
   left: 0;
@@ -108,12 +108,12 @@
   z-index: 9999;
 }
 
-.vipcard-info-unfold  {
+.favoritecard-info-unfold  {
   opacity: 0;
   transition: 0s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.vipcard-info-unfold .vipcard-bgdecorate-unfold {
+.favoritecard-info-unfold .favoritecard-bgdecorate-unfold {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -128,7 +128,7 @@
 }
 
 /*========== function ============*/
-.vipcard-info-unfold-function {
+.favoritecard-info-unfold-function {
   width: 100%;
   height: 35rpx;
   margin: 10rpx auto 0;
@@ -141,7 +141,7 @@
   border-top: 2rpx rgba(0,0,0,.38) solid;
 }
 
-.vipcard-info-unfold-function .iconfont {
+.favoritecard-info-unfold-function .iconfont {
   font-size: 35rpx;
 }
 
@@ -173,12 +173,12 @@
 
 
 /********** AFTER TAB ***********/
-.vipcard-container-unfold .vipcard-bgdecorate, 
-.vipcard-container-unfold .vipcard-info {
+.favoritecard-container-unfold .favoritecard-bgdecorate, 
+.favoritecard-container-unfold .favoritecard-info {
   display: none;
 }
 
-.vipcard-container-unfold .vipcard-info-unfold {
+.favoritecard-container-unfold .favoritecard-info-unfold {
   opacity: 1;
   width: 80%;
   margin: 0 auto;
@@ -186,11 +186,11 @@
 
 
 /*========== tag ============*/
-.vipcard-info-unfold-tag {
+.favoritecard-info-unfold-tag {
   width: 100%;
   border-bottom: 3rpx solid rgba(0, 0, 0, 0.38);
 }
-.vipcard-info-unfold-tag text {
+.favoritecard-info-unfold-tag text {
   font-size: 25rpx;
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.38);
@@ -201,7 +201,7 @@
 }
 
 /*========== bubble ============*/
-.vipcard-info-unfold-bubble {
+.favoritecard-info-unfold-bubble {
   width: 100%;
   border-bottom: 3rpx solid rgba(0,0,0, 0.38);
 }
@@ -270,7 +270,7 @@
 
 
 /*========== description ============*/
-.card-info-unfold-description {
+.favoritecard-info-unfold-description {
   width: 90%;
   margin: 25rpx auto 35rpx auto;
   font-size: 25rpx;  
@@ -278,7 +278,6 @@
   text-indent: 1rem;
   word-break: break-all;
   
-  /* background-color: rgba(255,255,255,.05); */
   color: rgba(0,0,0,.6);
   padding: 15rpx;
   border-radius: 15rpx;
