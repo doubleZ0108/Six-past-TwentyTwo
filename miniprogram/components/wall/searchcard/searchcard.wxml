@@ -1,9 +1,55 @@
 <!--components/wall/searchcard/searchcard.wxml-->
 <view class="searchcard-container"
   style="left: {{ posLeft }};">
+  
+  <view class="searchcard-info" style="background: url(../../../resource/img/search/bg_decorate.png);">
+    <view class="searchcard-info-row1">
 
-  <view class="searchcard-info">
-    <text>搜索</text>
+      <view class="searchcard-academy">
+        <text>学院: </text>
+        <picker mode="selector" bindchange="bindAcademyChange" name="academy"
+            range="{{ academy_array }}" index="{{ academy_index }}">
+            {{ academy_array[academy_index]}} </picker>
+      </view>
+
+      <view class="searchcard-grade">
+        <text>年级: </text>
+        <picker mode="selector" bindchange="bindGradeChange" name="grade"
+            range="{{ grade_array }}" index="{{ grade_index }}">
+            {{ grade_array[grade_index] }} </picker>
+      </view>
+
+      <view class="searchcard-date">
+        <text>日期: </text>
+        <picker mode="date" bindchange="bindDateChagne" name="date" value="{{ date }}">
+          {{ date }} </picker>
+      </view>
+
+    </view>
+
+    <view class="searchcard-info-row2">
+      <view class="searchcard-gender">
+        <text>性别: </text>
+        <view class="searchcard-gender-group">
+          <view class="searchcard-gender-left">
+            <text class="iconfont iconshouye"></text>
+            <text class="iconfont iconshouye"></text>
+          </view>
+          <view class="searchcard-gender-separate">
+            <text class="iconfont iconshouye"></text>
+          </view>
+          <view  class="searchcard-gender-right">
+            <text class="iconfont iconshouye"></text>
+            <text class="iconfont iconshouye"></text>
+          </view>
+        </view>
+      </view>
+      <view></view>
+      <view></view>
+    </view>
+
   </view>
+
+  <image class="searchcard-magnifier" src="../../../resource/img/search/magnifier.png"></image>
 
 </view>

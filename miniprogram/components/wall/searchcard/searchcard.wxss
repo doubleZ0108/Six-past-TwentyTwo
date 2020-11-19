@@ -1,4 +1,5 @@
 /* components/wall/searchcard/searchcard.wxss */
+@import '../../../style/iconfont.wxss';
 
 .searchcard-container {
   position: absolute;
@@ -8,21 +9,134 @@
   width: 80%;
   margin: 0px auto 90rpx;
 
-  background: linear-gradient(104deg, rgb(102, 100, 98), rgb(243, 243, 243));
+  /* background: linear-gradient(104deg, rgb(102, 100, 98), rgb(243, 243, 243)); */
   border-radius: 50rpx;
   box-shadow: 0 9rpx 30rpx rgba(228, 219, 198, 0.6);
 
   transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/************ magnifier ***************/
+.searchcard-magnifier {
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  transition: .8s cubic-bezier(0.8,0.2,0.8,1);
+}
+.searchcard-magnifier:hover {
+  animation: 2s MagnifierAnimation linear;
+}
+
+@keyframes MagnifierAnimation {
+  0% {
+    bottom: 0;
+    right: 0;
+  }
+  50% {
+    bottom: 60%;
+    right: 60%;
+  }
+  100% {
+    bottom: 0;
+    right: 0;
+  }
+}
+
+/**************************************/
+
 .searchcard-info {
   width: 100%;
   height: 100%;
+
+  border-radius: 50rpx;
+  overflow: hidden;
+
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  overflow: hidden;
+  object-fit: cover;
 
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  color: white;
+  font-size: 30rpx;
+}
+
+.searchcard-info picker {
+  font-size: 25rpx;
+  display: inline-block;
+  border-bottom: 2rpx white solid;
+  margin: 0 5rpx;
+}
+
+.searchcard-info-row1 {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 4fr 2fr 4fr;
   align-items: center;
   justify-content: center;
+}
+
+.searchcard-info-row1 view {
+  /* margin: 0 auto; */
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchcard-academy picker {
+  width: 50%;
+}
+
+.searchcard-info-row2  {
+  margin: 40rpx auto 0 30rpx;
+
+  display: grid;
+  grid-template-columns: 7fr 1.5fr 1.5fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchcard-gender {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchcard-gender-group {
+  margin-left: 15rpx;
+  border-bottom: 2rpx white solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchcard-gender-group .iconfont {
+  font-size: 50rpx;
+  font-weight: 500;
+}
+
+.searchcard-gender-separate {
+  margin: 0 25rpx;
+}
+
+.searchcard-gender-left text:nth-child(1) {
+  color: rgb(50, 160, 202);
+}
+
+.searchcard-gender-right text:nth-child(2) {
+  color: rgb(208, 97, 126);
 }
