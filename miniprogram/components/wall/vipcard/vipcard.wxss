@@ -176,7 +176,7 @@
   --envelop-body-height: 400rpx;
   display: none;
   position: absolute;
-  bottom: 120rpx;
+  bottom: 20rpx;
   width: 80%;
   height: 60vh;
   left: 10%;
