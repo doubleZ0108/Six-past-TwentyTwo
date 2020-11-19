@@ -16,32 +16,47 @@
   transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+button::after {
+  border: none;
+}
+button {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  line-height:inherit;
+  border-radius:0;
+}
+.button-hover {
+  background-color: transparent;
+}
+
 /************ magnifier ***************/
 .searchcard-magnifier {
   width: 200rpx;
   height: 200rpx;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -20%;
+  right: -5%;
 
   transition: .8s cubic-bezier(0.8,0.2,0.8,1);
 }
-.searchcard-magnifier:hover {
-  animation: 2s MagnifierAnimation linear;
+
+.searchcard-magnifier.magnifier-animate {
+  animation: 2s MagnifierAnimation ease-out;
 }
 
 @keyframes MagnifierAnimation {
   0% {
-    bottom: 0;
-    right: 0;
+    bottom: -20%;
+    right: -5%;
   }
   50% {
     bottom: 60%;
     right: 60%;
   }
   100% {
-    bottom: 0;
-    right: 0;
+    bottom: -20%;
+    right: -5%;
   }
 }
 
@@ -74,6 +89,7 @@
   display: inline-block;
   border-bottom: 2rpx white solid;
   margin: 0 5rpx;
+  text-align: center;
 }
 
 .searchcard-info-row1 {
@@ -127,16 +143,19 @@
 .searchcard-gender-group .iconfont {
   font-size: 50rpx;
   font-weight: 500;
+  transition: .8s cubic-bezier(0.8,0.2,0.8,1);
 }
 
 .searchcard-gender-separate {
   margin: 0 25rpx;
 }
 
-.searchcard-gender-left text:nth-child(1) {
+.searchcard-gender-left .iconfont-colorful:nth-child(1),
+.searchcard-gender-right .iconfont-colorful:nth-child(1) {
   color: rgb(50, 160, 202);
 }
 
-.searchcard-gender-right text:nth-child(2) {
+.searchcard-gender-left .iconfont-colorful:nth-child(2),
+.searchcard-gender-right .iconfont-colorful:nth-child(2) {
   color: rgb(208, 97, 126);
 }
