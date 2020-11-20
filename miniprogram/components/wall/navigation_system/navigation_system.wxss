@@ -73,4 +73,3 @@
 .icon-group.icon-selected text {
   color: rgba(255, 255, 255, .83);
 }
-

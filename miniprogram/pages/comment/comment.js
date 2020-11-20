@@ -53,9 +53,7 @@ Page({
   },
 
   commentSubmit: function() {
-
     let that = this
-
     setTimeout(function(){
       if(that.data.textarea == "") {
         wx.showToast({

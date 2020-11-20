@@ -24,21 +24,24 @@ Component({
         name_right: "DynamicName2",
         avatar_url: "../../../resource/img/avatar/avatar.jpg",
         description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长",
-        refresh_flag: "refresh"
+        refresh_flag: "refresh",
+        animate: false    // TODO: 用来实现Intersection Observer 暂未成功
       },
       {
         name_left: "DynamicName3",
         name_right: "DynamicName4",
         avatar_url: "../../../resource/img/avatar/avatar.jpg",
         description: "一句话告白",
-        refresh_flag: "refresh"
+        refresh_flag: "refresh",
+        animate: false
       },
       {
         name_left: "DynamicName5",
         name_right: "DynamicName6",
         avatar_url: "../../../resource/img/avatar/avatar.jpg",
         description: "好的我爱你",
-        refresh_flag: "refresh"
+        refresh_flag: "refresh",
+        animate: false
       }
     ],
     currentTab: 0,
@@ -102,7 +105,7 @@ Component({
       }
       let that = this;
       this.setData({ cardsItem: that.data.cardsItem })
-    }
+    },
   },
   
   lifetimes: {
@@ -118,6 +121,30 @@ Component({
           });
         }
       });
+    },
+
+    ready: function() {
+      let that = this;
+      const query = wx.createSelectorQuery()
+
+      query.selectAll(".normalcard-group").fields({
+        id: true,
+        context: true,
+        node: true
+      }, function (resList) {
+        console.log(resList)
+        resList.forEach((res)=>{
+          wx.createIntersectionObserver().relativeToViewport().observe('#'+res.id, (node) => {
+            let cardIndex = parseInt(res.id.substr(11))
+            if(node.intersectionRatio != 0) {
+              that.data.cardsItem[cardIndex].animate = true
+            } else {
+              that.data.cardsItem[cardIndex].animate = false
+            }
+            that.setData({ cardsItem: that.data.cardsItem })
+          })
+        })
+      }).exec()
     }
   },
 

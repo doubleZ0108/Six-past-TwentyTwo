@@ -284,3 +284,26 @@
   flex-direction: row;
   align-items: center;
 }
+
+
+
+
+
+/************* normalcard *******************/
+
+.normalcard-group {
+  opacity: 1;
+  transform: translateY(50px);
+  transition: .8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.normalcard-group.normalcard-group-animate {
+  animation: 2s emerge cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes emerge {
+  to {
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}

@@ -22,7 +22,14 @@ Component({
     },
     refresh_flag: {
       type: String,
-      valud: ""
+      value: ""
+    },
+    animate: {
+      type: Boolean,
+      value: false
+    },
+    index: {
+      type: Number,
     }
   },
 
