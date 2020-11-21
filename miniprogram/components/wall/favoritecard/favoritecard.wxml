@@ -5,7 +5,7 @@
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
   <view class="favoritecard-people">
-    <text>Person1</text>
+    <text>Person1Person1Person1Person1</text>
     <text class="iconfont iconshouye"></text>
     <text>Person2</text>
   </view>
@@ -19,8 +19,8 @@
     <image class="favoritecard-bgdecorate-unfold" src="../../../resource/img/favorite/bg.png"></image>
 
     <view class="favoritecard-info-unfold-tag">
-      <text>tag1</text>
-      <text>tagtagtagtag2</text>
+      <text>tag1tagtagtagtag2tagtagtagtag2tag1tagtagtagtag2tagtagtagtag2</text>
+      <text>其他</text>
     </view>
 
     <view class="favoritecard-info-unfold-bubble">

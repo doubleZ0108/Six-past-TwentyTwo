@@ -7,10 +7,11 @@
   <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/vipcard_bgdecorate.svg);"></image>
 
   <view class="vipcard-people">
-    <text>Person1</text>
+    <text>Person1Person1Person1Person1</text>
     <text class="iconfont iconshouye"></text>
     <text>Person2</text>
   </view>
+
   <view class="vipcard-info">
     <image src="../../../resource/img/avatar/avatar.jpg"></image>
     <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
@@ -21,8 +22,8 @@
     <image class="vipcard-bgdecorate-unfold" src="../../../resource/img/card/vipcard_bgdecorate_unfold.svg"></image>
 
     <view class="vipcard-info-unfold-tag">
-      <text>tag1</text>
-      <text>tagtagtagtag2</text>
+      <text>tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1</text>
+      <text>大一</text>
     </view>
 
     <view class="vipcard-info-unfold-bubble">

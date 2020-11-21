@@ -20,29 +20,33 @@ Component({
     ],
     cardsItem: [
       {
-        name_left: "DynamicName1",
-        name_right: "DynamicName2",
+        name_left: "很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的名字1",
+        name_right: "很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的名字2",
+        gender_left: "男生",
+        gender_right: "女生",
         avatar_url: "../../../resource/img/avatar/avatar.jpg",
-        description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长",
+        description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长",
+        academy: "很长很长很长很长很长很长很长很长的学院",
+        grade: "大四",
+        bubble_left: "左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本",
+        bubble_right: "右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本",
         refresh_flag: "refresh",
         animate: false    // TODO: 用来实现Intersection Observer 暂未成功
       },
       {
-        name_left: "DynamicName3",
-        name_right: "DynamicName4",
+        name_left: "名字3",
+        name_right: "名字4",
+        gender_left: "男生",
+        gender_right: "女生",
         avatar_url: "../../../resource/img/avatar/avatar.jpg",
         description: "一句话告白",
+        academy: "软件学院",
+        grade: "大四",
+        bubble_left: "左侧测试文本",
+        bubble_right: "右侧",
         refresh_flag: "refresh",
         animate: false
       },
-      {
-        name_left: "DynamicName5",
-        name_right: "DynamicName6",
-        avatar_url: "../../../resource/img/avatar/avatar.jpg",
-        description: "好的我爱你",
-        refresh_flag: "refresh",
-        animate: false
-      }
     ],
     currentTab: 0,
     scrollLeft: 0,

@@ -12,6 +12,14 @@ Component({
       type: String,
       value: "PersonRight"
     },
+    gender_left: {
+      type: String,
+      value: "男生"
+    },
+    gender_right: {
+      type: String,
+      value: "女生"
+    },
     avatar_url: {
       type: String,
       value: "../../../resource/img/avatar/default_avatar.png"
@@ -19,6 +27,22 @@ Component({
     description: {
       type: String,
       value: "告白从心开始"
+    },
+    academy: {
+      type: String,
+      value: ""
+    },
+    grade: {
+      type: String,
+      value: ""
+    },
+    bubble_left: {
+      type: String,
+      value: ""
+    },
+    bubble_right: {
+      type: String,
+      value: ""
     },
     refresh_flag: {
       type: String,

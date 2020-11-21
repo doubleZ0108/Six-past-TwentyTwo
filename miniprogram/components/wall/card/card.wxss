@@ -6,7 +6,7 @@
   --card-height: 230rpx;
   height: var(--card-height);
   width: var(--card-width);
-  margin: 90rpx auto;
+  margin: 45rpx auto 90rpx;
 
   background: linear-gradient(68deg, rgba(19, 162, 206, 0.15),rgba(19, 122, 206, 0.15), rgba(33, 26, 74, 0.38), rgba(65, 95, 158, 0.38));
   border-radius: 50rpx;
@@ -36,6 +36,11 @@
   font-weight: 400;
 
   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -150,6 +155,10 @@
 .card-info-unfold-tag {
   width: 100%;
   border-bottom: 3rpx solid rgba(255,255,255,.15);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .card-info-unfold-tag text {
   font-size: 25rpx;
@@ -159,6 +168,13 @@
   border-radius: 15rpx;
   padding: 10rpx;
   margin: 0 10rpx 15rpx;
+}
+
+.card-info-unfold-tag text:nth-child(1) {
+  max-width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /*========== bubble ============*/
@@ -290,7 +306,7 @@
 
 
 /************* normalcard *******************/
-
+/* 
 .normalcard-group {
   opacity: 1;
   transform: translateY(50px);
@@ -306,4 +322,4 @@
       opacity: 1;
       transform: translateY(0px);
   }
-}
+} */

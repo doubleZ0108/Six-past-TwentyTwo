@@ -43,15 +43,23 @@
 }
 
 .favoritecard-people text {
+  max-width: 100%;
   color: rgba(0,0,0,.6);
   font-size: 45rpx;
   font-weight: 600;
 
-  /* TODO: 这里只是展示渐变色文字怎么用 方便你调整 */
-  /* background: linear-gradient(170deg, rgb(214, 165, 57),rgba(174,125,79));  */
   background: rgba(0,0,0,.5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  overflow: hidden;
+  text-overflow: clip;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .favoritecard-people .iconfont {
@@ -189,6 +197,12 @@
 .favoritecard-info-unfold-tag {
   width: 100%;
   border-bottom: 3rpx solid rgba(0, 0, 0, 0.38);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .favoritecard-info-unfold-tag text {
   font-size: 25rpx;
@@ -198,6 +212,12 @@
   border-radius: 15rpx;
   padding: 5rpx 10rpx;
   margin: 15rpx 10rpx;
+}
+.favoritecard-info-unfold-tag text:nth-child(1) {
+  max-width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /*========== bubble ============*/

@@ -42,14 +42,22 @@
 }
 
 .vipcard-people text {
+  max-width: 100%;      /* @BUG 这里的文字没法超过一行省略号 */
   color: rgb(174,125,79);
   font-size: 45rpx;
   font-weight: 600;
 
-  /* TODO: 这里只是展示渐变色文字怎么用 方便你调整 */
   background: linear-gradient(170deg, rgb(214, 165, 57),rgba(174,125,79)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .vipcard-people .iconfont {
@@ -330,6 +338,16 @@
 .vipcard-info-unfold-tag {
   width: 100%;
   border-bottom: 3rpx solid rgba(179, 74, 74, 0.6);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .vipcard-info-unfold-tag text {
   font-size: 25rpx;
@@ -339,6 +357,12 @@
   border-radius: 15rpx;
   padding: 5rpx 10rpx;
   margin: 15rpx 10rpx;
+}
+.vipcard-info-unfold-tag text:nth-child(1) {
+  max-width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /*========== bubble ============*/

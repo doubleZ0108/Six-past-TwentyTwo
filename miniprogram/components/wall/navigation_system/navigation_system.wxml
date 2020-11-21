@@ -35,8 +35,11 @@
       <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
         animate="{{ item.animate }}" index="{{ index }}"
         name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
+        gender_left="{{ item.gender_left }}" gender_right="{{ item.gender_right }}"
         avatar_url="{{ item.avatar_url }}"
         description="{{ item.description }}"
+        academy="{{ item.academy }}" grade="{{ item.grade }}"
+        bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}"
         refresh_flag="{{ item.refresh_flag }}"
       />
     </view>
@@ -46,12 +49,7 @@
   <swiper-item>
     <view class="card-group" scroll-y
       capture-bind:tap="onCardGroupTap">
-      <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
-        name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
-        avatar_url="{{ item.avatar_url }}"
-        description="{{ item.description }}"
-        refresh_flag="{{ item.refresh_flag }}"
-      />
+
     </view>
   </swiper-item>
 
@@ -59,12 +57,7 @@
   <swiper-item>
     <view class="card-group" scroll-y
       capture-bind:tap="onCardGroupTap">
-      <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
-        name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
-        avatar_url="{{ item.avatar_url }}"
-        description="{{ item.description }}"
-        refresh_flag="{{ item.refresh_flag }}"
-      />
+
     </view>
   </swiper-item>
 
@@ -72,12 +65,7 @@
   <swiper-item>
     <view class="card-group" scroll-y
       capture-bind:tap="onCardGroupTap">
-      <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
-        name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
-        avatar_url="{{ item.avatar_url }}"
-        description="{{ item.description }}"
-        refresh_flag="{{ item.refresh_flag }}"
-      />
+
     </view>
   </swiper-item>
 

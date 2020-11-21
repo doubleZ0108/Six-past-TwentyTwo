@@ -1,11 +1,13 @@
 <!--components/wall/card/card.wxml-->
 <view class="card-container {{ unfold }} normalcard-group {{ animate ? 'normalcard-group-animate' : ''}}" 
   id="normalcard-{{ index }}" capture-bind:tap="onCardTap">
+  
   <view class="card-people">
     <text>{{ name_left }}</text>
     <text class="iconfont iconshouye"></text>
     <text>{{ name_right }}</text>
   </view>
+
   <view class="card-info">
     <image src="{{ avatar_url }}"></image>
     <text>{{ description }}</text>
@@ -15,25 +17,25 @@
   <view class="card-info-unfold">
 
     <view class="card-info-unfold-tag">
-      <text>tag1</text>
-      <text>tagtagtagtag2</text>
+      <text>{{ academy }}</text>
+      <text>{{ grade }}</text>
     </view>
 
     <view class="card-info-unfold-bubble">
       <view class="unfold-info-group unfold-left-person">
         <view class="unfold-bubble">
-            <text>左侧测左侧测试文本左侧测试文本</text>
+            <text>{{ bubble_left }}</text>
         </view>
       </view>
       <view class="unfold-info-group unfold-right-person">
         <view class="unfold-bubble">
-          <text>右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本</text>
+          <text>{{ bubble_right }}</text>
         </view>
       </view>
     </view>
 
     <scroll-view class="card-info-unfold-description" scroll-y>
-      <text>这是一条表白，它非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长</text>
+      <text>{{ description }}</text>
     </scroll-view>
 
     <view class="card-info-unfold-function">

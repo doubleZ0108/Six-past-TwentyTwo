@@ -221,7 +221,7 @@
 .writecard-container-unfold .writecard-textarea textarea{
   width: 80%;
   margin: 15rpx auto;
-  height: 250rpx;
+  height: 225rpx;
   padding: 20rpx;
   background: linear-gradient(40deg, rgba(193, 252, 242, .3),rgba(147,147,147,0.05),rgba(147,147,147,0.1),rgba(231, 214, 209, .3));
   border-radius: 20rpx;
