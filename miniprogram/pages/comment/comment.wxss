@@ -52,6 +52,13 @@
   font-weight: 400;
 
   overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -99,8 +106,11 @@
 .card-info-unfold-tag {
   width: 100%;
   border-bottom: 3rpx solid rgba(255,255,255,.15);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
-
 .card-info-unfold-tag text {
   font-size: 25rpx;
 
@@ -109,6 +119,12 @@
   border-radius: 15rpx;
   padding: 10rpx;
   margin: 0 10rpx 15rpx;
+}
+.card-info-unfold-tag text:nth-child(1) {
+  max-width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /*========== description ============*/

@@ -34,12 +34,14 @@
       capture-bind:tap="onCardGroupTap">
       <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
         animate="{{ item.animate }}" index="{{ index }}"
+        card_id="{{ item.card_id }}"
         name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
         gender_left="{{ item.gender_left }}" gender_right="{{ item.gender_right }}"
         avatar_url="{{ item.avatar_url }}"
         description="{{ item.description }}"
         academy="{{ item.academy }}" grade="{{ item.grade }}"
         bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}"
+        favorite="{{ item.favorite }}" star="{{ item.star }}" star_num="{{ item.star_num }}" comment_num="{{ item.comment_num }}"
         refresh_flag="{{ item.refresh_flag }}"
       />
     </view>

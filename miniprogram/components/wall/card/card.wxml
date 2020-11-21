@@ -22,12 +22,12 @@
     </view>
 
     <view class="card-info-unfold-bubble">
-      <view class="unfold-info-group unfold-left-person">
+      <view class="unfold-info-group unfold-left-person {{ gender_left == '男生' ? 'bubble-male' : 'bubble-female'}}">
         <view class="unfold-bubble">
             <text>{{ bubble_left }}</text>
         </view>
       </view>
-      <view class="unfold-info-group unfold-right-person">
+      <view class="unfold-info-group unfold-right-person {{ gender_right == '男生' ? 'bubble-male' : 'bubble-female'}}">
         <view class="unfold-bubble">
           <text>{{ bubble_right }}</text>
         </view>
@@ -39,21 +39,21 @@
     </scroll-view>
 
     <view class="card-info-unfold-function">
-      <view class="function-favorite">
-        <text class="iconfont iconshouye"></text>
+      <view class="function-favorite" bindtap="onFavoriteTap">
+        <text class="iconfont iconshouye {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
       </view>
-      <view class="function-star">
-        <text class="iconfont iconshouye"></text>
-        <text>99</text>
+      <view class="function-star" bindtap="onStarTap">
+        <text class="iconfont iconshouye {{ star_flag ? 'iconfont-star-colorful' : '' }}"></text>
+        <text>{{ star_num_flag }}</text>
       </view>
       <view class="function-comment">
         <view class="function-comment-num">
           <text class="iconfont iconshouye"></text>
-          <text>5</text>
+          <text>{{ comment_num }}</text>
         </view>
         <view class="function-comment-write">
           <text class="iconfont iconshouye"></text>
-          <navigator url="../comment/comment?commentId={{ commentId }}">编写评论</navigator>
+          <navigator url="../comment/comment?cardId={{ card_id }}">编写评论</navigator>
         </view>
       </view>
     </view>

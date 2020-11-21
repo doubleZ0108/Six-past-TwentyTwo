@@ -4,6 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    card_id: Number,
     name_left: {
       type: String,
       value: "PersonLeft"
@@ -28,33 +29,17 @@ Component({
       type: String,
       value: "告白从心开始"
     },
-    academy: {
-      type: String,
-      value: ""
-    },
-    grade: {
-      type: String,
-      value: ""
-    },
-    bubble_left: {
-      type: String,
-      value: ""
-    },
-    bubble_right: {
-      type: String,
-      value: ""
-    },
-    refresh_flag: {
-      type: String,
-      value: ""
-    },
-    animate: {
-      type: Boolean,
-      value: false
-    },
-    index: {
-      type: Number,
-    }
+    academy: String,
+    grade: String,
+    bubble_left: String,
+    bubble_right: String,
+    favorite: Boolean,
+    star: Boolean,
+    star_num: Number,
+    comment_num: Number,
+    refresh_flag: String,
+    animate: Boolean,
+    index: Number
   },
 
   /**
@@ -62,7 +47,9 @@ Component({
    */
   data: {
     unfold: "",
-    commentId: 123
+    favorite_flag: false,
+    star_flag: false,
+    star_num_flag: 0
   },
 
   /**
@@ -74,7 +61,36 @@ Component({
       this.setData({
         unfold: "card-container-unfold"
       })
+    },
+
+    // TODO 要绑定 user 和 card间 收藏点赞评论的关系 让对应的icon高亮
+    onFavoriteTap: function() {
+      let that = this
+      this.setData({ favorite_flag: !that.data.favorite_flag })
+      // @BACK
+
+    },
+    onStarTap: function() {
+      let starNow = this.data.star_flag
+      let starNumNow = this.data.star_num_flag
+      this.setData({ 
+        star_flag: !starNow,
+        star_num_flag: starNow ? starNumNow - 1 : starNumNow + 1
+      })
+
+      // @BACK
+
     }
+  },
+
+  lifetimes: {
+    attached: function() {
+      this.setData({
+        favorite_flag: this.properties.favorite,
+        star_flag: this.properties.star,
+        star_num_flag: this.properties.star_num
+      })
+    },
   },
 
   observers: {

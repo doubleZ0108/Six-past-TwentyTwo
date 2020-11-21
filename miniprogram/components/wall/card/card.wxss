@@ -37,6 +37,8 @@
 
   overflow: hidden;
   text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -169,7 +171,6 @@
   padding: 10rpx;
   margin: 0 10rpx 15rpx;
 }
-
 .card-info-unfold-tag text:nth-child(1) {
   max-width: 70%;
   overflow: hidden;
@@ -209,11 +210,11 @@
   margin: 10px 0 10px 12px;
 }
 
-.unfold-left-person .unfold-bubble {
+.bubble-male .unfold-bubble {
   background: rgb(50, 160, 202);
   position: relative;
 }
-.unfold-left-person .unfold-bubble:before {
+.bubble-male .unfold-bubble:before {
   content: '';
   width: 0;
   height: 0;
@@ -229,11 +230,11 @@
   margin: 10px 12px 10px auto;
 }
 
-.unfold-right-person .unfold-bubble {
+.bubble-female .unfold-bubble {
   background: rgb(208, 97, 126);
   position: relative;
 }
-.unfold-right-person .unfold-bubble:after {
+.bubble-female .unfold-bubble:after {
   content: '';
   width: 0;
   height: 0;
@@ -273,6 +274,7 @@
 
 .card-info-unfold-function .iconfont {
   font-size: 35rpx;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
 .function-star {
@@ -301,8 +303,13 @@
   align-items: center;
 }
 
+.iconfont-favorite-colorful {
+  color: gold;
+}
 
-
+.iconfont-star-colorful {
+  color: blue;
+}
 
 
 /************* normalcard *******************/

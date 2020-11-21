@@ -27,7 +27,22 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    backToTop: function() {
+      if (wx.pageScrollTo) {
+        wx.pageScrollTo({
+          scrollTop: 0
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '当前微信版本过低，无法滚动到顶端，请升级到最新微信版本后重试。'
+        })
+      }
+    },
+
     onFavoriteCardTap: function() {
+      this.backToTop()
+      
       if(this.data.fold_class != "favoritecard-container-unfold") {
         this.setData({ fold_class: "favoritecard-container-unfold" })
       }

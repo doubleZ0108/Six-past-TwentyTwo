@@ -54,6 +54,7 @@ Page({
 
   commentSubmit: function() {
     let that = this
+
     setTimeout(function(){
       if(that.data.textarea == "") {
         wx.showToast({
@@ -69,12 +70,13 @@ Page({
           duration: 1000
         })
 
-        // @BACK
         let commentData = {
           comment: that.data.textarea
         }
         that.setData({ textarea: "" })
         console.log(commentData)
+
+        // @BACK
       }
     }, 500)    // 让blur事件执行完
   },
@@ -83,7 +85,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.commentId)
+    console.log(options.cardId)
     if(options.vipcard) {
       console.log("this is from vipcard navigator!!!")
       this.setData({ fromVip: true })
