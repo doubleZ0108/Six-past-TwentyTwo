@@ -7,6 +7,8 @@
   <view class="writecard-info" style="background-image: url({{ writecard_bg }});">
     <text class="writecard-info-motto">写下你的表白</text>
 
+    <image class="writecard-pen {{ animate ? 'pen-animate' : '' }}" src="../../../resource/img/write/pen.png"></image>
+
     <view class="writecard-info-unfold">
       <view class="writecard-gap"></view>
 

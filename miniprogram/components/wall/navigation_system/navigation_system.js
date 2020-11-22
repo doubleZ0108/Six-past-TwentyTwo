@@ -290,7 +290,7 @@ Component({
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
-
+        
         // @BACK 根据不同的tab重新拉取该tab的cards
         switch(this.data.currentTab) {
           case 0: {
@@ -321,6 +321,13 @@ Component({
     'reach_bottom_flag_root': function(reach_bottom_flag_root) {
       if(reach_bottom_flag_root) {
         console.log(this.data.currentTab, "加载更多...")
+
+        wx.showToast({
+          title: '正在加载xx信息',
+          icon: 'loading',
+          duration: 2000,
+          mask: true
+        })
 
         // @BACK 根据不同的tab拉取触底的新cards
         let fresh_cards = this.getFreshTestCard()

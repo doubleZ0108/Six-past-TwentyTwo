@@ -38,6 +38,43 @@
   transition: 0s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
+.writecard-pen {
+  width: 160rpx;
+  height: 150rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  transition: .8s cubic-bezier(0.8,0.2,0.8,1);
+}
+
+.writecard-pen.pen-animate {
+  animation: 2s PenAnimation ease-out;
+}
+
+@keyframes PenAnimation {
+  0% {
+    bottom: 0;
+    right: 0;
+  }
+  10% {
+    bottom: 20%;
+    right: 20%;
+  }
+  50% {
+    bottom: 20%;
+    right: 60%;
+  }
+  90% {
+    bottom: 20%;
+    right: 10%;
+  }
+  100% {
+    bottom: 0;
+    right: 0;
+  }
+}
+
 /********** unfold ************/
 .writecard-container-unfold {
   position: fixed;

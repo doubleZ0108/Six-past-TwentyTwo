@@ -19,6 +19,7 @@ Component({
     // fold_class: "writecard-container-unfold",    // for vipcard unfold test
     // writecard_height: "100vh",
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
+    animate: false,
     touchDotX: 0,
     touchDotY: 0,
     writecard_bg: "../../../resource/img/write/fold_bg.svg",
@@ -34,7 +35,6 @@ Component({
       "大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
     ],
     grade_index: 0,
-
     myName: "",
     taName: "",
     myDescription: "",
@@ -61,10 +61,17 @@ Component({
 
     onWriteCardTap: function() {
       this.backToTop()
-      
-      if(this.data.fold_class != "writecard-container-unfold") {
-        this.setData({ fold_class: "writecard-container-unfold" })
-      }
+      this.setData({ animate: true })
+
+      let that = this
+      setTimeout(function() {
+        if(that.data.fold_class != "writecard-container-unfold") {
+          that.setData({ 
+            fold_class: "writecard-container-unfold",
+            animate: false
+          })
+        }
+      }, 2000)
     },
 
     onSwitcher1Tap: function() {
