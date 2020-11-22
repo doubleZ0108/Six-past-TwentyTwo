@@ -32,15 +32,15 @@
         <text>性别: </text>
         <view class="searchcard-gender-group">
           <view class="searchcard-gender-left" bindtap="onGenderLeftTap">
-            <text class="iconfont iconshouye {{ gender_left_isMale ? 'iconfont-colorful' : ''}}"></text>
-            <text class="iconfont iconshouye {{ gender_left_isMale ? '' : 'iconfont-colorful'}}"></text>
+            <text class="iconfont iconicon1 {{ gender_left_isMale ? 'iconfont-colorful' : ''}}"></text>
+            <text class="iconfont iconicon {{ gender_left_isMale ? '' : 'iconfont-colorful'}}"></text>
           </view>
           <view class="searchcard-gender-separate">
-            <text class="iconfont iconshouye"></text>
+            <text class="iconfont iconjiantou"></text>
           </view>
           <view  class="searchcard-gender-right" bindtap="onGenerRightTap">
-            <text class="iconfont iconshouye {{ gender_right_isFemale ? '' : 'iconfont-colorful'}}"></text>
-            <text class="iconfont iconshouye {{ gender_right_isFemale ? 'iconfont-colorful' : ''}}"></text>
+            <text class="iconfont iconicon1 {{ gender_right_isFemale ? '' : 'iconfont-colorful'}}"></text>
+            <text class="iconfont iconicon {{ gender_right_isFemale ? 'iconfont-colorful' : ''}}"></text>
           </view>
         </view>
       </view>

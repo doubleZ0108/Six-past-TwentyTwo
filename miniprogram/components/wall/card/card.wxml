@@ -4,7 +4,7 @@
   
   <view class="card-people">
     <text>{{ name_left }}</text>
-    <text class="iconfont iconshouye"></text>
+    <text class="iconfont iconaixin"></text>
     <text>{{ name_right }}</text>
   </view>
 
@@ -40,19 +40,19 @@
 
     <view class="card-info-unfold-function">
       <view class="function-favorite" bindtap="onFavoriteTap">
-        <text class="iconfont iconshouye {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
+        <text class="iconfont iconyanjing {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
       </view>
       <view class="function-star" bindtap="onStarTap">
-        <text class="iconfont iconshouye {{ star_flag ? 'iconfont-star-colorful' : '' }}"></text>
+        <text class="iconfont icondianzan {{ star_flag ? 'iconfont-star-colorful' : '' }}"></text>
         <text>{{ star_num_flag }}</text>
       </view>
       <view class="function-comment">
         <view class="function-comment-num">
-          <text class="iconfont iconshouye"></text>
+          <text class="iconfont icontubiaozhizuo-"></text>
           <text>{{ comment_num }}</text>
         </view>
         <view class="function-comment-write">
-          <text class="iconfont iconshouye"></text>
+          <text class="iconfont iconpinglun"></text>
           <navigator url="../comment/comment?cardId={{ card_id }}">编写评论</navigator>
         </view>
       </view>
