@@ -4,18 +4,18 @@ Component({
     tabbarItem: [
       {
         name: "主页",
-        iconfont: "iconshouye"
+        iconfont: "icongonggao"
       }, 
       {
         name: "空间",
-        iconfont: "iconsvgmoban59"
+        iconfont: "iconshouye"
       },
       {
         name: "收藏",
-        iconfont: "iconshouye"
+        iconfont: "iconyanjing1"
       }, {
         name: "搜索",
-        iconfont: "iconsvgmoban59"
+        iconfont: "iconsousuo"
       }
     ],
     cardsItem: [

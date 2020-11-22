@@ -6,7 +6,7 @@
 
   <view class="favoritecard-people">
     <text>Person1Person1Person1Person1</text>
-    <text class="iconfont iconshouye"></text>
+    <text class="iconfont iconaixin"></text>
     <text>Person2</text>
   </view>
   <view class="favoritecard-info">
@@ -42,19 +42,19 @@
 
     <view class="favoritecard-info-unfold-function">
       <view class="function-favorite">
-        <text class="iconfont iconshouye"></text>
+        <text class="iconfont iconyanjing"></text>
       </view>
       <view class="function-star">
-        <text class="iconfont iconshouye"></text>
+        <text class="iconfont icondianzan"></text>
         <text>99</text>
       </view>
       <view class="function-comment">
         <view class="function-comment-num">
-          <text class="iconfont iconshouye"></text>
+          <text class="iconfont icontubiaozhizuo-"></text>
           <text>5</text>
         </view>
         <view class="function-comment-write">
-          <text class="iconfont iconshouye"></text>
+          <text class="iconfont iconpinglun"></text>
           <navigator url="../comment/comment?commentId={{ commentId }}">编写评论</navigator>
         </view>
       </view>

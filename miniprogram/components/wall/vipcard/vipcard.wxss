@@ -265,14 +265,15 @@
 .vipcard-envelop .envelop-content .envelop-content-motto {
   display: block;
   width: 100%;
-  color: gold;
+  color: rgba(151, 68, 86, .8);
   text-align: center;
+  margin-top: 50rpx;
 }
 
 .vipcard-envelop .envelop-content .envelop-content-sign {
   display: block;
   width: 100%;
-  color: gold;
+  color: rgba(151, 68, 86, .8);
   text-align: right;
 }
 

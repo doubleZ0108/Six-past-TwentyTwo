@@ -304,11 +304,11 @@
 }
 
 .iconfont-favorite-colorful {
-  color: gold;
+  color: rgba(110, 240, 201, .8);
 }
 
 .iconfont-star-colorful {
-  color: blue;
+  color: rgba(124, 200, 245, 0.8);
 }
 
 

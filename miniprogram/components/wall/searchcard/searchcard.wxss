@@ -163,10 +163,10 @@ button {
 
 .searchcard-gender-left .iconfont-colorful:nth-child(1),
 .searchcard-gender-right .iconfont-colorful:nth-child(1) {
-  color: rgb(50, 160, 202);
+  color: rgb(121, 210, 245);
 }
 
 .searchcard-gender-left .iconfont-colorful:nth-child(2),
 .searchcard-gender-right .iconfont-colorful:nth-child(2) {
-  color: rgb(208, 97, 126);
+  color: rgb(241, 114, 148);
 }

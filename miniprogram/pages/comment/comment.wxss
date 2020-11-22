@@ -15,6 +15,10 @@
   margin-top: 40rpx;
   text-align: center;
   font-size: 80rpx;
+  /* color: linear-gradient(130deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210),rgb(211, 170, 201));  */
+  background: linear-gradient(130deg, rgb(125,179,209),rgb(241, 149, 185)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .card-container {
