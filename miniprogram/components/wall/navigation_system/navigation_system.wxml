@@ -32,7 +32,7 @@
   <swiper-item>
     <view class="card-group" scroll-y
       capture-bind:tap="onCardGroupTap">
-      <card wx:for="{{ cardsItem }}" wx:key="{{ index }}"
+      <card wx:for="{{ world_cards }}" wx:key="{{ index }}"
         animate="{{ item.animate }}" index="{{ index }}"
         card_id="{{ item.card_id }}"
         name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 

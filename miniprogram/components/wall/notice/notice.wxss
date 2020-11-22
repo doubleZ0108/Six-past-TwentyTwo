@@ -3,9 +3,10 @@
 
 .notice-container {
   --notice-width: 90%;
+  --notice-height: 30rpx;
   position: absolute;
   top: 305rpx;
-  height: 30rpx;
+  height: var(--notice-height);
   width: var(--notice-width);
   left: calc(calc(100% - var(--notice-width)) / 2);
 
@@ -18,21 +19,98 @@
 }
 
 .notice-icon {
-  font-size: 25rpx;
-  margin: 0 10rpx;
+  font-size: 30rpx;
   color: rgba(255,255,255,.83);
 }
 
-.notice-info {
+.notice-info-container {
   width: 95%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
 
   font-size: 23rpx;
   justify-self: flex-end;
   align-self: flex-end;
   color: rgba(255,255,255,.7);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.notice-info-group {
+  width: 90%;
+  height: var(--notice-height);
+  position: relative;
+  /* overflow: hidden; */
+  transition: .8s cubic-bezier(.8,.2,.8,1);
+}
+
+.notice-info-group text {
+  position: absolute;
+  left: 10rpx;
+  width: 100%;
+  height: var(--notice-height);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.notice-info-group text:nth-child(1) {
+  top: 0;
+  opacity: 1;
+  animation: 10s Notice1Animation infinite linear;
+}
+.notice-info-group text:nth-child(2) {
+  top: 100%;
+  opacity: 0;
+  animation: 10s Notice2Animation infinite linear;
+}
+
+@keyframes Notice1Animation {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(calc(-1*var(--notice-height)));
+    opacity: 0;
+  }
+  95% {
+    transform: translateY(calc(-1*var(--notice-height)));
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes Notice2Animation {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  45% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(calc(-1*var(--notice-height)));
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(calc(-1*var(--notice-height)));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
 }

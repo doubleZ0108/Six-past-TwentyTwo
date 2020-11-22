@@ -34,15 +34,32 @@
 
 .hero-container .info-name {
   font-size: 45rpx;
+
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .hero-container .info-motto {
+  max-width: 80%;
+  
   text-align: left;
   padding-top: 15rpx;
   padding-left: 60rpx;
   font-size: 20rpx;
   letter-spacing: 5rpx;
   color: rgba(255,255,255,.83);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
 }
 
 .hero-container .info-container {
@@ -53,6 +70,16 @@
 
 .hero-container .other-info-container {
   display: grid;
-  grid-template-columns: repeat(2, auto);   /* TODO: 如果还有其他信息 修改这里 */
+  grid-template-columns: repeat(3, auto);   /* TODO: 如果还有其他信息 修改这里 */
   grid-gap: 30rpx;
+}
+
+.hero-container .other-info-container text {
+  max-width: 300rpx;
+
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

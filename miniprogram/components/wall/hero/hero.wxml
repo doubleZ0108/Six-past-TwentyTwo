@@ -6,7 +6,8 @@
       <text class="info-name">doubleZ</text>
       <view class="other-info-container">
         <text class="info-gender">男</text>
-        <text>other information</text>
+        <text class="info-academy">软件学院</text>
+        <text class="info-grade">大四</text>
       </view>
     </view>
   </view>

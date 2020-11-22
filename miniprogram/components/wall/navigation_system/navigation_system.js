@@ -1,5 +1,9 @@
 // components/wall/navigation_system/navigation_system.js
 Component({
+  properties: {
+    world_cards_root: Array
+  },
+
   data: {
     tabbarItem: [
       {
@@ -18,51 +22,13 @@ Component({
         iconfont: "iconsousuo"
       }
     ],
-    cardsItem: [
-      {
-        card_id: 0,
-        name_left: "很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的名字1",
-        name_right: "很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的名字2",
-        gender_left: "男生",
-        gender_right: "女生",
-        avatar_url: "../../../resource/img/avatar/avatar.jpg",
-        description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长",
-        academy: "很长很长很长很长很长很长很长很长的学院",
-        grade: "大四",
-        bubble_left: "左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本",
-        bubble_right: "右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本",
-        favorite: true,
-        star: true,
-        star_num: 4,
-        comment_num: 1,
-        refresh_flag: "refresh",
-        animate: false    // TODO: 用来实现Intersection Observer 暂未成功
-      },
-      {
-        card_id: 1,
-        name_left: "名字3",
-        name_right: "名字4",
-        gender_left: "女生",
-        gender_right: "男生",
-        avatar_url: "../../../resource/img/avatar/avatar.jpg",
-        description: "一句话告白",
-        academy: "软件学院",
-        grade: "大四",
-        bubble_left: "左侧测试文本",
-        bubble_right: "右侧",
-        favorite: false,
-        star: true,
-        star_num: 666,
-        comment_num: 666,
-        refresh_flag: "refresh",
-        animate: false
-      },
-    ],
     currentTab: 0,
     scrollLeft: 0,
     winHeight: 0,
     navigatorLeft: 0,
-    posLeft_base: 0.1
+    posLeft_base: 0.1,
+
+    world_cards: []
   },
 
   methods: {
@@ -114,17 +80,17 @@ Component({
     onCardGroupTap: function(e) {
       // console.log("card group tap...")
       
-      for(let index=0; index<this.data.cardsItem.length; ++index){
-        this.data.cardsItem[index].refresh_flag = "refresh";
+      for(let index=0; index<this.data.world_cards.length; ++index){
+        this.data.world_cards[index].refresh_flag = "refresh";
       }
       let that = this;
-      this.setData({ cardsItem: that.data.cardsItem })
+      this.setData({ world_cards: that.data.world_cards })
     },
   },
   
   lifetimes: {
     attached: function() {
-      let that = this;
+      let that = this
       //  高度自适应
       wx.getSystemInfo({
         success: function (res) {
@@ -134,7 +100,7 @@ Component({
             winHeight: calc + 800 + 100   // 文档流的高度 + 展开一张卡片 + 底部留白
           });
         }
-      });
+      })
     },
 
     ready: function() {
@@ -151,11 +117,11 @@ Component({
           wx.createIntersectionObserver().relativeToViewport().observe('#'+res.id, (node) => {
             let cardIndex = parseInt(res.id.substr(11))
             if(node.intersectionRatio != 0) {
-              that.data.cardsItem[cardIndex].animate = true
+              that.data.world_cards[cardIndex].animate = true
             } else {
-              that.data.cardsItem[cardIndex].animate = false
+              that.data.world_cards[cardIndex].animate = false
             }
-            that.setData({ cardsItem: that.data.cardsItem })
+            that.setData({ world_cards: that.data.world_cards })
           })
         })
       }).exec()
@@ -163,10 +129,36 @@ Component({
   },
 
   observers: {
+    // 'winHeight': function() {
+    //   let that = this
+    //   wx.getSystemInfo({
+    //     success: function (res) {
+    //       let calc = res.windowHeight
+    //       that.setData({
+    //         winHeight: calc + 800 + 100
+    //       });
+    //     }
+    //   })
+    // },
     'currentTab': function(currentTab) {
       this.setData({ 
         navigatorLeft: this.data.currentTab * 25 + "%",
         posLeft_base: this.data.currentTab * -1 + 0.1
+      })
+    },
+    'world_cards_root': function(world_cards_root) {
+      this.setData({
+        world_cards: world_cards_root
+      })
+
+      let that = this
+      wx.getSystemInfo({
+        success: function (res) {
+          let calc = res.windowHeight
+          that.setData({
+            winHeight: calc + that.data.world_cards.length * 300 + 100
+          });
+        }
       })
     }
   }
