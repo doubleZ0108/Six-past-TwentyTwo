@@ -15,7 +15,9 @@
       <notice /> <!-- 25px height / 20px margin-top-bottom -->
     </wave>
 
-    <navigation-system world_cards_root="{{ world_cards }}" />
+    <navigation-system 
+      reach_bottom_flag_root="{{ reach_bottom_flag }}"
+      pull_down_flag_root="{{ pull_down_flag }}" />
 
     <decorate />
   </view>
