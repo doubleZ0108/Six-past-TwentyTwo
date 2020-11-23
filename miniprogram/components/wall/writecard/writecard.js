@@ -34,11 +34,11 @@ Component({
     switcher2_gender_now: "",
     switcher2_text: "女生",
     academy_array: [
-      "软件学院","土木学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
+      "未知","软件学院","土木学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
     ],
     academy_index: 0,
     grade_array: [
-      "大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
+      "未知","大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
     ],
     grade_index: 0,
     myName: "",
@@ -66,8 +66,6 @@ Component({
     },
 
     onWriteCardTap: function() {
-      console.log("tap")
-
       if(this.data.fold_class != "writecard-container-unfold") {
         this.backToTop()
         this.setData({ animate: true })
@@ -188,7 +186,6 @@ Component({
 
         if (absX > 2 * absY) {
           if(tmX > this.data.slip_tolerance) {
-            console.log("右滑=====")
             this.setData({ 
               fold_class: "",
             })
@@ -198,7 +195,6 @@ Component({
 
         if (absY > absX * 2) {
           if(tmY > this.data.slip_tolerance) {
-            console.log("下滑动=====")
             this.setData({ 
               fold_class: "",
             })

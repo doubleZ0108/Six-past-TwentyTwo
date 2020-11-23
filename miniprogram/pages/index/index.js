@@ -1,25 +1,58 @@
 
-//index.js
+// miniprogram/pages/index/index.js
 
 const app = getApp()
 
-
-// miniprogram/pages/index/index.js
-
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
 
+  },
+
+  onUserInfoTap: function() { 
+    wx.getUserInfo({
+      success: function(res) {
+        console.log(res)
+        app.globalData.userInfo = res.userInfo
+        wx.switchTab({
+          url: '../wall/wall',
+        })
+      },
+      fail: function(res) {
+        console.log(res)
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          console.log("已经授权过")
 
+          wx.getUserInfo({
+            success: function(res) {
+              console.log(res)
+              app.globalData.userInfo = res.userInfo
+              wx.switchTab({
+                url: '../wall/wall',
+              })
+            },
+            fail: function(res) {
+              console.log(res)
+            }
+          })
+          
+          wx.switchTab({
+            url: '../wall/wall',
+          })
+        }
+      }
+    })
+  
   },
 
   /**

@@ -1,23 +1,29 @@
 // components/wall/hero/hero.js
+
+const app = getApp()
+
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
 
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
+    avatarUrl: '../../../resource/img/avatar/default_avatar.png',
+    nickName: "起个名字吧",
+    gender: "神秘"
+  },
+
+  methods: {
 
   },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
+  lifetimes: {
+    attached: function() {
+      this.setData({
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+        nickName: app.globalData.userInfo.nickName,
+        gender: app.globalData.userInfo.gender==1 ? '男生' : (app.globalData.userInfo.gender==1 ? '女生' : '神秘')
+      })
+    }
   }
 })

@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/wall/wall",
     "pages/test/test",
-    "pages/index/index",
     "pages/comment/comment"
   ],
   "tabBar": {
