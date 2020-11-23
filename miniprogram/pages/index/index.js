@@ -2,6 +2,7 @@
 // miniprogram/pages/index/index.js
 
 const app = getApp()
+const db = wx.cloud.database()
 
 Page({
 
@@ -11,12 +12,33 @@ Page({
 
   onUserInfoTap: function() { 
     wx.getUserInfo({
-      success: function(res) {
-        console.log(res)
-        app.globalData.userInfo = res.userInfo
-        wx.switchTab({
-          url: '../wall/wall',
+      success: function(userInfo_res) {
+        app.globalData.userInfo = userInfo_res.userInfo
+
+        // @BACK √
+        wx.cloud.callFunction({
+          name: 'login',
+          data: {},
+          complete: function(login_res) {
+            app.globalData.openid = login_res.result.openid
+
+            db.collection('user').add({
+              data: {
+                openid: login_res.openid,
+                avatarUrl: userInfo_res.userInfo.avatarUrl,
+                nickName: userInfo_res.userInfo.nickName,
+                gender: userInfo_res.userInfo.gender==1 ? "男生" : (userInfo_res.userInfo.gender==2 ? "女生" : "未知")
+              },
+              success: function() {
+                wx.switchTab({
+                  url: '../wall/wall',
+                })
+              }
+            })
+
+          }
         })
+
       },
       fail: function(res) {
         console.log(res)
@@ -30,25 +52,28 @@ Page({
   onLoad: function (options) {
     wx.getSetting({
       success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          console.log("已经授权过")
+        if (res.authSetting['scope.userInfo']) {  // 已经授权过
 
-          wx.getUserInfo({
-            success: function(res) {
-              console.log(res)
-              app.globalData.userInfo = res.userInfo
-              wx.switchTab({
-                url: '../wall/wall',
+          wx.cloud.callFunction({
+            name: 'login',
+            data: {},
+            complete: function(login_res) {
+              app.globalData.openid = login_res.result.openid
+              wx.getUserInfo({
+                success: function(userInfo_res) {
+                  app.globalData.userInfo = userInfo_res.userInfo
+                  wx.switchTab({
+                    url: '../wall/wall',
+                  })
+                },
+                fail: function(res) {
+                  console.log(res)
+                }
               })
-            },
-            fail: function(res) {
-              console.log(res)
+
             }
           })
           
-          wx.switchTab({
-            url: '../wall/wall',
-          })
         }
       }
     })

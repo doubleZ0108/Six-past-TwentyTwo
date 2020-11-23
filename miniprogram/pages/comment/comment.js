@@ -1,4 +1,8 @@
 // miniprogram/pages/comment/comment.js
+
+const app = getApp()
+const db = wx.cloud.database()
+
 Page({
 
   /**
@@ -49,7 +53,10 @@ Page({
       },
     ],
     textarea: "",
-    fromVip: false
+    fromVip: false,
+    cardInfo: {
+
+    }
   },
 
 
@@ -94,6 +101,28 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.cardId)
+
+    let that = this
+    db.collection('card').where({
+      _id: options.cardId
+    }).get({
+      success: function(res){
+        let cardData = res.data[0]
+        that.setData({
+          cardInfo: {
+            name_left: cardData.myName,
+            name_right: cardData.taName,
+            academy: cardData.academy,
+            grade: cardData.grade,
+            description: cardData.textarea,
+            favorite: false,
+            star: false,
+            star_num: cardData.starNum
+          }
+        })
+      }
+    })
+
     if(options.vipcard) {
       console.log("this is from vipcard navigator!!!")
       this.setData({ fromVip: true })

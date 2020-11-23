@@ -1,4 +1,8 @@
 // components/wall/writecard/writecard.js
+
+const app = getApp()
+const db = wx.cloud.database()
+
 Component({
   /**
    * 组件的属性列表
@@ -146,24 +150,43 @@ Component({
         }
       }
 
-      this.setData({ 
-        toptip: {
-          msg: "表白发布成功～",
-          type: "success",
-          show: true
-        }
-       })
-
-      this.setData({
-        myName: "",
-        taName: "",
-        myDescription: "",
-        taDescription: "",
-        textarea: ""
-      })
-
-      // @BACK
+      // @BACK √
       console.log(writeData)
+      let that = this
+
+      db.collection('card').add({
+        data: {
+          openid: app.globalData.openid,
+          myName: e.detail.value.myName,
+          taName: e.detail.value.taName,
+          myGender: this.data.switcher1_text,
+          taGender: this.data.switcher2_text,
+          academy: this.data.academy_array[this.data.academy_index],
+          grade: this.data.grade_array[this.data.grade_index],
+          myDescription: e.detail.value.myDescription,
+          taDescription: e.detail.value.taDescription,
+          textarea: e.detail.value.textarea,
+          starNum: 0,
+          commentNum: 0
+        },
+        success: function() {
+          that.setData({ 
+            toptip: {
+              msg: "表白发布成功～",
+              type: "success",
+              show: true
+            }
+           })
+    
+          that.setData({
+            myName: "",
+            taName: "",
+            myDescription: "",
+            taDescription: "",
+            textarea: ""
+          })
+        }
+      })
     },
 
     touchStart: function(e) {

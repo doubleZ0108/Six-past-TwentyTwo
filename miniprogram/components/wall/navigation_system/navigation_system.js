@@ -1,5 +1,8 @@
 // components/wall/navigation_system/navigation_system.js
 
+const app = getApp()
+const db = wx.cloud.database()
+
 Component({
   properties: {
     reach_bottom_flag_root: {
@@ -138,6 +141,9 @@ Component({
 
 
 
+    /**
+     * FOR TEST
+     */
     initTestCards: function() {
       let cards = [
         {
@@ -225,9 +231,54 @@ Component({
   
   lifetimes: {
     attached: function() {
-      // @BACK 第一次进入主页时加载主页的卡x张
-      this.setData({ world_cards: this.initTestCards() })
-      this.adaptHeight()
+      let that = this
+      db.collection('card').where({
+
+      })
+      .get({
+        success: function(res) {
+          // @BACK 第一次进入主页时加载主页的卡x张
+          db.collection('user').where({
+            openid: res._openid
+          }).get({
+            success: function(user_res) {
+              let bin_cards = []
+              res.data.forEach(function(bin){
+                bin_cards.push({
+                  card_id: bin._id,
+                  name_left: bin.myName,
+                  name_right: bin.taName,
+                  gender_left: bin.myGender,
+                  gender_right: bin.taGender,
+                  avatar_url: user_res.data[0].avatarUrl,
+                  description: bin.textarea,
+                  academy: bin.academy,
+                  grade: bin.grade,
+                  bubble_left: bin.myDescription,
+                  bubble_right: bin.taDescription,
+                  favorite: false,
+                  star: false,
+                  star_num: bin.starNum,
+                  comment_num: bin.commentNum,
+                  refresh_flag: "refresh",
+                  animate: false
+                })
+                console.log(bin_cards)
+              })
+              
+              console.log(bin_cards)
+              
+              that.setData({ world_cards: bin_cards })
+    
+              that.adaptHeight()
+            }
+          })
+  
+        },
+        fail: function(res) {
+          console.log(res)
+        }
+      })
     },
 
     ready: function() {

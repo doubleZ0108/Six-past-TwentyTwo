@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    card_id: Number,
+    card_id: String,
     name_left: {
       type: String,
       value: "PersonLeft"

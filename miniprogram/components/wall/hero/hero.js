@@ -10,7 +10,10 @@ Component({
   data: {
     avatarUrl: '../../../resource/img/avatar/default_avatar.png',
     nickName: "起个名字吧",
-    gender: "神秘"
+    gender: "神秘",
+    academy: "未知学院",
+    grade: "未知年级",
+    motto: "二十二点零六"
   },
 
   methods: {

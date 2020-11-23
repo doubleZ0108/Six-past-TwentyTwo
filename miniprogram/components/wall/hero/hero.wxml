@@ -9,10 +9,10 @@
       <text class="info-name">{{ nickName }}</text>
       <view class="other-info-container">
         <text class="info-gender">{{ gender }}</text>
-        <text class="info-academy">软件学院</text>
-        <text class="info-grade">大四</text>
+        <text class="info-academy">{{ academy }}</text>
+        <text class="info-grade">{{ grade }}</text>
       </view>
     </view>
   </view>
-  <text class="info-motto">二十二点零六</text>
+  <text class="info-motto">{{ motto }}</text>
 </view>
