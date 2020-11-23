@@ -2,13 +2,13 @@
 <view class="hero-container">
   <view class="hero-inner-container">
     <view>
-      <image class="hero-avatar" src="../../../resource/img/avatar/avatar.jpg"></image>
+      <image class="hero-avatar" src="{{ avatarUrl }}"></image>
       <mp-badge style="position: absolute; transform: translateX(-25rpx);" content="New"/>
     </view>
     <view class="info-container">
-      <text class="info-name">doubleZ</text>
+      <text class="info-name">{{ nickName }}</text>
       <view class="other-info-container">
-        <text class="info-gender">男</text>
+        <text class="info-gender">{{ gender }}</text>
         <text class="info-academy">软件学院</text>
         <text class="info-grade">大四</text>
       </view>
