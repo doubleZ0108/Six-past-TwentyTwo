@@ -17,8 +17,8 @@
 
 </scroll-view>
 
-<vipcard posLeft="{{ (posLeft_base + 1)*100+ '%' }}" />
-<writecard posLeft="{{ (posLeft_base + 0)*100+ '%' }}"/>
+<vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}" />
+<writecard posLeft="{{ (posLeft_base + 1)*100+ '%' }}"/>
 <favoritecard posLeft="{{ (posLeft_base + 2)*100+ '%' }}"/>
 <searchcard posLeft="{{ (posLeft_base + 3)*100+ '%' }}"/>
 
@@ -44,6 +44,10 @@
         favorite="{{ item.favorite }}" star="{{ item.star }}" star_num="{{ item.star_num }}" comment_num="{{ item.comment_num }}"
         refresh_flag="{{ item.refresh_flag }}"
       />
+
+      <view data-weui-theme="dark">
+        <mp-loading type="circle" tips="正在加载中～" show="{{ show_loading }}" animated="true"></mp-loading>
+      </view>
     </view>
   </swiper-item>
 

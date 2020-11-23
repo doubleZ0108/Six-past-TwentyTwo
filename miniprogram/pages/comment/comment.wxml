@@ -7,6 +7,8 @@
 
 <view class="card-container card-container-unfold {{ fromVip ? 'vipcard-confirm' : ''}}">
 
+  <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
+  
   <view class="card-people">
     <text>leftNameleftNameleftNameleftNameleftName</text>
     <text class="iconfont iconaixin"></text>

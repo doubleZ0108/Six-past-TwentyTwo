@@ -5,6 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    toptip: {
+      msg: "",
+      type: "success",
+      show: false
+    },
     commentItem: [
       {
         avatarSrc: "../../resource/img/avatar/avatar.jpg",
@@ -57,17 +62,20 @@ Page({
 
     setTimeout(function(){
       if(that.data.textarea == "") {
-        wx.showToast({
-          title: "请完善所有内容",
-          mask: true,
-          icon: "none",
-          duration: 2000
+        that.setData({ 
+          toptip: {
+            msg: "请填写你的评论:)",
+            type: "error",
+            show: true
+          }
         })
       } else {
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 1000
+        that.setData({
+          toptip: {
+            msg: "评论成功～",
+            type: "success",
+            show: true
+          }
         })
 
         let commentData = {

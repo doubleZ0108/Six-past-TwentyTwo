@@ -35,6 +35,7 @@ Component({
     winHeight: 0,
     navigatorLeft: 0,
     posLeft_base: 0.1,
+    show_loading: false,
 
     world_cards: [],
     my_cards: [],
@@ -322,12 +323,11 @@ Component({
       if(reach_bottom_flag_root) {
         console.log(this.data.currentTab, "加载更多...")
 
-        wx.showToast({
-          title: '正在加载xx信息',
-          icon: 'loading',
-          duration: 2000,
-          mask: true
-        })
+        this.setData({ show_loading: true })
+        let that = this
+        setTimeout(function() {
+          that.setData({ show_loading: false })
+        }, 2000)    // TODO 查询后端结束回调
 
         // @BACK 根据不同的tab拉取触底的新cards
         let fresh_cards = this.getFreshTestCard()

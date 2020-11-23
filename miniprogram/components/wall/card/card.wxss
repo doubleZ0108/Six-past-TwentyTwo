@@ -291,6 +291,15 @@
   transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
+.function-favorite {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.function-favorite .iconfont {
+  width: 100%;
+}
+
 .function-star {
   display: flex;
   flex-direction: row;

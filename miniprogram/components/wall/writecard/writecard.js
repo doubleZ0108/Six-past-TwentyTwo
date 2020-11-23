@@ -20,6 +20,12 @@ Component({
     // writecard_height: "100vh",
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     animate: false,
+    toptip: {
+      msg: "",
+      type: "success",
+      show: false
+    },
+    show_error: false,  // 未完善所有所有信息提交时报错
     touchDotX: 0,
     touchDotY: 0,
     writecard_bg: "../../../resource/img/write/fold_bg.svg",
@@ -60,8 +66,12 @@ Component({
     },
 
     onWriteCardTap: function() {
-      this.backToTop()
-      this.setData({ animate: true })
+      console.log("tap")
+
+      if(this.data.fold_class != "writecard-container-unfold") {
+        this.backToTop()
+        this.setData({ animate: true })
+      }
 
       let that = this
       setTimeout(function() {
@@ -126,21 +136,25 @@ Component({
 
       for(var index in writeData){
         if(writeData[index] == ""){
-          wx.showToast({
-            title: "请完善所有内容",
-            mask: true,
-            icon: "none",
-            duration: 2000
+          console.log("请完善所有信息")
+          this.setData({ 
+            toptip: {
+              msg: "请完善所有内容:)",
+              type: "error",
+              show: true
+            }
           })
           return
         }
       }
 
-      wx.showToast({
-        title: '成功',
-        icon: 'success',
-        duration: 1000
-      })
+      this.setData({ 
+        toptip: {
+          msg: "表白发布成功～",
+          type: "success",
+          show: true
+        }
+       })
 
       this.setData({
         myName: "",
@@ -177,7 +191,6 @@ Component({
             console.log("右滑=====")
             this.setData({ 
               fold_class: "",
-              turn_over_class: ""
             })
             return
           }
