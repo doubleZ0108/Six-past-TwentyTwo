@@ -2,7 +2,7 @@
 <view class="notice-container">
   <text class="iconfont iconlaba notice-icon"></text>
   <view class="notice-info-container">
-    <text>公告: </text>
+    <text style="transform: translateY(3rpx);">公告: </text>
     <view class="notice-info-group">
       <text>{{ notices[notice_index] }}</text>
       <text>{{ notices[(notice_index + 1) % notices.length] }}</text>

@@ -143,7 +143,7 @@ Component({
               type: "error",
               show: true
             }
-           })
+          })
           return
         }
       }

@@ -39,10 +39,6 @@
   justify-content: center;
 }
 
-.notice-info-container > text {
-  transform: translateY(3rpx);
-}
-
 .notice-info-group {
   width: 90%;
   height: var(--notice-height);

@@ -151,6 +151,15 @@
   font-size: 35rpx;
 }
 
+.function-favorite {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.function-favorite .iconfont {
+  width: 100%;
+}
+
 .function-star {
   display: flex;
   flex-direction: row;

@@ -159,6 +159,9 @@
 }
 
 .function-favorite {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-left: 25rpx;
   font-size: 40rpx;
 }
