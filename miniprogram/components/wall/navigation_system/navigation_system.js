@@ -322,12 +322,11 @@ Component({
       if(reach_bottom_flag_root) {
         console.log(this.data.currentTab, "加载更多...")
 
-        wx.showToast({
-          title: '正在加载xx信息',
-          icon: 'loading',
-          duration: 2000,
+        wx.showLoading({
+          title: '正在加载中',
           mask: true
         })
+        wx.hideLoading()
 
         // @BACK 根据不同的tab拉取触底的新cards
         let fresh_cards = this.getFreshTestCard()

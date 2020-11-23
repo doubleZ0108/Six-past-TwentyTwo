@@ -5,6 +5,7 @@
     "card": "../card/card",
     "writecard": "../writecard/writecard",
     "favoritecard": "../favoritecard/favoritecard",
-    "searchcard": "../searchcard/searchcard"
+    "searchcard": "../searchcard/searchcard",
+    "mp-loading": "/miniprogram_npm/weui-miniprogram/loading/loading"
   }
 }

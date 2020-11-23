@@ -13,13 +13,15 @@
   margin: 30rpx auto;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
   padding-top: 10rpx;
   border-top: rgba(255, 255, 255, .4) 3rpx solid;
 }
 
 .notice-icon {
-  font-size: 30rpx;
+  font-size: 35rpx;
   color: rgba(255,255,255,.83);
 }
 
@@ -35,6 +37,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.notice-info-container > text {
+  transform: translateY(3rpx);
 }
 
 .notice-info-group {
