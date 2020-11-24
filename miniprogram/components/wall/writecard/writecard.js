@@ -168,26 +168,34 @@ Component({
           textarea: e.detail.value.textarea,
           starNum: 0,
           commentNum: 0,
-          time: timeUtil.formatDate(new Date())
+          time: timeUtil.formatTime(new Date())
         },
-        success: function() {
-          that.setData({ 
-            toptip: {
-              msg: "表白发布成功～",
-              type: "success",
-              show: true
+        success: function(res) {
+
+          db.collection('comment').add({
+            data: {
+              cardId: res._id,
+              commentList: []
+            },
+            success: function() {
+              that.setData({ 
+                toptip: {
+                  msg: "表白发布成功～",
+                  type: "success",
+                  show: true
+                },
+                myName: "",
+                taName: "",
+                myDescription: "",
+                taDescription: "",
+                textarea: ""
+               })
             }
-           })
-    
-          that.setData({
-            myName: "",
-            taName: "",
-            myDescription: "",
-            taDescription: "",
-            textarea: ""
           })
+
         }
       })
+
     },
 
     touchStart: function(e) {

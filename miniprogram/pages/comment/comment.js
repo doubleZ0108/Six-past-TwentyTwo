@@ -1,5 +1,6 @@
 // miniprogram/pages/comment/comment.js
 
+const timeUtil = require('../../utils/time')
 const app = getApp()
 const db = wx.cloud.database()
 
@@ -11,20 +12,38 @@ Page({
       type: "success",
       show: false
     },
-    commentItem: [
-      {
-        avatarSrc: "../../resource/img/avatar/avatar.jpg",
-        name: "名字",
-        content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论",
-        animate: false
-      },
-    ],
+    commentItem: [],
     textarea: "",
     fromVip: false,
     cardInfo: {},
     favorite_flag: false,
     star_flag: false,
     star_num_flag: 0,
+  },
+
+  handleIntersectionObserver: function() {
+    let that = this
+    const query = wx.createSelectorQuery()
+    query.selectAll(".comment-group").fields({
+      id: true,
+      context: true,
+      node: true
+    }, function (resList) {
+      resList.forEach((res)=>{
+        wx.createIntersectionObserver().relativeToViewport().observe('#'+res.id, (node) => {
+          // console.log(res.id, node.intersectionRatio)
+          let commentIndex = parseInt(res.id.substr(8))
+          if(node.intersectionRatio != 0) {
+            that.data.commentItem[commentIndex].animate = true
+          } else {
+            that.data.commentItem[commentIndex].animate = false
+          }
+          that.setData({ commentItem: that.data.commentItem })
+        })
+      })
+    }).exec()
+
+    
   },
 
 
@@ -54,12 +73,38 @@ Page({
         })
 
         let commentData = {
-          comment: that.data.textarea
+          comment: that.data.textarea,
+          openid: app.globalData.openid,
+          time: timeUtil.formatTime(new Date()),
+          avatarUrl: app.globalData.userInfo.avatarUrl,
+          nickName: app.globalData.userInfo.nickName,
         }
-        that.setData({ textarea: "" })
-        console.log(commentData)
 
-        // @BACK
+        let fresh_commentItem = {
+          avatarSrc: app.globalData.userInfo.avatarUrl,
+          name: app.globalData.userInfo.nickName,
+          content: that.data.textarea,
+          animate: false
+        }
+
+        that.setData({
+           commentItem: that.data.commentItem.concat([fresh_commentItem])
+        })
+
+        that.handleIntersectionObserver()
+
+        // @BACK √
+        wx.cloud.callFunction({
+          name: "comment",
+          data: {
+            cardId: that.data.cardInfo.card_id,
+            commentData: commentData,
+          },
+          complete: function() {
+            that.setData({ textarea: "" })
+          }
+        })
+
       }
     }, 500)    // 让blur事件执行完
   },
@@ -203,6 +248,28 @@ Page({
       }
     })
     
+    // TODO @BACK comment list
+    db.collection('comment').where({
+      cardId: options.cardId
+    }).get({
+      success: function(res) {
+        let commentList = res.data[0].commentList
+        commentList.forEach(function(comment) {
+          that.setData({
+            commentItem: that.data.commentItem.concat({
+              avatarSrc: comment.avatarUrl,
+              name: comment.nickName,
+              content: comment.comment,
+              animate: false
+            })
+          })
+        })
+
+        that.handleIntersectionObserver()
+
+      }
+    })
+
 
     if(options.vipcard) {
       console.log("this is from vipcard navigator!!!")
@@ -221,29 +288,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that = this;
-
-    const query = wx.createSelectorQuery()
-    query.selectAll(".comment-group").fields({
-      id: true,
-      context: true,
-      node: true
-    }, function (resList) {
-      resList.forEach((res)=>{
-        wx.createIntersectionObserver().relativeToViewport().observe('#'+res.id, (node) => {
-          // console.log(res.id, node.intersectionRatio)
-          let commentIndex = parseInt(res.id.substr(8))
-          if(node.intersectionRatio != 0) {
-            that.data.commentItem[commentIndex].animate = true
-          } else {
-            that.data.commentItem[commentIndex].animate = false
-          }
-          that.setData({ commentItem: that.data.commentItem })
-        })
-      })
-    }).exec()
-
-    
+    this.handleIntersectionObserver()
   },
 
   /**

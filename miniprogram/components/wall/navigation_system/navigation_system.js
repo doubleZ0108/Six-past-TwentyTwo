@@ -274,6 +274,7 @@ Component({
           console.log(res)
         }
       })
+   
     },
 
     ready: function() {
@@ -338,6 +339,50 @@ Component({
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
         
+        let that = this
+      db.collection('card').where({
+
+      })
+      .get({
+        success: function(res) {
+          db.collection('user').where({
+            openid: res._openid
+          }).get({
+            success: function(user_res) {
+              let bin_cards = []
+              res.data.forEach(function(bin){
+                bin_cards.push({
+                  card_id: bin._id,
+                  name_left: bin.myName,
+                  name_right: bin.taName,
+                  gender_left: bin.myGender,
+                  gender_right: bin.taGender,
+                  avatar_url: user_res.data[0].avatarUrl,
+                  description: bin.textarea,
+                  academy: bin.academy,
+                  grade: bin.grade,
+                  bubble_left: bin.myDescription,
+                  bubble_right: bin.taDescription,
+                  star_num: bin.starNum,
+                  comment_num: bin.commentNum,
+                  refresh_flag: "refresh",
+                  animate: false
+                })
+              })
+                            
+              that.setData({ world_cards: bin_cards })
+    
+              that.adaptHeight()
+            }
+          })
+  
+        },
+        fail: function(res) {
+          console.log(res)
+        }
+      })
+   
+
         // @BACK 根据不同的tab重新拉取该tab的cards
         // switch(this.data.currentTab) {
         //   case 0: {
