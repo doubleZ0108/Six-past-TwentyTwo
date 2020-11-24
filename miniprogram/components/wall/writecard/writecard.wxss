@@ -246,11 +246,13 @@
   border-radius: 50rpx;
 }
 
-.writecard-container-unfold .writecard-description input:nth-child(2) {
+.writecard-container-unfold .writecard-description .gender-now-male {
   background: linear-gradient(104deg, rgba(158, 232, 240, 0.6),rgba(132,157,172,.6),rgba(132,157,172,.3), rgb(27,238,192,.3));
+  transition: 1.2s cubic-bezier(.8,.2,.8,1);
 }
-.writecard-container-unfold .writecard-description input:nth-child(3) {
+.writecard-container-unfold .writecard-description .gender-now-female {
   background: linear-gradient(104deg, rgba(187, 158, 240, 0.6),rgba(172,137,151,.6),rgba(172,137,151,.3), rgba(241, 170, 182, 0.5));
+  transition: 1.2s cubic-bezier(.8,.2,.8,1);
 }
 
 /*============ textarea ============*/

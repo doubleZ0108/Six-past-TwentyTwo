@@ -1,5 +1,6 @@
 // components/wall/writecard/writecard.js
 
+const timeUtil = require('../../../utils/time')
 const app = getApp()
 const db = wx.cloud.database()
 
@@ -33,9 +34,9 @@ Component({
     touchDotX: 0,
     touchDotY: 0,
     writecard_bg: "../../../resource/img/write/fold_bg.svg",
-    switcher1_gender_now: "",
+    switcher1_gender_now: "gender-now-male",
     switcher1_text: "男生",
-    switcher2_gender_now: "",
+    switcher2_gender_now: "gender-now-femal",
     switcher2_text: "女生",
     academy_array: [
       "未知","软件学院","土木学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
@@ -153,7 +154,6 @@ Component({
       // @BACK √
       console.log(writeData)
       let that = this
-
       db.collection('card').add({
         data: {
           openid: app.globalData.openid,
@@ -167,7 +167,8 @@ Component({
           taDescription: e.detail.value.taDescription,
           textarea: e.detail.value.textarea,
           starNum: 0,
-          commentNum: 0
+          commentNum: 0,
+          time: timeUtil.formatDate(new Date())
         },
         success: function() {
           that.setData({ 

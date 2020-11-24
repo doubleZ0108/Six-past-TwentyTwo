@@ -56,9 +56,9 @@
             <text>一句话描述</text>
             <text></text>
           </view>
-          <input type="text" name="myDescription" value="{{ myDescription }}"
+          <input class="{{ switcher1_gender_now }}" type="text" name="myDescription" value="{{ myDescription }}"
             placeholder="我对自己的描述" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
-          <input type="text" name="taDescription" value="{{ taDescription }}"
+          <input class="{{ switcher2_gender_now }}" type="text" name="taDescription" value="{{ taDescription }}"
             placeholder="我对TA的描述" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
         </view>
 

@@ -263,11 +263,8 @@ Component({
                   refresh_flag: "refresh",
                   animate: false
                 })
-                console.log(bin_cards)
               })
-              
-              console.log(bin_cards)
-              
+                            
               that.setData({ world_cards: bin_cards })
     
               that.adaptHeight()
@@ -313,28 +310,28 @@ Component({
       })
 
       // @BACK 根据不同的tab重新拉取不同的cards
-      switch(currentTab) {
-        case 0: {
-          this.setData({ world_cards: this.initTestCards() })
-          break
-        }
-        case 1: {
-          this.setData({ my_cards: this.initTestCards() })
-          break
-        }
-        case 2: {
-          this.setData({ favorite_cards: this.initTestCards() })
-          break
-        }
-        case 3: {
-          this.setData({ filter_cards: this.initTestCards() })
-          break
-        }
-        default: {
-          this.setData({ world_cards: this.initTestCards() })
-          break
-        }
-      }
+      // switch(currentTab) {
+      //   case 0: {
+      //     this.setData({ world_cards: this.initTestCards() })
+      //     break
+      //   }
+      //   case 1: {
+      //     this.setData({ my_cards: this.initTestCards() })
+      //     break
+      //   }
+      //   case 2: {
+      //     this.setData({ favorite_cards: this.initTestCards() })
+      //     break
+      //   }
+      //   case 3: {
+      //     this.setData({ filter_cards: this.initTestCards() })
+      //     break
+      //   }
+      //   default: {
+      //     this.setData({ world_cards: this.initTestCards() })
+      //     break
+      //   }
+      // }
 
       // 切换tab时自动滑动到顶端
       this.backToTop()
@@ -344,28 +341,28 @@ Component({
         console.log(this.data.currentTab, "下拉刷新...")
         
         // @BACK 根据不同的tab重新拉取该tab的cards
-        switch(this.data.currentTab) {
-          case 0: {
-            this.setData({ world_cards: this.initTestCards() })
-            break
-          }
-          case 1: {
-            this.setData({ my_cards: this.initTestCards() })
-            break
-          }
-          case 2: {
-            this.setData({ favorite_cards: this.initTestCards() })
-            break
-          }
-          case 3: {
-            this.setData({ filter_cards: this.initTestCards() })
-            break
-          }
-          default: {
-            this.setData({ world_cards: this.initTestCards() })
-            break
-          }
-        }
+        // switch(this.data.currentTab) {
+        //   case 0: {
+        //     this.setData({ world_cards: this.initTestCards() })
+        //     break
+        //   }
+        //   case 1: {
+        //     this.setData({ my_cards: this.initTestCards() })
+        //     break
+        //   }
+        //   case 2: {
+        //     this.setData({ favorite_cards: this.initTestCards() })
+        //     break
+        //   }
+        //   case 3: {
+        //     this.setData({ filter_cards: this.initTestCards() })
+        //     break
+        //   }
+        //   default: {
+        //     this.setData({ world_cards: this.initTestCards() })
+        //     break
+        //   }
+        // }
       
         this.adaptHeight()
       }
@@ -381,44 +378,44 @@ Component({
         }, 2000)    // TODO 查询后端结束回调
 
         // @BACK 根据不同的tab拉取触底的新cards
-        let fresh_cards = this.getFreshTestCard()
-        switch(this.data.currentTab) {
-          case 0: {
-            let fresh_world_cards = this.data.world_cards.concat(fresh_cards)
-            this.setData({
-              world_cards: fresh_world_cards
-            })
-            break
-          }
-          case 1: {
-            let fresh_my_cards = this.data.my_cards.concat(fresh_cards)
-            this.setData({
-              my_cards: fresh_my_cards
-            })
-            break
-          }
-          case 2: {
-            let fresh_favorite_cards = this.data.favorite_cards.concat(fresh_cards)
-            this.setData({
-              favorite_cards: fresh_favorite_cards
-            })
-            break
-          }
-          case 3: {
-            let fresh_filter_cards = this.data.filter_cards.concat(fresh_cards)
-            this.setData({
-              filter_cards: fresh_filter_cards
-            })
-            break
-          }
-          default: {
-            let fresh_world_cards = this.data.world_cards.concat(fresh_cards)
-            this.setData({
-              world_cards: fresh_world_cards
-            })
-            break
-          }
-        }
+        // let fresh_cards = this.getFreshTestCard()
+        // switch(this.data.currentTab) {
+        //   case 0: {
+        //     let fresh_world_cards = this.data.world_cards.concat(fresh_cards)
+        //     this.setData({
+        //       world_cards: fresh_world_cards
+        //     })
+        //     break
+        //   }
+        //   case 1: {
+        //     let fresh_my_cards = this.data.my_cards.concat(fresh_cards)
+        //     this.setData({
+        //       my_cards: fresh_my_cards
+        //     })
+        //     break
+        //   }
+        //   case 2: {
+        //     let fresh_favorite_cards = this.data.favorite_cards.concat(fresh_cards)
+        //     this.setData({
+        //       favorite_cards: fresh_favorite_cards
+        //     })
+        //     break
+        //   }
+        //   case 3: {
+        //     let fresh_filter_cards = this.data.filter_cards.concat(fresh_cards)
+        //     this.setData({
+        //       filter_cards: fresh_filter_cards
+        //     })
+        //     break
+        //   }
+        //   default: {
+        //     let fresh_world_cards = this.data.world_cards.concat(fresh_cards)
+        //     this.setData({
+        //       world_cards: fresh_world_cards
+        //     })
+        //     break
+        //   }
+        // }
 
         this.adaptHeight()
       }

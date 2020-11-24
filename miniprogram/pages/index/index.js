@@ -15,7 +15,7 @@ Page({
       success: function(userInfo_res) {
         app.globalData.userInfo = userInfo_res.userInfo
 
-        // @BACK √
+        // 用户注册 @BACK √
         wx.cloud.callFunction({
           name: 'login',
           data: {},
@@ -30,8 +30,18 @@ Page({
                 gender: userInfo_res.userInfo.gender==1 ? "男生" : (userInfo_res.userInfo.gender==2 ? "女生" : "未知")
               },
               success: function() {
-                wx.switchTab({
-                  url: '../wall/wall',
+
+                db.collection('behavior').add({
+                  data: {
+                    openid: login_res.openid,
+                    favoriteList: [],
+                    starList: []
+                  },
+                  success: function() {
+                    wx.switchTab({
+                      url: '../wall/wall',
+                    })
+                  }
                 })
               }
             })
@@ -54,6 +64,7 @@ Page({
       success(res) {
         if (res.authSetting['scope.userInfo']) {  // 已经授权过
 
+          /** 用户登陆获取openid */
           wx.cloud.callFunction({
             name: 'login',
             data: {},

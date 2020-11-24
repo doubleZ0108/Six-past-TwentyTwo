@@ -1,4 +1,8 @@
 // components/wall/card/card.js
+
+const app = getApp()
+const db = wx.cloud.database()
+
 Component({
   /**
    * 组件的属性列表
@@ -68,6 +72,42 @@ Component({
       let that = this
       this.setData({ favorite_flag: !that.data.favorite_flag })
       // @BACK
+
+      that = this
+      if(that.data.favorite_flag) {
+        wx.cloud.callFunction({
+          name: "favorite",
+          data: {
+            card_id: that.properties.card_id,
+            favorite_now: true
+          },
+          complete: function(res) {
+            console.log("点赞成功")
+          }
+        })
+      } else {
+        db.collection('behavior').where({
+          _openid: app.globalData.openid
+        }).get({
+          success: function(res) {
+            let fresh_favoriteList = res.data[0].favoriteList
+            fresh_favoriteList.splice(fresh_favoriteList.indexOf(that.properties.card_id), 1)
+            
+            wx.cloud.callFunction({
+              name: "favorite",
+              data: {
+                card_id: that.properties.card_id,
+                favorite_now: false,
+                fresh_favoriteList: fresh_favoriteList
+              },
+              complete: function(res) {
+                console.log("取消点赞成功")
+              }
+            })
+
+          }
+        })
+      }
 
     },
     onStarTap: function() {
