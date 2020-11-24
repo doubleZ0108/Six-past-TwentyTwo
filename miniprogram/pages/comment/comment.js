@@ -5,9 +5,6 @@ const db = wx.cloud.database()
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     toptip: {
       msg: "",
@@ -21,42 +18,13 @@ Page({
         content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论",
         animate: false
       },
-      {
-        avatarSrc: "../../resource/img/avatar/avatar.jpg",
-        name: "名字",
-        content: "这是一条很短的评论",
-        animate: false
-      },
-      {
-        avatarSrc: "../../resource/img/avatar/avatar.jpg",
-        name: "名字",
-        content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论",
-        animate: false
-      },
-      {
-        avatarSrc: "../../resource/img/avatar/avatar.jpg",
-        name: "名字",
-        content: "这是一条很短的评论",
-        animate: false
-      },
-      {
-        avatarSrc: "../../resource/img/avatar/avatar.jpg",
-        name: "名字",
-        content: "这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论这是一条很长的评论,这是一条很长的评论,这是一条很长的评论,这是一条很长的评论",
-        animate: false
-      },
-      {
-        avatarSrc: "../../resource/img/avatar/avatar.jpg",
-        name: "名字",
-        content: "这是一条很短的评论",
-        animate: false
-      },
     ],
     textarea: "",
     fromVip: false,
-    cardInfo: {
-
-    }
+    cardInfo: {},
+    favorite_flag: false,
+    star_flag: false,
+    star_num_flag: 0,
   },
 
 
@@ -96,6 +64,95 @@ Page({
     }, 500)    // 让blur事件执行完
   },
 
+
+  onFavoriteTap: function() {
+    let that = this
+    this.setData({ favorite_flag: !that.data.favorite_flag })
+
+    // @BACK
+    that = this
+    if(that.data.favorite_flag) {
+      wx.cloud.callFunction({
+        name: "favorite",
+        data: {
+          card_id: that.data.cardInfo.card_id,
+          favorite_now: true
+        },
+        complete: function(res) {
+          console.log("收藏成功")
+        }
+      })
+    } else {
+      db.collection('behavior').where({
+        _openid: app.globalData.openid
+      }).get({
+        success: function(res) {
+          let fresh_favoriteList = res.data[0].favoriteList
+          fresh_favoriteList.splice(fresh_favoriteList.indexOf(that.data.cardInfo.card_id), 1)
+          
+          wx.cloud.callFunction({
+            name: "favorite",
+            data: {
+              card_id: that.data.cardInfo.card_id,
+              favorite_now: false,
+              fresh_favoriteList: fresh_favoriteList
+            },
+            complete: function(res) {
+              console.log("取消收藏成功")
+            }
+          })
+
+        }
+      })
+    }
+
+  },
+  onStarTap: function() {
+    let starNow = this.data.star_flag
+    let starNumNow = this.data.star_num_flag
+    this.setData({ 
+      star_flag: !starNow,
+      star_num_flag: starNow ? starNumNow - 1 : starNumNow + 1
+    })
+
+    // @BACK
+    let that = this
+    if(that.data.star_flag) {
+      wx.cloud.callFunction({
+        name: "star",
+        data: {
+          card_id: that.data.cardInfo.card_id,
+          star_now: true
+        },
+        complete: function(res) {
+          console.log("点赞成功")
+        }
+      })
+    } else {
+      db.collection('behavior').where({
+        _openid: app.globalData.openid,
+      }).get({
+        success: function(res) {
+          let fresh_starList = res.data[0].starList
+          fresh_starList.splice(fresh_starList.indexOf(that.data.cardInfo.card_id), 1)
+
+          wx.cloud.callFunction({
+            name: "star",
+            data: {
+              card_id: that.data.cardInfo.card_id,
+              star_now: false,
+              fresh_starList: fresh_starList
+            },
+            complete: function(res) {
+              console.log("取消收藏成功")
+            }
+          })
+
+        }
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -103,6 +160,7 @@ Page({
     console.log(options.cardId)
 
     let that = this
+    /** card info */
     db.collection('card').where({
       _id: options.cardId
     }).get({
@@ -110,6 +168,7 @@ Page({
         let cardData = res.data[0]
         that.setData({
           cardInfo: {
+            card_id: options.cardId,
             name_left: cardData.myName,
             name_right: cardData.taName,
             academy: cardData.academy,
@@ -117,11 +176,33 @@ Page({
             description: cardData.textarea,
             favorite: false,
             star: false,
-            star_num: cardData.starNum
-          }
+          },
+          star_num_flag: cardData.starNum
         })
       }
     })
+
+    /** behavior favorite star */
+    db.collection('behavior').where({
+      _openid: app.globalData.openid
+    }).get({
+      success: function(res) {
+        let userBehavior = res.data[0]
+        console.log(userBehavior)
+        if(userBehavior.favoriteList.indexOf(options.cardId) != -1) {
+          that.setData({ 
+            favorite_flag: true 
+          })
+        }
+        if(userBehavior.starList.indexOf(options.cardId) != -1) {
+          that.setData({ 
+            star_flag: true
+          })
+        }
+        console.log(that.data)
+      }
+    })
+    
 
     if(options.vipcard) {
       console.log("this is from vipcard navigator!!!")

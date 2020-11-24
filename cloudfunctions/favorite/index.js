@@ -2,14 +2,14 @@
 const cloud = require('wx-server-sdk')
 cloud.init()
 
-const db = cloud.database()//链接数据库
+const db = cloud.database()
 const _ = db.command
 
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
-  if(event.favorite_now) {
+  if(event.favorite_now) {  // 收藏
     db.collection('behavior').where({
       _openid: wxContext.OPENID,
     }).update({
@@ -17,8 +17,7 @@ exports.main = async (event, context) => {
         favoriteList: _.push(event.card_id)
       }
     })
-  } else {
-
+  } else {    // 取消收藏
     db.collection('behavior').where({
       _openid: wxContext.OPENID
     }).update({
@@ -26,6 +25,7 @@ exports.main = async (event, context) => {
         favoriteList: _.set(event.fresh_favoriteList)
       }
     })
-
   }
+
+  return
 }

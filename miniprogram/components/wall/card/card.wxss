@@ -334,6 +334,10 @@
   color: rgba(124, 200, 245, 0.8);
 }
 
+.iconfont-comment-colorful {
+  color: rgba(110, 240, 201, .8);
+}
+
 
 /************* normalcard *******************/
 /* 
