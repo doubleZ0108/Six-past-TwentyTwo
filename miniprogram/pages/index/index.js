@@ -35,7 +35,8 @@ Page({
                   data: {
                     openid: login_res.openid,
                     favoriteList: [],
-                    starList: []
+                    starList: [],
+                    commentList: []
                   },
                   success: function() {
                     wx.switchTab({

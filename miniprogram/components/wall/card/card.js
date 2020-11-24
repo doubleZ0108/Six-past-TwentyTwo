@@ -4,9 +4,7 @@ const app = getApp()
 const db = wx.cloud.database()
 
 Component({
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
     card_id: String,
     name_left: {
@@ -37,7 +35,6 @@ Component({
     grade: String,
     bubble_left: String,
     bubble_right: String,
-    star: Boolean,
     star_num: Number,
     comment_num: Number,
     refresh_flag: String,
@@ -52,7 +49,8 @@ Component({
     unfold: "",
     favorite_flag: false,
     star_flag: false,
-    star_num_flag: 0
+    star_num_flag: 0,
+    comment_flag: false
   },
 
   /**
@@ -70,8 +68,8 @@ Component({
     onFavoriteTap: function() {
       let that = this
       this.setData({ favorite_flag: !that.data.favorite_flag })
-      // @BACK
 
+      // @BACK √
       that = this
       if(that.data.favorite_flag) {
         wx.cloud.callFunction({
@@ -81,7 +79,7 @@ Component({
             favorite_now: true
           },
           complete: function(res) {
-            console.log("点赞成功")
+            console.log("收藏成功")
           }
         })
       } else {
@@ -100,7 +98,7 @@ Component({
                 fresh_favoriteList: fresh_favoriteList
               },
               complete: function(res) {
-                console.log("取消点赞成功")
+                console.log("取消收藏成功")
               }
             })
 
@@ -117,29 +115,74 @@ Component({
         star_num_flag: starNow ? starNumNow - 1 : starNumNow + 1
       })
 
-      // @BACK
+      // @BACK √
+      let that = this
+      if(that.data.star_flag) {
+        wx.cloud.callFunction({
+          name: "star",
+          data: {
+            card_id: that.properties.card_id,
+            star_now: true
+          },
+          complete: function(res) {
+            console.log("点赞成功")
+          }
+        })
+      } else {
+        db.collection('behavior').where({
+          _openid: app.globalData.openid,
+        }).get({
+          success: function(res) {
+            let fresh_starList = res.data[0].starList
+            fresh_starList.splice(fresh_starList.indexOf(that.properties.card_id), 1)
 
+            wx.cloud.callFunction({
+              name: "star",
+              data: {
+                card_id: that.properties.card_id,
+                star_now: false,
+                fresh_starList: fresh_starList
+              },
+              complete: function(res) {
+                console.log("取消收藏成功")
+              }
+            })
+
+          }
+        })
+      }
     }
   },
 
   lifetimes: {
     attached: function() {
-      this.setData({
-        star_flag: this.properties.star,
-        star_num_flag: this.properties.star_num
-      })
 
       // @BACK 如果人的favoriteList中有这个卡 点亮icon
       let that = this
+      that.setData({
+        star_num_flag: this.properties.star_num
+      })
+
       db.collection('behavior').where({
         _openid: app.globalData.openid
       }).get({
         success: function(res){
-          if(!res.data[0].favoriteList.indexOf(that.data.card_id)) {
+          let userBehavior = res.data[0]
+          if(userBehavior.favoriteList.indexOf(that.data.card_id) != -1) {
             that.setData({ favorite_flag: true })
+          }
+
+          if(userBehavior.starList.indexOf(that.data.card_id) != -1) {
+            that.setData({ star_flag: true })
+          }
+
+          if(userBehavior.commentList.indexOf(that.data.card_id) != -1) {
+            that.setData({ comment_flag: true })
           }
         }
       })
+
+
     },
   },
 

@@ -256,7 +256,6 @@ Component({
                   grade: bin.grade,
                   bubble_left: bin.myDescription,
                   bubble_right: bin.taDescription,
-                  star: false,
                   star_num: bin.starNum,
                   comment_num: bin.commentNum,
                   refresh_flag: "refresh",
