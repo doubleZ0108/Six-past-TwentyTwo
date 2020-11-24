@@ -295,21 +295,46 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // console.log("comment page unload")
+    let pages = getCurrentPages()
+    let prepage = pages[pages.length-2]
+    prepage.setData({
+      unfold_refresh_flag: true
+    })
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    let that = this
+    that.setData({ commentItem: [] })
+    db.collection('comment').where({
+      cardId: that.data.cardInfo.card_id
+    }).get({
+      success: function(res) {
+        let commentList = res.data[0].commentList
+        commentList.forEach(function(comment) {
+          that.setData({
+            commentItem: that.data.commentItem.concat({
+              avatarSrc: comment.avatarUrl,
+              name: comment.nickName,
+              content: comment.comment,
+              animate: false
+            })
+          })
+        })
+        that.handleIntersectionObserver()
+        wx.stopPullDownRefresh()
+      }
+    })
   },
 
   /**

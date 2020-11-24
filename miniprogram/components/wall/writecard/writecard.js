@@ -36,7 +36,7 @@ Component({
     writecard_bg: "../../../resource/img/write/fold_bg.svg",
     switcher1_gender_now: "gender-now-male",
     switcher1_text: "男生",
-    switcher2_gender_now: "gender-now-femal",
+    switcher2_gender_now: "gender-now-female",
     switcher2_text: "女生",
     academy_array: [
       "未知","软件学院","土木学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"

@@ -12,6 +12,10 @@ Component({
     pull_down_flag_root: {
       type: Boolean,
       value: false
+    },
+    unfold_refresh_flag: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -39,6 +43,7 @@ Component({
     navigatorLeft: 0,
     posLeft_base: 0.1,
     show_loading: false,
+    unfold_refresh_flag_naviagtion_system: false,
 
     world_cards: [],
     my_cards: [],
@@ -231,6 +236,7 @@ Component({
   
   lifetimes: {
     attached: function() {
+
       let that = this
       db.collection('card').get({
         success: function(res) {
@@ -294,6 +300,12 @@ Component({
   },
 
   observers: {
+    'unfold_refresh_flag': function(unfold_refresh_flag) {
+      if(unfold_refresh_flag) {
+        // console.log("navigation system is signialed")
+        this.setData({ unfold_refresh_flag_naviagtion_system : unfold_refresh_flag })
+      }
+    },
     'currentTab': function(currentTab) {
       this.setData({ 
         navigatorLeft: this.data.currentTab * 25 + "%",
@@ -330,6 +342,42 @@ Component({
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
+
+        let that = this
+        db.collection('card').get({
+          success: function(res) {
+            // @BACK 第一次进入主页时加载主页的卡x张
+            
+            let bin_cards = []
+            res.data.forEach(function(bin){
+              bin_cards.push({
+                card_id: bin._id,
+                name_left: bin.myName,
+                name_right: bin.taName,
+                gender_left: bin.myGender,
+                gender_right: bin.taGender,
+                avatar_url: bin.avatarUrl,
+                description: bin.textarea,
+                academy: bin.academy,
+                grade: bin.grade,
+                bubble_left: bin.myDescription,
+                bubble_right: bin.taDescription,
+                star_num: bin.starNum,
+                comment_num: bin.commentNum,
+                refresh_flag: "refresh",
+                animate: false
+              })
+            })
+                          
+            that.setData({ world_cards: bin_cards })
+
+            that.adaptHeight()
+    
+          },
+          fail: function(res) {
+            console.log(res)
+          }
+        })
 
         // @BACK 根据不同的tab重新拉取该tab的cards
         // switch(this.data.currentTab) {

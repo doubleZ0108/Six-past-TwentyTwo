@@ -49,7 +49,7 @@
       <view class="function-comment">
         <view class="function-comment-num">
           <text class="iconfont icontubiaozhizuo- {{ comment_flag ? 'iconfont-comment-colorful' : '' }}"></text>
-          <text>{{ comment_num }}</text>
+          <text>{{ comment_num_flag }}</text>
         </view>
         <view class="function-comment-write">
           <text class="iconfont iconpinglun"></text>

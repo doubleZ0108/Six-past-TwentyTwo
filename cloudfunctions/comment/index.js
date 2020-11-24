@@ -18,7 +18,15 @@ exports.main = async (event, context) => {
     },
   })
 
-  /** card starNum */
+   /** behavior commentList */
+   db.collection('behavior').where({
+    _openid: wxContext.OPENID,
+  }).update({
+    data: {
+      commentList: _.push(event.cardId)
+    }
+  })
+  /** card commentNum */
   db.collection('card').where({
     _id: event.cardId
   }).update({

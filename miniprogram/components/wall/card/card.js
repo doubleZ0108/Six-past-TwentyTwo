@@ -39,7 +39,11 @@ Component({
     comment_num: Number,
     refresh_flag: String,
     animate: Boolean,
-    index: Number
+    index: Number,
+    unfold_refresh_flag: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**
@@ -50,7 +54,8 @@ Component({
     favorite_flag: false,
     star_flag: false,
     star_num_flag: 0,
-    comment_flag: false
+    comment_flag: false,
+    comment_num_flag: 0
   },
 
   /**
@@ -187,11 +192,48 @@ Component({
   },
 
   observers: {
+    'unfold_refresh_flag': function(unfold_refresh_flag) {
+      if(unfold_refresh_flag && this.data.unfold=="card-container-unfold") {
+        let that = this
+
+        db.collection('behavior').where({
+          _openid: app.globalData.openid
+        }).get({
+          success: function(res) {
+            let userBehavior = res.data[0]
+            if(userBehavior.favoriteList.indexOf(that.data.card_id) != -1) {
+              that.setData({ favorite_flag: true })
+            }
+            if(userBehavior.starList.indexOf(that.data.card_id) != -1) {
+              that.setData({ star_flag: true })
+            }
+            if(userBehavior.commentList.indexOf(that.data.card_id) != -1) {
+              that.setData({ comment_flag: true })
+            }
+          }
+        })
+
+        db.collection('card').where({
+          _id: that.data.card_id
+        }).get({
+          success: function(res) {
+            that.setData({ comment_num_flag: res.data[0].commentNum })
+          }
+        })
+
+      }
+    },
     'refresh_flag': function(fold_class) {
       this.setData({
         unfold: ""   // this is correct
         // unfold: "card-container-unfold"  // for card unfold style
       })
+    },
+    'star_num': function(star_num) {
+      this.setData({ star_num_flag: star_num })
+    },
+    'comment_num': function(comment_num) {
+      this.setData({ comment_num_flag: comment_num })
     }
   }
 })
