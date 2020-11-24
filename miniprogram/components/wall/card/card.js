@@ -196,6 +196,12 @@ Component({
       if(unfold_refresh_flag && this.data.unfold=="card-container-unfold") {
         let that = this
 
+        that.setData({
+          favorite_flag: false,
+          star_flag: false,
+          comment_num: false
+        })
+
         db.collection('behavior').where({
           _openid: app.globalData.openid
         }).get({
@@ -217,7 +223,10 @@ Component({
           _id: that.data.card_id
         }).get({
           success: function(res) {
-            that.setData({ comment_num_flag: res.data[0].commentNum })
+            that.setData({ 
+              star_num_flag: res.data[0].starNum,
+              comment_num_flag: res.data[0].commentNum 
+            })
           }
         })
 
@@ -228,12 +237,6 @@ Component({
         unfold: ""   // this is correct
         // unfold: "card-container-unfold"  // for card unfold style
       })
-    },
-    'star_num': function(star_num) {
-      this.setData({ star_num_flag: star_num })
-    },
-    'comment_num': function(comment_num) {
-      this.setData({ comment_num_flag: comment_num })
     }
   }
 })
