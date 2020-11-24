@@ -37,7 +37,6 @@ Component({
     grade: String,
     bubble_left: String,
     bubble_right: String,
-    favorite: Boolean,
     star: Boolean,
     star_num: Number,
     comment_num: Number,
@@ -126,9 +125,20 @@ Component({
   lifetimes: {
     attached: function() {
       this.setData({
-        favorite_flag: this.properties.favorite,
         star_flag: this.properties.star,
         star_num_flag: this.properties.star_num
+      })
+
+      // @BACK 如果人的favoriteList中有这个卡 点亮icon
+      let that = this
+      db.collection('behavior').where({
+        _openid: app.globalData.openid
+      }).get({
+        success: function(res){
+          if(!res.data[0].favoriteList.indexOf(that.data.card_id)) {
+            that.setData({ favorite_flag: true })
+          }
+        }
       })
     },
   },
