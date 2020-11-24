@@ -56,17 +56,17 @@
     bottom: 0;
     right: 0;
   }
-  10% {
-    bottom: 20%;
-    right: 20%;
+  20% {
+    bottom: 10%;
+    right: 70%;
   }
-  50% {
-    bottom: 20%;
-    right: 60%;
+  30% {
+    bottom: 13%;
+    right: 22%;
   }
-  90% {
-    bottom: 20%;
-    right: 10%;
+  60% {
+    bottom: 15%;
+    right: -10%;
   }
   100% {
     bottom: 0;

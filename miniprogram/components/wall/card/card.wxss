@@ -327,7 +327,7 @@
 }
 
 .iconfont-favorite-colorful {
-  color: rgba(110, 240, 201, .8);
+  color: rgba(255, 240, 175, 0.8);
 }
 
 .iconfont-star-colorful {

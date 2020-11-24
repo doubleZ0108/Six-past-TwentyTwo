@@ -42,7 +42,7 @@
 
     <view class="favoritecard-info-unfold-function">
       <view class="function-favorite">
-        <text class="iconfont iconyanjing"></text>
+        <text class="iconfont iconxingxing"></text>
       </view>
       <view class="function-star">
         <text class="iconfont icondianzan"></text>
