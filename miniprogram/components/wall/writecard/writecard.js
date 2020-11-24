@@ -168,7 +168,8 @@ Component({
           textarea: e.detail.value.textarea,
           starNum: 0,
           commentNum: 0,
-          time: timeUtil.formatTime(new Date())
+          time: timeUtil.formatTime(new Date()),
+          avatarUrl: app.globalData.userInfo.avatarUrl
         },
         success: function(res) {
 
