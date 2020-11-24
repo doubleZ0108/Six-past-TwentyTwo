@@ -42,7 +42,6 @@
         description="{{ item.description }}"
         academy="{{ item.academy }}" grade="{{ item.grade }}"
         bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}"
-        favorite="{{ item.favorite }}" star="{{ item.star }}" star_num="{{ item.star_num }}" comment_num="{{ item.comment_num }}"
         refresh_flag="{{ item.refresh_flag }}"
       />
 

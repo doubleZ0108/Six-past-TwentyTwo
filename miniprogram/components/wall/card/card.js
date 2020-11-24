@@ -35,8 +35,6 @@ Component({
     grade: String,
     bubble_left: String,
     bubble_right: String,
-    star_num: Number,
-    comment_num: Number,
     refresh_flag: String,
     animate: Boolean,
     index: Number,
@@ -113,15 +111,16 @@ Component({
 
     },
     onStarTap: function() {
-      let starNow = this.data.star_flag
-      let starNumNow = this.data.star_num_flag
+      let that = this
       this.setData({ 
-        star_flag: !starNow,
-        star_num_flag: starNow ? starNumNow - 1 : starNumNow + 1
+        star_flag: !that.data.star_flag 
+      })
+
+      this.setData({
+        star_num_flag: that.data.star_flag ? that.data.star_num_flag + 1 : that.data.star_num_flag - 1
       })
 
       // @BACK √
-      let that = this
       if(that.data.star_flag) {
         wx.cloud.callFunction({
           name: "star",
@@ -156,80 +155,60 @@ Component({
           }
         })
       }
-    }
-  },
 
-  lifetimes: {
-    attached: function() {
+    },
 
-      // @BACK 如果人的favoriteList中有这个卡 点亮icon
+    updateBehavior: function() {
       let that = this
+
       that.setData({
-        star_num_flag: this.properties.star_num
+        favorite_flag: false,
+        star_flag: false,
+        comment_num: false
       })
 
       db.collection('behavior').where({
         _openid: app.globalData.openid
       }).get({
-        success: function(res){
+        success: function(res) {
           let userBehavior = res.data[0]
           if(userBehavior.favoriteList.indexOf(that.data.card_id) != -1) {
             that.setData({ favorite_flag: true })
           }
-
           if(userBehavior.starList.indexOf(that.data.card_id) != -1) {
             that.setData({ star_flag: true })
           }
-
           if(userBehavior.commentList.indexOf(that.data.card_id) != -1) {
             that.setData({ comment_flag: true })
           }
         }
       })
 
+      db.collection('card').where({
+        _id: that.data.card_id
+      }).get({
+        success: function(res) {
+          that.setData({ 
+            star_num_flag: res.data[0].starNum,
+            comment_num_flag: res.data[0].commentNum 
+          })
+        }
+      })
 
+    }
+  },
+
+  lifetimes: {
+    attached: function() {
+      // @BACK 如果人的favoriteList中有这个卡 点亮icon
+      this.updateBehavior()
     },
   },
 
   observers: {
     'unfold_refresh_flag': function(unfold_refresh_flag) {
       if(unfold_refresh_flag && this.data.unfold=="card-container-unfold") {
-        let that = this
-
-        that.setData({
-          favorite_flag: false,
-          star_flag: false,
-          comment_num: false
-        })
-
-        db.collection('behavior').where({
-          _openid: app.globalData.openid
-        }).get({
-          success: function(res) {
-            let userBehavior = res.data[0]
-            if(userBehavior.favoriteList.indexOf(that.data.card_id) != -1) {
-              that.setData({ favorite_flag: true })
-            }
-            if(userBehavior.starList.indexOf(that.data.card_id) != -1) {
-              that.setData({ star_flag: true })
-            }
-            if(userBehavior.commentList.indexOf(that.data.card_id) != -1) {
-              that.setData({ comment_flag: true })
-            }
-          }
-        })
-
-        db.collection('card').where({
-          _id: that.data.card_id
-        }).get({
-          success: function(res) {
-            that.setData({ 
-              star_num_flag: res.data[0].starNum,
-              comment_num_flag: res.data[0].commentNum 
-            })
-          }
-        })
-
+        this.updateBehavior()
       }
     },
     'refresh_flag': function(fold_class) {
@@ -237,6 +216,6 @@ Component({
         unfold: ""   // this is correct
         // unfold: "card-container-unfold"  // for card unfold style
       })
-    }
+    },
   }
 })
