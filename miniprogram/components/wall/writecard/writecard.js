@@ -190,7 +190,7 @@ Component({
                 myDescription: "",
                 taDescription: "",
                 textarea: ""
-               })
+              })
             }
           })
 
