@@ -19,6 +19,8 @@ Page({
     favorite_flag: false,
     star_flag: false,
     star_num_flag: 0,
+
+    prohibit_star: false
   },
 
   handleIntersectionObserver: function() {
@@ -134,7 +136,8 @@ Page({
         success: function(res) {
           let fresh_favoriteList = res.data[0].favoriteList
           fresh_favoriteList.splice(fresh_favoriteList.indexOf(that.data.cardInfo.card_id), 1)
-          
+          fresh_favoriteList = Array.from(new Set(fresh_favoriteList))
+
           wx.cloud.callFunction({
             name: "favorite",
             data: {
@@ -157,7 +160,8 @@ Page({
     let starNumNow = this.data.star_num_flag
     this.setData({ 
       star_flag: !starNow,
-      star_num_flag: starNow ? starNumNow - 1 : starNumNow + 1
+      star_num_flag: starNow ? starNumNow - 1 : starNumNow + 1,
+      prohibit_star: true
     })
 
     // @BACK
@@ -171,6 +175,7 @@ Page({
         },
         complete: function(res) {
           console.log("点赞成功")
+          that.setData({ prohibit_star: false })
         }
       })
     } else {
@@ -180,7 +185,8 @@ Page({
         success: function(res) {
           let fresh_starList = res.data[0].starList
           fresh_starList.splice(fresh_starList.indexOf(that.data.cardInfo.card_id), 1)
-
+          fresh_starList = Array.from(new Set(fresh_starList))
+          
           wx.cloud.callFunction({
             name: "star",
             data: {
@@ -190,6 +196,7 @@ Page({
             },
             complete: function(res) {
               console.log("取消收藏成功")
+              that.setData({ prohibit_star: false })
             }
           })
 
@@ -203,6 +210,11 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.cardId)
+
+    if(options.vipcard) {
+      console.log("this is from vipcard navigator!!!")
+      this.setData({ fromVip: true })
+    }
 
     let that = this
     /** card info */
@@ -233,7 +245,6 @@ Page({
     }).get({
       success: function(res) {
         let userBehavior = res.data[0]
-        console.log(userBehavior)
         if(userBehavior.favoriteList.indexOf(options.cardId) != -1) {
           that.setData({ 
             favorite_flag: true 
@@ -244,11 +255,10 @@ Page({
             star_flag: true
           })
         }
-        console.log(that.data)
       }
     })
     
-    // TODO @BACK comment list
+    // @BACK comment list
     db.collection('comment').where({
       cardId: options.cardId
     }).get({
@@ -269,12 +279,7 @@ Page({
 
       }
     })
-
-
-    if(options.vipcard) {
-      console.log("this is from vipcard navigator!!!")
-      this.setData({ fromVip: true })
-    }
+  
   },
 
   /**
@@ -311,7 +316,7 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   *  下拉刷新只更新评论列表 不更新点赞数量
    */
   onPullDownRefresh: function () {
     let that = this
