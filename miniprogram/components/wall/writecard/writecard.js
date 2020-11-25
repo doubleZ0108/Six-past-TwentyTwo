@@ -153,6 +153,7 @@ Component({
 
       // @BACK √
       console.log(writeData)
+      let timeNow = new Date()
       let that = this
       db.collection('card').add({
         data: {
@@ -168,7 +169,8 @@ Component({
           textarea: e.detail.value.textarea,
           starNum: 0,
           commentNum: 0,
-          time: timeUtil.formatTime(new Date()),
+          time: timeUtil.formatDate(timeNow),
+          timestamp: timeNow.getTime(),
           avatarUrl: app.globalData.userInfo.avatarUrl
         },
         success: function(res) {
