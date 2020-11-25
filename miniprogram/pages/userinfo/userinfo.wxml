@@ -4,7 +4,7 @@
 
   <form>
     <view class="userinfo-logo">
-      <text class="iconfont iconyanjing"></text>
+      <text class="iconfont iconshezhi"></text>
     </view>
 
     <view class="userinfo-block userinfo-default">
@@ -18,7 +18,7 @@
         <view class="default-text-group">
           <text>doubleZ</text>
           <text>男生</text>
-          <text>(默认信息和微信账号同步，如欲修改请直接修改微信账号下个人信息)</text>
+          <text> <text class="iconfont icontishi"></text> 默认信息和微信账号同步，如欲修改请直接修改微信账号下个人信息</text>
         </view>
       </view>
     </view>
@@ -52,7 +52,7 @@
       <textarea name="textarea" value="{{ motto }}" bindblur="onMottoBlur"></textarea>
     </view>
 
-    <text class="iconfont iconyanjing userinfo-button" catchtap="userinfoSubmit"></text>
+    <text class="iconfont iconqueren userinfo-button" catchtap="userinfoSubmit"></text>
 
   </form>
 </view>

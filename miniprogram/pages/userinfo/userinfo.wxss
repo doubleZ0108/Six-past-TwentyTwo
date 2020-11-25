@@ -30,8 +30,8 @@
 }
 
 .userinfo-logo .iconfont {
-  font-size: 150rpx;
-  background: linear-gradient(130deg, rgb(125,179,209),rgb(241, 149, 185)); 
+  font-size: 130rpx;
+  background: linear-gradient(130deg, rgb(194,236,196),rgb(231, 237, 166)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 auto;
@@ -74,13 +74,13 @@
 }
 
 .default-container image {
-  width: 180rpx;
-  height: 180rpx;
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 50%;
 }
 
 .default-text-group {
-  border-left: 2rpx white solid;
+  border-left: 2rpx rgba(255,255,255,.5) solid;
 }
 .default-text-group > text {
   display: block;
@@ -94,12 +94,15 @@
   font-size: 30rpx;
 }
 .default-text-group text:nth-child(3) {
-  margin-top: 10rpx;
-  font-size: 15rpx;
+  margin-top: 30rpx;
+  font-size: 18rpx;
   color: rgba(255,255,255,.6);
   line-height: 1.25;
 }
 
+.default-text-group .iconfont.icontishi {
+  font-size: 24rpx;
+}
 
 /*============ settable ============*/
 .userinfo-settable picker,
@@ -109,11 +112,12 @@
   height: 35rpx;
   padding: 15rpx;
   border-radius: 50rpx;
-  background: linear-gradient(104deg, rgba(158, 232, 240, 0.6),rgba(132,157,172,.6),rgba(132,157,172,.3), rgb(27,238,192,.3));
+  border: 2rpx rgba(239, 252, 223, 0.1) solid;
+  background: linear-gradient(113deg, rgba(202, 248, 253, 0.3),rgba(132,157,172,.1),rgba(132,157,172,.05), rgba(216, 252, 117, 0.2), rgba(255, 230, 183, 0.2));
   backdrop-filter: blur(30rpx);
 
   font-size: 26rpx;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.83);
 }
 
 /*============ motto ============*/
@@ -122,18 +126,20 @@
   margin: 15rpx auto;
   height: 225rpx;
   padding: 20rpx;
-  background: linear-gradient(40deg, rgba(193, 252, 242, .3),rgba(147,147,147,0.05),rgba(147,147,147,0.1),rgba(231, 214, 209, .3));
+  border: 2rpx rgba(181, 218, 211, 0.2) solid;
+  background: linear-gradient(120deg, rgba(126, 230, 212, 0.2),rgba(126, 230, 212,0.1),rgba(147,147,147,0.05),rgba(255, 235, 121, 0.3));
   border-radius: 20rpx;
 }
 
 /*============ button ============*/
 .userinfo-button.iconfont {
   position: absolute;
-  right: 7.5%;
-  bottom: 1%;
-  display: block;
-  font-size: 200rpx;
-  background: linear-gradient(130deg, rgb(125,179,209),rgb(241, 149, 185)); 
+  right: 8%;
+  bottom: 5%;
+
+  font-size: 160rpx;
+  background: rgb(30,31,66); 
+  /* 亮时候的颜色：linear-gradient(130deg, rgb(94,233,203),rgb(212,248,174))*/
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
