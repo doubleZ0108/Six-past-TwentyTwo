@@ -180,7 +180,7 @@
 }
 
 .iconfont-favorite-colorful {
-  background: rgba(110, 240, 201, .8);
+  background: rgba(255, 223, 40, 0.9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

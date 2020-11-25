@@ -31,7 +31,7 @@
 
 <view class="card-info-unfold-function {{ fromVip ? 'vipcard-confirm' : ''}}">
   <view class="function-favorite" bindtap="onFavoriteTap">
-    <text class="iconfont iconyanjing {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
+    <text class="iconfont iconxingxing {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
   </view>
   <view class="function-star" bindtap="{{ prohibit_star ? '' : 'onStarTap'}}">
     <text class="iconfont icondianzan {{ star_flag ? 'iconfont-star-colorful' : '' }}"></text>
