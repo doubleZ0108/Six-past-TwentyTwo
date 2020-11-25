@@ -18,7 +18,8 @@
     <navigation-system 
       reach_bottom_flag_root="{{ reach_bottom_flag }}"
       pull_down_flag_root="{{ pull_down_flag }}" 
-      unfold_refresh_flag="{{ unfold_refresh_flag }}" />
+      unfold_refresh_flag="{{ unfold_refresh_flag }}" 
+      filterInfo="{{ filterInfo }}" />
 
     <decorate />
   </view>

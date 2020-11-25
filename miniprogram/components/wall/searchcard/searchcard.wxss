@@ -139,6 +139,11 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
+}
+.searchcard-gender.gender-none {
+  text-decoration: line-through;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
 .searchcard-gender-group {
@@ -150,6 +155,7 @@ button {
   align-items: center;
   justify-content: center;
 }
+
 
 .searchcard-gender-group .iconfont {
   font-size: 50rpx;
