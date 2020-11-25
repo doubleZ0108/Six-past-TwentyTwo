@@ -139,17 +139,7 @@
 
   font-size: 160rpx;
   background: rgb(30,31,66); 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.userinfo-button.iconfont:hover{
-  position: absolute;
-  right: 8%;
-  bottom: 5%;
-
-  font-size: 160rpx;
-  background: linear-gradient(130deg, rgb(94,233,203),rgb(212,248,174)); 
+  /* 亮时候的颜色：linear-gradient(130deg, rgb(94,233,203),rgb(212,248,174))*/
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

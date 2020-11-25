@@ -23,7 +23,8 @@
 
   transition: .8s cubic-bezier(.2,.8,.2,1);
 }
-.wall-slidebar text {
+.wall-slidebar text,
+.wall-slidebar navigator {
   margin: 25rpx auto;
   font-size: 50rpx;
   color: white;
