@@ -53,7 +53,9 @@ Component({
     star_flag: false,
     star_num_flag: 0,
     comment_flag: false,
-    comment_num_flag: 0
+    comment_num_flag: 0,
+
+    prohibit_star: false
   },
 
   /**
@@ -92,6 +94,7 @@ Component({
           success: function(res) {
             let fresh_favoriteList = res.data[0].favoriteList
             fresh_favoriteList.splice(fresh_favoriteList.indexOf(that.properties.card_id), 1)
+            fresh_favoriteList = Array.from(new Set(fresh_favoriteList))  // 去重 防止收藏有两遍
             
             wx.cloud.callFunction({
               name: "favorite",
@@ -113,14 +116,17 @@ Component({
     onStarTap: function() {
       let that = this
       this.setData({ 
-        star_flag: !that.data.star_flag 
+        star_flag: !that.data.star_flag,
+        prohibit_star: true
       })
 
+      that = this
       this.setData({
         star_num_flag: that.data.star_flag ? that.data.star_num_flag + 1 : that.data.star_num_flag - 1
       })
 
       // @BACK √
+      that = this
       if(that.data.star_flag) {
         wx.cloud.callFunction({
           name: "star",
@@ -130,6 +136,7 @@ Component({
           },
           complete: function(res) {
             console.log("点赞成功")
+            that.setData({ prohibit_star: false })
           }
         })
       } else {
@@ -139,6 +146,7 @@ Component({
           success: function(res) {
             let fresh_starList = res.data[0].starList
             fresh_starList.splice(fresh_starList.indexOf(that.properties.card_id), 1)
+            fresh_starList = Array.from(new Set(fresh_starList))
 
             wx.cloud.callFunction({
               name: "star",
@@ -149,6 +157,7 @@ Component({
               },
               complete: function(res) {
                 console.log("取消收藏成功")
+                that.setData({ prohibit_star: false })
               }
             })
 
@@ -158,13 +167,15 @@ Component({
 
     },
 
-    updateBehavior: function() {
+    /** 卡片底部 favorite star comment 信息 */
+    updateCardFunctionInfo: function() {
       let that = this
 
       that.setData({
         favorite_flag: false,
         star_flag: false,
-        comment_num: false
+        comment_num: false,
+        prohibit_star: true
       })
 
       db.collection('behavior').where({
@@ -188,9 +199,11 @@ Component({
         _id: that.data.card_id
       }).get({
         success: function(res) {
+          let cardInfo = res.data[0]
           that.setData({ 
-            star_num_flag: res.data[0].starNum,
-            comment_num_flag: res.data[0].commentNum 
+            star_num_flag: cardInfo.starNum,
+            comment_num_flag: cardInfo.commentNum,
+            prohibit_star: false
           })
         }
       })
@@ -201,14 +214,14 @@ Component({
   lifetimes: {
     attached: function() {
       // @BACK 如果人的favoriteList中有这个卡 点亮icon
-      this.updateBehavior()
+      this.updateCardFunctionInfo()
     },
   },
 
   observers: {
     'unfold_refresh_flag': function(unfold_refresh_flag) {
       if(unfold_refresh_flag && this.data.unfold=="card-container-unfold") {
-        this.updateBehavior()
+        this.updateCardFunctionInfo()
       }
     },
     'refresh_flag': function(fold_class) {

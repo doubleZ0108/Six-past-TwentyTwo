@@ -143,100 +143,10 @@ Component({
       let that = this;
       this.setData({ world_cards: that.data.world_cards })
     },
-
-
-
-    /**
-     * FOR TEST
-     */
-    initTestCards: function() {
-      let cards = [
-        {
-          card_id: 0,
-          name_left: "很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的名字1",
-          name_right: "很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的名字2",
-          gender_left: "男生",
-          gender_right: "女生",
-          avatar_url: "../../../resource/img/avatar/avatar.jpg",
-          description: "这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长",
-          academy: "很长很长很长很长很长很长很长很长的学院",
-          grade: "大四",
-          bubble_left: "左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本左侧测左侧测试文本左侧测试文本",
-          bubble_right: "右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本",
-          favorite: true,
-          star: true,
-          star_num: 4,
-          comment_num: 1,
-          refresh_flag: "refresh",
-          animate: false    // TODO: 用来实现Intersection Observer 暂未成功
-        },
-        {
-          card_id: 1,
-          name_left: "名字3",
-          name_right: "名字4",
-          gender_left: "女生",
-          gender_right: "男生",
-          avatar_url: "../../../resource/img/avatar/avatar.jpg",
-          description: "一句话告白",
-          academy: "软件学院",
-          grade: "大四",
-          bubble_left: "左侧测试文本",
-          bubble_right: "右侧",
-          favorite: false,
-          star: true,
-          star_num: 666,
-          comment_num: 666,
-          refresh_flag: "refresh",
-          animate: false
-        },
-        {
-          card_id: 2,
-          name_left: "名5",
-          name_right: "名字名字6",
-          gender_left: "女生",
-          gender_right: "女生",
-          avatar_url: "../../../resource/img/avatar/avatar.jpg",
-          description: "一句话告白",
-          academy: "软件学院",
-          grade: "大四",
-          bubble_left: "左侧测试文本",
-          bubble_right: "右侧",
-          favorite: false,
-          star: true,
-          star_num: 666,
-          comment_num: 666,
-          refresh_flag: "refresh",
-          animate: false
-        },
-      ]
-      return cards
-    },
-    getFreshTestCard: function() {
-      return [{
-        card_id: 666,
-        name_left: "新数据1",
-        name_right: "新数据2",
-        gender_left: "男生",
-        gender_right: "男生",
-        avatar_url: "../../../resource/img/avatar/avatar.jpg",
-        description: "一句话告白",
-        academy: "软件学院",
-        grade: "大四",
-        bubble_left: "左侧测试文本",
-        bubble_right: "右侧",
-        favorite: false,
-        star: true,
-        star_num: 666,
-        comment_num: 666,
-        refresh_flag: "refresh",
-        animate: false
-      }]
-    }
   },
   
   lifetimes: {
     attached: function() {
-
       let that = this
       db.collection('card').get({
         success: function(res) {
@@ -267,34 +177,10 @@ Component({
   
         },
         fail: function(res) {
-          console.log(res)
+          console.log("主页刷新卡片列表出错")
         }
       })
-   
     },
-
-    ready: function() {
-      let that = this;
-      const query = wx.createSelectorQuery()
-
-      query.selectAll(".normalcard-group").fields({
-        id: true,
-        context: true,
-        node: true
-      }, function (resList) {
-        resList.forEach((res)=>{
-          wx.createIntersectionObserver().relativeToViewport().observe('#'+res.id, (node) => {
-            let cardIndex = parseInt(res.id.substr(11))
-            if(node.intersectionRatio != 0) {
-              that.data.world_cards[cardIndex].animate = true
-            } else {
-              that.data.world_cards[cardIndex].animate = false
-            }
-            that.setData({ world_cards: that.data.world_cards })
-          })
-        })
-      }).exec()
-    }
   },
 
   observers: {
@@ -371,7 +257,7 @@ Component({
     
           },
           fail: function(res) {
-            console.log(res)
+            console.log("主页下拉刷新失败")
           }
         })
 

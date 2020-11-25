@@ -10,6 +10,7 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
   if(event.star_now) {  // 点赞
+
     /** behavior starList */
     db.collection('behavior').where({
       _openid: wxContext.OPENID,
@@ -26,7 +27,9 @@ exports.main = async (event, context) => {
         starNum: _.inc(1)
       }
     })
+
   } else {  // 取消点赞
+
     /** behavior starList */
     db.collection('behavior').where({
       _openid: wxContext.OPENID
@@ -43,6 +46,7 @@ exports.main = async (event, context) => {
         starNum: _.inc(-1)
       }
     })
+    
   }
 
   return

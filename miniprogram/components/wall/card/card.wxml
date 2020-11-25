@@ -42,7 +42,7 @@
       <view class="function-favorite" bindtap="onFavoriteTap">
         <text class="iconfont iconxingxing {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
       </view>
-      <view class="function-star" bindtap="onStarTap">
+      <view class="function-star" bindtap="{{ prohibit_star ? '' : 'onStarTap'}}">
         <text class="iconfont icondianzan {{ star_flag ? 'iconfont-star-colorful' : '' }}"></text>
         <text>{{ star_num_flag }}</text>
       </view>
