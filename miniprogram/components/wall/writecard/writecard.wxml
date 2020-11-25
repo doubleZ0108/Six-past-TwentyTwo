@@ -11,11 +11,17 @@
     <image class="writecard-pen {{ animate ? 'pen-animate' : '' }}" src="../../../resource/img/write/pen.png"></image>
 
     <view class="writecard-info-unfold">
-      <view class="writecard-gap"></view>
 
       <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
 
+     
+
       <form catchsubmit="formSubmit">
+
+        <view class="write-logo">
+          <text class="iconfont icon19shuxie3x"></text>
+        </view>
+
         <view class="writecard-block writecard-name-gender">
           <view class="writecard-title-group">
             <text>昵称和性别</text>
