@@ -1,7 +1,7 @@
 <!--miniprogram/pages/wall/wall.wxml-->
 <view class="wall-page">
   <view class="wall-slidebar {{ drawer ? 'wall-slidebar-display' : ''}}">
-    <text>个人信息</text>
+    <navigator url="../userinfo/userinfo">个人信息</navigator>
     <text>应用设置</text>
     <text>联系我们</text>
     <text>这是名字</text>
@@ -11,7 +11,7 @@
     <confetti id='confetti' duration="1000" />
 
     <wave>
-      <hero bindtap="heroTap" />  <!-- 150px height / 25px margin-top -->
+      <hero bindtap="heroTap" userinfo_flag="{{ userinfo_flag}}" />  <!-- 150px height / 25px margin-top -->
       <notice /> <!-- 25px height / 20px margin-top-bottom -->
     </wave>
 

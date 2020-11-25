@@ -130,8 +130,8 @@
 .userinfo-button.iconfont {
   position: absolute;
   right: 7.5%;
-  bottom: 5%;
-
+  bottom: 1%;
+  display: block;
   font-size: 200rpx;
   background: linear-gradient(130deg, rgb(125,179,209),rgb(241, 149, 185)); 
   -webkit-background-clip: text;

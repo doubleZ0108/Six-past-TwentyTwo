@@ -27,7 +27,11 @@ Page({
                 openid: login_res.openid,
                 avatarUrl: userInfo_res.userInfo.avatarUrl,
                 nickName: userInfo_res.userInfo.nickName,
-                gender: userInfo_res.userInfo.gender==1 ? "男生" : (userInfo_res.userInfo.gender==2 ? "女生" : "未知")
+                gender: userInfo_res.userInfo.gender==1 ? "男生" : (userInfo_res.userInfo.gender==2 ? "女生" : "未知"),
+                academy: "未知",
+                grade: "未知",
+                studentNumber: "",
+                motto: "二十二点零六"
               },
               success: function() {
 

@@ -109,7 +109,7 @@
       </view>
 
       <view class="swiper-item-bottom">
-        <text class="bottom-text" style="opacity: {{ favorite_bottom_show ? 1 : 0}}">我没有更多表白了, 我是有底线的～</text>
+        <text class="bottom-text" style="opacity: {{ favorite_bottom_show ? 1 : 0}}">没收藏更多表白了, 我是有底线的～</text>
       </view>
 
     </view>

@@ -1,5 +1,7 @@
 <!--miniprogram/pages/userinfo/userinfo.wxml-->
 <view class="userinfo-container" style="background-image: url(../../resource/img/userinfo/bg.png);">
+  <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
+
   <form>
     <view class="userinfo-logo">
       <text class="iconfont iconyanjing"></text>
@@ -34,8 +36,10 @@
         range="{{ grade_array }}" index="{{ grade_index }}">
         年级: {{ grade_array[grade_index] }}
       </picker>
-      <input type="text" name="myDescription" value="学号: {{ myDescription }}"
-        placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
+      <input type="number" name="myDescription" value="{{ student_num }}"
+        placeholder="学号: 175xxxx"
+        placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" 
+        bindblur="onStudentNumBlur" />
 
     </view>
 
@@ -45,10 +49,10 @@
         <text></text>
       </view>
 
-      <textarea name="textarea" value="{{ textarea }}"></textarea>
+      <textarea name="textarea" value="{{ motto }}" bindblur="onMottoBlur"></textarea>
     </view>
 
-    <text class="iconfont iconyanjing userinfo-button"></text>
+    <text class="iconfont iconyanjing userinfo-button" catchtap="userinfoSubmit"></text>
 
   </form>
 </view>
