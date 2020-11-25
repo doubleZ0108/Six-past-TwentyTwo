@@ -18,6 +18,10 @@ Component({
     unfold_refresh_flag: {
       type: Boolean,
       value: false
+    },
+    filterInfo: {
+      type: Object,
+      value: null
     }
   },
 
@@ -55,6 +59,8 @@ Component({
     world_bottom_show: false,
     my_bottom_show: false,
     favorite_bottom_show: false,
+    filter_bottom_show: false,
+    filter_info: null,
 
     init_step: 2,   // 初始/下拉刷新个数
     load_more_step: 1,  // 触底刷新个数
@@ -456,7 +462,107 @@ Component({
 
         }
       })
-    }
+    },
+
+    initFilterCardList: function() {
+      let that = this
+      let filterInfo = this.data.filter_info
+      db.collection('card')
+      .limit(that.data.init_step)
+      .orderBy('timestamp', 'desc')
+      .where({
+        academy: filterInfo.academy=="全部" ? "未知" : filterInfo.academy,
+        grade: filterInfo.grade=="全部" ? "未知" : filterInfo.grade,
+        time: filterInfo.date,
+        myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
+        taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right
+      })
+      .get({
+        success: function(res) {            
+          let bin_cards = []
+          res.data.forEach(function(bin){
+            bin_cards.push({
+              card_id: bin._id,
+              name_left: bin.myName,
+              name_right: bin.taName,
+              gender_left: bin.myGender,
+              gender_right: bin.taGender,
+              avatar_url: bin.avatarUrl,
+              description: bin.textarea,
+              academy: bin.academy,
+              grade: bin.grade,
+              bubble_left: bin.myDescription,
+              bubble_right: bin.taDescription,
+              refresh_flag: "refresh",
+              animate: false
+            })
+          })                 
+          that.setData({ filter_cards: bin_cards })
+          that.adaptHeight()
+
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 1000
+          })
+        },
+        fail: function(res) {
+          console.log("搜索卡片列表出错")
+        }
+      })
+    },
+    loadMoreFilterCardList: function() {
+      this.setData({ show_loading: true })
+
+      let that = this
+      let filterInfo = this.data.filter_info
+      db.collection('card')
+      .limit(that.data.load_more_step)
+      .skip(that.data.filter_cards.length)
+      .orderBy('timestamp', 'desc')
+      .where({
+        academy: filterInfo.academy=="全部" ? "未知" : filterInfo.academy,
+        grade: filterInfo.grade=="全部" ? "未知" : filterInfo.grade,
+        time: filterInfo.date,
+        myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
+        taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right
+      })
+      .get({
+        success: function(res) {          
+          if(res.data.length == 0) {
+            that.setData({ 
+              filter_bottom_show: true,
+              show_loading: false 
+            })
+            return
+          }
+          let bin_cards = []
+          res.data.forEach(function(bin){
+            bin_cards.push({
+              card_id: bin._id,
+              name_left: bin.myName,
+              name_right: bin.taName,
+              gender_left: bin.myGender,
+              gender_right: bin.taGender,
+              avatar_url: bin.avatarUrl,
+              description: bin.textarea,
+              academy: bin.academy,
+              grade: bin.grade,
+              bubble_left: bin.myDescription,
+              bubble_right: bin.taDescription,
+              refresh_flag: "refresh",
+              animate: false
+            })
+          })               
+          that.setData({ filter_cards: that.data.filter_cards.concat(bin_cards) })
+          that.adaptHeight()
+          that.setData({ show_loading: false })
+        },
+        fail: function(res) {
+          console.log("搜索卡片列表出错")
+        }
+      })
+    },
 
   },
   
@@ -471,6 +577,12 @@ Component({
       if(unfold_refresh_flag) {
         // console.log("navigation system is signialed")
         this.setData({ unfold_refresh_flag_naviagtion_system : unfold_refresh_flag })
+      }
+    },
+    'filterInfo': function(filterInfo) {
+      if(filterInfo) {
+        this.setData({ filter_info: filterInfo })
+        this.initFilterCardList()
       }
     },
     'currentTab': function(currentTab) {
@@ -502,7 +614,8 @@ Component({
         this.setData({
           world_bottom_show: false,
           my_bottom_show: false,
-          favorite_bottom_show: false
+          favorite_bottom_show: false,
+          filter_bottom_show: false
         })
 
         // @BACK 根据不同的tab重新拉取该tab的cards
@@ -519,10 +632,10 @@ Component({
             this.initFavoriteCardList()
             break
           }
-        //   case 3: {
-        //     this.setData({ filter_cards: this.initTestCards() })
-        //     break
-        //   }
+          case 3: {
+            this.initFilterCardList()
+            break
+          }
           default: {
             this.initWorldCardList()
             break
@@ -535,7 +648,6 @@ Component({
     'reach_bottom_flag_root': function(reach_bottom_flag_root) {
       if(reach_bottom_flag_root) {
         console.log(this.data.currentTab, "加载更多...")
-
 
         // @BACK 根据不同的tab拉取触底的新cards
         switch(this.data.currentTab) {
@@ -552,6 +664,9 @@ Component({
             break
           }
           case 3: {
+            if(this.data.filter_info) {   // 如果用户曾搜索过
+              this.loadMoreFilterCardList()
+            }
             break
           }
           default: {

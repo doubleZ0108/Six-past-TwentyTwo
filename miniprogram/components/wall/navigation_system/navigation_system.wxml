@@ -51,7 +51,7 @@
       </view>
 
       <view class="swiper-item-bottom">
-        <text class="worldcard-bottom-text" style="opacity: {{ world_bottom_show ? 1 : 0}}">今天没有更多表白了, 我是有底线的～</text>
+        <text class="bottom-text" style="opacity: {{ world_bottom_show ? 1 : 0}}">今天没有更多表白了, 我是有底线的～</text>
       </view>
 
     </view>
@@ -80,7 +80,7 @@
       </view>
 
       <view class="swiper-item-bottom">
-        <text class="worldcard-bottom-text" style="opacity: {{ my_bottom_show ? 1 : 0}}">我没有更多表白了, 我是有底线的～</text>
+        <text class="bottom-text" style="opacity: {{ my_bottom_show ? 1 : 0}}">我没有更多表白了, 我是有底线的～</text>
       </view>
 
     </view>
@@ -109,7 +109,7 @@
       </view>
 
       <view class="swiper-item-bottom">
-        <text class="worldcard-bottom-text" style="opacity: {{ favorite_bottom_show ? 1 : 0}}">我没有更多表白了, 我是有底线的～</text>
+        <text class="bottom-text" style="opacity: {{ favorite_bottom_show ? 1 : 0}}">我没有更多表白了, 我是有底线的～</text>
       </view>
 
     </view>
@@ -119,7 +119,9 @@
   <swiper-item>
     <view class="card-group" scroll-y
       capture-bind:tap="onCardGroupTap">
+      
       <card wx:for="{{ filter_cards }}" wx:key="{{ index }}"
+        unfold_refresh_flag="{{ unfold_refresh_flag_naviagtion_system }}"
         animate="{{ item.animate }}" index="{{ index }}"
         card_id="{{ item.card_id }}"
         name_left="{{ item.name_left }}" name_right="{{ item.name_right }}" 
@@ -128,9 +130,17 @@
         description="{{ item.description }}"
         academy="{{ item.academy }}" grade="{{ item.grade }}"
         bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}"
-        favorite="{{ item.favorite }}" star="{{ item.star }}" star_num="{{ item.star_num }}" comment_num="{{ item.comment_num }}"
         refresh_flag="{{ item.refresh_flag }}"
       />
+
+      <view data-weui-theme="dark">
+        <mp-loading type="circle" tips="正在加载中～" show="{{ show_loading }}" animated="true"></mp-loading>
+      </view>
+
+      <view class="swiper-item-bottom">
+        <text class="bottom-text" style="opacity: {{ filter_bottom_show ? 1 : 0}}">这个filter下没有更多表白了, 我是有底线的～</text>
+      </view>
+
     </view>
   </swiper-item>
 

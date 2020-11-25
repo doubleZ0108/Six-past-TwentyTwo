@@ -21,21 +21,21 @@
 
       <view class="searchcard-date">
         <text>日期: </text>
-        <picker mode="date" bindchange="bindDateChagne" name="date" value="{{ date }}">
+        <picker mode="date" bindchange="bindDateChange" name="date" value="{{ date }}">
           {{ date }} </picker>
       </view>
 
     </view>
 
     <view class="searchcard-info-row2">
-      <view class="searchcard-gender">
+      <view class="searchcard-gender {{ gender_none ? 'gender-none' : '' }}">
         <text>性别: </text>
         <view class="searchcard-gender-group">
           <view class="searchcard-gender-left" bindtap="onGenderLeftTap">
             <text class="iconfont iconicon1 {{ gender_left_isMale ? 'iconfont-colorful' : ''}}"></text>
             <text class="iconfont iconicon {{ gender_left_isMale ? '' : 'iconfont-colorful'}}"></text>
           </view>
-          <view class="searchcard-gender-separate">
+          <view class="searchcard-gender-separate" bindtap="onGenderNoneTap">
             <text class="iconfont iconjiantou"></text>
           </view>
           <view  class="searchcard-gender-right" bindtap="onGenerRightTap">

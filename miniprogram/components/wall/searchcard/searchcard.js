@@ -1,4 +1,10 @@
 // components/wall/searchcard/searchcard.js
+
+const timeUtil = require('../../../utils/time')
+const app = getApp()
+const db = wx.cloud.database()
+const _ = db.command
+
 Component({
   /**
    * 组件的属性列表
@@ -15,16 +21,17 @@ Component({
    */
   data: {
     academy_array: [
-      "软件学院","土木学院","建筑与城市规划学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
+      "全部","软件学院","土木学院","建筑与城市规划学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
     ],
     academy_index: 0,
     grade_array: [
-      "大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
+      "全部","大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
     ],
     grade_index: 0,
-    date: "2020-11-19",
+    date: timeUtil.formatDate(new Date()),
     gender_left_isMale: true,
     gender_right_isFemale: true,
+    gender_none: false,
     animate: false
   },
 
@@ -41,6 +48,7 @@ Component({
     },
 
     bindDateChange: function(e) {
+      console.log(e.detail.value)
       this.setData({ date: e.detail.value })
     },
 
@@ -54,6 +62,11 @@ Component({
       this.setData({ gender_right_isFemale: !that.data.gender_right_isFemale })
     },
 
+    onGenderNoneTap: function() {
+      let that = this
+      this.setData({ gender_none: !that.data.gender_none })
+    },
+
     onSearchTap: function() {
       this.setData({ animate: true })
 
@@ -62,21 +75,22 @@ Component({
         grade: this.data.grade_array[this.data.grade_index],
         date: this.data.date,
         gender_left: this.data.gender_left_isMale ? "男生" : "女生",
-        gender_right: this.data.gender_right_isFemale ? "女生" : "男生"
+        gender_right: this.data.gender_right_isFemale ? "女生" : "男生",
+        gender_none: this.data.gender_none
       }
 
+      // @BACK
+      let pages = getCurrentPages()
+      let currpage = pages[pages.length-1]
+      currpage.setData({
+        filterInfo: searchData
+      })
+
+      // 恢复动画
       let that = this
       setTimeout(function(){
         that.setData({ animate: false })
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 1000
-        })
       }, 2000)  // TODO 动画播放时间
-
-      // @BACK
-      console.log(searchData)
 
     }
   }

@@ -82,7 +82,7 @@
   justify-content: center;
 }
 
-.worldcard-bottom-text {
+.bottom-text {
   color: white;
   text-align: center;
   margin: auto;
