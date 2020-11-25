@@ -1,0 +1,139 @@
+/* miniprogram/pages/userinfo/userinfo.wxss */
+@import '../../style/iconfont.wxss';
+
+.userinfo-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  height: 100vh;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  color: rgba(255,255,255,.83);
+  position: relative;
+}
+
+.userinfo-container form {
+  width: 80%;
+}
+
+.userinfo-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75rpx;
+}
+
+.userinfo-logo .iconfont {
+  font-size: 150rpx;
+  background: linear-gradient(130deg, rgb(125,179,209),rgb(241, 149, 185)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 auto;
+}
+
+.userinfo-block {
+  margin: 60rpx auto;
+}
+
+/*============ title & line ============*/
+.userinfo-title-group {
+  height: 30rpx;
+  margin: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userinfo-title-group text:nth-child(1) {
+  width: 40%;
+  color: rgba(255,255,255,.83);
+  font-family: Microsoft YaHei;
+}
+.userinfo-title-group text:nth-child(2) {
+  width: 60%;
+  border-top: solid rgba(255,255,255,.6) 2rpx; 
+  margin: 13rpx 0;
+}
+
+
+/*============ defalut ============*/
+.default-container {
+  width: 90%;
+  margin: 25rpx auto;
+  display: grid;
+  grid-template-columns: .8fr 1fr;
+  /* grid-gap: 20rpx; */
+  align-items: center;
+  justify-content: center;
+}
+
+.default-container image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+}
+
+.default-text-group {
+  border-left: 2rpx white solid;
+}
+.default-text-group > text {
+  display: block;
+  margin-left: 20rpx;
+}
+
+.default-text-group text:nth-child(1) {
+  font-size: 40rpx;
+}
+.default-text-group text:nth-child(2) {
+  font-size: 30rpx;
+}
+.default-text-group text:nth-child(3) {
+  margin-top: 10rpx;
+  font-size: 15rpx;
+  color: rgba(255,255,255,.6);
+  line-height: 1.25;
+}
+
+
+/*============ settable ============*/
+.userinfo-settable picker,
+.userinfo-settable input {
+  width: 80%;
+  margin: 25rpx auto;
+  height: 35rpx;
+  padding: 15rpx;
+  border-radius: 50rpx;
+  background: linear-gradient(104deg, rgba(158, 232, 240, 0.6),rgba(132,157,172,.6),rgba(132,157,172,.3), rgb(27,238,192,.3));
+  backdrop-filter: blur(30rpx);
+
+  font-size: 26rpx;
+  color: rgba(255,255,255,.6);
+}
+
+/*============ motto ============*/
+.userinfo-motto textarea {
+  width: 80%;
+  margin: 15rpx auto;
+  height: 225rpx;
+  padding: 20rpx;
+  background: linear-gradient(40deg, rgba(193, 252, 242, .3),rgba(147,147,147,0.05),rgba(147,147,147,0.1),rgba(231, 214, 209, .3));
+  border-radius: 20rpx;
+}
+
+/*============ button ============*/
+.userinfo-button.iconfont {
+  position: absolute;
+  right: 7.5%;
+  bottom: 5%;
+
+  font-size: 200rpx;
+  background: linear-gradient(130deg, rgb(125,179,209),rgb(241, 149, 185)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

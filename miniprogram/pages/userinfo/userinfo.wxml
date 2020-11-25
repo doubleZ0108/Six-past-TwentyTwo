@@ -1,0 +1,54 @@
+<!--miniprogram/pages/userinfo/userinfo.wxml-->
+<view class="userinfo-container" style="background-image: url(../../resource/img/userinfo/bg.png);">
+  <form>
+    <view class="userinfo-logo">
+      <text class="iconfont iconyanjing"></text>
+    </view>
+
+    <view class="userinfo-block userinfo-default">
+      <view class="userinfo-title-group">
+        <text>默认信息</text>
+        <text></text>
+      </view>
+
+      <view class="default-container">
+        <image src="../../resource/img/avatar/avatar.jpg"></image>
+        <view class="default-text-group">
+          <text>doubleZ</text>
+          <text>男生</text>
+          <text>(默认信息和微信账号同步，如欲修改请直接修改微信账号下个人信息)</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="userinfo-block userinfo-settable">
+      <view class="userinfo-title-group">
+        <text>可设置信息</text>
+        <text></text>
+      </view>
+
+      <picker mode="selector" bindchange="bindAcademyChange" name="academy"
+        range="{{ academy_array }}" index="{{ academy_index }}">
+        学院: {{ academy_array[academy_index]}} </picker>
+      <picker mode="selector" bindchange="bindGradeChange" name="grade"
+        range="{{ grade_array }}" index="{{ grade_index }}">
+        年级: {{ grade_array[grade_index] }}
+      </picker>
+      <input type="text" name="myDescription" value="学号: {{ myDescription }}"
+        placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
+
+    </view>
+
+    <view class="userinfo-block userinfo-motto">
+      <view class="userinfo-title-group">
+        <text>个性签名</text>
+        <text></text>
+      </view>
+
+      <textarea name="textarea" value="{{ textarea }}"></textarea>
+    </view>
+
+    <text class="iconfont iconyanjing userinfo-button"></text>
+
+  </form>
+</view>
