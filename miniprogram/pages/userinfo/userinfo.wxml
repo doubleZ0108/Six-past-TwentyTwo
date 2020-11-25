@@ -31,11 +31,10 @@
 
       <picker mode="selector" bindchange="bindAcademyChange" name="academy"
         range="{{ academy_array }}" index="{{ academy_index }}">
-        学院: {{ academy_array[academy_index]}} </picker>
+        学院: {{ academy_array[academy_index] }} </picker>
       <picker mode="selector" bindchange="bindGradeChange" name="grade"
         range="{{ grade_array }}" index="{{ grade_index }}">
-        年级: {{ grade_array[grade_index] }}
-      </picker>
+        年级: {{ grade_array[grade_index] }} </picker>
       <input type="number" name="myDescription" value="{{ student_num }}"
         placeholder="学号: 175xxxx"
         placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" 
@@ -49,10 +48,12 @@
         <text></text>
       </view>
 
-      <textarea name="textarea" value="{{ motto }}" bindblur="onMottoBlur"></textarea>
+      <textarea name="textarea" value="{{ motto }}" bindblur="onMottoBlur" bindtap=""></textarea>
     </view>
 
-    <text class="iconfont iconqueren userinfo-button" catchtap="userinfoSubmit"></text>
+    <view catchtap="userinfoSubmit">
+      <text class="iconfont iconqueren userinfo-button {{ colorful ? 'userinfo-button-colorful' : '' }}"></text>
+    </view>
 
   </form>
 </view>

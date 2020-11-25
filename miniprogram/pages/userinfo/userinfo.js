@@ -20,7 +20,8 @@ Page({
     ],
     grade_index: 0,
     student_num: "",
-    motto: ""
+    motto: "",
+    colorful: false   // submit button colorful
   },
 
   bindAcademyChange: function(e) {
@@ -42,6 +43,8 @@ Page({
   userinfoSubmit: function() {
     let that = this
     setTimeout(function(){
+      that.setData({ colorful: true })
+
       if(that.data.student_num=="" || that.data.motto=="") {
         that.setData({ 
           toptip: {
@@ -50,6 +53,7 @@ Page({
             show: true
           }
         })
+        setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
       } else if(that.data.student_num.length != 7) {
         that.setData({ 
           toptip: {
@@ -58,6 +62,7 @@ Page({
             show: true
           }
         })
+        setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
       } else {
         // @BACK
         let userinfoData = {
@@ -95,18 +100,25 @@ Page({
   },
 
   onLoad: function (options) {
+    this.setData({
+      academy_index: 0,
+      grade_index: 0,
+      student_num: "",
+      motto: ""
+    })
+
     let that = this
     db.collection('user').where({
       _openid: app.globalData.openid
     }).get({
       success: function(res) {
         let userInfo = res.data[0]
-        if(userInfo.academy != "未知") {
+        if(userInfo.academy != "未知学院") {
           that.setData({
             academy_index: that.data.academy_array.indexOf(userInfo.academy)
           })
         }
-        if(userInfo.academy != "未知") {
+        if(userInfo.grade != "未知年级") {
           that.setData({
             grade_index: that.data.grade_array.indexOf(userInfo.grade)
           })
@@ -117,6 +129,7 @@ Page({
         that.setData({ motto: userInfo.motto })
       }
     })
+
   },
 
   /**
