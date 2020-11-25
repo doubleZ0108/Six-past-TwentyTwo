@@ -20,7 +20,8 @@ Page({
     star_flag: false,
     star_num_flag: 0,
 
-    prohibit_star: false
+    prohibit_star: false,
+    prohibit_comment: false,
   },
 
   handleIntersectionObserver: function() {
@@ -35,11 +36,14 @@ Page({
         wx.createIntersectionObserver().relativeToViewport().observe('#'+res.id, (node) => {
           // console.log(res.id, node.intersectionRatio)
           let commentIndex = parseInt(res.id.substr(8))
+          // 仅第一次进行observe 播放动画
           if(node.intersectionRatio != 0) {
             that.data.commentItem[commentIndex].animate = true
-          } else {
-            that.data.commentItem[commentIndex].animate = false
-          }
+            wx.createIntersectionObserver().relativeToViewport().disconnect('#'+res.id)
+          } 
+          // else {
+          //   that.data.commentItem[commentIndex].animate = false
+          // }
           that.setData({ commentItem: that.data.commentItem })
         })
       })
@@ -71,13 +75,15 @@ Page({
             msg: "评论成功～",
             type: "success",
             show: true
-          }
+          },
+          prohibit_comment: true
         })
 
+        let timeNow = new Date()
         let commentData = {
           comment: that.data.textarea,
           openid: app.globalData.openid,
-          time: timeUtil.formatTime(new Date()),
+          time: timeNow,
           avatarUrl: app.globalData.userInfo.avatarUrl,
           nickName: app.globalData.userInfo.nickName,
         }
@@ -103,7 +109,10 @@ Page({
             commentData: commentData,
           },
           complete: function() {
-            that.setData({ textarea: "" })
+            that.setData({ 
+              textarea: "",
+              prohibit_comment: false
+            })
           }
         })
 
@@ -205,11 +214,37 @@ Page({
     }
   },
 
+
+  initCommentList: function() {
+    let that = this
+    db.collection('comment')
+    .orderBy('time', 'asc')
+    .where({
+      cardId: that.data.card_id
+    })
+    .get({
+      success: function(res) {
+        let commentList = res.data[0].commentList
+        commentList.forEach(function(comment) {
+          that.setData({
+            commentItem: that.data.commentItem.concat({
+              avatarSrc: comment.avatarUrl,
+              name: comment.nickName,
+              content: comment.comment,
+              animate: false
+            })
+          })
+        })
+        that.handleIntersectionObserver()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options.cardId)
+    this.setData({ card_id: options.cardId })
 
     if(options.vipcard) {
       console.log("this is from vipcard navigator!!!")
@@ -259,26 +294,7 @@ Page({
     })
     
     // @BACK comment list
-    db.collection('comment').where({
-      cardId: options.cardId
-    }).get({
-      success: function(res) {
-        let commentList = res.data[0].commentList
-        commentList.forEach(function(comment) {
-          that.setData({
-            commentItem: that.data.commentItem.concat({
-              avatarSrc: comment.avatarUrl,
-              name: comment.nickName,
-              content: comment.comment,
-              animate: false
-            })
-          })
-        })
-
-        that.handleIntersectionObserver()
-
-      }
-    })
+    this.initCommentList()
   
   },
 

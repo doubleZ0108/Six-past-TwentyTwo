@@ -73,3 +73,18 @@
 .icon-group.icon-selected text {
   color: rgba(255, 255, 255, .83);
 }
+
+
+.swiper-item-bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.worldcard-bottom-text {
+  color: white;
+  text-align: center;
+  margin: auto;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
+}
