@@ -63,6 +63,25 @@
 }
 
 
+/**************** fold ***************/
+.favoritecard-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  height: 100%;
+}
+
+.favoritecard-info view{
+  font-size: 75rpx;
+  font-weight: 1000;
+}
+.favoritecard-info view .iconfont {
+  font-size: 80rpx;
+}
+
+
 /**************** unfold ***************/
 .favoritecard-container-unfold {
   width: 100%;
@@ -168,7 +187,6 @@
 .favorite-seal text{
   display: block;
   font-size: 160rpx;
-  backdrop-filter: blur(20rpx);
   background: linear-gradient(130deg, rgb(94,233,203),rgb(212,248,174));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

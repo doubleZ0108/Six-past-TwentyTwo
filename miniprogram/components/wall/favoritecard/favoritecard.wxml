@@ -10,9 +10,6 @@
       <text class="iconfont iconaixin"></text>
       <text>信息</text>
     </view>
-    <view>
-      <text>TONGJIXINXITONGJIXINXITONGJIXINXITONGJIXINXITONGJIXINXI</text>
-    </view>
   </view>
 
   <view class="favoritecard-info-unfold">
@@ -32,10 +29,10 @@
           </view>
 
           <view class="default-container">
-            <image src="../../../resource/img/avatar/avatar.jpg"></image>
+            <image src="{{ userInfo.avatarUrl }}"></image>
             <view class="default-text-group">
-              <text>doubleZ</text>
-              <text>男生</text>
+              <text>{{ userInfo.nickName }}</text>
+              <text>{{ userInfo.gender==1 ? '男生' : ( userInfo.gender==2 ? '女生' : '未知' ) }}</text>
               <text> <text class="iconfont icontishi"></text> 默认信息和微信账号同步，如欲修改请直接修改微信账号下个人信息</text>
             </view>
           </view>
@@ -51,8 +48,8 @@
 
             <view class="statistic-container" wx:for="{{ statistic_array }}">
               <text class="iconfont iconqueren"></text>
-              <text>我发布的表白数量: </text>
-              <text>{{ item }}</text>
+              <text>{{ item.label }}: </text>
+              <text>{{ item.data }}</text>
             </view>
 
           </view>
