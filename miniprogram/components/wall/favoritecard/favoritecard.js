@@ -20,7 +20,8 @@ Component({
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,
     touchDotY: 0,
-    commentId: 678,
+    
+    statistic_array: [1,11,111,1111,11111,111111]
   },
 
   /**
@@ -45,12 +46,6 @@ Component({
       
       if(this.data.fold_class != "favoritecard-container-unfold") {
         this.setData({ fold_class: "favoritecard-container-unfold" })
-      }
-    },
-
-    onEnvelopTap: function() {
-      if(this.data.turn_over_class != "envelop-turn-over") {
-        this.setData({ turn_over_class: "envelop-turn-over" })
       }
     },
 

@@ -4,60 +4,65 @@
   bindtap="onFavoriteCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
-  <view class="favoritecard-people">
-    <text>Person1Person1Person1Person1</text>
-    <text class="iconfont iconaixin"></text>
-    <text>Person2</text>
-  </view>
   <view class="favoritecard-info">
-    <image src="../../../resource/img/avatar/avatar.jpg"></image>
-    <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
+    <view>
+      <text>统计</text>
+      <text class="iconfont iconaixin"></text>
+      <text>信息</text>
+    </view>
+    <view>
+      <text>TONGJIXINXITONGJIXINXITONGJIXINXITONGJIXINXITONGJIXINXI</text>
+    </view>
   </view>
 
   <view class="favoritecard-info-unfold">
 
     <image class="favoritecard-bgdecorate-unfold" src="../../../resource/img/favorite/bg.png"></image>
 
-    <view class="favoritecard-info-unfold-tag">
-      <text>tag1tagtagtagtag2tagtagtagtag2tag1tagtagtagtag2tagtagtagtag2</text>
-      <text>其他</text>
-    </view>
+    <view class="favoritecard-container-unfold">
+      <form>
+        <view class="favoritecard-logo">
+          <text class="iconfont iconshezhi"></text>
+        </view>
 
-    <view class="favoritecard-info-unfold-bubble">
-      <view class="unfold-info-group unfold-left-person">
-        <view class="unfold-bubble">
-            <text>左侧测左侧测试文本左侧测试文本</text>
-        </view>
-      </view>
-      <view class="unfold-info-group unfold-right-person">
-        <view class="unfold-bubble">
-          <text>右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本</text>
-        </view>
-      </view>
-    </view>
+        <view class="favoritecard-block favoritecard-default">
+          <view class="favoritecard-title-group">
+            <text>默认信息</text>
+            <text></text>
+          </view>
 
-    <view class="favoritecard-info-unfold-description" scroll-y>
-      <text>这是一条表白，它非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长非常长非常非常非常长非常非常非常长非常非常非常长非常非常非常长</text>
-    </view>
+          <view class="default-container">
+            <image src="../../../resource/img/avatar/avatar.jpg"></image>
+            <view class="default-text-group">
+              <text>doubleZ</text>
+              <text>男生</text>
+              <text> <text class="iconfont icontishi"></text> 默认信息和微信账号同步，如欲修改请直接修改微信账号下个人信息</text>
+            </view>
+          </view>
+        </view>
 
-    <view class="favoritecard-info-unfold-function">
-      <view class="function-favorite">
-        <text class="iconfont iconxingxing"></text>
-      </view>
-      <view class="function-star">
-        <text class="iconfont icondianzan"></text>
-        <text>99</text>
-      </view>
-      <view class="function-comment">
-        <view class="function-comment-num">
-          <text class="iconfont icontubiaozhizuo-"></text>
-          <text>5</text>
+        <view class="favoritecard-block favoritecard-settable">
+          <view class="favoritecard-title-group">
+            <text>数据统计</text>
+            <text></text>
+          </view>
+
+          <view class="favorite-statistic-group">
+
+            <view class="statistic-container" wx:for="{{ statistic_array }}">
+              <text class="iconfont iconqueren"></text>
+              <text>我发布的表白数量: </text>
+              <text>{{ item }}</text>
+            </view>
+
+          </view>
+
         </view>
-        <view class="function-comment-write">
-          <text class="iconfont iconpinglun"></text>
-          <navigator url="../comment/comment?commentId={{ commentId }}">编写评论</navigator>
+
+        <view class="favorite-seal">
+          <text class="iconfont iconqueren"></text>
         </view>
-      </view>
+      </form>
     </view>
 
   </view>
