@@ -61,6 +61,6 @@
   <form>
     <textarea placeholder="写下你的评论" name="comment" value="{{ textarea }}" placeholder-style="color: rgba(255,255,255,.6);"
       fixed adjust-position disable-default-padding bindblur="onTextareaBlur"></textarea>
-    <text bindtap="{{ prohibit_comment ? '' : 'commentSubmit' }}">发送</text>
+    <text class="{{ blured ? 'comment-submit-colorful' : ''}}" bindtap="{{ (prohibit_comment && blured) ? '' : 'commentSubmit' }}">发送</text>
   </form>
 </view>

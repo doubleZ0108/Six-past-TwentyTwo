@@ -325,9 +325,12 @@
   flex-direction: row;
   align-items: center;
 }
+.function-comment-write.unable-navigate {
+  color: rgba(255,255,255,.3);
+}
 
 .iconfont-favorite-colorful {
-  color: rgba(255, 240, 175, 0.8);
+  color: rgba(255, 223, 40, 0.9);
 }
 
 .iconfont-star-colorful {

@@ -31,6 +31,8 @@ Component({
       show: false
     },
     show_error: false,  // 未完善所有所有信息提交时报错
+    colorful: false,   // submit button colorful,
+    prohibit_submit: false,
     touchDotX: 0,
     touchDotY: 0,
     writecard_bg: "../../../resource/img/write/fold_bg.svg",
@@ -125,6 +127,9 @@ Component({
     },
 
     formSubmit: function(e) {
+      this.setData({ colorful: true })
+      let that = this
+
       let writeData = {
         myName: e.detail.value.myName,
         taName: e.detail.value.taName,
@@ -147,14 +152,18 @@ Component({
               show: true
             }
           })
+          setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
           return
         }
       }
 
       // @BACK √
+
+      this.setData({ prohibit_submit: true })
+
       console.log(writeData)
       let timeNow = new Date()
-      let that = this
+      that = this
       db.collection('card').add({
         data: {
           openid: app.globalData.openid,
@@ -191,7 +200,8 @@ Component({
                 taName: "",
                 myDescription: "",
                 taDescription: "",
-                textarea: ""
+                textarea: "",
+                prohibit_submit: false
               })
             }
           })

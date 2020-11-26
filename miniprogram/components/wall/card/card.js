@@ -41,6 +41,10 @@ Component({
     unfold_refresh_flag: {
       type: Boolean,
       value: false
+    },
+    pull_down_flag_root: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -55,7 +59,8 @@ Component({
     comment_flag: false,
     comment_num_flag: 0,
 
-    prohibit_star: false
+    prohibit_star: false,   // 防止点赞过快
+    able_navigate: true     // 收藏 点赞完 写完库才可以跳转
   },
 
   /**
@@ -71,6 +76,8 @@ Component({
 
     // TODO 要绑定 user 和 card间 收藏点赞评论的关系 让对应的icon高亮
     onFavoriteTap: function() {
+      this.setData({ able_navigate: false })
+
       let that = this
       this.setData({ favorite_flag: !that.data.favorite_flag })
 
@@ -85,6 +92,7 @@ Component({
           },
           complete: function(res) {
             console.log("收藏成功")
+            that.setData({ able_navigate: true })
           }
         })
       } else {
@@ -105,6 +113,7 @@ Component({
               },
               complete: function(res) {
                 console.log("取消收藏成功")
+                that.setData({ able_navigate: true })
               }
             })
 
@@ -114,6 +123,8 @@ Component({
 
     },
     onStarTap: function() {
+      this.setData({ able_navigate: false })
+
       let that = this
       this.setData({ 
         star_flag: !that.data.star_flag,
@@ -136,7 +147,10 @@ Component({
           },
           complete: function(res) {
             console.log("点赞成功")
-            that.setData({ prohibit_star: false })
+            that.setData({ 
+              prohibit_star: false,
+              able_navigate: true
+            })
           }
         })
       } else {
@@ -157,7 +171,10 @@ Component({
               },
               complete: function(res) {
                 console.log("取消收藏成功")
-                that.setData({ prohibit_star: false })
+                that.setData({ 
+                  prohibit_star: false,
+                  able_navigate: true
+                })
               }
             })
 
@@ -165,6 +182,14 @@ Component({
         })
       }
 
+    },
+    onNavigatorTap: function() {
+      if(this.data.able_navigate) {
+        let that = this
+        wx.navigateTo({
+          url: "../comment/comment?cardId=" + that.data.card_id
+        })
+      }
     },
 
     /** 卡片底部 favorite star comment 信息 */
@@ -230,5 +255,10 @@ Component({
         // unfold: "card-container-unfold"  // for card unfold style
       })
     },
+    'pull_down_flag_root': function(pull_down_flag_root) {
+      if(pull_down_flag_root) {
+        this.updateCardFunctionInfo()
+      }
+    }
   }
 })

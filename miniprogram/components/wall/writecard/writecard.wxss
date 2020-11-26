@@ -280,6 +280,14 @@
 
 .writecard-container-unfold button {
   width: 40%;
+  border-radius: 20rpx;
+  color: rgba(255,255,255,.83);
+  background: rgb(30,31,66); 
+  transition: .4s cubic-bezier(.8,.2,.8,1);
+  /* background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210)); */
+}
+
+.writecard-container-unfold button.writecard-button-colorful {
   color: rgb(44,42,85);
   background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210));
 }

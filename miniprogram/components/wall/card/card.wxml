@@ -51,9 +51,9 @@
           <text class="iconfont icontubiaozhizuo- {{ comment_flag ? 'iconfont-comment-colorful' : '' }}"></text>
           <text>{{ comment_num_flag }}</text>
         </view>
-        <view class="function-comment-write">
+        <view class="function-comment-write {{ able_navigate ? '' : 'unable-navigate' }}" bindtap="onNavigatorTap">
           <text class="iconfont iconpinglun"></text>
-          <navigator url="../comment/comment?cardId={{ card_id }}">编写评论</navigator>
+          <text>编写评论</text>
         </view>
       </view>
     </view>
