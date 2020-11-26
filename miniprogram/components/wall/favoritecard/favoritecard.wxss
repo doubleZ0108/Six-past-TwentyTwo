@@ -16,7 +16,7 @@
   background: linear-gradient(104deg, rgb(207, 115, 23), rgb(216, 204, 178));
   background-size: cover;
   border-radius: 50rpx;
-  box-shadow: 0 9rpx 30rpx rgba(228, 219, 198, 0.6);
+  box-shadow: 0 0 20rpx rgb(247,163,101, .8);
 
   transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -105,7 +105,7 @@
 
 .favoritecard-logo .iconfont {
   font-size: 130rpx;
-  background: linear-gradient(130deg, rgb(194,236,196),rgb(231, 237, 166)); 
+  background: linear-gradient(130deg, rgb(253,194,89),rgb(252, 134,136), rgb(251,112,153)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 auto;
@@ -115,7 +115,7 @@
   margin: 60rpx auto;
 }
 
-/*============ title & line ============*/
+/* ============ title & line ============ */
 .favoritecard-title-group {
   height: 30rpx;
   margin: 15rpx;
@@ -133,7 +133,7 @@
   width: 60%;
   border-top: solid rgba(255,255,255,.6) 2rpx; 
   margin: 13rpx 0;
-}
+} 
 
 
 /*============ defalut ============*/
@@ -148,8 +148,8 @@
 }
 
 .default-container image {
-  width: 160rpx;
-  height: 160rpx;
+  width: 140rpx;
+  height: 140rpx;
   border-radius: 50%;
 }
 
@@ -159,16 +159,17 @@
 .default-text-group > text {
   display: block;
   margin-left: 20rpx;
+  color: rgba(255,255,255,.6);
 }
 
 .default-text-group text:nth-child(1) {
-  font-size: 40rpx;
+  font-size: 35rpx;
 }
 .default-text-group text:nth-child(2) {
-  font-size: 30rpx;
+  font-size: 25rpx;
 }
 .default-text-group text:nth-child(3) {
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   font-size: 18rpx;
   color: rgba(255,255,255,.6);
   line-height: 1.25;
@@ -187,7 +188,8 @@
 .favorite-seal text{
   display: block;
   font-size: 160rpx;
-  background: linear-gradient(130deg, rgb(94,233,203),rgb(212,248,174));
+  backdrop-filter: blur(20rpx);
+  background: linear-gradient(50deg, rgb(254,195,88),rgb(251,128,140), rgb(251,112,153));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -201,6 +203,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: rgba(255,255,255,.6);
 }
 
 .statistic-container {
@@ -212,5 +215,5 @@
   justify-items: center;
 
   margin: 20rpx auto;
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
