@@ -40,13 +40,9 @@ Component({
     switcher1_text: "男生",
     switcher2_gender_now: "gender-now-female",
     switcher2_text: "女生",
-    academy_array: [
-      "未知","软件学院","土木学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
-    ],
+    academy_array: ["未知"].concat(app.globalData.academy_array),
     academy_index: 0,
-    grade_array: [
-      "未知","大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
-    ],
+    grade_array: ["未知"].concat(app.globalData.grade_array),
     grade_index: 0,
     myName: "",
     taName: "",
