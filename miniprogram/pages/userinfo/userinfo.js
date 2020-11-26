@@ -17,7 +17,8 @@ Page({
     grade_index: 0,
     student_num: "",
     motto: "",
-    colorful: false   // submit button colorful
+    colorful: false,   // submit button colorful,
+    userInfo: null
   },
 
   bindAcademyChange: function(e) {
@@ -100,7 +101,8 @@ Page({
       academy_index: 0,
       grade_index: 0,
       student_num: "",
-      motto: ""
+      motto: "",
+      userInfo: app.globalData.userInfo
     })
 
     let that = this
