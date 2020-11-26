@@ -1,4 +1,8 @@
 // components/wall/favoritecard/favoritecard.js
+
+const app = getApp()
+const db = wx.cloud.database()
+
 Component({
   /**
    * 组件的属性列表
@@ -20,8 +24,17 @@ Component({
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,
     touchDotY: 0,
+
+    userInfo: null,
     
-    statistic_array: [1,11,111,1111,11111,111111]
+    statistic_array: [
+      { label: "我发表的表白数量", data: 0 },
+      { label: "我收获的点赞总数", data: 0 },
+      { label: "我收获的评论总数", data: 0 },
+      { label: "我收藏的表白数量", data: 0 },
+      { label: "我点赞的表白数量", data: 0 },
+      { label: "我发送的评论数量", data: 0 },
+    ]
   },
 
   /**
@@ -87,16 +100,62 @@ Component({
           }
         } 
       }
+    },
+
+    updateStatisticData: function() {
+      let that = this
+
+      wx.cloud.callFunction({
+        name: "statistic",
+        data: {},
+        complete: function(res) {
+          let cardList = res.result.data
+          let commentSum = 0, starSum = 0
+          cardList.forEach(function(card) {
+            commentSum += card.commentNum
+            starSum += card.starNum
+          })
+          that.data.statistic_array[0].data = cardList.length
+          that.data.statistic_array[1].data = starSum
+          that.data.statistic_array[2].data = commentSum
+
+          db.collection('behavior').where({
+            _openid: app.globalData.openid
+          }).get({
+            success: function(res) {
+              let userData = res.data[0]
+              that.data.statistic_array[3].data = Array.from(new Set(userData.favoriteList)).length
+              that.data.statistic_array[4].data = Array.from(new Set(userData.starList)).length
+              that.data.statistic_array[5].data = Array.from(new Set(userData.commentList)).length
+              let buf_that = that
+              that.setData({ statistic_array: buf_that.data.statistic_array })
+            }
+          })
+          // let buf_that = that
+          // that.setData({ statistic_array: buf_that.statistic_array })
+        }
+      })
+    }
+  },
+
+  lifetimes: {
+    attached: function() {
+      // this.updateStatisticData()
+      this.setData({ userInfo: app.globalData.userInfo })
     }
   },
 
   observers: {
-    'fold_class': function() {
-      let that = this;
+    'fold_class': function(fold_class) {
+      let that = this
       this.setData({
         favorite_height: that.data.fold_class == "favoritecard-container-unfold"? "100vh" : "290rpx",
         posLeft: that.data.fold_class == "favoritecard-container-unfold" ? "0" : "10%"
       })
+
+      if(fold_class) {
+        this.updateStatisticData()
+      }
     }
   }
 })
