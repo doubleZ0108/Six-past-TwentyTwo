@@ -1,13 +1,13 @@
 <!--components/wall/favoritecard/favoritecard.wxml-->
 <view class="favoritecard-container {{ fold_class }}"
-  style="height: {{ favorite_height }}; left: {{ posLeft }}; background-image: url(../../../../../resource/img/favorite/card.png)"
+  style="height: {{ favorite_height }}; left: {{ posLeft }}; background-image: url(../../../../../resource/img/favorite/calculatecard.png)"
   bindtap="onFavoriteCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
   <view class="favoritecard-info">
     <view>
       <text>统计</text>
-      <text class="iconfont iconaixin"></text>
+      <text class="iconfont icontongji"></text>
       <text>信息</text>
     </view>
   </view>
@@ -19,14 +19,10 @@
     <view class="favoritecard-container-unfold">
       <form>
         <view class="favoritecard-logo">
-          <text class="iconfont iconshezhi"></text>
+          <text class="iconfont icontongji"></text>
         </view>
 
         <view class="favoritecard-block favoritecard-default">
-          <view class="favoritecard-title-group">
-            <text>默认信息</text>
-            <text></text>
-          </view>
 
           <view class="default-container">
             <image src="{{ userInfo.avatarUrl }}"></image>
@@ -47,7 +43,7 @@
           <view class="favorite-statistic-group">
 
             <view class="statistic-container" wx:for="{{ statistic_array }}">
-              <text class="iconfont iconqueren"></text>
+              <text class="iconfont iconsijiaoxing"></text>
               <text>{{ item.label }}: </text>
               <text>{{ item.data }}</text>
             </view>

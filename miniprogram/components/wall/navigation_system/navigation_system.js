@@ -625,14 +625,8 @@ Component({
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
-        
-        this.setData({
-          world_bottom_show: false,
-          my_bottom_show: false,
-          favorite_bottom_show: false,
-          filter_bottom_show: false
-        })
-        
+        let that = this
+ 
         // @BACK 根据不同的tab重新拉取该tab的cards
         switch(this.data.currentTab) {
           case 0: {
