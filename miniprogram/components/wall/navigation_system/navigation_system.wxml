@@ -34,6 +34,7 @@
       capture-bind:tap="onCardGroupTap">
 
       <card wx:for="{{ world_cards }}" wx:key="{{ index }}"
+        pull_down_flag_root="{{ pull_down_flag_root }}"
         unfold_refresh_flag="{{ unfold_refresh_flag_naviagtion_system }}"
         animate="{{ item.animate }}" index="{{ index }}"
         card_id="{{ item.card_id }}"

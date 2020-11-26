@@ -14,9 +14,7 @@
 
       <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
 
-     
-
-      <form catchsubmit="formSubmit">
+      <form catchsubmit="{{ prohibit_submit ? '' : 'formSubmit'}}">
 
         <view class="write-logo">
           <text class="iconfont icon19shuxie3x"></text>
@@ -76,7 +74,7 @@
           <textarea name="textarea" value="{{ textarea }}"></textarea>
         </view>
 
-        <button form-type="submit" catchtap="console.log('catch')">发送表白</button>
+        <button class="{{ colorful ? 'writecard-button-colorful' : '' }}" form-type="submit" catchtap="console.log('catch')">发送表白</button>
       </form>
 
     </view>

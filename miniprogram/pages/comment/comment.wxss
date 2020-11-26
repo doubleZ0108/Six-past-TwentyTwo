@@ -222,14 +222,19 @@
   right: 3%;
   width: 20%;
   height: 60rpx;
-  color: rgb(44,42,85);
   font-size: 30rpx;
   line-height: 60rpx;
   border-radius: 50rpx;
   text-align: center;
+
+  color: rgba(255,255,255,.83);
+  background: rgb(44,42,85);
+  transition: .4s cubic-bezier(.8,.2,.8,1);
+}
+.comment-textarea-container text.comment-submit-colorful {
+  color: rgb(44,42,85);
   background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210));
 }
-
 
 
 /************* comment list ***************/
@@ -385,11 +390,17 @@
   right: 3%;
   width: 20%;
   height: 60rpx;
-  color: rgb(59, 37, 29);
   font-size: 30rpx;
   line-height: 60rpx;
   border-radius: 50rpx;
   text-align: center;
+
+  color: rgba(255,255,255,.83);
+  background: rgb(59, 37, 29);
+  transition: .4s cubic-bezier(.8,.2,.8,1);
+}
+.vipcard-confirm.comment-textarea-container text.comment-submit-colorful {
+  color: rgb(59, 37, 29);
   background: linear-gradient(104deg, rgb(238, 171, 202),rgb(252, 134, 144), rgb(241, 154, 143));
 }
 

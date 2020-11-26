@@ -22,6 +22,7 @@ Page({
 
     prohibit_star: false,
     prohibit_comment: false,
+    blured: false   // 监听键盘blur
   },
 
   handleIntersectionObserver: function() {
@@ -54,70 +55,72 @@ Page({
 
 
   onTextareaBlur: function(e) {
-    this.setData({ textarea: e.detail.value })
+    this.setData({ 
+      textarea: e.detail.value,
+      blured: true
+    })
   },
 
   commentSubmit: function() {
     let that = this
 
-    setTimeout(function(){
-      if(that.data.textarea == "") {
-        that.setData({ 
-          toptip: {
-            msg: "请填写你的评论:)",
-            type: "error",
-            show: true
-          }
-        })
-      } else {
-        that.setData({
-          toptip: {
-            msg: "评论成功～",
-            type: "success",
-            show: true
-          },
-          prohibit_comment: true
-        })
-
-        let timeNow = new Date()
-        let commentData = {
-          comment: that.data.textarea,
-          openid: app.globalData.openid,
-          time: timeNow,
-          avatarUrl: app.globalData.userInfo.avatarUrl,
-          nickName: app.globalData.userInfo.nickName,
+    if(that.data.textarea == "") {
+      that.setData({ 
+        toptip: {
+          msg: "请填写你的评论:)",
+          type: "error",
+          show: true
         }
+      })
+    } else {
+      that.setData({
+        toptip: {
+          msg: "评论成功～",
+          type: "success",
+          show: true
+        },
+        prohibit_comment: true
+      })
 
-        let fresh_commentItem = {
-          avatarSrc: app.globalData.userInfo.avatarUrl,
-          name: app.globalData.userInfo.nickName,
-          content: that.data.textarea,
-          animate: false
-        }
-
-        that.setData({
-           commentItem: that.data.commentItem.concat([fresh_commentItem])
-        })
-
-        that.handleIntersectionObserver()
-
-        // @BACK √
-        wx.cloud.callFunction({
-          name: "comment",
-          data: {
-            cardId: that.data.cardInfo.card_id,
-            commentData: commentData,
-          },
-          complete: function() {
-            that.setData({ 
-              textarea: "",
-              prohibit_comment: false
-            })
-          }
-        })
-
+      let timeNow = new Date()
+      let commentData = {
+        comment: that.data.textarea,
+        openid: app.globalData.openid,
+        time: timeNow,
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+        nickName: app.globalData.userInfo.nickName,
       }
-    }, 500)    // 让blur事件执行完
+
+      let fresh_commentItem = {
+        avatarSrc: app.globalData.userInfo.avatarUrl,
+        name: app.globalData.userInfo.nickName,
+        content: that.data.textarea,
+        animate: false
+      }
+
+      that.setData({
+         commentItem: that.data.commentItem.concat([fresh_commentItem])
+      })
+
+      that.handleIntersectionObserver()
+
+      // @BACK √
+      wx.cloud.callFunction({
+        name: "comment",
+        data: {
+          cardId: that.data.cardInfo.card_id,
+          commentData: commentData,
+        },
+        complete: function() {
+          that.setData({ 
+            textarea: "",
+            prohibit_comment: false,
+            blured: false
+          })
+        }
+      })
+
+    }
   },
 
 
