@@ -219,7 +219,10 @@ Component({
     },
     loadMoreWorldCardList: function() {
 
-      this.setData({ show_loading: true })
+      this.setData({ 
+        show_loading: true,
+        world_bottom_show: false
+      })
 
       let that = this
       db.collection('card')
@@ -311,7 +314,10 @@ Component({
     },
     loadMoreMyCardList: function() {
 
-      this.setData({ show_loading: true })
+      this.setData({ 
+        show_loading: true,
+        my_bottom_show: false
+      })
 
       let that = this
       db.collection('card')
@@ -408,6 +414,11 @@ Component({
     },
     loadMoreFavoriteCardList: function() {
       let that = this
+      this.setData({ 
+        show_loading: true,
+        favorite_bottom_show: false
+      })
+
       db.collection('behavior').where({
         _openid: app.globalData.openid
       }).get({
@@ -471,8 +482,8 @@ Component({
       .limit(that.data.init_step)
       .orderBy('timestamp', 'desc')
       .where({
-        academy: filterInfo.academy=="全部" ? "未知" : filterInfo.academy,
-        grade: filterInfo.grade=="全部" ? "未知" : filterInfo.grade,
+        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+        grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
         time: filterInfo.date,
         myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
         taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right
@@ -512,7 +523,10 @@ Component({
       })
     },
     loadMoreFilterCardList: function() {
-      this.setData({ show_loading: true })
+      this.setData({ 
+        show_loading: true,
+        filter_bottom_show: false
+      })
 
       let that = this
       let filterInfo = this.data.filter_info
@@ -521,8 +535,8 @@ Component({
       .skip(that.data.filter_cards.length)
       .orderBy('timestamp', 'desc')
       .where({
-        academy: filterInfo.academy=="全部" ? "未知" : filterInfo.academy,
-        grade: filterInfo.grade=="全部" ? "未知" : filterInfo.grade,
+        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+        grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
         time: filterInfo.date,
         myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
         taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right
@@ -594,7 +608,8 @@ Component({
       this.setData({
         world_bottom_show: false,
         my_bottom_show: false,
-        favorite_bottom_show: false
+        favorite_bottom_show: false,
+        filter_bottom_show: false
       })
 
       // 切换tab时自动滑动到顶端
@@ -610,7 +625,13 @@ Component({
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
-        let that = this
+        
+        this.setData({
+          world_bottom_show: false,
+          my_bottom_show: false,
+          favorite_bottom_show: false,
+          filter_bottom_show: false
+        })
         
         // @BACK 根据不同的tab重新拉取该tab的cards
         switch(this.data.currentTab) {
@@ -642,6 +663,13 @@ Component({
     'reach_bottom_flag_root': function(reach_bottom_flag_root) {
       if(reach_bottom_flag_root) {
         console.log(this.data.currentTab, "加载更多...")
+
+        this.setData({
+          world_bottom_show: false,
+          my_bottom_show: false,
+          favorite_bottom_show: false,
+          filter_bottom_show: false
+        })
 
         // @BACK 根据不同的tab拉取触底的新cards
         switch(this.data.currentTab) {

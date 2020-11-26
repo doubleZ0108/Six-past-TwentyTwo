@@ -11,13 +11,9 @@ Page({
       type: "success",
       show: false
     },
-    academy_array: [
-      "软件学院","土木学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
-    ],
+    academy_array: app.globalData.academy_array,
     academy_index: 0,
-    grade_array: [
-      "大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
-    ],
+    grade_array: app.globalData.grade_array,
     grade_index: 0,
     student_num: "",
     motto: "",

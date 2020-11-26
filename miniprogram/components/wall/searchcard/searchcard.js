@@ -20,13 +20,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    academy_array: [
-      "全部","软件学院","土木学院","建筑与城市规划学院","学院","学院","学院","学院","学院","学院","学院","学院","学院","学院"
-    ],
+    academy_array: ["全部"].concat(app.globalData.academy_array),
     academy_index: 0,
-    grade_array: [
-      "全部","大一","大二","大三","大四","研一","研二","研三","博一","博二","博三","博四","博五","其他"
-    ],
+    grade_array: ["全部"].concat(app.globalData.grade_array),
     grade_index: 0,
     date: timeUtil.formatDate(new Date()),
     gender_left_isMale: true,
