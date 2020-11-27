@@ -1,9 +1,9 @@
 <!--components/wall/wave/wave.wxml-->
 <view class="wave-container" catchtouchmove="true"> <!-- ban scroll event similar to overflow hidden-->
   <view class="wave-wrapper">
-    <view class="wave-1-layer" style="background-image: url(../../../resource/img/wave/wave1.svg);"></view>
+    <view class="wave-1-layer" style="background-image: url(../../../resource/img/wave/wave1.svg);background-position: {{ warm_position_x }} 0%;"></view>
     <view class="wave-2-layer"></view>
-    <view class="wave-3-layer" style="background-image: url(../../../resource/img/wave/wave3.svg);"></view>
+    <view class="wave-3-layer" style="background-image: url(../../../resource/img/wave/wave3.svg);background-position: {{ cool_position_x }} 0%;"></view>
     <view class="wave-4-layer" style="background-image: url(../../../resource/img/wave/wave4.svg);"></view>
     
     <!-- for mobile test -->

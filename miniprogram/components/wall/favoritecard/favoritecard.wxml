@@ -52,10 +52,10 @@
 
         </view>
 
-        <view class="favorite-seal">
-          <text class="iconfont iconqueren"></text>
-        </view>
       </form>
+
+      <view class="favoritecard-wave" style="background-image: url(../../../resource/img/favorite/wave.svg)">
+      </view>
     </view>
 
   </view>
