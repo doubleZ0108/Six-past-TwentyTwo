@@ -120,6 +120,23 @@
   color: rgba(255,255,255,.83);
 }
 
+.userinfo-verify {
+  position: relative;
+}
+.userinfo-verify view {
+  position: absolute;
+  right: 60rpx;
+  top: 10rpx;
+
+  width: 100rpx;
+  height: 35rpx;
+  padding: 10rpx;
+
+  font-size: 20rpx;
+  background-color: rgba(32, 178, 171, 0.753);
+  border-radius: 50rpx;
+}
+
 /*============ motto ============*/
 .userinfo-motto textarea {
   width: 80%;

@@ -35,10 +35,13 @@
       <picker mode="selector" bindchange="bindGradeChange" name="grade"
         range="{{ grade_array }}" index="{{ grade_index }}">
         年级: {{ grade_array[grade_index] }} </picker>
-      <input type="number" name="myDescription" value="{{ student_num }}"
+      <view class="userinfo-verify">
+        <input type="number" name="myDescription" value="{{ student_num }}"
         placeholder="学号: 175xxxx"
         placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" 
         bindblur="onStudentNumBlur" />
+        <view bindtap="onVerifyTap">发送验证码</view>
+      </view>
 
     </view>
 
