@@ -27,7 +27,7 @@ Component({
     date: timeUtil.formatDate(new Date()),
     gender_left_isMale: true,
     gender_right_isFemale: true,
-    gender_none: false,
+    gender_none: true,
     animate: false
   },
 

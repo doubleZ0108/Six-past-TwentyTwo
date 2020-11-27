@@ -126,7 +126,7 @@ Component({
               let userData = res.data[0]
               that.data.statistic_array[3].data = Array.from(new Set(userData.favoriteList)).length
               that.data.statistic_array[4].data = Array.from(new Set(userData.starList)).length
-              that.data.statistic_array[5].data = Array.from(new Set(userData.commentList)).length
+              that.data.statistic_array[5].data = userData.commentList.length
               let buf_that = that
               that.setData({ statistic_array: buf_that.data.statistic_array })
             }

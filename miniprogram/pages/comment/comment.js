@@ -74,11 +74,6 @@ Page({
       })
     } else {
       that.setData({
-        toptip: {
-          msg: "评论成功～",
-          type: "success",
-          show: true
-        },
         prohibit_comment: true
       })
 
@@ -115,7 +110,12 @@ Page({
           that.setData({ 
             textarea: "",
             prohibit_comment: false,
-            blured: false
+            blured: false,
+            toptip: {
+              msg: "评论成功～",
+              type: "success",
+              show: true
+            },
           })
         }
       })
