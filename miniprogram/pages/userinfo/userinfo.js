@@ -96,6 +96,25 @@ Page({
     }, 500)
   },
 
+  onVerifyTap: function() {
+
+  },
+
+  sendEmile: function() {
+    wx.cloud.callFunction({
+      name: "emile",
+      data: {
+        to_emile: '1753188@tongji.edu.cn',
+        from: '二十二点零六团队 <Six_past_TwentyTwo@163.com>',    // 发件人必须是这个格式
+        subject: '【二十二点零六】验证码',    // 主题
+        text: '您的验证码是: 1234'   // 邮件内容，text或者html格式
+      },
+      complete: function(res) {
+        console.log(res)
+      }
+    })
+  },
+
   onLoad: function (options) {
     this.setData({
       academy_index: 0,
