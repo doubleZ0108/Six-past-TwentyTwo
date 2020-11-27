@@ -179,19 +179,15 @@
   font-size: 24rpx;
 }
 
-/*============ button ============*/
-.favorite-seal {
-  position: absolute;
-  right: 5%;
-  bottom: 1%;
-}
-.favorite-seal text{
-  display: block;
-  font-size: 160rpx;
-  backdrop-filter: blur(20rpx);
-  background: linear-gradient(50deg, rgb(254,195,88),rgb(251,128,140), rgb(251,112,153));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/*============ wave ============*/
+.favoritecard-wave {
+  height: 150rpx;
+  width: 100%;
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 

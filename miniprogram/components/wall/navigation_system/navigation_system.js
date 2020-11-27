@@ -583,6 +583,10 @@ Component({
   lifetimes: {
     attached: function() {
       this.initWorldCardList()
+
+      if(this.data.world_cards.length == 0) {
+        this.setData({ world_bottom_show: true })
+      }
     },
   },
 
@@ -621,6 +625,42 @@ Component({
       } else if(this.data.favorite_cards.length ==0 && currentTab == 2) {
         this.initFavoriteCardList()
       }
+
+      // 如果没有卡片则显示到底信息
+      switch(this.data.currentTab) {
+        case 0: {
+          if(this.data.world_cards.length == 0){
+            this.setData({ world_bottom_show: true })
+          }
+        }
+        case 1: {
+          if(this.data.my_cards.length == 0){
+            this.setData({ my_bottom_show: true })
+          }
+        }
+        case 2: {
+          if(this.data.favorite_cards.length == 0){
+            this.setData({ favorite_bottom_show: true })
+          }
+        }
+        case 3: {
+          if(this.data.filter_cards.length == 0){
+            this.setData({ filter_bottom_show: true })
+          }
+        }
+        default: {
+          if(this.data.world_cards.length == 0){
+            this.setData({ world_bottom_show: true })
+          }
+        }
+      }
+
+      // wave position
+      let pages = getCurrentPages()
+      let currpage = pages[pages.length-1]
+      currpage.setData({
+        current_tab: currentTab
+      })
     },
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {

@@ -16,12 +16,12 @@
 .wave-1-layer {
   position: absolute;
   width: 100%;
-  /* background-position: center top; */
-  background-position: 25% 0%;
+  background-position: 25% 0%;      /* TODO */
   background-repeat: no-repeat;
   /* background-size: 100%; */
   top: 250rpx;
   height: 1700rpx;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
 .wave-2-layer {
@@ -35,12 +35,13 @@
 .wave-3-layer {
   position: absolute;
   width: 100%;
-  background-position: center top;
+  background-position: 50% 0%;  /* TODO */
   background-repeat: no-repeat;
   background-size: 180%;
   top: 560rpx;
   left: 0;
   height: 1100rpx;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
 .wave-4-layer {

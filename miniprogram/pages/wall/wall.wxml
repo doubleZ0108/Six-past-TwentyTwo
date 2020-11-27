@@ -10,7 +10,7 @@
   <view class="wall-container {{ drawer ? 'wall-contaienr-drawer' : ''}}">
     <confetti id='confetti' duration="1000" />
 
-    <wave>
+    <wave current_tab="{{ current_tab }}">
       <hero bindtap="heroTap" userinfo_flag="{{ userinfo_flag}}" />  <!-- 150px height / 25px margin-top -->
       <notice /> <!-- 25px height / 20px margin-top-bottom -->
     </wave>
