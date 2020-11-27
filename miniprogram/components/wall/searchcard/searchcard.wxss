@@ -166,6 +166,19 @@ button {
 .searchcard-gender-separate {
   margin: 0 25rpx;
   color: rgba(255,255,255,.6);
+  animation: 3s SeparateAnimation infinite linear;
+}
+
+@keyframes SeparateAnimation {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
 }
 
 .searchcard-gender-left .iconfont-colorful:nth-child(1),
