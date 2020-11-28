@@ -102,6 +102,38 @@ Component({
             return
           }
         } 
+<<<<<<< Updated upstream
+=======
+      } else {
+        let touchMoveX = e.changedTouches[0].pageX
+        let touchMoveY = e.changedTouches[0].pageY
+        let tmX = touchMoveX - this.data.smallcard_touchDotX
+        let tmY = touchMoveY - this.data.smallcard_touchDotX
+
+        let absX = Math.abs(tmX)
+        let absY = Math.abs(tmY)
+
+        if (absX > 2 * absY) {
+          if (tmX < 0 && -tmX > this.data.slip_tolerance){
+            console.log("左滑=====")
+            // TODO 
+
+            this.setData({ animate: true })
+            let that = this
+            setTimeout(function(){
+              that.setData({ animate: false })
+            }, 2500)
+            setTimeout(function() {
+              /* z-index adaptive */
+              let pages = getCurrentPages()
+              let currpage = pages[pages.length-1]
+              currpage.setData({
+                switch_vipcard: true
+              })
+            }, 1500)
+          }
+        }
+>>>>>>> Stashed changes
       }
     }
   },
