@@ -60,7 +60,7 @@
 <view class="comment-textarea-container {{ fromVip ? 'vipcard-confirm' : ''}}">
   <form>
     <textarea placeholder="写下你的评论" name="comment" value="{{ textarea }}" placeholder-style="color: rgba(255,255,255,.6);"
-      fixed adjust-position disable-default-padding bindblur="onTextareaBlur"></textarea>
-    <text class="{{ blured ? 'comment-submit-colorful' : ''}}" bindtap="{{ (prohibit_comment && blured) ? '' : 'commentSubmit' }}">发送</text>
+      fixed adjust-position disable-default-padding bindinput="onTextareaInput"></textarea>
+    <text class="{{ has_content ? 'comment-submit-colorful' : ''}}" bindtap="{{ (prohibit_comment && has_content) ? '' : 'commentSubmit' }}">发送</text>
   </form>
 </view>

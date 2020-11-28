@@ -1,5 +1,6 @@
 // miniprogram/pages/userinfo/userinfo.js
 
+const verifyUtil = require('../../utils/verify')
 const app = getApp()
 const db = wx.cloud.database()
 
@@ -18,8 +19,14 @@ Page({
     student_num: "",
     motto: "",
     colorful: false,   // submit button colorful,
-    userInfo: null
+    userInfo: null,
+
+    verifyCode: null,            // 验证码
+    showVerifyBox: false,
+    verify_code_input: null,    // 用户输入的验证码
+    is_verified: false
   },
+ 
 
   bindAcademyChange: function(e) {
     this.setData({ academy_index: e.detail.value })
@@ -29,85 +36,143 @@ Page({
     this.setData({ grade_index: e.detail.value })
   },
 
-  onStudentNumBlur: function(e) {
+  onStudentNumInput: function(e) {
     this.setData({ student_num: e.detail.value })
   },
 
-  onMottoBlur: function(e) {
+  onMottoInput: function(e) {
     this.setData({ motto: e.detail.value })
   },
 
   userinfoSubmit: function() {
     let that = this
-    setTimeout(function(){
-      that.setData({ colorful: true })
+    this.setData({ colorful: true })
 
-      if(that.data.student_num=="" || that.data.motto=="") {
-        that.setData({ 
-          toptip: {
-            msg: "请完善个人信息:)",
-            type: "error",
-            show: true
-          }
-        })
-        setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
-      } else if(that.data.student_num.length != 7) {
-        that.setData({ 
-          toptip: {
-            msg: "请输入正确的学号:)",
-            type: "error",
-            show: true
-          }
-        })
-        setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
-      } else {
-        // @BACK
-        let userinfoData = {
-          academy: that.data.academy_array[that.data.academy_index],
-          grade: that.data.grade_array[that.data.grade_index],
-          studentNumber: that.data.student_num,
-          motto: that.data.motto
+    if(this.data.student_num=="" || this.data.motto=="") {
+      this.setData({ 
+        toptip: {
+          msg: "请完善个人信息:)",
+          type: "error",
+          show: true
         }
-        console.log(userinfoData)
-        
-        wx.cloud.callFunction({
-          name: "userinfo",
-          data: {
-            userInfo: userinfoData
-          },
-          complete: function() {
-            that.setData({
-              toptip: {
-                msg: "修改个人信息成功～",
-                type: "success",
-                show: true
-              },
-            })
-
-            let pages = getCurrentPages()
-            let prepage = pages[pages.length-2]
-            prepage.setData({
-              userinfo_flag: true
-            })
-
-          }
-        })
+      })
+      setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
+    } else if(this.data.student_num.length != 7) {
+      this.setData({ 
+        toptip: {
+          msg: "请输入正确的学号:)",
+          type: "error",
+          show: true
+        }
+      })
+      setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
+    } else {
+      // @BACK
+      let userinfoData = {
+        academy: that.data.academy_array[that.data.academy_index],
+        grade: that.data.grade_array[that.data.grade_index],
+        studentNumber: that.data.student_num,
+        motto: that.data.motto,
+        verified: that.data.is_verified
       }
-    }, 500)
+      console.log(userinfoData)
+      
+      wx.cloud.callFunction({
+        name: "userinfo",
+        data: {
+          userInfo: userinfoData,
+        },
+        complete: function(res) {
+          that.setData({
+            toptip: {
+              msg: "修改个人信息成功～",
+              type: "success",
+              show: true
+            },
+          })
+
+          if(!that.data.is_verified) {
+            wx.showModal({
+              title: '二十二点零六',
+              showCancel: false,
+              content: '未验证学号仅能使用<表白墙>，无法进行<聊天>',
+              success (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                }
+              }
+            })
+          } else {
+            app.globalData._verified_secret = true
+          }
+
+          let pages = getCurrentPages()
+          let prepage = pages[pages.length-2]
+          prepage.setData({
+            userinfo_flag: true
+          })
+
+        }
+      })
+    
+    }
   },
 
+
+  onVerifyCodeInput: function(e) {
+    this.setData({ verify_code_input: e.detail.value })
+  },
+  // 输入完验证码 -> 确定
+  onVerifyCodeSubmit: function() {
+    if(this.data.verify_code_input == this.data.verifyCode) {   // 验证成功
+      this.setData({ 
+        is_verified: true,
+        showVerifyBox: false
+      })
+
+    } else {
+      wx.showToast({
+        title: '验证码错误',
+      })
+    }
+  },
+
+  // 发送验证码
   onVerifyTap: function() {
+    if(this.data.student_num.length != 7) {
+      this.setData({ 
+        toptip: {
+          msg: "请输入正确的学号:)",
+          type: "error",
+          show: true
+        }
+      })
+      return
+    }
 
+    // 发送邮箱验证码
+    let emileInfo = {
+      studentNum: this.data.student_num,
+      verifyCode: verifyUtil.getVerifyCode()
+    }
+
+    this.setData({ 
+      verifyCode: emileInfo.verifyCode,
+      showVerifyBox: true
+    })
+
+    this.sendEmile(emileInfo)
   },
 
-  sendEmile: function() {
+  sendEmile: function(emileInfo) {
+    let that = this
     wx.cloud.callFunction({
       name: "emile",
       data: {
-        to_emile: '1753188@tongji.edu.cn',
+        to_emile: emileInfo.studentNum + '@tongji.edu.cn',
         from: '二十二点零六团队 <Six_past_TwentyTwo@163.com>',    // 发件人必须是这个格式
-        subject: '【二十二点零六】验证码',    // 主题
-        text: '您的验证码是: 1234'   // 邮件内容，text或者html格式
+        subject: '【二十二点零六】验证码',                // 主题
+        text: '您的验证码是: ' + emileInfo.verifyCode   // 邮件内容，text或者html格式
       },
       complete: function(res) {
         console.log(res)
@@ -121,7 +186,8 @@ Page({
       grade_index: 0,
       student_num: "",
       motto: "",
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
+      is_verified: app.globalData._verified_secret
     })
 
     let that = this
@@ -143,7 +209,9 @@ Page({
         if(userInfo.studentNumber != "") {
           that.setData({ student_num: userInfo.studentNumber })
         }
-        that.setData({ motto: userInfo.motto })
+        that.setData({ 
+          motto: userInfo.motto,
+        })
       }
     })
 

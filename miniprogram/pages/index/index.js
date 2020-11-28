@@ -15,12 +15,13 @@ Page({
       success: function(userInfo_res) {
         app.globalData.userInfo = userInfo_res.userInfo
 
-        // 用户注册 @BACK √
+        // 新用户注册 @BACK √
         wx.cloud.callFunction({
           name: 'login',
           data: {},
           complete: function(login_res) {
             app.globalData.openid = login_res.result.openid
+            app.globalData._verified_secret = false
 
             db.collection('user').add({
               data: {
@@ -31,7 +32,8 @@ Page({
                 academy: "未知学院",
                 grade: "未知年级",
                 studentNumber: "",
-                motto: "二十二点零六"
+                motto: "二十二点零六",
+                _verified_secret: false
               },
               success: function() {
 
@@ -75,12 +77,26 @@ Page({
             data: {},
             complete: function(login_res) {
               app.globalData.openid = login_res.result.openid
+
+              // get user info
               wx.getUserInfo({
                 success: function(userInfo_res) {
                   app.globalData.userInfo = userInfo_res.userInfo
-                  wx.switchTab({
-                    url: '../wall/wall',
+
+                  // get verified or not
+                  db.collection('user').where({
+                    _openid: app.globalData.openid
+                  }).get({
+                    success: function(res) {
+                      app.globalData._verified_secret = res.data[0]._verified_secret
+
+                      // switch tab
+                      wx.switchTab({
+                        url: '../wall/wall',
+                      })
+                    }
                   })
+
                 },
                 fail: function(res) {
                   console.log(res)

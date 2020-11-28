@@ -18,7 +18,8 @@ exports.main = async (event, context) => {
       academy: event.userInfo.academy,
       grade: event.userInfo.grade,
       studentNumber: event.userInfo.studentNumber,
-      motto: event.userInfo.motto
+      motto: event.userInfo.motto,
+      _verified_secret: event.userInfo.verified
     }
   })
   
