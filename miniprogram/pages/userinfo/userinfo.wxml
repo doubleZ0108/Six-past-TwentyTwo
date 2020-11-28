@@ -30,9 +30,12 @@
         <text></text>
       </view>
 
-      <picker mode="selector" bindchange="bindAcademyChange" name="academy"
+      <!-- <picker mode="selector" bindchange="bindAcademyChange" name="academy"
         range="{{ academy_array }}" index="{{ academy_index }}">
-        学院: {{ academy_array[academy_index] }} </picker>
+        学院: {{ academy_array[academy_index] }} </picker> -->
+      <picker mode="multiSelector" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
+        学院: {{ academyArray[1][academyIndex[1]] }}
+      </picker>
       <picker mode="selector" bindchange="bindGradeChange" name="grade"
         range="{{ grade_array }}" index="{{ grade_index }}">
         年级: {{ grade_array[grade_index] }} </picker>

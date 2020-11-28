@@ -47,9 +47,12 @@
             <text>TA的信息</text>
             <text></text>
           </view>
-          <picker mode="selector" bindchange="bindAcademyChange" name="academy"
+          <!-- <picker mode="selector" bindchange="bindAcademyChange" name="academy"
             range="{{ academy_array }}" index="{{ academy_index }}">
-            学院: {{ academy_array[academy_index]}} </picker>
+            学院: {{ academy_array[academy_index]}} </picker> -->
+            <picker mode="multiSelector" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
+            学院: {{ academyArray[1][academyIndex[1]] }}
+            </picker>
           <picker mode="selector" bindchange="bindGradeChange" name="grade"
             range="{{ grade_array }}" index="{{ grade_index }}">
             年级: {{ grade_array[grade_index] }}
@@ -84,6 +87,7 @@
   <view class="vippay-container {{ showVipPayBox ? 'shown' : ''}}">
     <view class="vippay-group" style="background-image: url(../../resource/img/userinfo/verify_bg.png)">
       <text>请在「2020/11/28 21:50」前支付9.99元，发送vipcard</text>
+      <view catchtap="onVipPayCancel">取消</view>
       <view catchtap="onVipPaySubmit">确定</view>
     </view>
   </view>
