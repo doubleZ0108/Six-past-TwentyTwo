@@ -1,4 +1,5 @@
 // components/wall/vipcard/vipcard.js
+
 Component({
   /**
    * 组件的属性列表
@@ -9,7 +10,8 @@ Component({
       value: "10%"
     },
     z_index: Number,
-    index: Number
+    index: Number,
+    which_vipcard: Number
   },
 
   /**
@@ -28,7 +30,7 @@ Component({
     smallcard_touchDotY: 0,
 
     commentId: 999,
-    animate: false
+    animate: false,
   },
 
   /**
@@ -126,23 +128,32 @@ Component({
           if (tmX < 0 && -tmX > this.data.slip_tolerance){
             console.log("左滑=====")
             // TODO 
+           this.vipcardEffect()
 
-            this.setData({ animate: true })
-            let that = this
-            setTimeout(function(){
-              that.setData({ animate: false })
-            }, 3000)
-            setTimeout(function() {
-              /* z-index adaptive */
-              let pages = getCurrentPages()
-              let currpage = pages[pages.length-1]
-              currpage.setData({
-                switch_vipcard: true
-              })
-            }, 1500)
+           let pages = getCurrentPages()
+           let currpage = pages[pages.length-1]
+           currpage.setData({
+             switch_from_user: true
+           })
           }
         }
       }
+    },
+
+    vipcardEffect: function() {
+      this.setData({ animate: true })
+      let that = this
+      setTimeout(function(){
+        that.setData({ animate: false })
+      }, 2500)
+      setTimeout(function() {
+        /* z-index adaptive */
+        let pages = getCurrentPages()
+        let currpage = pages[pages.length-1]
+        currpage.setData({
+          switch_vipcard: true
+        })
+      }, 1250)
     }
   },
 
@@ -153,6 +164,11 @@ Component({
         vipcard_height: that.data.fold_class == "vipcard-container-unfold"? "100vh" : "290rpx",
         posLeft: that.data.fold_class == "vipcard-container-unfold" ? "0" : "10%"
       })
+    },
+    'which_vipcard': function(which_vipcard) {      
+      if(which_vipcard == this.data.index) {
+        this.vipcardEffect()
+      }
     }
   }
 })

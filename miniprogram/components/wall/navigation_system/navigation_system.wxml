@@ -19,7 +19,8 @@
 
 <view>
   <vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}"
-  wx:for="{{ vip_cards }}" z_index="{{ vip_cards[index] }}" index="{{ index }}"/>
+  wx:for="{{ vip_cards }}" 
+  z_index="{{ vip_cards[index] }}" index="{{ index }}" which_vipcard="{{ which_vipcard }}" />
 </view>
 
 <writecard posLeft="{{ (posLeft_base + 1)*100+ '%' }}"/>

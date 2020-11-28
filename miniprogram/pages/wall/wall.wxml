@@ -20,7 +20,8 @@
       pull_down_flag_root="{{ pull_down_flag }}" 
       unfold_refresh_flag="{{ unfold_refresh_flag }}" 
       filterInfo="{{ filterInfo }}"
-      switch_vipcard="{{ switch_vipcard }}" />
+      switch_vipcard="{{ switch_vipcard }}"
+      switch_from_user="{{ switch_from_user }}" />
 
     <decorate />
   </view>
