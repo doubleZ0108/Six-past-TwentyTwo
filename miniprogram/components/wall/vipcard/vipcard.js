@@ -59,6 +59,12 @@ Component({
       if(this.data.fold_class != "vipcard-container-unfold") {
         this.setData({ fold_class: "vipcard-container-unfold" })
       }
+
+      let pages = getCurrentPages()
+      let currpage = pages[pages.length-1]
+      currpage.setData({
+        switch_from_user: true
+      })
     },
 
     onEnvelopTap: function() {

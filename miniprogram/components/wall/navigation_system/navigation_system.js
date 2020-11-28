@@ -590,17 +590,13 @@ Component({
       })
     },
 
-  },
-  
-  lifetimes: {
-    attached: function() {
-      this.initWorldCardList()
 
-      if(this.data.world_cards.length == 0) {
-        this.setData({ world_bottom_show: true })
-      }
-
+    initVipCardEffect: function() {
       /** vipcard init */
+      clearInterval(this.data.vipcard_auto_switch_timer)
+      this.setData({
+        vipcard_auto_switch_timer: null,
+      })
       let buf_vip_cards = []
       for(let i=this.data.vip_card_total;i>0; --i) {
         buf_vip_cards.push(i+1)
@@ -613,8 +609,22 @@ Component({
           that.setData({
             which_vipcard: (that.data.which_vipcard + 1) % that.data.vip_card_total,
           })
-        }, 5000)    // double time
+        }, 5000),   // double time
+        which_vipcard: -1,
       })
+       
+    }
+  },
+  
+  lifetimes: {
+    attached: function() {
+      this.initWorldCardList()
+
+      if(this.data.world_cards.length == 0) {
+        this.setData({ world_bottom_show: true })
+      }
+
+      this.initVipCardEffect()
     },
   },
 
@@ -709,12 +719,12 @@ Component({
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
-        let that = this
  
         // @BACK 根据不同的tab重新拉取该tab的cards
         switch(this.data.currentTab) {
           case 0: {
             this.initWorldCardList()
+            this.initVipCardEffect()
             break
           }
           case 1: {
