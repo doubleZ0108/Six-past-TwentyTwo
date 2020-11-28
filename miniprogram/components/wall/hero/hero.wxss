@@ -30,6 +30,19 @@
   width: 130rpx;
   height: 130rpx;
   border-radius: 50%;
+
+  animation: AvatarAnimation 4s linear infinite;
+}
+@keyframes AvatarAnimation {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
 }
 
 .hero-container .info-name {

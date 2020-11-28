@@ -1,9 +1,10 @@
 <!--components/wall/vipcard/vipcard.wxml-->
-<view class="vipcard-container {{ fold_class }}"
-  style="height: {{ vipcard_height }}; left: {{ posLeft }};"
+<view class="vipcard-container {{ fold_class }} {{ animate ? 'animate' : '' }}"
+  style="height: {{ vipcard_height }}; left: {{ posLeft }};z-index: {{ z_index }};"
   bindtap="onVipCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
+  <text>{{ index }}</text>
   <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/vipcard_bgdecorate.svg);"></image>
 
   <view class="vipcard-people">

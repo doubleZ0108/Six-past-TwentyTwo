@@ -1,6 +1,7 @@
 <!--miniprogram/pages/userinfo/userinfo.wxml-->
+<mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
+
 <view class="userinfo-container {{ showVerifyBox ? 'userinfo-container-blur' : '' }}" style="background-image: url(../../resource/img/userinfo/bg.png);">
-  <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
 
   <form>
     <view class="userinfo-logo">
@@ -29,9 +30,12 @@
         <text></text>
       </view>
 
-      <picker mode="selector" bindchange="bindAcademyChange" name="academy"
+      <!-- <picker mode="selector" bindchange="bindAcademyChange" name="academy"
         range="{{ academy_array }}" index="{{ academy_index }}">
-        学院: {{ academy_array[academy_index] }} </picker>
+        学院: {{ academy_array[academy_index] }} </picker> -->
+      <picker mode="multiSelector" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
+        学院: {{ academyArray[1][academyIndex[1]] }}
+      </picker>
       <picker mode="selector" bindchange="bindGradeChange" name="grade"
         range="{{ grade_array }}" index="{{ grade_index }}">
         年级: {{ grade_array[grade_index] }} </picker>
@@ -64,11 +68,31 @@
 </view>
 
 <view class="userinfo-verify-container {{ showVerifyBox ? 'shown' : ''}}">
-  <view class="verify-group">
-    <text>请输入验证码</text>
+  <view class="verify-group" style="background-image: url(../../resource/img/userinfo/verify_bg.png)">
+    
+    <view class="userinfo-title-group">
+      <text>请输入验证码</text>
+      <text></text>
+    </view>
+
     <input type="text" name="verify" value="{{ verify_code_input }}"
         bindinput="onVerifyCodeInput" />
-    <view class="verify-input-button" catchtap="onVerifyCodeSubmit">确定</view>
+
+    <view class="verify-bottom-group">
+      <view class="verify-info-group">
+        <text class="iconfont iconshezhi"></text>
+        <view class="verify-text-group">
+          <text>请在同济邮箱中查收验证码</text>
+          <text>如果收件箱没有请查看垃圾邮箱</text>
+          <text>若未收到请尝试取消后重新发送</text>
+        </view>
+      </view>
+      <view class="verify-function-group">
+        <text class="iconfont iconshezhi" catchtap="onVerifyCancel"></text>
+        <text class="iconfont iconshezhi" catchtap="onVerifyCodeSubmit"></text>
+      </view>
+    </view>
+
   </view>
 
   <!-- <view class="blog-sticky">
@@ -86,5 +110,3 @@
   </view> -->
 
 </view>
-
-

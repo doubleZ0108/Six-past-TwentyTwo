@@ -2,9 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/wall/wall",
-    "pages/test/test",
     "pages/comment/comment",
-    "pages/userinfo/userinfo"
+    "pages/userinfo/userinfo",
+    "pages/test/test"
   ],
   "tabBar": {
     "list": [

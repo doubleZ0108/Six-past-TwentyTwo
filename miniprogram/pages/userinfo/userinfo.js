@@ -12,8 +12,13 @@ Page({
       type: "success",
       show: false
     },
-    academy_array: app.globalData.academy_array,
-    academy_index: 0,
+    // academy_array: app.globalData.academy_array,
+    // academy_index: 0,
+    academyIndex: [0, 0],
+    academyArray: [
+      ["全部", "嘉定校区", "四平校区"],
+      app.globalData.academy_array
+    ],
     grade_array: app.globalData.grade_array,
     grade_index: 0,
     student_num: "",
@@ -28,8 +33,35 @@ Page({
   },
  
 
-  bindAcademyChange: function(e) {
-    this.setData({ academy_index: e.detail.value })
+  bindAcademyPickerChange: function(e) {
+    this.setData({
+      academyIndex: e.detail.value
+    })
+  },
+  bindAcademyPickerColumnChange: function(e) {
+    let data = {
+      academyArray: this.data.academyArray,
+      academyIndex: this.data.academyIndex
+    }
+    data.academyIndex[e.detail.column] = e.detail.value
+    switch(e.detail.column) {
+      case 0: {   /* 第一列滚动 */
+        switch(data.academyIndex[0]) {
+          case 0:   // 全部
+            data.academyArray[1] = app.globalData.academy_array
+            break
+          case 1:  // 嘉定
+            data.academyArray[1] = ["软件学院", "艺术与传媒学院"]
+            break
+          case 2:  // 四平
+            data.academyArray[1] = ["土木工程学院", "建筑与城市规划学院"]
+            break
+        }
+        data.academyIndex[1] = 0
+        break
+      }
+    }
+    this.setData(data)
   },
 
   bindGradeChange: function(e) {
@@ -69,7 +101,7 @@ Page({
     } else {
       // @BACK
       let userinfoData = {
-        academy: that.data.academy_array[that.data.academy_index],
+        academy: that.data.academyArray[1][that.data.academyIndex[1]],
         grade: that.data.grade_array[that.data.grade_index],
         studentNumber: that.data.student_num,
         motto: that.data.motto,
@@ -122,17 +154,28 @@ Page({
   onVerifyCodeInput: function(e) {
     this.setData({ verify_code_input: e.detail.value })
   },
+  onVerifyCancel: function() {
+    this.setData({
+      showVerifyBox: false,
+      verify_code_input: ""
+    })
+  },
   // 输入完验证码 -> 确定
   onVerifyCodeSubmit: function() {
     if(this.data.verify_code_input == this.data.verifyCode) {   // 验证成功
       this.setData({ 
         is_verified: true,
-        showVerifyBox: false
+        showVerifyBox: false,
+        verify_code_input: ""
       })
 
     } else {
-      wx.showToast({
-        title: '验证码错误',
+      this.setData({
+        toptip: {
+          msg: "验证码错误:)",
+          type: "error",
+          show: true
+        }
       })
     }
   },
@@ -198,7 +241,8 @@ Page({
         let userInfo = res.data[0]
         if(userInfo.academy != "未知学院") {
           that.setData({
-            academy_index: that.data.academy_array.indexOf(userInfo.academy)
+            // academy_index: that.data.academy_array.indexOf(userInfo.academy)
+            academyIndex: [0, app.globalData.academy_array.indexOf(userInfo.academy)]
           })
         }
         if(userInfo.grade != "未知年级") {
@@ -217,52 +261,4 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

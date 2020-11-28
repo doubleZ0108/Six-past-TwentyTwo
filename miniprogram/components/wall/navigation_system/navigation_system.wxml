@@ -17,7 +17,11 @@
 
 </scroll-view>
 
-<vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}" />
+<view>
+  <vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}"
+  wx:for="{{ vip_cards }}" z_index="{{ vip_cards[index] }}" index="{{ index }}"/>
+</view>
+
 <writecard posLeft="{{ (posLeft_base + 1)*100+ '%' }}"/>
 <favoritecard posLeft="{{ (posLeft_base + 2)*100+ '%' }}"/>
 <searchcard posLeft="{{ (posLeft_base + 3)*100+ '%' }}"/>
