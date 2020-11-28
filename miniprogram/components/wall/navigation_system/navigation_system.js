@@ -26,6 +26,10 @@ Component({
     switch_vipcard: {
       type: Boolean,
       value: false
+    },
+    switch_from_user: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -61,6 +65,8 @@ Component({
     filter_cards: [],
     vip_card_total: 5,
     vip_cards: [],
+    vipcard_auto_switch_timer: null,
+    which_vipcard: -1,
 
     world_bottom_show: false,
     my_bottom_show: false,
@@ -584,6 +590,30 @@ Component({
       })
     },
 
+
+    initVipCardEffect: function() {
+      /** vipcard init */
+      clearInterval(this.data.vipcard_auto_switch_timer)
+      this.setData({
+        vipcard_auto_switch_timer: null,
+      })
+      let buf_vip_cards = []
+      for(let i=this.data.vip_card_total;i>0; --i) {
+        buf_vip_cards.push(i+1)
+      }
+
+      let that = this
+      this.setData({
+        vip_cards: buf_vip_cards,
+        vipcard_auto_switch_timer: setInterval(function(){
+          that.setData({
+            which_vipcard: (that.data.which_vipcard + 1) % that.data.vip_card_total,
+          })
+        }, 5000),   // double time
+        which_vipcard: -1,
+      })
+       
+    }
   },
   
   lifetimes: {
@@ -594,12 +624,7 @@ Component({
         this.setData({ world_bottom_show: true })
       }
 
-      /** vipcard init */
-      let buf_vip_cards = []
-      for(let i=this.data.vip_card_total;i>0; --i) {
-        buf_vip_cards.push(i+1)
-      }
-      this.setData({ vip_cards: buf_vip_cards })
+      this.initVipCardEffect()
     },
   },
 
@@ -621,6 +646,14 @@ Component({
         let that = this
         this.setData({
           vip_cards: [that.data.vip_cards.pop()].concat(that.data.vip_cards)
+        })
+      }
+    },
+    'switch_from_user': function(switch_from_user) {
+      if(switch_from_user) {
+        clearInterval(this.data.vipcard_auto_switch_timer)
+        this.setData({
+          vipcard_auto_switch_timer: null,
         })
       }
     },
@@ -686,12 +719,12 @@ Component({
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
-        let that = this
  
         // @BACK 根据不同的tab重新拉取该tab的cards
         switch(this.data.currentTab) {
           case 0: {
             this.initWorldCardList()
+            this.initVipCardEffect()
             break
           }
           case 1: {
