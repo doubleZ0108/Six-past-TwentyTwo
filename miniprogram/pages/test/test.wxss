@@ -13,3 +13,8 @@
   position: absolute;
   top: 0;
 }
+
+picker {
+  height: 200rpx;
+  background-color: lightpink;
+}

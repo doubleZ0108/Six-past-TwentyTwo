@@ -23,6 +23,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: filter .8s linear;
 }
 
 .writecard-info .writecard-info-motto {
@@ -107,6 +109,7 @@
   width: 100%;
   height: 100rpx;
   margin-top: 20rpx;
+  animation: WriteLogoAnimation 3s linear infinite;
 }
 .writecard-container-unfold .write-logo .iconfont {
   font-size: 100rpx;
@@ -115,6 +118,17 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 auto;
+}
+@keyframes WriteLogoAnimation {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
 }
 
 .writecard-container-unfold form {
@@ -290,4 +304,57 @@
 .writecard-container-unfold button.writecard-button-colorful {
   color: rgb(44,42,85);
   background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210));
+}
+
+
+
+/************** vip pay ***************/
+.writecard-info.writecard-info-blur {
+  filter: blur(30rpx);
+}
+
+.vippay-container {
+  position: fixed;
+  top: 0;
+  right: -100%;
+
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  transition: .8s cubic-bezier(.8,.2,.8,1);
+}
+.vippay-container.shown {
+  right: 0;
+}
+
+.vippay-group {
+  width: 80%;
+  height: 400rpx;
+  border-radius: 30rpx;
+  transform: rotate(20deg);
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: .8s cubic-bezier(.8,.2,.8,1);
+}
+.vippay-container.shown .vippay-group {
+  transform: rotate(0deg);
+}
+
+.vippay-group view {
+  background-color: lightpink;
 }

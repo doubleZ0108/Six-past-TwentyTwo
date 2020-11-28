@@ -122,6 +122,12 @@ Page({
   onVerifyCodeInput: function(e) {
     this.setData({ verify_code_input: e.detail.value })
   },
+  onVerifyCancel: function() {
+    this.setData({
+      showVerifyBox: false,
+      verify_code_input: ""
+    })
+  },
   // 输入完验证码 -> 确定
   onVerifyCodeSubmit: function() {
     if(this.data.verify_code_input == this.data.verifyCode) {   // 验证成功
@@ -132,8 +138,12 @@ Page({
       })
 
     } else {
-      wx.showToast({
-        title: '验证码错误',
+      this.setData({
+        toptip: {
+          msg: "验证码错误:)",
+          type: "error",
+          show: true
+        }
       })
     }
   },

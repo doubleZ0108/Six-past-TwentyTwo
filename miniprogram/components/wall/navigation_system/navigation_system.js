@@ -62,8 +62,8 @@ Component({
     filter_bottom_show: false,
     filter_info: null,
 
-    init_step: 2,   // 初始/下拉刷新个数
-    load_more_step: 1,  // 触底刷新个数
+    init_step: 10,   // 初始/下拉刷新个数
+    load_more_step: 10,  // 触底刷新个数
   },
 
   methods: {
