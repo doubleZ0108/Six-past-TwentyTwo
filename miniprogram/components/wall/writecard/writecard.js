@@ -48,7 +48,10 @@ Component({
     taName: "",
     myDescription: "",
     taDescription: "",
-    textarea: ""
+    textarea: "",
+
+    showVipPayBox: false,
+    write_vipcard: false
   },
 
   /**
@@ -207,6 +210,18 @@ Component({
 
     },
 
+
+    onVipPayTap: function() {
+      this.setData({ showVipPayBox: true })
+    },
+    onVipPaySubmit: function() {
+      this.setData({ 
+        showVipPayBox: false,
+        write_vipcard: true
+      })
+    },
+
+
     touchStart: function(e) {
       if(this.data.fold_class === "writecard-container-unfold") {
         this.setData({
@@ -229,6 +244,7 @@ Component({
           if(tmX > this.data.slip_tolerance) {
             this.setData({ 
               fold_class: "",
+              showVipPayBox: false
             })
             return
           }
@@ -238,6 +254,7 @@ Component({
           if(tmY > this.data.slip_tolerance) {
             this.setData({ 
               fold_class: "",
+              showVipPayBox: false
             })
             return
           }
@@ -256,6 +273,13 @@ Component({
         posLeft: that.data.fold_class == "writecard-container-unfold" ? "0" : "10%",
         writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "../../../resource/img/write/unfold_bg.png" : "../../../resource/img/write/fold_bg.svg"
       })
+    },
+    'write_vipcard': function(write_vipcard) {
+      if(this.data.fold_class == "writecard-container-unfold") {
+        this.setData({
+          writecard_bg: write_vipcard ? '../../../resource/img/write/vip_unfold_bg.png' : '../../../resource/img/write/unfold_bg.png'
+        })
+      }
     }
   }
 })

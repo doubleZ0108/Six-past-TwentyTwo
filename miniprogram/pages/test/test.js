@@ -4,69 +4,159 @@ const app = getApp()
 
 Page({
   data: {
-    text: '这是一条会滚动的文字滚来滚去的文字跑马灯，哈哈哈哈哈哈哈哈',
-    marqueePace: 1,//滚动速度
-    marqueeDistance: 0,//初始滚动距离
-    marqueeDistance2: 0,
-    marquee2copy_status: false,
-    marquee2_margin: 60,
-    size: 14,
-    orientation: 'left',//滚动方向
-    interval: 20 // 时间间隔
-  },
-  onShow: function () {
-    // 页面显示
-    var vm = this;
-    var length = vm.data.text.length * vm.data.size;//文字长度
-    var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
-    vm.setData({
-      length: length,
-      windowWidth: windowWidth,
-      marquee2_margin: length < windowWidth ? windowWidth - length : vm.data.marquee2_margin//当文字长度小于屏幕长度时，需要增加补白
-    });
-    vm.run1();// 水平一行字滚动完了再按照原来的方向滚动
-    vm.run2();// 第一个字消失后立即从右边出现
-  },
-  run1: function () {
-    var vm = this;
-    var interval = setInterval(function () {
-      if (-vm.data.marqueeDistance < vm.data.length) {
-        vm.setData({
-          marqueeDistance: vm.data.marqueeDistance - vm.data.marqueePace,
-        });
-      } else {
-        clearInterval(interval);
-        vm.setData({
-          marqueeDistance: vm.data.windowWidth
-        });
-        vm.run1();
-      }
-    }, vm.data.interval);
-  },
-  run2: function () {
-    var vm = this;
-    var interval = setInterval(function () {
-      if (-vm.data.marqueeDistance2 < vm.data.length) {
-        // 如果文字滚动到出现marquee2_margin=30px的白边，就接着显示
-        vm.setData({
-          marqueeDistance2: vm.data.marqueeDistance2 - vm.data.marqueePace,
-          marquee2copy_status: vm.data.length + vm.data.marqueeDistance2 <= vm.data.windowWidth + vm.data.marquee2_margin,
-        });
-      } else {
-        if (-vm.data.marqueeDistance2 >= vm.data.marquee2_margin) { // 当第二条文字滚动到最左边时
-          vm.setData({
-            marqueeDistance2: vm.data.marquee2_margin // 直接重新滚动
-          });
-          clearInterval(interval);
-          vm.run2();
-        } else {
-          clearInterval(interval);
-          vm.setData({
-            marqueeDistance2: -vm.data.windowWidth
-          });
-          vm.run2();
+    multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'], ['猪肉绦虫', '吸血虫']],
+    objectMultiArray: [
+      [
+        {
+          id: 0,
+          name: '无脊柱动物'
+        },
+        {
+          id: 1,
+          name: '脊柱动物'
         }
+      ], [
+        {
+          id: 0,
+          name: '扁性动物'
+        },
+        {
+          id: 1,
+          name: '线形动物'
+        },
+        {
+          id: 2,
+          name: '环节动物'
+        },
+        {
+          id: 3,
+          name: '软体动物'
+        },
+        {
+          id: 3,
+          name: '节肢动物'
+        }
+      ], [
+        {
+          id: 0,
+          name: '猪肉绦虫'
+        },
+        {
+          id: 1,
+          name: '吸血虫'
+        }
+      ]
+    ],
+    multiIndex: [0, 0, 0],
+
+    academyIndex: [0, 0],
+    academyArray: [
+      ["全部", "嘉定校区", "四平校区"],
+      ["未知", "软件学院", "建筑与城市规划学院"]
+    ]
+  },
+
+  onAcademyPickerChange: function(e) {
+    this.setData({
+      academyIndex: e.detail.value
+    })
+  },
+  onAcademyPickerColumnChange: function(e) {
+    let data = {
+      academyArray: this.data.academyArray,
+      academyIndex: this.data.academyIndex
+    }
+    data.academyIndex[e.detail.column] = e.detail.value
+    switch(e.detail.column) {
+      case 0: {   // 第一列滚动
+        switch(data.academyIndex[0]) {
+          case 0:   // 全部
+            data.academyArray[1] = ["未知", "软件学院", "建筑与城市规划学院"]
+            break
+          case 1:  // 嘉定
+            data.academyArray[1] = ["软件学院", "艺术与传媒学院"]
+            break
+          case 2:  // 四平
+            data.academyArray[1] = ["土木工程学院", "建筑与城市规划学院"]
+            break
+        }
+        data.academyIndex[1] = 0
+        break
       }
-    }, vm.data.interval);
-  }
+      case 1: {   // 第一列滚动
+        break
+      }
+    }
+    this.setData(data)
+  },
+
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
+  bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    var data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    switch (e.detail.column) {
+      case 0:
+        switch (data.multiIndex[0]) {
+          case 0:
+            data.multiArray[1] = ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'];
+            data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
+            break;
+          case 1:
+            data.multiArray[1] = ['鱼', '两栖动物', '爬行动物'];
+            data.multiArray[2] = ['鲫鱼', '带鱼'];
+            break;
+        }
+        data.multiIndex[1] = 0;
+        data.multiIndex[2] = 0;
+        break;
+      case 1:
+        switch (data.multiIndex[0]) {
+          case 0:
+            switch (data.multiIndex[1]) {
+              case 0:
+                data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
+                break;
+              case 1:
+                data.multiArray[2] = ['蛔虫'];
+                break;
+              case 2:
+                data.multiArray[2] = ['蚂蚁', '蚂蟥'];
+                break;
+              case 3:
+                data.multiArray[2] = ['河蚌', '蜗牛', '蛞蝓'];
+                break;
+              case 4:
+                data.multiArray[2] = ['昆虫', '甲壳动物', '蛛形动物', '多足动物'];
+                break;
+            }
+            break;
+          case 1:
+            switch (data.multiIndex[1]) {
+              case 0:
+                data.multiArray[2] = ['鲫鱼', '带鱼'];
+                break;
+              case 1:
+                data.multiArray[2] = ['青蛙', '娃娃鱼'];
+                break;
+              case 2:
+                data.multiArray[2] = ['蜥蜴', '龟', '壁虎'];
+                break;
+            }
+            break;
+        }
+        data.multiIndex[2] = 0;
+        break;
+    }
+    console.log(data.multiIndex);
+    this.setData(data);
+  },
 })

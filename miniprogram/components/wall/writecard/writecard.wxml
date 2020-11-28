@@ -1,22 +1,23 @@
 <!--components/wall/writecard/writecard.wxml-->
 
+
 <view class="writecard-container {{ fold_class }}"
   style="height: {{ writecard_height }}; left: {{ posLeft }};"
   catchtap="onWriteCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
-  <view class="writecard-info" style="background-image: url({{ writecard_bg }});">
+  <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
+
+  <view class="writecard-info {{ showVipPayBox ? 'writecard-info-blur' : '' }}" style="background-image: url({{ writecard_bg }});">
     <text class="writecard-info-motto">写下你的表白</text>
 
     <image class="writecard-pen {{ animate ? 'pen-animate' : '' }}" src="../../../resource/img/write/pen.png"></image>
 
     <view class="writecard-info-unfold">
 
-      <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
-
       <form catchsubmit="{{ prohibit_submit ? '' : 'formSubmit'}}">
 
-        <view class="write-logo">
+        <view class="write-logo" catchtap="onVipPayTap">
           <text class="iconfont icon19shuxie3x"></text>
         </view>
 
@@ -77,6 +78,13 @@
         <button class="{{ colorful ? 'writecard-button-colorful' : '' }}" form-type="submit" catchtap="console.log('catch')">发送表白</button>
       </form>
 
+    </view>
+  </view>
+
+  <view class="vippay-container {{ showVipPayBox ? 'shown' : ''}}">
+    <view class="vippay-group" style="background-image: url(../../resource/img/userinfo/verify_bg.png)">
+      <text>请在「2020/11/28 21:50」前支付9.99元，发送vipcard</text>
+      <view catchtap="onVipPaySubmit">确定</view>
     </view>
   </view>
 

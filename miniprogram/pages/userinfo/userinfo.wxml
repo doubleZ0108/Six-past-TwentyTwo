@@ -1,6 +1,7 @@
 <!--miniprogram/pages/userinfo/userinfo.wxml-->
+<mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
+
 <view class="userinfo-container {{ showVerifyBox ? 'userinfo-container-blur' : '' }}" style="background-image: url(../../resource/img/userinfo/bg.png);">
-  <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
 
   <form>
     <view class="userinfo-logo">
@@ -65,12 +66,15 @@
 
 <view class="userinfo-verify-container {{ showVerifyBox ? 'shown' : ''}}">
   <view class="verify-group" style="background-image: url(../../resource/img/userinfo/verify_bg.png)">
+    
     <view class="userinfo-title-group">
-        <text>请输入验证码</text>
-        <text></text>
-      </view>
+      <text>请输入验证码</text>
+      <text></text>
+    </view>
+
     <input type="text" name="verify" value="{{ verify_code_input }}"
         bindinput="onVerifyCodeInput" />
+
     <view class="verify-bottom-group">
       <view class="verify-info-group">
         <text class="iconfont iconshezhi"></text>
@@ -81,10 +85,11 @@
         </view>
       </view>
       <view class="verify-function-group">
-        <text class="iconfont iconshezhi"></text>
+        <text class="iconfont iconshezhi" catchtap="onVerifyCancel"></text>
         <text class="iconfont iconshezhi" catchtap="onVerifyCodeSubmit"></text>
       </view>
     </view>
+
   </view>
 
   <!-- <view class="blog-sticky">
@@ -102,5 +107,3 @@
   </view> -->
 
 </view>
-
-
