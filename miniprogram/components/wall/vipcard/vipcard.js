@@ -7,7 +7,9 @@ Component({
     posLeft: {
       type: String,
       value: "10%"
-    }
+    },
+    z_index: Number,
+    index: Number
   },
 
   /**
@@ -22,7 +24,11 @@ Component({
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,
     touchDotY: 0,
+    smallcard_touchDotX: 0, // 检测小卡片下滑动
+    smallcard_touchDotY: 0,
+
     commentId: 999,
+    animate: false
   },
 
   /**
@@ -66,6 +72,11 @@ Component({
           touchDotX: e.touches[0].pageX,
           touchDotY: e.touches[0].pageY
         })
+      } else {
+        this.setData({
+          smallcard_touchDotX: e.touches[0].pageX,
+          smallcard_touchDotY: e.touches[0].pageY
+        })
       }
     },
     touchEnd: function(e) {
@@ -102,6 +113,35 @@ Component({
             return
           }
         } 
+      } else {
+        let touchMoveX = e.changedTouches[0].pageX
+        let touchMoveY = e.changedTouches[0].pageY
+        let tmX = touchMoveX - this.data.smallcard_touchDotX
+        let tmY = touchMoveY - this.data.smallcard_touchDotX
+
+        let absX = Math.abs(tmX)
+        let absY = Math.abs(tmY)
+
+        if (absX > 2 * absY) {
+          if (tmX < 0 && -tmX > this.data.slip_tolerance){
+            console.log("左滑=====")
+            // TODO 
+
+            this.setData({ animate: true })
+            let that = this
+            setTimeout(function(){
+              that.setData({ animate: false })
+            }, 3000)
+            setTimeout(function() {
+              /* z-index adaptive */
+              let pages = getCurrentPages()
+              let currpage = pages[pages.length-1]
+              currpage.setData({
+                switch_vipcard: true
+              })
+            }, 1500)
+          }
+        }
       }
     }
   },

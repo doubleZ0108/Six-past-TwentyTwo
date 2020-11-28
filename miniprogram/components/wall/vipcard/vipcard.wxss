@@ -218,7 +218,7 @@
   height: var(--envelop-head-height);
 
   transform: rotateX(0deg) translate3d(0, 0, 0);
-  z-index: 12;
+  z-index: 120;
 
   transform-origin: center top;
   transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -228,14 +228,14 @@
   position: absolute;
   bottom: 0;
   height: var(--envelop-body-height);
-  z-index: 9;
+  z-index: 90;
 }
 
 .vipcard-envelop .envelop-body {
   position: absolute;
   bottom: 0;
   height: var(--envelop-body-height);
-  z-index: 11;
+  z-index: 110;
 }
 
 .vipcard-envelop .envelop-content {
@@ -250,7 +250,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   overflow: hidden;
 
-  z-index: 10;
+  z-index: 100;
 
   transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -296,8 +296,6 @@
 }
 
 .envelop-turn-over .envelop-head {
-  /* z-index: -1;
-  transform: rotateX(179deg) translate3d(0, 0, 0); */
   animation: 2s HeadTurnOverAnimation linear forwards;
 }
 
@@ -310,11 +308,11 @@
 @keyframes HeadTurnOverAnimation {
   0% {
     transform: rotateX(0deg);
-    z-index: 12;
+    z-index: 120;
   }
   99% {
     transform: rotateX(179deg) translate3d(0, 0, 0);
-    z-index: 12;
+    z-index: 120;
   }
   100% {
     z-index: -1;
@@ -449,23 +447,23 @@
 
 
 
-
-/* div.container {
-  width: 300px;
-  height: 400px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+.vipcard-container.animate {
   transform-style: preserve-3d;
-  overflow: hidden;
-  animation: animate 4s linear infinite;
+  transform: perspective(500px) translate3d(0,0,0);
+  animation: SwipAnimation 3s linear;
 }
-@keyframes animate {
+
+@keyframes SwipAnimation {
   0% {
     transform: perspective(500px) translate3d(0,0,0);
   }
-  25% {
-    transform: perspective(500px) translate3d(-50px,-50px,50px);
+  30% {
+    transform: perspective(500px) translate3d(-30rpx,-30rpx,30rpx);
   }
-  35%, 100% {
-    transform: perspective(500px) translate3d(-700px,-50px,-100px);
+  50%, 70% {
+    transform: perspective(500px) translate3d(-700rpx,-50px,-100px);
   }
-} */
+  100% {
+    transform: perspective(500px) translate3d(0,0,0);
+  }
+}
