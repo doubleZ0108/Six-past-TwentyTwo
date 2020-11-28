@@ -64,11 +64,27 @@
 </view>
 
 <view class="userinfo-verify-container {{ showVerifyBox ? 'shown' : ''}}">
-  <view class="verify-group">
-    <text>请输入验证码</text>
+  <view class="verify-group" style="background-image: url(../../resource/img/userinfo/verify_bg.png)">
+    <view class="userinfo-title-group">
+        <text>请输入验证码</text>
+        <text></text>
+      </view>
     <input type="text" name="verify" value="{{ verify_code_input }}"
         bindinput="onVerifyCodeInput" />
-    <view class="verify-input-button" catchtap="onVerifyCodeSubmit">确定</view>
+    <view class="verify-bottom-group">
+      <view class="verify-info-group">
+        <text class="iconfont iconshezhi"></text>
+        <view class="verify-text-group">
+          <text>请在同济邮箱中查收验证码</text>
+          <text>如果收件箱没有请查看垃圾邮箱</text>
+          <text>若未收到请尝试取消后重新发送</text>
+        </view>
+      </view>
+      <view class="verify-function-group">
+        <text class="iconfont iconshezhi"></text>
+        <text class="iconfont iconshezhi" catchtap="onVerifyCodeSubmit"></text>
+      </view>
+    </view>
   </view>
 
   <!-- <view class="blog-sticky">
