@@ -22,7 +22,7 @@ Page({
 
     prohibit_star: false,
     prohibit_comment: false,
-    blured: false   // 监听键盘blur
+    has_content: false   // 监听键盘blur
   },
 
   handleIntersectionObserver: function() {
@@ -54,10 +54,12 @@ Page({
   },
 
 
-  onTextareaBlur: function(e) {
+  onTextareaInput: function(e) {
     this.setData({ 
       textarea: e.detail.value,
-      blured: true
+    })
+    this.setData({
+      has_content: this.data.textarea.length!=0 ? true : false
     })
   },
 
@@ -110,7 +112,7 @@ Page({
           that.setData({ 
             textarea: "",
             prohibit_comment: false,
-            blured: false,
+            has_content: false,
             toptip: {
               msg: "评论成功～",
               type: "success",

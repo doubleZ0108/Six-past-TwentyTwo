@@ -9,6 +9,7 @@
   justify-content: center;
   min-height: 100vh;
   height: 100vh;
+  overflow: hidden;
 
   background-repeat: no-repeat;
   background-position: center center;
@@ -16,6 +17,10 @@
 
   color: rgba(255,255,255,.83);
   position: relative;
+  transition: .4s linear;
+}
+.userinfo-container.userinfo-container-blur {
+  filter: blur(30rpx);
 }
 
 .userinfo-container form {
@@ -123,6 +128,15 @@
 .userinfo-verify {
   position: relative;
 }
+.userinfo-verify text {
+  position: absolute;
+  color: rgba(255,255,255,.6);
+  width: 200rpx;
+  height: 35rpx;
+  right: 25%;
+  top: 17.5rpx;
+  font-size: 25rpx;
+}
 .userinfo-verify view {
   position: absolute;
   right: 10%;
@@ -133,7 +147,10 @@
   padding: 10rpx;
 
   font-size: 20rpx;
-  background-color: rgba(160, 192, 126, 0.8);
+  color: rgb(30,31,66); 
+  /* background-color: rgba(160, 192, 126, 0.8); */
+  background: linear-gradient(130deg, rgb(141, 209, 194),rgb(197, 224, 168));
+
   border-radius: 50rpx;
 }
 
@@ -168,3 +185,176 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/*=============== toast box ==================*/
+.userinfo-verify-container {
+  position: fixed;
+  top: 0;
+  right: -100%;
+
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  transition: .8s cubic-bezier(.8,.2,.8,1);
+}
+.userinfo-verify-container.shown {
+  right: 0;
+}
+
+.verify-group {
+  width: 80%;
+  height: 500rpx;
+  background: lightskyblue;
+  border-radius: 30rpx;
+  transform: rotate(20deg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: .8s cubic-bezier(.8,.2,.8,1);
+}
+.userinfo-verify-container.shown .verify-group {
+  transform: rotate(0deg);
+}
+
+.verify-group input {
+  width: 80%;
+  margin: 25rpx auto;
+  height: 35rpx;
+  padding: 15rpx;
+  border-radius: 50rpx;
+  border: 2rpx rgba(239, 252, 223, 0.1) solid;
+  background: linear-gradient(113deg, rgba(202, 248, 253, 0.3),rgba(132,157,172,.1),rgba(132,157,172,.05), rgba(216, 252, 117, 0.2), rgba(255, 230, 183, 0.2));
+
+  font-size: 26rpx;
+  color: rgba(255,255,255,.83);
+}
+
+.verify-group .verify-input-button {
+  width: 100rpx;
+  height: 50rpx;
+  border-radius: 30rpx;
+  background-color: lightsalmon;
+}
+
+
+/*=============== sticky ==================*/
+.blog-sticky {
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  transform: rotate(30deg);
+  
+  transition: .8s cubic-bezier(.8,.2,.8,1);
+}
+.userinfo-verify-container.shown .blog-sticky {
+  transform: rotate(0deg);
+}
+
+.todo-group {
+  --button-width: 350px;
+  --button-height: 200px;
+
+  margin: 20px auto;
+  height: var(--button-height);
+  width: var(--button-width);
+
+  position: relative;
+
+  transform: translateZ(0);
+  transition: 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.todo-group .todo-paper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  transform-origin: center top;
+  transform-style: preserve-3d;
+
+  perspective: 1000px;
+}
+.todo-group .todo-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transform-origin: center top;
+  transform: translateY(-100%);
+  width: calc(var(--button-width) * 0.8);
+  height: calc(var(--button-height) * 0.1);
+
+  margin: 0 auto;
+  background: rgba(239, 239, 239, 0.8);
+  opacity: 0.7;
+  transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.todo-group .todo-paper .todo-paper-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(104deg, #123597, #97ABFF);
+  opacity: 0.7;
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  z-index: 2;
+  transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+
+.todo-group .todo-paper .todo-paper-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform-origin: center top;
+  width: calc(var(--button-width) * 0.8);
+  height: calc(var(--button-height) * 0.1);
+  margin: 0 auto;
+  background: rgba(239, 239, 239, 0.8);
+  backface-visibility: hidden;
+}
+
+.todo-group .cover-content-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  perspective: 1000;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.todo-group .cover-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center top;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: all 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+

@@ -229,11 +229,16 @@
 
   color: rgba(255,255,255,.83);
   background: rgb(44,42,85);
+  background: linear-gradient(104deg, rgb(44,42,85),rgb(44,42,85),rgb(111, 200, 209),rgb(129, 167, 210),rgb(129, 167, 210));
+  background-position: 0% 0%;
+  background-size: 300%;
   transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 .comment-textarea-container text.comment-submit-colorful {
-  color: rgb(44,42,85);
-  background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210));
+  color: rgba(44,42,85,1);
+  /* background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210)); */
+  background-position: 100%;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
 
