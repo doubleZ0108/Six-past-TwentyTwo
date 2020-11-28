@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/userinfo/userinfo",
     "pages/index/index",
     "pages/wall/wall",
     "pages/test/test",
-    "pages/comment/comment",
-    "pages/userinfo/userinfo"
+    "pages/comment/comment"
   ],
   "tabBar": {
     "list": [

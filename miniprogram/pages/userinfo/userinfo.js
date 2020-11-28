@@ -127,7 +127,8 @@ Page({
     if(this.data.verify_code_input == this.data.verifyCode) {   // 验证成功
       this.setData({ 
         is_verified: true,
-        showVerifyBox: false
+        showVerifyBox: false,
+        verify_code_input: ""
       })
 
     } else {
