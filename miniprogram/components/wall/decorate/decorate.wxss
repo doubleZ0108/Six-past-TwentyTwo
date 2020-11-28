@@ -5,7 +5,8 @@
   width: 100%;
   /* background-position: 75% 0%; */
   background-repeat: no-repeat;
+  background-size: cover;
   top: 900rpx;
-  height: 500rpx;
+  height: 1000rpx;
   z-index: -1;
 }

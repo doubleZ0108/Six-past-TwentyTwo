@@ -125,7 +125,7 @@
 }
 .userinfo-verify view {
   position: absolute;
-  right: 60rpx;
+  right: 10%;
   top: 10rpx;
 
   width: 100rpx;
@@ -133,7 +133,7 @@
   padding: 10rpx;
 
   font-size: 20rpx;
-  background-color: rgba(32, 178, 171, 0.753);
+  background-color: rgba(160, 192, 126, 0.8);
   border-radius: 50rpx;
 }
 
@@ -164,7 +164,7 @@
 }
 
 .userinfo-button-colorful.iconfont {
-  background: linear-gradient(130deg, rgb(94,233,203),rgb(212,248,174));
+  background: linear-gradient(130deg, rgb(141, 209, 194),rgb(197, 224, 168));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
