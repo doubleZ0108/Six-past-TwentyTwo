@@ -7,9 +7,12 @@
 
       <view class="searchcard-academy">
         <text>学院: </text>
-        <picker mode="selector" bindchange="bindAcademyChange" name="academy"
+        <!-- <picker mode="selector" bindchange="bindAcademyChange" name="academy"
             range="{{ academy_array }}" index="{{ academy_index }}">
-            {{ academy_array[academy_index]}} </picker>
+            {{ academy_array[academy_index]}} </picker> -->
+        <picker mode="multiSelector" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
+        {{ academyArray[1][academyIndex[1]] }}
+        </picker>
       </view>
 
       <view class="searchcard-grade">

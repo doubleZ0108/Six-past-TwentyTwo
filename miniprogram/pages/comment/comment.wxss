@@ -279,8 +279,8 @@
 
 
 .comment-group image {
-  height: 100rpx;
-  width: 100rpx;
+  height: 80rpx;
+  width: 80rpx;
   border-radius: 50%;
 }
 
@@ -297,7 +297,7 @@
 }
 
 .comment-name {
-  font-size: 40rpx;
+  font-size: 30rpx;
   line-height: 40rpx;
 }
 .comment-floor {
@@ -307,7 +307,7 @@
 .comment-content {
   display: block;
   margin-top: 15rpx;
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: rgba(255,255,255,.6);
 }
 

@@ -40,8 +40,13 @@ Component({
     switcher1_text: "男生",
     switcher2_gender_now: "gender-now-female",
     switcher2_text: "女生",
-    academy_array: ["未知"].concat(app.globalData.academy_array),
-    academy_index: 0,
+    // academy_array: ["未知"].concat(app.globalData.academy_array),
+    // academy_index: 0,
+    academyIndex: [0, 0],
+    academyArray: [
+      ["全部", "嘉定校区", "四平校区"],
+      ["未知"].concat(app.globalData.academy_array)
+    ],
     grade_array: ["未知"].concat(app.globalData.grade_array),
     grade_index: 0,
     myName: "",
@@ -117,9 +122,38 @@ Component({
       }
     },
 
-    bindAcademyChange: function(e) {
-      this.setData({ academy_index: e.detail.value })
+
+    bindAcademyPickerChange: function(e) {
+      this.setData({
+        academyIndex: e.detail.value
+      })
     },
+    bindAcademyPickerColumnChange: function(e) {
+      let data = {
+        academyArray: this.data.academyArray,
+        academyIndex: this.data.academyIndex
+      }
+      data.academyIndex[e.detail.column] = e.detail.value
+      switch(e.detail.column) {
+        case 0: {   /* 第一列滚动 */
+          switch(data.academyIndex[0]) {
+            case 0:   // 全部
+              data.academyArray[1] = ["未知"].concat(app.globalData.academy_array)
+              break
+            case 1:  // 嘉定
+              data.academyArray[1] = ["软件学院", "艺术与传媒学院"]
+              break
+            case 2:  // 四平
+              data.academyArray[1] = ["土木工程学院", "建筑与城市规划学院"]
+              break
+          }
+          data.academyIndex[1] = 0
+          break
+        }
+      }
+      this.setData(data)
+    },
+
 
     bindGradeChange: function(e) {
       this.setData({ grade_index: e.detail.value })
@@ -134,7 +168,7 @@ Component({
         taName: e.detail.value.taName,
         myGender: this.data.switcher1_text,
         taGender: this.data.switcher2_text,
-        academy: this.data.academy_array[this.data.academy_index],
+        academy: this.data.academyArray[1][this.data.academyIndex[1]],
         grade: this.data.grade_array[this.data.grade_index],
         myDescription: e.detail.value.myDescription,
         taDescription: e.detail.value.taDescription,
@@ -166,15 +200,15 @@ Component({
       db.collection('card').add({
         data: {
           openid: app.globalData.openid,
-          myName: e.detail.value.myName,
-          taName: e.detail.value.taName,
-          myGender: this.data.switcher1_text,
-          taGender: this.data.switcher2_text,
-          academy: this.data.academy_array[this.data.academy_index],
-          grade: this.data.grade_array[this.data.grade_index],
-          myDescription: e.detail.value.myDescription,
-          taDescription: e.detail.value.taDescription,
-          textarea: e.detail.value.textarea,
+          myName: writeData.myName,
+          taName: writeData.taName,
+          myGender: writeData.myGender,
+          taGender: writeData.taGender,
+          academy: writeData.academy,
+          grade: writeData.grade,
+          myDescription: writeData.myDescription,
+          taDescription: writeData.taDescription,
+          textarea: writeData.textarea,
           starNum: 0,
           commentNum: 0,
           time: timeUtil.formatDate(timeNow),
@@ -219,6 +253,9 @@ Component({
         showVipPayBox: false,
         write_vipcard: true
       })
+    },
+    onVipPayCancel: function() {
+      this.setData({ showVipPayBox: false })
     },
 
 
