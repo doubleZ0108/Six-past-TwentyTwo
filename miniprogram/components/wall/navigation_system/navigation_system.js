@@ -22,6 +22,10 @@ Component({
     filterInfo: {
       type: Object,
       value: null
+    },
+    switch_vipcard: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -55,6 +59,8 @@ Component({
     my_cards: [],
     favorite_cards: [],
     filter_cards: [],
+    vip_card_total: 5,
+    vip_cards: [],
 
     world_bottom_show: false,
     my_bottom_show: false,
@@ -587,6 +593,13 @@ Component({
       if(this.data.world_cards.length == 0) {
         this.setData({ world_bottom_show: true })
       }
+
+      /** vipcard init */
+      let buf_vip_cards = []
+      for(let i=this.data.vip_card_total;i>0; --i) {
+        buf_vip_cards.push(i+1)
+      }
+      this.setData({ vip_cards: buf_vip_cards })
     },
   },
 
@@ -601,6 +614,14 @@ Component({
       if(filterInfo) {
         this.setData({ filter_info: filterInfo })
         this.initFilterCardList()
+      }
+    },
+    'switch_vipcard': function(switch_vipcard) {
+      if(switch_vipcard) {
+        let that = this
+        this.setData({
+          vip_cards: [that.data.vip_cards.pop()].concat(that.data.vip_cards)
+        })
       }
     },
     'currentTab': function(currentTab) {
