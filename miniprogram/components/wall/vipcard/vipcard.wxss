@@ -149,6 +149,7 @@
 
 .vipcard-info-unfold-function .iconfont {
   font-size: 35rpx;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
 .function-favorite {

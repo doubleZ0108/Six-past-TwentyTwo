@@ -46,6 +46,10 @@ Component({
     grade: String,
     bubble_left: String,
     bubble_right: String,
+    unfold_refresh_flag: {
+      type: Boolean,
+      value: false
+    },
     pull_down_flag_root: {
       type: Boolean,
       value: false
@@ -386,6 +390,11 @@ Component({
   },
 
   observers: {
+    'unfold_refresh_flag': function(unfold_refresh_flag) {
+      if(unfold_refresh_flag && this.data.fold_class == "vipcard-container-unfold") {
+        this.updateVipCardFunctionInfo()
+      }
+    },
     'fold_class': function() {
       let that = this;
       this.setData({

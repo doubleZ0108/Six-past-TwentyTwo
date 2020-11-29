@@ -402,11 +402,17 @@
 
   color: rgba(255,255,255,.83);
   background: rgb(59, 37, 29);
+  background: linear-gradient(104deg, rgb(59, 37, 29),rgb(59, 37, 29),rgb(238, 171, 202),rgb(252, 134, 144), rgb(241, 154, 143));
+  background-position: 0% 0%;
+  background-size: 300%;
   transition: .4s cubic-bezier(.8,.2,.8,1);
 }
+
 .vipcard-confirm.comment-textarea-container text.comment-submit-colorful {
   color: rgb(59, 37, 29);
-  background: linear-gradient(104deg, rgb(238, 171, 202),rgb(252, 134, 144), rgb(241, 154, 143));
+  /* background: linear-gradient(104deg, rgb(238, 171, 202),rgb(252, 134, 144), rgb(241, 154, 143)); */
+  background-position: 100%;
+  transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
 .vipcard-confirm .comment-text-group {
