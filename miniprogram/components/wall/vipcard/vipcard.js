@@ -1,5 +1,8 @@
 // components/wall/vipcard/vipcard.js
 
+const app = getApp()
+const db = wx.cloud.database()
+
 Component({
   /**
    * 组件的属性列表
@@ -11,7 +14,42 @@ Component({
     },
     z_index: Number,
     index: Number,
-    which_vipcard: Number
+    which_vipcard: Number,
+
+
+    card_id: String,
+    name_left: {
+      type: String,
+      value: "PersonLeft"
+    },
+    name_right: {
+      type: String,
+      value: "PersonRight"
+    },
+    gender_left: {
+      type: String,
+      value: "男生"
+    },
+    gender_right: {
+      type: String,
+      value: "女生"
+    },
+    avatar_url: {
+      type: String,
+      value: "../../../resource/img/avatar/default_avatar.png"
+    },
+    description: {
+      type: String,
+      value: "告白从心开始"
+    },
+    academy: String,
+    grade: String,
+    bubble_left: String,
+    bubble_right: String,
+    pull_down_flag_root: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**
@@ -29,9 +67,17 @@ Component({
     smallcard_touchDotX: 0, // 检测小卡片下滑动
     smallcard_touchDotY: 0,
 
-    commentId: 999,
     animate: false,
-    vipcard_tap_able: true
+    vipcard_tap_able: true,
+
+
+    favorite_flag: false,
+    star_flag: false,
+    star_num_flag: 0,
+    comment_flag: false,
+    comment_num_flag: 0,
+    prohibit_star: false,   // 防止点赞过快
+    able_navigate: true     // 收藏 点赞完 写完库才可以跳转
   },
 
   /**
@@ -167,6 +213,175 @@ Component({
           switch_vipcard: true
         })
       }, 1250)
+    },
+
+
+    onFavoriteTap: function() {
+      this.setData({ able_navigate: false })
+
+      let that = this
+      this.setData({ favorite_flag: !that.data.favorite_flag })
+
+      // @BACK √
+      that = this
+      if(that.data.favorite_flag) {
+        wx.cloud.callFunction({
+          name: "favorite",
+          data: {
+            card_id: that.properties.card_id,
+            favorite_now: true
+          },
+          complete: function(res) {
+            console.log("收藏成功")
+            that.setData({ able_navigate: true })
+          }
+        })
+      } else {
+        db.collection('behavior').where({
+          _openid: app.globalData.openid
+        }).get({
+          success: function(res) {
+            let fresh_favoriteList = res.data[0].favoriteList
+            fresh_favoriteList.splice(fresh_favoriteList.indexOf(that.properties.card_id), 1)
+            fresh_favoriteList = Array.from(new Set(fresh_favoriteList))  // 去重 防止收藏有两遍
+            
+            wx.cloud.callFunction({
+              name: "favorite",
+              data: {
+                card_id: that.properties.card_id,
+                favorite_now: false,
+                fresh_favoriteList: fresh_favoriteList
+              },
+              complete: function(res) {
+                console.log("取消收藏成功")
+                that.setData({ able_navigate: true })
+              }
+            })
+
+          }
+        })
+      }
+
+    },
+    onStarTap: function() {
+      this.setData({ able_navigate: false })
+
+      let that = this
+      this.setData({ 
+        star_flag: !that.data.star_flag,
+        prohibit_star: true
+      })
+
+      that = this
+      this.setData({
+        star_num_flag: that.data.star_flag ? that.data.star_num_flag + 1 : that.data.star_num_flag - 1
+      })
+
+      // @BACK √
+      that = this
+      if(that.data.star_flag) {
+        wx.cloud.callFunction({
+          name: "star",
+          data: {
+            card_id: that.properties.card_id,
+            star_now: true,
+            from_vip: true
+          },
+          complete: function(res) {
+            console.log("点赞成功")
+            that.setData({ 
+              prohibit_star: false,
+              able_navigate: true
+            })
+          }
+        })
+      } else {
+        db.collection('behavior').where({
+          _openid: app.globalData.openid,
+        }).get({
+          success: function(res) {
+            let fresh_starList = res.data[0].starList
+            fresh_starList.splice(fresh_starList.indexOf(that.properties.card_id), 1)
+            fresh_starList = Array.from(new Set(fresh_starList))
+
+            wx.cloud.callFunction({
+              name: "star",
+              data: {
+                card_id: that.properties.card_id,
+                star_now: false,
+                fresh_starList: fresh_starList,
+                from_vip: true
+              },
+              complete: function(res) {
+                console.log("取消收藏成功")
+                that.setData({ 
+                  prohibit_star: false,
+                  able_navigate: true
+                })
+              }
+            })
+
+          }
+        })
+      }
+
+    },
+    onNavigatorTap: function() {
+      if(this.data.able_navigate) {
+        let that = this
+        wx.navigateTo({
+          url: "../comment/comment?vipcard=true&cardId=" + that.data.card_id
+        })
+      }
+    },
+
+    /** 卡片底部 favorite star comment 信息 */
+    updateVipCardFunctionInfo: function() {
+      let that = this
+
+      that.setData({
+        favorite_flag: false,
+        star_flag: false,
+        comment_num: false,
+        prohibit_star: true
+      })
+
+      db.collection('behavior').where({
+        _openid: app.globalData.openid
+      }).get({
+        success: function(res) {
+          let userBehavior = res.data[0]
+          if(userBehavior.favoriteList.indexOf(that.data.card_id) != -1) {
+            that.setData({ favorite_flag: true })
+          }
+          if(userBehavior.starList.indexOf(that.data.card_id) != -1) {
+            that.setData({ star_flag: true })
+          }
+          if(userBehavior.commentList.indexOf(that.data.card_id) != -1) {
+            that.setData({ comment_flag: true })
+          }
+        }
+      })
+
+      db.collection('vipcard').where({
+        _id: that.data.card_id
+      }).get({
+        success: function(res) {
+          let cardInfo = res.data[0]
+          that.setData({ 
+            star_num_flag: cardInfo.starNum,
+            comment_num_flag: cardInfo.commentNum,
+            prohibit_star: false
+          })
+        }
+      })
+
+    }
+  },
+
+  lifetimes: {
+    attached: function() {
+      this.updateVipCardFunctionInfo()
     }
   },
 
@@ -181,6 +396,14 @@ Component({
     'which_vipcard': function(which_vipcard) {      
       if(which_vipcard == this.data.index) {
         this.vipcardEffect()
+      }
+    },
+    'pull_down_flag_root': function(pull_down_flag_root) {
+      if(pull_down_flag_root) {
+        let that = this
+        setTimeout(function() {
+          that.updateVipCardFunctionInfo()
+        }, 3000)
       }
     }
   }

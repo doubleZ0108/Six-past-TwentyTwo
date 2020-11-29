@@ -186,6 +186,22 @@
   align-items: center;
 }
 
+.function-comment-write.unable-navigate {
+  color: rgba(255,255,255,.3);
+}
+
+.iconfont-favorite-colorful {
+  color: rgba(255, 223, 40, 0.9);
+}
+
+.iconfont-star-colorful {
+  color: rgba(124, 200, 245, 0.8);
+}
+
+.iconfont-comment-colorful {
+  color: rgba(110, 240, 201, .8);
+}
+
 
 /********** envelop ************/
 .vipcard-envelop {
@@ -405,7 +421,7 @@
   margin: 10px 0 10px 12px;
 }
 
-.unfold-left-person .unfold-bubble {
+.bubble-male .unfold-bubble {
   background: rgb(50, 160, 202);
   position: relative;
 }
@@ -416,16 +432,22 @@
   position: absolute;
   top: 10px;
   left: -13px;
+  font-size: 0;
+}
+.unfold-left-person.bubble-male .unfold-bubble:before {
   border: solid 8px;
   border-color: transparent rgb(50, 160, 202) transparent transparent;
-  font-size: 0;
+}
+.unfold-right-person.bubble-male .unfold-bubble:after {
+  border: solid 8px;
+  border-color: transparent transparent transparent rgb(50, 160, 202);
 }
 
 .unfold-right-person {
   margin: 10px 12px 10px auto;
 }
 
-.unfold-right-person .unfold-bubble {
+.bubble-female .unfold-bubble {
   background: rgb(208, 97, 126);
   position: relative;
 }
@@ -436,11 +458,16 @@
   position: absolute;
   top: 10px;
   right: -13px;
-  border: solid 8px;
-  border-color: transparent transparent transparent rgb(208, 97, 126);
   font-size: 0;
 }
-
+.unfold-left-person.bubble-female .unfold-bubble:before {
+  border: solid 8px;
+  border-color: transparent rgb(208, 97, 126) transparent transparent ;
+}
+.unfold-right-person.bubble-female .unfold-bubble:after {
+  border: solid 8px;
+  border-color: transparent transparent transparent rgb(208, 97, 126);
+}
 
 
 

@@ -19,8 +19,16 @@
 
 <view>
   <vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}"
-  wx:for="{{ vip_cards }}" 
-  z_index="{{ vip_cards[index] }}" index="{{ index }}" which_vipcard="{{ which_vipcard }}" />
+  wx:for="{{ vip_cards }}" wx:key="{{ index }}" index="{{ index }}"
+  z_index="{{ vip_cards_zindex[index] }}"  which_vipcard="{{ which_vipcard }}"
+  pull_down_flag_root="{{ pull_down_flag_root }}"
+  card_id="{{ item.card_id }}"
+  name_left="{{ item.name_left }}" name_right="{{ item.name_right }}"
+  gender_left="{{ item.gender_left }}" gender_right="{{ item.gender_right }}"
+  avatar_url="{{ item.avatar_url }}"
+  description="{{ item.description }}"
+  academy="{{ item.academy }}" grade="{{ item.grade }}"
+  bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}" />
 </view>
 
 <writecard posLeft="{{ (posLeft_base + 1)*100+ '%' }}"/>

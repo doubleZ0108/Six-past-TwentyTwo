@@ -258,7 +258,7 @@ Component({
             textarea: writeData.textarea,
             starNum: 0,
             commentNum: 0,
-            time: timeUtil.formatDate(timeNow),
+            time: timeUtil.formatTime(timeNow),
             timestamp: timeNow.getTime(),
             avatarUrl: app.globalData.userInfo.avatarUrl,
             pay: false

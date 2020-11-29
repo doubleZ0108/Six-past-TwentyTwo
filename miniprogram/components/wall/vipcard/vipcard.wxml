@@ -8,14 +8,14 @@
   <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/vipcard_bgdecorate.svg);"></image>
 
   <view class="vipcard-people">
-    <text>Person1Person1Person1Person1</text>
+    <text>{{ name_left }}</text>
     <text class="iconfont iconaixin"></text>
-    <text>Person2</text>
+    <text>{{ name_right }}</text>
   </view>
 
   <view class="vipcard-info">
-    <image src="../../../resource/img/avatar/avatar.jpg"></image>
-    <text>这里是一条表白，它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长它很长很长很长很长</text>
+    <image src="{{ avatar_url }}"></image>
+    <text>{{ description }}</text>
   </view>
 
   <view class="vipcard-info-unfold">
@@ -23,39 +23,39 @@
     <image class="vipcard-bgdecorate-unfold" src="../../../resource/img/card/vipcard_bgdecorate_unfold.svg"></image>
 
     <view class="vipcard-info-unfold-tag">
-      <text>tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1tag1</text>
-      <text>大一</text>
+      <text>{{ academy }}</text>
+      <text>{{ grade }}</text>
     </view>
 
     <view class="vipcard-info-unfold-bubble">
-      <view class="unfold-info-group unfold-left-person">
+      <view class="unfold-info-group unfold-left-person {{ gender_left == '男生' ? 'bubble-male' : 'bubble-female'}}">
         <view class="unfold-bubble">
-            <text>左侧测左侧测试文本左侧测试文本</text>
+            <text>{{ bubble_left }}</text>
         </view>
       </view>
-      <view class="unfold-info-group unfold-right-person">
+      <view class="unfold-info-group unfold-right-person {{ gender_right == '男生' ? 'bubble-male' : 'bubble-female'}}">
         <view class="unfold-bubble">
-          <text>右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本右侧测试文本</text>
+          <text>{{ bubble_right }}</text>
         </view>
       </view>
     </view>
 
     <view class="vipcard-info-unfold-function">
-      <view class="function-favorite">
-        <text class="iconfont iconxingxing"></text>
+      <view class="function-favorite" bindtap="onFavoriteTap">
+        <text class="iconfont iconxingxing {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
       </view>
-      <view class="function-star">
-        <text class="iconfont icondianzan"></text>
-        <text>99</text>
+      <view class="function-star" bindtap="{{ prohibit_star ? '' : 'onStarTap'}}">
+        <text class="iconfont icondianzan {{ star_flag ? 'iconfont-star-colorful' : '' }}"></text>
+        <text>{{ star_num_flag }}</text>
       </view>
       <view class="function-comment">
         <view class="function-comment-num">
-          <text class="iconfont icontubiaozhizuo-"></text>
-          <text>5</text>
+          <text class="iconfont icontubiaozhizuo- {{ comment_flag ? 'iconfont-comment-colorful' : '' }}"></text>
+          <text>{{ comment_num_flag }}</text>
         </view>
-        <view class="function-comment-write">
+        <view class="function-comment-write {{ able_navigate ? '' : 'unable-navigate' }}" bindtap="onNavigatorTap">
           <text class="iconfont iconpinglun"></text>
-          <navigator url="../comment/comment?vipcard=true&commentId={{ commentId }}">编写评论</navigator>
+          <text>编写评论</text>
         </view>
       </view>
     </view>
@@ -65,8 +65,7 @@
       <image class="envelop-beneath" src="../../../resource/img/envelop/beneath.png"></image>
       <image class="envelop-body" src="../../../resource/img/envelop/body.png"></image>
       <scroll-view class="envelop-content" scroll-y enable-flex>
-        <!-- <text>这是一封很长的信，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长，很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</text> -->
-        <text class="envelop-content-word">这是一封很长的信，很长很长很长很长很长很这是一封很长的信，很长很长很长很长很长很这是一封很长的信，很长很长很长很长很长很</text>
+        <text class="envelop-content-word">{{ description }}</text>
         <image src="../../../resource/img/envelop/picture.png"></image>
         <text class="envelop-content-motto">有情人终成眷属</text>
         <text class="envelop-content-sign">—— 二十二点零六团队</text>
