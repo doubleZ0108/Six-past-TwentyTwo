@@ -31,6 +31,7 @@ Component({
 
     commentId: 999,
     animate: false,
+    vipcard_tap_able: true
   },
 
   /**
@@ -147,10 +148,16 @@ Component({
     },
 
     vipcardEffect: function() {
-      this.setData({ animate: true })
+      this.setData({ 
+        animate: true,
+        vipcard_tap_able: false
+      })
       let that = this
       setTimeout(function(){
-        that.setData({ animate: false })
+        that.setData({ 
+          animate: false,
+          vipcard_tap_able: true
+        })
       }, 2500)
       setTimeout(function() {
         /* z-index adaptive */

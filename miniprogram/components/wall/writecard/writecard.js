@@ -197,51 +197,101 @@ Component({
       console.log(writeData)
       let timeNow = new Date()
       that = this
-      db.collection('card').add({
-        data: {
-          openid: app.globalData.openid,
-          myName: writeData.myName,
-          taName: writeData.taName,
-          myGender: writeData.myGender,
-          taGender: writeData.taGender,
-          academy: writeData.academy,
-          grade: writeData.grade,
-          myDescription: writeData.myDescription,
-          taDescription: writeData.taDescription,
-          textarea: writeData.textarea,
-          starNum: 0,
-          commentNum: 0,
-          time: timeUtil.formatDate(timeNow),
-          timestamp: timeNow.getTime(),
-          avatarUrl: app.globalData.userInfo.avatarUrl
-        },
-        success: function(res) {
-
-          db.collection('comment').add({
-            data: {
-              cardId: res._id,
-              commentList: []
-            },
-            success: function() {
-              that.setData({ 
-                toptip: {
-                  msg: "表白发布成功～",
-                  type: "success",
-                  show: true
-                },
-                myName: "",
-                taName: "",
-                myDescription: "",
-                taDescription: "",
-                textarea: "",
-                prohibit_submit: false
-              })
-            }
-          })
-
-        }
-      })
-
+      if(this.data.write_vipcard == false) {    // 发布普通card
+        db.collection('card').add({
+          data: {
+            openid: app.globalData.openid,
+            myName: writeData.myName,
+            taName: writeData.taName,
+            myGender: writeData.myGender,
+            taGender: writeData.taGender,
+            academy: writeData.academy,
+            grade: writeData.grade,
+            myDescription: writeData.myDescription,
+            taDescription: writeData.taDescription,
+            textarea: writeData.textarea,
+            starNum: 0,
+            commentNum: 0,
+            time: timeUtil.formatDate(timeNow),
+            timestamp: timeNow.getTime(),
+            avatarUrl: app.globalData.userInfo.avatarUrl
+          },
+          success: function(res) {
+  
+            db.collection('comment').add({
+              data: {
+                cardId: res._id,
+                commentList: []
+              },
+              success: function() {
+                that.setData({ 
+                  toptip: {
+                    msg: "表白发布成功～",
+                    type: "success",
+                    show: true
+                  },
+                  myName: "",
+                  taName: "",
+                  myDescription: "",
+                  taDescription: "",
+                  textarea: "",
+                  prohibit_submit: false
+                })
+              }
+            })
+  
+          }
+        })  
+      } else {    // 发布vipcard
+        console.log("write vip")
+        db.collection('vipcard').add({
+          data: {
+            openid: app.globalData.openid,
+            myName: writeData.myName,
+            taName: writeData.taName,
+            myGender: writeData.myGender,
+            taGender: writeData.taGender,
+            academy: writeData.academy,
+            grade: writeData.grade,
+            myDescription: writeData.myDescription,
+            taDescription: writeData.taDescription,
+            textarea: writeData.textarea,
+            starNum: 0,
+            commentNum: 0,
+            time: timeUtil.formatDate(timeNow),
+            timestamp: timeNow.getTime(),
+            avatarUrl: app.globalData.userInfo.avatarUrl,
+            pay: false
+          },
+          success: function(res) {
+  
+            db.collection('comment').add({
+              data: {
+                cardId: res._id,
+                commentList: []
+              },
+              success: function() {
+                that.setData({ 
+                  toptip: {
+                    msg: "vip表白发布成功～",
+                    type: "success",
+                    show: true
+                  },
+                  myName: "",
+                  taName: "",
+                  myDescription: "",
+                  taDescription: "",
+                  textarea: "",
+                  prohibit_submit: false,
+                  write_vipcard: false
+                })
+              }
+            })
+  
+          }
+        }) 
+      }
+     
     },
 
 
@@ -281,7 +331,8 @@ Component({
           if(tmX > this.data.slip_tolerance) {
             this.setData({ 
               fold_class: "",
-              showVipPayBox: false
+              showVipPayBox: false,
+              write_vipcard: false
             })
             return
           }
@@ -291,7 +342,8 @@ Component({
           if(tmY > this.data.slip_tolerance) {
             this.setData({ 
               fold_class: "",
-              showVipPayBox: false
+              showVipPayBox: false,
+              write_vipcard: false
             })
             return
           }
@@ -308,7 +360,7 @@ Component({
       this.setData({
         writecard_height: that.data.fold_class == "writecard-container-unfold"? "100vh" : "330rpx",
         posLeft: that.data.fold_class == "writecard-container-unfold" ? "0" : "10%",
-        writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "../../../resource/img/write/unfold_bg.png" : "../../../resource/img/write/fold_bg.svg"
+        writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "../../../resource/img/write/unfold_bg.png" :  '../../../resource/img/write/fold_bg.svg'
       })
     },
     'write_vipcard': function(write_vipcard) {
