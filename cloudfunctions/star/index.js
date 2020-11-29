@@ -20,7 +20,7 @@ exports.main = async (event, context) => {
       }
     })
     /** card starNum */
-    db.collection('card').where({
+    db.collection(event.from_vip ? 'vipcard' : 'card').where({
       _id: event.card_id
     }).update({
       data: {
@@ -39,7 +39,7 @@ exports.main = async (event, context) => {
       }
     })
     /** card starNum */
-    db.collection('card').where({
+    db.collection(event.from_vip ? 'vipcard' : 'card').where({
       _id: event.card_id
     }).update({
       data: {

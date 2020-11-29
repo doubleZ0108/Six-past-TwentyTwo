@@ -107,6 +107,7 @@ Page({
         data: {
           cardId: that.data.cardInfo.card_id,
           commentData: commentData,
+          from_vip: that.data.fromVip
         },
         complete: function() {
           that.setData({ 
@@ -185,7 +186,8 @@ Page({
         name: "star",
         data: {
           card_id: that.data.cardInfo.card_id,
-          star_now: true
+          star_now: true,
+          from_vip: that.data.fromVip
         },
         complete: function(res) {
           console.log("点赞成功")
@@ -206,7 +208,8 @@ Page({
             data: {
               card_id: that.data.cardInfo.card_id,
               star_now: false,
-              fresh_starList: fresh_starList
+              fresh_starList: fresh_starList,
+              from_vip: that.data.fromVip
             },
             complete: function(res) {
               console.log("取消收藏成功")
@@ -258,7 +261,7 @@ Page({
 
     let that = this
     /** card info */
-    db.collection('card').where({
+    db.collection(options.vipcard ? 'vipcard' : 'card').where({
       _id: options.cardId
     }).get({
       success: function(res){
