@@ -27,7 +27,7 @@ exports.main = async (event, context) => {
     }
   })
   /** card commentNum */
-  db.collection('card').where({
+  db.collection(event.from_vip ? 'vipcard' : 'card').where({
     _id: event.cardId
   }).update({
     data: {

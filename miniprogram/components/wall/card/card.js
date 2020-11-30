@@ -143,7 +143,8 @@ Component({
           name: "star",
           data: {
             card_id: that.properties.card_id,
-            star_now: true
+            star_now: true,
+            from_vip: false
           },
           complete: function(res) {
             console.log("点赞成功")
@@ -167,7 +168,8 @@ Component({
               data: {
                 card_id: that.properties.card_id,
                 star_now: false,
-                fresh_starList: fresh_starList
+                fresh_starList: fresh_starList,
+                from_vip: false
               },
               complete: function(res) {
                 console.log("取消收藏成功")

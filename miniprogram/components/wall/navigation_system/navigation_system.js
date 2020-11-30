@@ -26,6 +26,10 @@ Component({
     switch_vipcard: {
       type: Boolean,
       value: false
+    },
+    switch_from_user: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -59,8 +63,12 @@ Component({
     my_cards: [],
     favorite_cards: [],
     filter_cards: [],
-    vip_card_total: 5,
+
+    vip_card_total: 0,
+    vip_cards_zindex: [],
     vip_cards: [],
+    vipcard_auto_switch_timer: null,
+    which_vipcard: -1,
 
     world_bottom_show: false,
     my_bottom_show: false,
@@ -584,6 +592,68 @@ Component({
       })
     },
 
+
+    initVipCardEffect: function() {
+      /** vipcard init */
+
+      clearInterval(this.data.vipcard_auto_switch_timer)
+      this.setData({
+        vipcard_auto_switch_timer: null,
+      })
+      let buf_vip_cards_zindex = []
+      for(let i=this.data.vip_card_total; i>0; --i) {
+        buf_vip_cards_zindex.push(i+1)
+      }
+
+      let that = this
+      this.setData({
+        vip_cards_zindex: buf_vip_cards_zindex,
+        which_vipcard: -1,
+        vipcard_auto_switch_timer: setInterval(function(){
+          that.setData({
+            which_vipcard: (that.data.which_vipcard + 1) % that.data.vip_card_total,
+          })
+        }, 5000),   // double time
+      })
+       
+    },
+    initVipCardList: function() {
+      let that = this
+      db.collection('vipcard')
+      .limit(20)   // TODO 这里应该没限制
+      .orderBy('timestamp', 'desc')
+      .get({
+        success: function(res) {          
+          let bin_cards = []
+          res.data.forEach(function(bin){
+            if(bin.pay) {
+              bin_cards.push({
+                card_id: bin._id,
+                name_left: bin.myName,
+                name_right: bin.taName,
+                gender_left: bin.myGender,
+                gender_right: bin.taGender,
+                avatar_url: bin.avatarUrl,
+                description: bin.textarea,
+                academy: bin.academy,
+                grade: bin.grade,
+                bubble_left: bin.myDescription,
+                bubble_right: bin.taDescription,
+              })
+            }
+          })         
+          that.setData({ 
+            vip_cards: bin_cards,
+            vip_card_total: bin_cards.length
+          })
+          that.initVipCardEffect()
+          that.adaptHeight()
+        },
+        fail: function() {
+          console.log("刷新vip卡片列表出错")
+        }
+      })
+    },
   },
   
   lifetimes: {
@@ -594,12 +664,7 @@ Component({
         this.setData({ world_bottom_show: true })
       }
 
-      /** vipcard init */
-      let buf_vip_cards = []
-      for(let i=this.data.vip_card_total;i>0; --i) {
-        buf_vip_cards.push(i+1)
-      }
-      this.setData({ vip_cards: buf_vip_cards })
+      this.initVipCardList()
     },
   },
 
@@ -620,7 +685,15 @@ Component({
       if(switch_vipcard) {
         let that = this
         this.setData({
-          vip_cards: [that.data.vip_cards.pop()].concat(that.data.vip_cards)
+          vip_cards_zindex: [that.data.vip_cards_zindex.pop()].concat(that.data.vip_cards_zindex)
+        })
+      }
+    },
+    'switch_from_user': function(switch_from_user) {
+      if(switch_from_user) {
+        clearInterval(this.data.vipcard_auto_switch_timer)
+        this.setData({
+          vipcard_auto_switch_timer: null,
         })
       }
     },
@@ -686,12 +759,12 @@ Component({
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
-        let that = this
  
         // @BACK 根据不同的tab重新拉取该tab的cards
         switch(this.data.currentTab) {
           case 0: {
             this.initWorldCardList()
+            this.initVipCardList()
             break
           }
           case 1: {
