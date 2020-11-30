@@ -80,7 +80,7 @@
 
     <view class="verify-bottom-group">
       <view class="verify-info-group">
-        <text class="iconfont iconshezhi"></text>
+        <text class="iconfont icontishi"></text>
         <view class="verify-text-group">
           <text>请在同济邮箱中查收验证码</text>
           <text>如果收件箱没有请查看垃圾邮箱</text>
@@ -88,8 +88,8 @@
         </view>
       </view>
       <view class="verify-function-group">
-        <text class="iconfont iconshezhi" catchtap="onVerifyCancel"></text>
-        <text class="iconfont iconshezhi" catchtap="onVerifyCodeSubmit"></text>
+        <text class="iconfont iconquxiao" catchtap="onVerifyCancel"></text>
+        <text class="iconfont iconqueren" catchtap="onVerifyCodeSubmit"></text>
       </view>
     </view>
 
