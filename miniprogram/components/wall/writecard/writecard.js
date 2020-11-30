@@ -193,104 +193,124 @@ Component({
       // @BACK √
 
       this.setData({ prohibit_submit: true })
-
       console.log(writeData)
-      let timeNow = new Date()
-      that = this
-      if(this.data.write_vipcard == false) {    // 发布普通card
-        db.collection('card').add({
-          data: {
-            openid: app.globalData.openid,
-            myName: writeData.myName,
-            taName: writeData.taName,
-            myGender: writeData.myGender,
-            taGender: writeData.taGender,
-            academy: writeData.academy,
-            grade: writeData.grade,
-            myDescription: writeData.myDescription,
-            taDescription: writeData.taDescription,
-            textarea: writeData.textarea,
-            starNum: 0,
-            commentNum: 0,
-            time: timeUtil.formatDate(timeNow),
-            timestamp: timeNow.getTime(),
-            avatarUrl: app.globalData.userInfo.avatarUrl
-          },
-          success: function(res) {
-  
-            db.collection('comment').add({
-              data: {
-                cardId: res._id,
-                commentList: []
-              },
-              success: function() {
-                that.setData({ 
-                  toptip: {
-                    msg: "表白发布成功～",
-                    type: "success",
-                    show: true
-                  },
-                  myName: "",
-                  taName: "",
-                  myDescription: "",
-                  taDescription: "",
-                  textarea: "",
-                  prohibit_submit: false
-                })
-              }
-            })
-  
+
+      wx.showModal({
+        title: "发送表白提示",
+        content: "发送表白后无法修改和删除，确认发送吗？",
+        showCancel: true,
+        cancelText: "继续编辑",
+        cancelColor: '#000000',   // TODO 等待调整
+        confirmText: "确认发送",
+        confirmColor: that.data.write_vipcard ? '#576B95' : '#576B91', // 金色 or 背景色
+        success (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+
+            let timeNow = new Date()
+            if(that.data.write_vipcard == false) {    // 发布普通card
+              db.collection('card').add({
+                data: {
+                  openid: app.globalData.openid,
+                  myName: writeData.myName,
+                  taName: writeData.taName,
+                  myGender: writeData.myGender,
+                  taGender: writeData.taGender,
+                  academy: writeData.academy,
+                  grade: writeData.grade,
+                  myDescription: writeData.myDescription,
+                  taDescription: writeData.taDescription,
+                  textarea: writeData.textarea,
+                  starNum: 0,
+                  commentNum: 0,
+                  time: timeUtil.formatDate(timeNow),
+                  timestamp: timeNow.getTime(),
+                  avatarUrl: app.globalData.userInfo.avatarUrl
+                },
+                success: function(res) {
+        
+                  db.collection('comment').add({
+                    data: {
+                      cardId: res._id,
+                      commentList: []
+                    },
+                    success: function() {
+                      that.setData({ 
+                        toptip: {
+                          msg: "表白发布成功～",
+                          type: "success",
+                          show: true
+                        },
+                        myName: "",
+                        taName: "",
+                        myDescription: "",
+                        taDescription: "",
+                        textarea: "",
+                        prohibit_submit: false
+                      })
+                    }
+                  })
+        
+                }
+              })  
+            } else {    // 发布vipcard
+              console.log("write vip")
+              db.collection('vipcard').add({
+                data: {
+                  openid: app.globalData.openid,
+                  myName: writeData.myName,
+                  taName: writeData.taName,
+                  myGender: writeData.myGender,
+                  taGender: writeData.taGender,
+                  academy: writeData.academy,
+                  grade: writeData.grade,
+                  myDescription: writeData.myDescription,
+                  taDescription: writeData.taDescription,
+                  textarea: writeData.textarea,
+                  starNum: 0,
+                  commentNum: 0,
+                  time: timeUtil.formatDate(timeNow),
+                  timeDetail: timeUtil.formatTime(timeNow),
+                  timestamp: timeNow.getTime(),
+                  avatarUrl: app.globalData.userInfo.avatarUrl,
+                  pay: false
+                },
+                success: function(res) {
+        
+                  db.collection('comment').add({
+                    data: {
+                      cardId: res._id,
+                      commentList: []
+                    },
+                    success: function() {
+                      that.setData({ 
+                        toptip: {
+                          msg: "vip表白发布成功～",
+                          type: "success",
+                          show: true
+                        },
+                        myName: "",
+                        taName: "",
+                        myDescription: "",
+                        taDescription: "",
+                        textarea: "",
+                        prohibit_submit: false,
+                        write_vipcard: false
+                      })
+                    }
+                  })
+        
+                }
+              }) 
+            }
+
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+            that.setData({ prohibit_submit: false })
           }
-        })  
-      } else {    // 发布vipcard
-        console.log("write vip")
-        db.collection('vipcard').add({
-          data: {
-            openid: app.globalData.openid,
-            myName: writeData.myName,
-            taName: writeData.taName,
-            myGender: writeData.myGender,
-            taGender: writeData.taGender,
-            academy: writeData.academy,
-            grade: writeData.grade,
-            myDescription: writeData.myDescription,
-            taDescription: writeData.taDescription,
-            textarea: writeData.textarea,
-            starNum: 0,
-            commentNum: 0,
-            time: timeUtil.formatTime(timeNow),
-            timestamp: timeNow.getTime(),
-            avatarUrl: app.globalData.userInfo.avatarUrl,
-            pay: false
-          },
-          success: function(res) {
-  
-            db.collection('comment').add({
-              data: {
-                cardId: res._id,
-                commentList: []
-              },
-              success: function() {
-                that.setData({ 
-                  toptip: {
-                    msg: "vip表白发布成功～",
-                    type: "success",
-                    show: true
-                  },
-                  myName: "",
-                  taName: "",
-                  myDescription: "",
-                  taDescription: "",
-                  textarea: "",
-                  prohibit_submit: false,
-                  write_vipcard: false
-                })
-              }
-            })
-  
-          }
-        }) 
-      }
+        }
+
+      })
      
     },
 

@@ -80,6 +80,7 @@ Component({
     star_num_flag: 0,
     comment_flag: false,
     comment_num_flag: 0,
+    prohibit_favorite: false,
     prohibit_star: false,   // 防止点赞过快
     able_navigate: true     // 收藏 点赞完 写完库才可以跳转
   },
@@ -213,12 +214,15 @@ Component({
         currpage.setData({
           switch_vipcard: true
         })
-      }, 1250)
+      }, 1500)
     },
 
 
     onFavoriteTap: function() {
-      this.setData({ able_navigate: false })
+      this.setData({ 
+        able_navigate: false,
+        prohibit_favorite: true
+      })
 
       let that = this
       this.setData({ favorite_flag: !that.data.favorite_flag })
@@ -234,7 +238,10 @@ Component({
           },
           complete: function(res) {
             console.log("收藏成功")
-            that.setData({ able_navigate: true })
+            that.setData({ 
+              able_navigate: true,
+              prohibit_favorite: false
+            })
           }
         })
       } else {
@@ -255,7 +262,10 @@ Component({
               },
               complete: function(res) {
                 console.log("取消收藏成功")
-                that.setData({ able_navigate: true })
+                that.setData({ 
+                  able_navigate: true,
+                  prohibit_favorite: false
+                })
               }
             })
 
@@ -382,6 +392,20 @@ Component({
 
   lifetimes: {
     attached: function() {
+      if(this.properties.card_id.startsWith("_default_vipcard_")) {
+        this.setData({
+          favorite_flag: true,
+          star_flag: true,
+          star_num_flag: "999+",
+          comment_flag: true,
+          comment_num_flag: "999+",
+          prohibit_favorite: true,
+          prohibit_star: true,
+          able_navigate: false 
+        })
+
+        return
+      }
       this.updateVipCardFunctionInfo()
     }
   },

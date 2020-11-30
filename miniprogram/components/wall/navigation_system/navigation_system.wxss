@@ -88,3 +88,14 @@
   margin: auto;
   transition: .4s cubic-bezier(.8,.2,.8,1);
 }
+
+/*************** delete ********/
+.delete-btn {
+  position: absolute;
+  right: 15rpx;
+  top: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+.delete-btn .iconfont {
+  font-size: 50rpx;
+}
