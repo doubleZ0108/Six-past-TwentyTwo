@@ -114,7 +114,7 @@
 .writecard-container-unfold .write-logo .iconfont {
   font-size: 100rpx;
   line-height:  100rpx;
-  background: linear-gradient(130deg, rgb(115,200,209),rgb(129,167,209)); 
+  background: linear-gradient(130deg, rgb(201,247,244),rgb(249,214,134));   /* TODO 高贵金色待改 */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 auto;

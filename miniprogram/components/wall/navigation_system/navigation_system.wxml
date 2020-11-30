@@ -76,6 +76,10 @@
   <swiper-item>
     <view class="card-group" scroll-y
       capture-bind:tap="onCardGroupTap">
+
+      <!-- <view class="delete-btn" catchtap="onDeleteTap">
+        <text class="iconfont iconaixin"></text>
+      </view> -->
       
       <card wx:for="{{ my_cards }}" wx:key="{{ index }}"
         unfold_refresh_flag="{{ unfold_refresh_flag_naviagtion_system }}"
