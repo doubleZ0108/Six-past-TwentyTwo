@@ -188,6 +188,12 @@ Component({
       })
     },
 
+    onDeleteTap: function() {
+      wx.navigateTo({
+        url: '../delete/delete',
+      })
+    },
+
 
     /********************** card list logic *******************************/
     initWorldCardList: function() {
@@ -617,11 +623,46 @@ Component({
       })
        
     },
+    initStartDefaultVipCard: function() {
+      let default_vipcard = {
+        card_id: "_default_vipcard_001",
+        name_left: "22:06",
+        name_right: "同济大学",
+        gender_left: "男生",
+        gender_right: "女生",
+        avatar_url: "../../../resource/img/avatar/avatar.jpg",
+        description: "这里是对同济的❤️和磕衿提示",
+        academy: "软件学院",
+        grade: "大四",
+        bubble_left: "左气泡内容",
+        bubble_right: "左气泡内容",
+      }
+      return default_vipcard
+    },
+    initEndDefaultVipCard: function() {
+      let default_vipcard = {
+        card_id: "_default_vipcard_100",
+        name_left: "22:06",
+        name_right: "16分钟",
+        gender_left: "男生",
+        gender_right: "女生",
+        avatar_url: "../../../resource/img/avatar/avatar.jpg",
+        description: "这里是结束的card",
+        academy: "软件学院",
+        grade: "大四",
+        bubble_left: "左气泡内容",
+        bubble_right: "左气泡内容",
+      }
+      return default_vipcard
+    },
     initVipCardList: function() {
       let that = this
       db.collection('vipcard')
       .limit(20)   // TODO 这里应该没限制
-      .orderBy('timestamp', 'desc')
+      .where({
+        time: timeUtil.formatDate(new Date())
+      })
+      .orderBy('timestamp', 'asc')
       .get({
         success: function(res) {          
           let bin_cards = []
@@ -641,7 +682,11 @@ Component({
                 bubble_right: bin.taDescription,
               })
             }
-          })         
+          })
+   
+          bin_cards.unshift(that.initStartDefaultVipCard())
+          bin_cards.push(that.initEndDefaultVipCard())
+
           that.setData({ 
             vip_cards: bin_cards,
             vip_card_total: bin_cards.length
@@ -669,19 +714,19 @@ Component({
   },
 
   observers: {
-    'unfold_refresh_flag': function(unfold_refresh_flag) {
+    'unfold_refresh_flag': function(unfold_refresh_flag) {  // 用于控制只有一张卡会展开，某一个展开时其余关闭
       if(unfold_refresh_flag) {
         // console.log("navigation system is signialed")
         this.setData({ unfold_refresh_flag_naviagtion_system : unfold_refresh_flag })
       }
     },
-    'filterInfo': function(filterInfo) {
+    'filterInfo': function(filterInfo) {    // 接受filter传递的信息 在navigation system中产生filter cards
       if(filterInfo) {
         this.setData({ filter_info: filterInfo })
         this.initFilterCardList()
       }
     },
-    'switch_vipcard': function(switch_vipcard) {
+    'switch_vipcard': function(switch_vipcard) {  // 控制vipcard层级
       if(switch_vipcard) {
         let that = this
         this.setData({
@@ -689,7 +734,7 @@ Component({
         })
       }
     },
-    'switch_from_user': function(switch_from_user) {
+    'switch_from_user': function(switch_from_user) {    // 当用户自行切换vipcard时停止卡片轮播定时器
       if(switch_from_user) {
         clearInterval(this.data.vipcard_auto_switch_timer)
         this.setData({
@@ -697,7 +742,7 @@ Component({
         })
       }
     },
-    'currentTab': function(currentTab) {
+    'currentTab': function(currentTab) {    // 监听tab切换，
       this.setData({ 
         navigatorLeft: this.data.currentTab * 25 + "%",
         posLeft_base: this.data.currentTab * -1 + 0.1
@@ -756,7 +801,7 @@ Component({
         current_tab: currentTab
       })
     },
-    'pull_down_flag_root': function(pull_down_flag_root) {
+    'pull_down_flag_root': function(pull_down_flag_root) {  // 监听下拉刷新
       if(pull_down_flag_root) {
         console.log(this.data.currentTab, "下拉刷新...")
  
@@ -788,7 +833,7 @@ Component({
         this.adaptHeight()
       }
     },
-    'reach_bottom_flag_root': function(reach_bottom_flag_root) {
+    'reach_bottom_flag_root': function(reach_bottom_flag_root) {  // 监听触底
       if(reach_bottom_flag_root) {
         console.log(this.data.currentTab, "加载更多...")
 

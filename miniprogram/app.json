@@ -4,7 +4,8 @@
     "pages/wall/wall",
     "pages/comment/comment",
     "pages/userinfo/userinfo",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/delete/delete"
   ],
   "tabBar": {
     "list": [
