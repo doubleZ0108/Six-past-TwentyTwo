@@ -1,5 +1,5 @@
 <!--components/wall/card/card.wxml-->
-<view class="card-container {{ unfold }} normalcard-group {{ animate ? 'normalcard-group-animate' : ''}}" 
+<view class="card-container {{ unfold }} normalcard-group {{ animate ? 'normalcard-group-animate' : ''}} " 
   id="normalcard-{{ index }}" capture-bind:tap="onCardTap">
   
   <view class="card-people">

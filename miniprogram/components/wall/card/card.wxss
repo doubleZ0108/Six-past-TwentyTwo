@@ -16,6 +16,11 @@
 
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+.card-container.card-container-vip {
+  background: linear-gradient(130deg, rgba(244,236,227, 0.95),rgba(238, 228, 217, 0.9),rgba(245, 219, 185, 0.9), rgba(242,225,183, 0.95));
+  box-shadow: 0 10rpx 30rpx rgba(218, 199, 153, 0.3);
+  border: rgba(199, 145, 73, 0.6) 1rpx solid;
+}
 
 .card-people {
   width: 80%;
@@ -45,6 +50,10 @@
 
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+.card-container-vip .card-people text{
+  color: rgba(46, 32, 25, 0.6);
+}
+
 
 .card-people .iconfont {
   font-size: 50rpx;
@@ -53,6 +62,11 @@
   -webkit-text-fill-color: transparent;
 
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card-container-vip .card-people .iconfont {
+  background: linear-gradient(130deg, rgb(245, 162, 203),rgb(240, 120, 120), rgb(224, 102, 80)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .card-info {
@@ -90,7 +104,9 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-
+.card-container-vip .card-info text {
+  color: rgba(46, 32, 25, 0.6);
+}
 
 /********** unfold card ***********/
 .card-info-unfold {
@@ -133,6 +149,9 @@
   height: var(--card-height-unfold);
   color: rgba(255,255,255,.83);
 }
+.card-container-vip .card-container-unfold {
+  color: rgba(46, 32, 25, 0.6);
+}
 
 .card-container-unfold .card-people text {
   font-size: 35rpx;
@@ -164,6 +183,10 @@
   word-break: break-all;
   word-wrap: break-word;
 }
+.card-container-vip .card-info-unfold-tag {
+  border-bottom: 3rpx solid rgba(46, 32, 25,.3);
+}
+
 .card-info-unfold-tag text {
   font-size: 25rpx;
 
@@ -184,6 +207,9 @@
 .card-info-unfold-bubble {
   width: 100%;
   border-bottom: 3rpx solid rgba(255, 255, 255, 0.15);
+}
+.card-container-vip .card-info-unfold-bubble {
+  border-bottom: 3rpx solid rgba(46, 32, 25,.3);
 }
 
 .unfold-info-group {
@@ -270,8 +296,11 @@
   text-align: center;
   text-indent: 1rem;
   word-break: break-all;
-  
 }
+.card-container-vip .card-info-unfold-description {
+  color: rgba(46, 32, 25,.6);
+}
+
 
 /*========== function ============*/
 .card-info-unfold-function {
@@ -285,6 +314,11 @@
   font-size: 28rpx;
   border-top: 3rpx solid rgba(255,255,255,.15);
 }
+.card-container-vip .card-info-unfold-function {
+  border-top: 3rpx solid rgba(46, 32, 25,.3);
+  color: rgba(46, 32, 25, .6);
+}
+
 
 .card-info-unfold-function .iconfont {
   font-size: 35rpx;
@@ -327,6 +361,9 @@
 }
 .function-comment-write.unable-navigate {
   color: rgba(255,255,255,.3);
+}
+.card-container-vip .function-comment-write.unable-navigate {
+  color: rgba(46, 32, 25,.3);
 }
 
 .iconfont-favorite-colorful {
