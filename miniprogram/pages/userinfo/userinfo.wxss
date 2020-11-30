@@ -261,7 +261,8 @@
 }
 .verify-info-group .iconfont {
   font-size: 35rpx;
-  height: 50rpx;
+  line-height: 35rpx;
+  color: rgba(255,255,255,.6);
 }
 .verify-text-group {
   display: flex;
@@ -281,6 +282,14 @@
 }
 .verify-function-group .iconfont:nth-child(1) {
   margin-left: 15rpx;
+  background:linear-gradient(70deg, rgb(193,206,245), rgb(221,138,184));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.verify-function-group .iconfont:nth-child(2) {
+  background:linear-gradient(70deg, rgb(1,225,192), rgb(0,135,219));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /*=============== sticky ==================*/

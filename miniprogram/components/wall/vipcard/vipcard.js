@@ -132,11 +132,6 @@ Component({
           touchDotX: e.touches[0].pageX,
           touchDotY: e.touches[0].pageY
         })
-      } else {
-        this.setData({
-          smallcard_touchDotX: e.touches[0].pageX,
-          smallcard_touchDotY: e.touches[0].pageY
-        })
       }
     },
     touchEnd: function(e) {
@@ -173,6 +168,7 @@ Component({
             return
           }
         } 
+
       } else {
         let touchMoveX = e.changedTouches[0].pageX
         let touchMoveY = e.changedTouches[0].pageY
@@ -195,6 +191,7 @@ Component({
            })
           }
         }
+
       }
     },
 
