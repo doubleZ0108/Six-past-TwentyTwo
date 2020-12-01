@@ -23,7 +23,7 @@
       switch_vipcard="{{ switch_vipcard }}"
       switch_from_user="{{ switch_from_user }}" />
 
-    <decorate />
+    <decorate win_height_root="{{ win_height_root }}" />
   </view>
 </view>
 

@@ -1,4 +1,9 @@
 <!--components/wall/decorate/decorate.wxml-->
-<view class="decorate-container">
-  <view class="decorate-1-layer" style="background-image: url(../../../resource/img/decorate_bg/0.svg);"></view>
+<view class="decorate-container" style="height: {{ win_height }}rpx;">
+  <text>{{ win_height }}</text>
+  <view class="decorate-0-layer {{ decorate_0_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_0.svg);"></view>
+  <view class="decorate-1-layer {{ decorate_1_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_1.svg);"></view>
+  <view class="decorate-2-layer {{ decorate_2_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_0.svg);"></view>
+  <view class="decorate-3-layer {{ decorate_3_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_1.svg);"></view>
+
 </view>
