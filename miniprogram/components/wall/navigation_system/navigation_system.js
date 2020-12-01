@@ -155,7 +155,14 @@ Component({
           let calcHeight = res.windowHeight
           that.setData({
             winHeight: calcHeight + cardsNum * cardHeight + blankHeight
-          });
+          })
+
+          // decorate
+          let pages = getCurrentPages()
+          let currpage = pages[pages.length-1]
+          currpage.setData({
+            win_height_root: that.data.winHeight + 300
+          })
         }
       })
     },
