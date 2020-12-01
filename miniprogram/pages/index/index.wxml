@@ -1,4 +1,19 @@
 <!--miniprogram/pages/index/index.wxml-->
 <view class="index-container">
-  <button open-type="getUserInfo" bindgetuserinfo="onUserInfoTap">获取用户信息</button>
+  <view class="index-guide-container" style="display: {{ guide_show ? 'flex' : 'none' }}">
+    <button open-type="getUserInfo" bindgetuserinfo="onUserInfoTap">获取用户信息</button>
+  </view>
+
+
+  <view class="LoadingSunGroup {{ bg_blur ? 'blur' : '' }} {{ near_end ? 'near-end' : ''}}">
+    <image class="sun" src="../../resource/img/index/loading-sun/sun.svg"></image>
+
+    <image class="eye" src="../../resource/img/index/loading-sun/eye.svg"></image>
+
+    <image class="line" src="../../resource/img/index/loading-sun/line.svg"></image>
+
+    <view class="blank-block"></view>
+    <text class="text">等等嘛，你要等阳光照进来～</text>
+  </view>
+
 </view>

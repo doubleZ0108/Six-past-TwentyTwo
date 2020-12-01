@@ -7,7 +7,9 @@ const db = wx.cloud.database()
 Page({
 
   data: {
-
+    guide_show: true,   // 显示button
+    bg_blur: true,    // 背景模糊
+    near_end: false   // 接近跳转界面时切换背景颜色
   },
 
   onUserInfoTap: function() { 
@@ -67,48 +69,59 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {  // 已经授权过
-
-          /** 用户登陆获取openid */
-          wx.cloud.callFunction({
-            name: 'login',
-            data: {},
-            complete: function(login_res) {
-              app.globalData.openid = login_res.result.openid
-
-              // get user info
-              wx.getUserInfo({
-                success: function(userInfo_res) {
-                  app.globalData.userInfo = userInfo_res.userInfo
-
-                  // get verified or not
-                  db.collection('user').where({
-                    _openid: app.globalData.openid
-                  }).get({
-                    success: function(res) {
-                      app.globalData._verified_secret = res.data[0]._verified_secret
-
-                      // switch tab
-                      wx.switchTab({
-                        url: '../wall/wall',
-                      })
-                    }
-                  })
-
-                },
-                fail: function(res) {
-                  console.log(res)
-                }
-              })
-
-            }
+          that.setData({ 
+            guide_show: false,
+            bg_blur: false
           })
-          
+
+          // setTimeout(function() {
+          //   /** 用户登陆获取openid */
+          //   wx.cloud.callFunction({
+          //     name: 'login',
+          //     data: {},
+          //     complete: function(login_res) {
+          //       app.globalData.openid = login_res.result.openid
+
+          //       // get user info
+          //       wx.getUserInfo({
+          //         success: function(userInfo_res) {
+          //           app.globalData.userInfo = userInfo_res.userInfo
+
+          //           // get verified or not
+          //           db.collection('user').where({
+          //             _openid: app.globalData.openid
+          //           }).get({
+          //             success: function(res) {
+          //               app.globalData._verified_secret = res.data[0]._verified_secret
+
+          //               that.setData({ near_end: true })
+                        
+          //               setTimeout(function(){
+          //                 // switch tab
+          //                 wx.switchTab({
+          //                   url: '../wall/wall',
+          //                 })
+          //               }, 500)
+          //             }
+          //           })
+
+          //         },
+          //         fail: function(res) {
+          //           console.log(res)
+          //         }
+          //       })
+
+          //   }
+          // })   
+          // }, 3000)
         }
       }
     })
+
   },
 
   /**
