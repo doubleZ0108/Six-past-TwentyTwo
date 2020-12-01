@@ -92,6 +92,7 @@
         academy="{{ item.academy }}" grade="{{ item.grade }}"
         bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}"
         refresh_flag="{{ item.refresh_flag }}"
+        is_vipcard="{{ item.is_vipcard }}"
       />
 
       <view data-weui-theme="dark">
@@ -121,6 +122,7 @@
         academy="{{ item.academy }}" grade="{{ item.grade }}"
         bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}"
         refresh_flag="{{ item.refresh_flag }}"
+        is_vipcard="{{ item.is_vipcard }}"
       />
 
       <view data-weui-theme="dark">
@@ -150,6 +152,7 @@
         academy="{{ item.academy }}" grade="{{ item.grade }}"
         bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}"
         refresh_flag="{{ item.refresh_flag }}"
+        is_vipcard="{{ item.is_vipcard }}"
       />
 
       <view data-weui-theme="dark">

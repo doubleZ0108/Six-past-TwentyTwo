@@ -59,25 +59,37 @@ Component({
     show_loading: false,
     unfold_refresh_flag_naviagtion_system: false,
 
+    /** 各tab下的数组 */
     world_cards: [],
-    my_cards: [],
-    favorite_cards: [],
-    filter_cards: [],
 
+    my_cards: [],
+    my_cards_vip: [],
+    my_cards_normal: [],
+
+    favorite_cards: [],
+    favorite_cards_vip: [],
+    favorite_cards_normal: [],
+
+    filter_cards: [],
+    filter_cards_vip: [],
+    filter_cards_normal: [],
+
+    /** 主页vipcard控制 */
     vip_card_total: 0,
     vip_cards_zindex: [],
     vip_cards: [],
     vipcard_auto_switch_timer: null,
     which_vipcard: -1,
 
+    /** 底部提示信息 */
     world_bottom_show: false,
     my_bottom_show: false,
     favorite_bottom_show: false,
     filter_bottom_show: false,
     filter_info: null,
 
-    init_step: 10,   // 初始/下拉刷新个数
-    load_more_step: 10,  // 触底刷新个数
+    init_step: 2,   // 初始/下拉刷新个数
+    load_more_step: 1,  // 触底刷新个数
   },
 
   methods: {
@@ -93,9 +105,10 @@ Component({
 
     /** for content */
     switchTab: function(e) {
-      let that = this
-      that.setData({ currentTab: e.detail.current })
-      that.checkBoundary()
+      if(e.detail.current != this.data.currentTab) {
+        this.setData({ currentTab: e.detail.current })
+      }
+      this.checkBoundary()
     },
     checkBoundary: function() {
       let that = this;
@@ -112,7 +125,7 @@ Component({
 
       let cardsNum = 0
       let cardHeight = 300
-      let blankHeight = 100
+      let blankHeight = -300
 
       switch(this.data.currentTab) {
         case 0: {
@@ -238,13 +251,13 @@ Component({
       })
     },
     loadMoreWorldCardList: function() {
-
       this.setData({ 
         show_loading: true,
         world_bottom_show: false
       })
 
       let that = this
+
       db.collection('card')
       .limit(that.data.load_more_step)   // 每次触底新加载多少
       .skip(that.data.world_cards.length)
@@ -298,17 +311,25 @@ Component({
 
     initMyCardList: function() {
       let that = this
-      db.collection('card')
+      this.setData({ 
+        my_cards: [],
+        my_cards_vip: [],
+        my_cards_normal: []
+      })
+
+      /** vip cards */
+      db.collection('vipcard')
       .limit(that.data.init_step)
       .orderBy('timestamp', 'desc')
       .where({
-        _openid: app.globalData.openid
+        _openid: app.globalData.openid,
+        pay: true
       })
       .get({
         success: function(res) {          
-          let bin_cards = []
+          let bin_vipcards = []
           res.data.forEach(function(bin){
-            bin_cards.push({
+            bin_vipcards.push({
               card_id: bin._id,
               name_left: bin.myName,
               name_right: bin.taName,
@@ -321,88 +342,21 @@ Component({
               bubble_left: bin.myDescription,
               bubble_right: bin.taDescription,
               refresh_flag: "refresh",
-              animate: false
+              animate: false,
+              is_vipcard: true
             })
-          })         
-          that.setData({ my_cards: bin_cards })
-          that.adaptHeight()
-        },
-        fail: function() {
-          console.log("我的空间刷新卡片列表出错")
-        }
-      })
-    },
-    loadMoreMyCardList: function() {
+          })           
+          that.setData({ my_cards_vip: bin_vipcards })    
 
-      this.setData({ 
-        show_loading: true,
-        my_bottom_show: false
-      })
-
-      let that = this
-      db.collection('card')
-      .limit(that.data.load_more_step)
-      .skip(that.data.my_cards.length)
-      .orderBy('timestamp', 'desc')
-      .where({
-        _openid: app.globalData.openid
-      })
-      .get({
-        success: function(res) {          
-          if(res.data.length == 0) {
-            that.setData({ 
-              my_bottom_show: true,
-              show_loading: false 
-            })
-            return
-          }
-          let bin_cards = []
-          res.data.forEach(function(bin){
-            bin_cards.push({
-              card_id: bin._id,
-              name_left: bin.myName,
-              name_right: bin.taName,
-              gender_left: bin.myGender,
-              gender_right: bin.taGender,
-              avatar_url: bin.avatarUrl,
-              description: bin.textarea,
-              academy: bin.academy,
-              grade: bin.grade,
-              bubble_left: bin.myDescription,
-              bubble_right: bin.taDescription,
-              refresh_flag: "refresh",
-              animate: false
-            })
-          })
-                        
-          that.setData({ my_cards: that.data.my_cards.concat(bin_cards) })
-
-          that.adaptHeight()
-  
-          that.setData({ show_loading: false })
-        },
-        fail: function(res) {
-          console.log("我的空间加载更多卡片列表出错")
-        }
-      })
-    },
-
-    initFavoriteCardList: function() {
-      let that = this
-      db.collection('behavior').where({
-        _openid: app.globalData.openid
-      }).get({
-        success: function(res) {
-          let favoriteList = res.data[0].favoriteList
-
+          /** normal cards */
           db.collection('card')
           .limit(that.data.init_step)
           .orderBy('timestamp', 'desc')
           .where({
-            _id: _.in(favoriteList)
+            _openid: app.globalData.openid
           })
           .get({
-            success: function(res) {  
+            success: function(res) {          
               let bin_cards = []
               res.data.forEach(function(bin){
                 bin_cards.push({
@@ -418,45 +372,84 @@ Component({
                   bubble_left: bin.myDescription,
                   bubble_right: bin.taDescription,
                   refresh_flag: "refresh",
-                  animate: false
+                  animate: false,
+                  is_vipcard: false
                 })
               })         
-              that.setData({ favorite_cards: bin_cards })
+              that.setData({ my_cards_normal: bin_cards })
+
+              /** concat */
+              that.setData({ my_cards: that.data.my_cards_vip.concat(that.data.my_cards_normal) })
               that.adaptHeight()
             },
             fail: function() {
-              console.log("收藏刷新卡片列表出错")
+              console.log("我的空间刷新卡片列表出错")
             }
           })
 
+        },
+        fail: function() {
+          console.log("我的空间刷新vip卡片列表出错")
         }
       })
+    
     },
-    loadMoreFavoriteCardList: function() {
-      let that = this
+    loadMoreMyCardList: function() {
       this.setData({ 
         show_loading: true,
-        favorite_bottom_show: false
+        my_bottom_show: false
       })
+      let that = this
 
-      db.collection('behavior').where({
-        _openid: app.globalData.openid
-      }).get({
+      /** vip cards */
+      db.collection('vipcard')
+      .limit(that.data.load_more_step)
+      .skip(that.data.my_cards_vip.length)
+      .orderBy('timestamp', 'desc')
+      .where({
+        _openid: app.globalData.openid,
+        pay: true
+      })
+      .get({
         success: function(res) {
-          let favoriteList = res.data[0].favoriteList
+          let bin_vipcards = []
+          res.data.forEach(function(bin){
+            bin_vipcards.push({
+              card_id: bin._id,
+              name_left: bin.myName,
+              name_right: bin.taName,
+              gender_left: bin.myGender,
+              gender_right: bin.taGender,
+              avatar_url: bin.avatarUrl,
+              description: bin.textarea,
+              academy: bin.academy,
+              grade: bin.grade,
+              bubble_left: bin.myDescription,
+              bubble_right: bin.taDescription,
+              refresh_flag: "refresh",
+              animate: false,
+              is_vipcard: true
+            })
+          })
+                        
+          that.setData({ 
+            my_cards_vip: that.data.my_cards_normal.concat(bin_vipcards),
+            my_cards: that.data.my_cards.concat(bin_vipcards)
+          })
 
+          /** normal card */
           db.collection('card')
           .limit(that.data.load_more_step)
-          .skip(that.data.favorite_cards.length)
+          .skip(that.data.my_cards_normal.length)
           .orderBy('timestamp', 'desc')
           .where({
-            _id: _.in(favoriteList)
+            _openid: app.globalData.openid
           })
           .get({
             success: function(res) {          
               if(res.data.length == 0) {
                 that.setData({ 
-                  favorite_bottom_show: true,
+                  my_bottom_show: true,
                   show_loading: false 
                 })
                 return
@@ -476,20 +469,234 @@ Component({
                   bubble_left: bin.myDescription,
                   bubble_right: bin.taDescription,
                   refresh_flag: "refresh",
-                  animate: false
+                  animate: false,
+                  is_vipcard: false
                 })
               })
                             
-              that.setData({ favorite_cards: that.data.favorite_cards.concat(bin_cards) })
+              that.setData({ 
+                my_cards_normal: that.data.my_cards_normal.concat(bin_cards),
+                my_cards: that.data.my_cards.concat(bin_cards)
+              })
 
               that.adaptHeight()
       
               that.setData({ show_loading: false })
             },
             fail: function(res) {
+              console.log("我的空间加载更多卡片列表出错")
+            }
+          })
+        
+        },
+        fail: function(res) {
+          console.log("我的空间加载更多vip卡片列表出错")
+        }
+      })
+
+    },
+
+    initFavoriteCardList: function() {
+      let that = this
+      this.setData({ 
+        favorite_cards: [],
+        favorite_cards_vip: [],
+        favorite_cards_normal: []
+      })
+
+      db.collection('behavior').where({
+        _openid: app.globalData.openid
+      }).get({
+        success: function(res) {
+          let favoriteList = res.data[0].favoriteList
+
+          /** vip cards */
+          db.collection('vipcard')
+          .limit(that.data.init_step)
+          .orderBy('timestamp', 'desc')
+          .where({
+            _id: _.in(favoriteList),
+            pay: true
+          })
+          .get({
+            success: function(res) {  
+              let bin_vipcards = []
+              res.data.forEach(function(bin){
+                bin_vipcards.push({
+                  card_id: bin._id,
+                  name_left: bin.myName,
+                  name_right: bin.taName,
+                  gender_left: bin.myGender,
+                  gender_right: bin.taGender,
+                  avatar_url: bin.avatarUrl,
+                  description: bin.textarea,
+                  academy: bin.academy,
+                  grade: bin.grade,
+                  bubble_left: bin.myDescription,
+                  bubble_right: bin.taDescription,
+                  refresh_flag: "refresh",
+                  animate: false,
+                  is_vipcard: true
+                })
+              })         
+              that.setData({ favorite_cards_vip: bin_vipcards })
+
+              /** normal cards */
+              db.collection('card')
+              .limit(that.data.init_step)
+              .orderBy('timestamp', 'desc')
+              .where({
+                _id: _.in(favoriteList)
+              })
+              .get({
+                success: function(res) {  
+                  let bin_cards = []
+                  res.data.forEach(function(bin){
+                    bin_cards.push({
+                      card_id: bin._id,
+                      name_left: bin.myName,
+                      name_right: bin.taName,
+                      gender_left: bin.myGender,
+                      gender_right: bin.taGender,
+                      avatar_url: bin.avatarUrl,
+                      description: bin.textarea,
+                      academy: bin.academy,
+                      grade: bin.grade,
+                      bubble_left: bin.myDescription,
+                      bubble_right: bin.taDescription,
+                      refresh_flag: "refresh",
+                      animate: false,
+                      is_vipcard: false
+                    })
+                  })         
+                  that.setData({ favorite_cards_normal: bin_cards })
+
+                  /** concat */
+                  that.setData({ favorite_cards: that.data.favorite_cards_vip.concat(that.data.favorite_cards_normal) })
+                  that.adaptHeight()
+                },
+                fail: function() {
+                  console.log("收藏刷新卡片列表出错")
+                }
+              })
+
+            },
+            fail: function() {
+              console.log("收藏刷新vip卡片列表出错")
+            }
+          })
+              
+        }
+      })
+    
+    },
+    loadMoreFavoriteCardList: function() {
+      let that = this
+      this.setData({ 
+        show_loading: true,
+        favorite_bottom_show: false
+      })
+
+      db.collection('behavior').where({
+        _openid: app.globalData.openid
+      }).get({
+        success: function(res) {
+          let favoriteList = res.data[0].favoriteList
+
+          /** vip card */
+          db.collection('vipcard')
+          .limit(that.data.load_more_step)
+          .skip(that.data.favorite_cards_vip.length)
+          .orderBy('timestamp', 'desc')
+          .where({
+            _id: _.in(favoriteList),
+            pay: true
+          })
+          .get({
+            success: function(res) {          
+              let bin_vipcards = []
+              res.data.forEach(function(bin){
+                bin_vipcards.push({
+                  card_id: bin._id,
+                  name_left: bin.myName,
+                  name_right: bin.taName,
+                  gender_left: bin.myGender,
+                  gender_right: bin.taGender,
+                  avatar_url: bin.avatarUrl,
+                  description: bin.textarea,
+                  academy: bin.academy,
+                  grade: bin.grade,
+                  bubble_left: bin.myDescription,
+                  bubble_right: bin.taDescription,
+                  refresh_flag: "refresh",
+                  animate: false,
+                  is_vipcard: true
+                })
+              })
+                            
+              that.setData({ 
+                favorite_cards_vip: that.data.favorite_cards_vip.concat(bin_vipcards),
+                favorite_cards: that.data.favorite_cards.concat(bin_vipcards)
+              })
+
+              /** normal card */
+              db.collection('card')
+              .limit(that.data.load_more_step)
+              .skip(that.data.favorite_cards_normal.length)
+              .orderBy('timestamp', 'desc')
+              .where({
+                _id: _.in(favoriteList)
+              })
+              .get({
+                success: function(res) {          
+                  if(res.data.length == 0) {
+                    that.setData({ 
+                      favorite_bottom_show: true,
+                      show_loading: false 
+                    })
+                    return
+                  }
+                  let bin_cards = []
+                  res.data.forEach(function(bin){
+                    bin_cards.push({
+                      card_id: bin._id,
+                      name_left: bin.myName,
+                      name_right: bin.taName,
+                      gender_left: bin.myGender,
+                      gender_right: bin.taGender,
+                      avatar_url: bin.avatarUrl,
+                      description: bin.textarea,
+                      academy: bin.academy,
+                      grade: bin.grade,
+                      bubble_left: bin.myDescription,
+                      bubble_right: bin.taDescription,
+                      refresh_flag: "refresh",
+                      animate: false,
+                      is_vipcard: false
+                    })
+                  })
+                                
+                  that.setData({ 
+                    favorite_cards_normal: that.data.favorite_cards_normal.concat(bin_cards),
+                    favorite_cards: that.data.favorite_cards.concat(bin_cards)
+                  })
+
+                  that.adaptHeight()
+        
+                  that.setData({ show_loading: false })
+                },
+                fail: function(res) {
+                  console.log("收藏加载更多卡片列表出错")
+                }
+              })
+
+
+            },
+            fail: function(res) {
               console.log("收藏加载更多卡片列表出错")
             }
           })
+
 
         }
       })
@@ -498,21 +705,29 @@ Component({
     initFilterCardList: function() {
       let that = this
       let filterInfo = this.data.filter_info
-      db.collection('card')
+      this.setData({
+        filter_cards: [],
+        filter_cards_vip: [],
+        filter_cards_normal: []
+      })
+
+      /** vip cards */
+      db.collection('vipcard')
       .limit(that.data.init_step)
-      .orderBy('timestamp', 'desc')
+      .orderBy('timestamp', 'asc')
       .where({
         academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
         grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
         time: filterInfo.date,
         myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
-        taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right
+        taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right,
+        pay: true
       })
       .get({
         success: function(res) {            
-          let bin_cards = []
+          let bin_vipcards = []
           res.data.forEach(function(bin){
-            bin_cards.push({
+            bin_vipcards.push({
               card_id: bin._id,
               name_left: bin.myName,
               name_right: bin.taName,
@@ -525,22 +740,66 @@ Component({
               bubble_left: bin.myDescription,
               bubble_right: bin.taDescription,
               refresh_flag: "refresh",
-              animate: false
+              animate: false,
+              is_vipcard: true
             })
           })                 
-          that.setData({ filter_cards: bin_cards })
-          that.adaptHeight()
+          that.setData({ filter_cards_vip: bin_vipcards })
 
-          wx.showToast({
-            title: '成功',
-            icon: 'success',
-            duration: 1000
+          /** normal cards */
+          db.collection('card')
+          .limit(that.data.init_step)
+          .orderBy('timestamp', 'asc')
+          .where({
+            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+            grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
+            time: filterInfo.date,
+            myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
+            taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right
+          })
+          .get({
+            success: function(res) {            
+              let bin_cards = []
+              res.data.forEach(function(bin){
+                bin_cards.push({
+                  card_id: bin._id,
+                  name_left: bin.myName,
+                  name_right: bin.taName,
+                  gender_left: bin.myGender,
+                  gender_right: bin.taGender,
+                  avatar_url: bin.avatarUrl,
+                  description: bin.textarea,
+                  academy: bin.academy,
+                  grade: bin.grade,
+                  bubble_left: bin.myDescription,
+                  bubble_right: bin.taDescription,
+                  refresh_flag: "refresh",
+                  animate: false,
+                  is_vipcard: false
+                })
+              })                 
+              that.setData({ filter_cards_normal: bin_cards })
+              
+              that.setData({ filter_cards: that.data.filter_cards_vip.concat(that.data.filter_cards_normal) })
+              
+              that.adaptHeight()
+
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 1000
+              })
+            },
+            fail: function(res) {
+              console.log("搜索卡片列表出错")
+            }
           })
         },
         fail: function(res) {
-          console.log("搜索卡片列表出错")
+          console.log("搜索vip卡片列表出错")
         }
       })
+
     },
     loadMoreFilterCardList: function() {
       this.setData({ 
@@ -550,29 +809,25 @@ Component({
 
       let that = this
       let filterInfo = this.data.filter_info
-      db.collection('card')
+
+      /** vip cards */
+      db.collection('vipcard')
       .limit(that.data.load_more_step)
-      .skip(that.data.filter_cards.length)
-      .orderBy('timestamp', 'desc')
+      .skip(that.data.filter_cards_vip.length)
+      .orderBy('timestamp', 'asc')
       .where({
         academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
         grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
         time: filterInfo.date,
         myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
-        taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right
+        taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right,
+        pay: true
       })
       .get({
         success: function(res) {          
-          if(res.data.length == 0) {
-            that.setData({ 
-              filter_bottom_show: true,
-              show_loading: false 
-            })
-            return
-          }
-          let bin_cards = []
+          let bin_vipcards = []
           res.data.forEach(function(bin){
-            bin_cards.push({
+            bin_vipcards.push({
               card_id: bin._id,
               name_left: bin.myName,
               name_right: bin.taName,
@@ -585,17 +840,74 @@ Component({
               bubble_left: bin.myDescription,
               bubble_right: bin.taDescription,
               refresh_flag: "refresh",
-              animate: false
+              animate: false,
+              is_vipcard: true
             })
           })               
-          that.setData({ filter_cards: that.data.filter_cards.concat(bin_cards) })
-          that.adaptHeight()
-          that.setData({ show_loading: false })
+          that.setData({ 
+            filter_cards_vip: that.data.filter_cards_vip.concat(bin_vipcards),
+            filter_cards: that.data.filter_cards.concat(bin_vipcards)
+          })
+
+          /** normal cards */
+          db.collection('card')
+          .limit(that.data.load_more_step)
+          .skip(that.data.filter_cards_normal.length)
+          .orderBy('timestamp', 'asc')
+          .where({
+            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+            grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
+            time: filterInfo.date,
+            myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
+            taGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_right
+          })
+          .get({
+            success: function(res) {          
+              if(res.data.length == 0) {
+                that.setData({ 
+                  filter_bottom_show: true,
+                  show_loading: false 
+                })
+                return
+              }
+              let bin_cards = []
+              res.data.forEach(function(bin){
+                bin_cards.push({
+                  card_id: bin._id,
+                  name_left: bin.myName,
+                  name_right: bin.taName,
+                  gender_left: bin.myGender,
+                  gender_right: bin.taGender,
+                  avatar_url: bin.avatarUrl,
+                  description: bin.textarea,
+                  academy: bin.academy,
+                  grade: bin.grade,
+                  bubble_left: bin.myDescription,
+                  bubble_right: bin.taDescription,
+                  refresh_flag: "refresh",
+                  animate: false,
+                  is_vipcard: false
+                })
+              })               
+              that.setData({ 
+                filter_cards_normal: that.data.filter_cards_normal.concat(bin_cards),
+                filter_cards: that.data.filter_cards.concat(bin_cards)
+              })
+
+              that.adaptHeight()
+              that.setData({ show_loading: false })
+            },
+            fail: function(res) {
+              console.log("搜索卡片列表出错")
+            }
+          })
+        
         },
         fail: function(res) {
-          console.log("搜索卡片列表出错")
+          console.log("搜索vip卡片列表出错")
         }
       })
+    
     },
 
 
@@ -722,7 +1034,10 @@ Component({
     },
     'filterInfo': function(filterInfo) {    // 接受filter传递的信息 在navigation system中产生filter cards
       if(filterInfo) {
-        this.setData({ filter_info: filterInfo })
+        this.setData({ 
+          filter_info: filterInfo,
+          filter_bottom_show: false
+        })
         this.initFilterCardList()
       }
     },
@@ -754,7 +1069,7 @@ Component({
         favorite_bottom_show: false,
         filter_bottom_show: false
       })
-
+      
       // 切换tab时自动滑动到顶端
       this.backToTop()
       this.adaptHeight()
@@ -763,35 +1078,6 @@ Component({
         this.initMyCardList()
       } else if(this.data.favorite_cards.length ==0 && currentTab == 2) {
         this.initFavoriteCardList()
-      }
-
-      // 如果没有卡片则显示到底信息
-      switch(this.data.currentTab) {
-        case 0: {
-          if(this.data.world_cards.length == 0){
-            this.setData({ world_bottom_show: true })
-          }
-        }
-        case 1: {
-          if(this.data.my_cards.length == 0){
-            this.setData({ my_bottom_show: true })
-          }
-        }
-        case 2: {
-          if(this.data.favorite_cards.length == 0){
-            this.setData({ favorite_bottom_show: true })
-          }
-        }
-        case 3: {
-          if(this.data.filter_cards.length == 0){
-            this.setData({ filter_bottom_show: true })
-          }
-        }
-        default: {
-          if(this.data.world_cards.length == 0){
-            this.setData({ world_bottom_show: true })
-          }
-        }
       }
 
       // wave position

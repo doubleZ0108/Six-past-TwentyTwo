@@ -45,6 +45,10 @@ Component({
     pull_down_flag_root: {
       type: Boolean,
       value: false
+    },
+    is_vipcard: {
+      type: Boolean,
+      value: false
     }
   },
 

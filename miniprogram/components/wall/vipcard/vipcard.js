@@ -132,6 +132,11 @@ Component({
           touchDotX: e.touches[0].pageX,
           touchDotY: e.touches[0].pageY
         })
+      } else {
+        this.setData({
+          smallcard_touchDotX: e.touches[0].pageX,
+          smallcard_touchDotY: e.touches[0].pageY
+        })
       }
     },
     touchEnd: function(e) {
@@ -179,7 +184,7 @@ Component({
         let absY = Math.abs(tmY)
 
         if (absX > 2 * absY) {
-          if (tmX < 0 && -tmX > this.data.slip_tolerance){
+          if (tmX < 0 && -tmX > this.data.slip_tolerance*0.5){
             console.log("左滑=====")
             // TODO 
            this.vipcardEffect()
