@@ -4,7 +4,7 @@
 
 .writecard-container {
   position: absolute;
-  top: 520rpx;
+  top: 725rpx;
   height: 330rpx;
   width: 80%;
   /* left: 110%; */

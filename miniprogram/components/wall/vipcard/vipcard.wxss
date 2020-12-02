@@ -4,7 +4,7 @@
 .vipcard-container {
   --vipcard-height: 290rpx;
   position: absolute;
-  top: 550rpx;
+  top: 725rpx;
   height: var(--vipcard-height);
 
   width: 80%;
