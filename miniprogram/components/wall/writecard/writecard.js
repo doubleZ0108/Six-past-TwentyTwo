@@ -90,6 +90,13 @@ Component({
             fold_class: "writecard-container-unfold",
             animate: false
           })
+
+          // 隐藏顶部bar
+          let pages = getCurrentPages()
+          let currpage = pages[pages.length-1]
+          currpage.setData({
+            outdrop: true
+          })
         }
       }, 2000)
     },
@@ -330,6 +337,20 @@ Component({
     },
 
 
+    shrinkCallBack: function() {
+      this.setData({ 
+        fold_class: "",
+        showVipPayBox: false,
+        write_vipcard: false
+      })
+
+      // 显示顶部bar
+      let pages = getCurrentPages()
+      let currpage = pages[pages.length-1]
+      currpage.setData({
+        outdrop: false
+      })
+    },
     touchStart: function(e) {
       if(this.data.fold_class === "writecard-container-unfold") {
         this.setData({
@@ -350,22 +371,14 @@ Component({
 
         if (absX > 2 * absY) {
           if(tmX > this.data.slip_tolerance) {
-            this.setData({ 
-              fold_class: "",
-              showVipPayBox: false,
-              write_vipcard: false
-            })
+            this.shrinkCallBack()
             return
           }
         }
 
         if (absY > absX * 2) {
           if(tmY > this.data.slip_tolerance) {
-            this.setData({ 
-              fold_class: "",
-              showVipPayBox: false,
-              write_vipcard: false
-            })
+            this.shrinkCallBack()
             return
           }
         } 

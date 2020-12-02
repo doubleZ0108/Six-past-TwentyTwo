@@ -9,6 +9,11 @@
   top: 0;
   left: 0;
   z-index: 666;
+
+  transition: .8s cubic-bezier(.2,.8,.2,1);
+}
+.navbar.outdrop {
+  top: -180rpx;
 }
 
 .navbar .blur {

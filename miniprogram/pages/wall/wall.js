@@ -14,6 +14,13 @@ Page({
   heroTap: function() {
     let that = this
     this.setData({ drawer: !that.data.drawer })
+    
+    // 顶部bar
+    let pages = getCurrentPages()
+    let currpage = pages[pages.length-1]
+    currpage.setData({
+      outdrop: that.data.drawer
+    })
   },
 
   /**

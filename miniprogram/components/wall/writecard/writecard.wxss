@@ -1,7 +1,6 @@
 /* components/wall/writecard/writecard.wxss */
 @import '../../../style/iconfont.wxss';
 
-
 .writecard-container {
   position: absolute;
   top: 725rpx;

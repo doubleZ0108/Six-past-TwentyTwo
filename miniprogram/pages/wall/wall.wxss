@@ -1,7 +1,7 @@
 /* miniprogram/pages/wall/wall.wxss */
 .wall-page {
   /** TODO **/
-  background: url(https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201116211446.png);
+  background: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/drawer/bg.png?sign=8b22160bbae95c36227cc898d9f55d2f&t=1606911007);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -46,4 +46,8 @@
   transform: rotate(0deg) scale(.8) translate(40%,0%);
   height: 100vh!important;
   overflow-x: hidden;
+}
+
+.toptips {
+  top: 80rpx;
 }

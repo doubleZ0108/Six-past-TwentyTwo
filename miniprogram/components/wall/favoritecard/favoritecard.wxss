@@ -101,6 +101,7 @@
   align-items: center;
   justify-content: center;
   height: 75rpx;
+  margin-top: 100rpx;
 }
 
 .favoritecard-logo .iconfont {
@@ -112,7 +113,7 @@
 }
 
 .favoritecard-block {
-  margin: 60rpx auto;
+  margin: 75rpx auto;
 }
 
 /* ============ title & line ============ */
@@ -210,6 +211,6 @@
   justify-content: center;
   justify-items: center;
 
-  margin: 20rpx auto;
+  margin: 30rpx auto;
   font-size: 30rpx;
 }
