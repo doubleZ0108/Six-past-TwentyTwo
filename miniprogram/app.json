@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/userinfo/userinfo",
     "pages/wall/wall",
     "pages/test/test",
-    "pages/userinfo/userinfo",
     "pages/comment/comment",
     "pages/delete/delete"
   ],
@@ -13,7 +13,7 @@
   "window": {
     "backgroundColor": "#1F1F47",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#1F1F4740",
+    "navigationBarBackgroundColor": "#1F1F47",
     "navigationBarTitleText": "二十二点零六",
     "navigationBarTextStyle": "white",
     "backgroundColorTop": "#1F1F47",

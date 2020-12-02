@@ -1,5 +1,5 @@
 <!--components/navigationBar/navigationBar.wxml-->
-<view class="navbar">
+<view class="navbar {{ outdrop_root ? 'outdrop' : ''}}">
   <view class="blur"></view>
   <text>二十二点零六</text>
 </view>

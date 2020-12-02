@@ -114,6 +114,10 @@
   z-index: 9999;
 }
 
+.vipcard-container-unfold .vipcard-people {
+  margin-top: 175rpx;
+}
+
 .vipcard-info-unfold  {
   opacity: 0;
   transition: 0s cubic-bezier(0.215, 0.61, 0.355, 1);

@@ -1,6 +1,10 @@
 /* miniprogram/pages/userinfo/userinfo.wxss */
 @import '../../style/iconfont.wxss';
 
+.toptips {
+  top: 80rpx;
+}
+
 .userinfo-container {
   width: 100%;
   display: flex;
@@ -43,7 +47,7 @@
 }
 
 .userinfo-block {
-  margin: 60rpx auto;
+  margin: 75rpx auto;
 }
 
 /*============ title & line ============*/
@@ -113,7 +117,7 @@
 .userinfo-settable picker,
 .userinfo-settable input {
   width: 80%;
-  margin: 25rpx auto;
+  margin: 45rpx auto;
   height: 35rpx;
   padding: 15rpx;
   border-radius: 50rpx;
@@ -170,7 +174,7 @@
 .userinfo-button.iconfont {
   position: absolute;
   right: 8%;
-  bottom: 5%;
+  bottom: 7%;
 
   display: block;
   z-index: 10;
@@ -403,4 +407,3 @@
   text-align: center;
   transition: all 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-

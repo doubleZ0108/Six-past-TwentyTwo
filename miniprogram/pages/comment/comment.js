@@ -251,11 +251,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.cardId)
     this.setData({ card_id: options.cardId })
 
     if(options.vipcard) {
-      console.log("this is from vipcard navigator!!!")
+      // console.log("this is from vipcard navigator!!!")
       this.setData({ fromVip: true })
     }
 

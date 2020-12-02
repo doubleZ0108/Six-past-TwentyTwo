@@ -57,11 +57,31 @@ Component({
     onFavoriteCardTap: function() {
       this.backToTop()
       
-      if(this.data.fold_class != "favoritecard-container-unfold") {
+      if(this.data.fold_class != "favoritecard-container-unfold") {   // 展开favorite card
         this.setData({ fold_class: "favoritecard-container-unfold" })
+
+        // 隐藏顶部bar
+        let pages = getCurrentPages()
+        let currpage = pages[pages.length-1]
+        currpage.setData({
+          outdrop: true
+        })
       }
     },
 
+    shrinkCallBack: function() {
+      this.setData({ 
+        fold_class: "",
+        turn_over_class: ""
+      })
+
+      // 显示顶部bar
+      let pages = getCurrentPages()
+      let currpage = pages[pages.length-1]
+      currpage.setData({
+        outdrop: false
+      })
+    },
     touchStart: function(e) {
       if(this.data.fold_class === "favoritecard-container-unfold") {
         this.setData({
@@ -82,10 +102,7 @@ Component({
         if (absX > 2 * absY) {
           if(tmX > this.data.slip_tolerance) {
             console.log("右滑=====")
-            this.setData({ 
-              fold_class: "",
-              turn_over_class: ""
-            })
+            this.shrinkCallBack()
             return
           }
         }
@@ -93,10 +110,7 @@ Component({
         if (absY > absX * 2) {
           if(tmY > this.data.slip_tolerance) {
             console.log("下滑动=====")
-            this.setData({ 
-              fold_class: "",
-              turn_over_class: ""
-            })
+            this.shrinkCallBack()
           }
         } 
       }
