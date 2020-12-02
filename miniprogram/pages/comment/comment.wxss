@@ -1,6 +1,10 @@
 /* miniprogram/pages/comment/comment.wxss */
 @import '../../style/iconfont.wxss';
 
+.toptips {
+  top: 80rpx;
+}
+
 .bg-container {
   position: fixed;
   left: 0;
@@ -12,7 +16,7 @@
 
 .card-title-icon {
   display: block;
-  margin-top: 40rpx;
+  margin-top: 65rpx;
   text-align: center;
   font-size: 80rpx;
   /* color: linear-gradient(130deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210),rgb(211, 170, 201));  */

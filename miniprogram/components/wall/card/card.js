@@ -149,7 +149,7 @@ Component({
           data: {
             card_id: that.properties.card_id,
             star_now: true,
-            from_vip: false
+            from_vip: that.properties.is_vipcard
           },
           complete: function(res) {
             console.log("点赞成功")
@@ -174,7 +174,7 @@ Component({
                 card_id: that.properties.card_id,
                 star_now: false,
                 fresh_starList: fresh_starList,
-                from_vip: false
+                from_vip: that.properties.is_vipcard
               },
               complete: function(res) {
                 console.log("取消收藏成功")
@@ -193,9 +193,15 @@ Component({
     onNavigatorTap: function() {
       if(this.data.able_navigate) {
         let that = this
-        wx.navigateTo({
-          url: "../comment/comment?cardId=" + that.data.card_id
-        })
+        if(this.data.is_vipcard) {
+          wx.navigateTo({
+            url: "../comment/comment?vipcard=true&cardId=" + that.data.card_id
+          })
+        } else {
+          wx.navigateTo({
+            url: "../comment/comment?cardId=" + that.data.card_id
+          })
+        }
       }
     },
 
@@ -227,7 +233,7 @@ Component({
         }
       })
 
-      db.collection('card').where({
+      db.collection(that.data.is_vipcard ? 'vipcard' : 'card').where({
         _id: that.data.card_id
       }).get({
         success: function(res) {

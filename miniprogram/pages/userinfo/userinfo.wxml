@@ -1,8 +1,8 @@
 <!--miniprogram/pages/userinfo/userinfo.wxml-->
-<mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
+<mp-toptips ext-class="toptips" msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
 
 <!-- ../../resource/img/userinfo/bg.png -->
-<view class="userinfo-container {{ showVerifyBox ? 'userinfo-container-blur' : '' }}" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/userinfo/bg.png?sign=b1f27e01e4e147af29f3115b746abc91&t=1606877958);">
+<view class="userinfo-container {{ showVerifyBox ? 'userinfo-container-blur' : '' }}" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/userinfo/bg.png?sign=8ab3143042ad52257416d50af5e96e2f&t=1606894323);">
 
   <form>
     <view class="userinfo-logo">
@@ -31,9 +31,6 @@
         <text></text>
       </view>
 
-      <!-- <picker mode="selector" bindchange="bindAcademyChange" name="academy"
-        range="{{ academy_array }}" index="{{ academy_index }}">
-        学院: {{ academy_array[academy_index] }} </picker> -->
       <picker mode="multiSelector" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
         学院: {{ academyArray[1][academyIndex[1]] }}
       </picker>
