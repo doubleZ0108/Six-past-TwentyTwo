@@ -19,7 +19,6 @@ Component({
 
   observers: {
     'win_height_root': function(win_height_root) {
-      console.log(win_height_root)
       this.setData({ win_height: win_height_root })
       if(win_height_root > 0 && win_height_root < 2000) {   // #1
         this.setData({ 

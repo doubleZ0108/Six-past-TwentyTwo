@@ -6,11 +6,13 @@
 
 
   <view class="LoadingSunGroup {{ bg_blur ? 'blur' : '' }} {{ near_end ? 'end' : ''}} {{ day_or_night=='day' ? '' : 'end' }}">
-    <image class="sun" src="../../resource/img/index/loading-sun/sun.svg"></image>
-
+    <!-- <image class="sun" src="../../resource/img/index/loading-sun/sun.svg"></image>
     <image class="eye" src="../../resource/img/index/loading-sun/eye.svg"></image>
+    <image class="line" src="../../resource/img/index/loading-sun/line.svg"></image> -->
 
-    <image class="line" src="../../resource/img/index/loading-sun/line.svg"></image>
+    <image class="sun" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/loading-sun/sun.svg?sign=382edd22a1fcc7dbd601e5a97d14fa7d&t=1606878586"></image>
+    <image class="eye" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/loading-sun/eye.svg?sign=c316446748d9ecbabb3556a684067719&t=1606878568"></image>
+    <image class="line" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/loading-sun/line.svg?sign=6259ea7528032ce3d5cb17caddbf5169&t=1606878577"></image>
 
     <view class="blank-block"></view>
     <text class="text">等等嘛，你要等阳光照进来～</text>
@@ -18,15 +20,17 @@
 
 
   <view class="LoadingMoonGroup {{ bg_blur ? 'blur' : '' }} {{ near_end ? 'end' : ''}} {{ day_or_night=='night' ? '' : 'end' }}">
-      <image class="moon" src="../../resource/img/index/loading-moon/moon.svg"></image>
-
+      <!-- <image class="moon" src="../../resource/img/index/loading-moon/moon.svg"></image>
       <image class="line" src="../../resource/img/index/loading-moon/line.svg"></image>
-
       <image class="cloud-left" src="../../resource/img/index/loading-moon/cloud-left.svg"></image>
-
       <image class="cloud-right" src="../../resource/img/index/loading-moon/cloud-right.svg"></image>
+      <image class="sleep-z" src="../../resource/img/index/loading-moon/sleep-z.svg"></image> -->
 
-      <image class="sleep-z" src="../../resource/img/index/loading-moon/sleep-z.svg"></image>
+      <image class="moon" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/loading-moon/moon.svg?sign=a51f353feda52395692d56fa92ded25b&t=1606878650"></image>
+      <image class="line" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/loading-moon/line.svg?sign=d2887228560366eb3f6ac46e60ae6e32&t=1606878630"></image>
+      <image class="cloud-left" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/loading-moon/cloud-left.svg?sign=6f1e9d6e665118457386f17d5163603f&t=1606878610"></image>
+      <image class="cloud-right" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/loading-moon/cloud-right.svg?sign=f339e05076371e1df20d4a236a69bd76&t=1606878619"></image>
+      <image class="sleep-z" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/loading-moon/sleep-z.svg?sign=e3356ec483d93b56cc8f09abdfd953aa&t=1606878659"></image>
 
       <view class="blank-block"></view>
       <text class="text">等等嘛，你要等阳光照进来～</text>

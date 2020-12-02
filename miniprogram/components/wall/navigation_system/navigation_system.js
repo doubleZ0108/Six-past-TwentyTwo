@@ -88,8 +88,8 @@ Component({
     filter_bottom_show: false,
     filter_info: null,
 
-    init_step: 2,   // 初始/下拉刷新个数
-    load_more_step: 1,  // 触底刷新个数
+    init_step: 16,   // 初始/下拉刷新个数
+    load_more_step: 10,  // 触底刷新个数
   },
 
   methods: {
@@ -125,7 +125,7 @@ Component({
 
       let cardsNum = 0
       let cardHeight = 300
-      let blankHeight = -300
+      let blankHeight = -200
 
       switch(this.data.currentTab) {
         case 0: {
@@ -949,7 +949,8 @@ Component({
         name_right: "同济大学",
         gender_left: "男生",
         gender_right: "女生",
-        avatar_url: "../../../resource/img/avatar/avatar.jpg",
+        // avatar_url: "../../../resource/img/avatar/avatar.jpg",
+        avatar_url: "https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/avatar/avatar.jpg?sign=12591de976e2d2dec98b48bac7733efd&t=1606878954",
         description: "这里是对同济的❤️和磕衿提示",
         academy: "软件学院",
         grade: "大四",
@@ -965,7 +966,8 @@ Component({
         name_right: "16分钟",
         gender_left: "男生",
         gender_right: "女生",
-        avatar_url: "../../../resource/img/avatar/avatar.jpg",
+        // avatar_url: "../../../resource/img/avatar/avatar.jpg",
+        avatar_url: "https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/avatar/avatar.jpg?sign=12591de976e2d2dec98b48bac7733efd&t=1606878954",
         description: "这里是结束的card",
         academy: "软件学院",
         grade: "大四",

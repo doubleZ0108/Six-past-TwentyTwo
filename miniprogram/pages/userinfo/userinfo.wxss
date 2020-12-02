@@ -133,20 +133,21 @@
   color: rgba(255,255,255,.6);
   width: 200rpx;
   height: 35rpx;
-  right: 25%;
+  right: 175rpx;
   top: 17.5rpx;
   font-size: 25rpx;
 }
 .userinfo-verify view {
   position: absolute;
-  right: 10%;
+  right: 60rpx;
   top: 10rpx;
 
-  width: 100rpx;
+  width: 125rpx;
   height: 35rpx;
   padding: 10rpx;
 
   font-size: 20rpx;
+  text-align: center;
   color: rgb(30,31,66); 
   /* background-color: rgba(160, 192, 126, 0.8); */
   background: linear-gradient(130deg, rgb(141, 209, 194),rgb(197, 224, 168));

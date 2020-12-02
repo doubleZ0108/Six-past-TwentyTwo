@@ -1,15 +1,2 @@
 <!--miniprogram/pages/test/test.wxml-->
-<view class="LoadingMoonGroup">
-    <image class="moon" src="../../resource/img/index/loading-moon/moon.svg"></image>
-
-    <image class="line" src="../../resource/img/index/loading-moon/line.svg"></image>
-
-    <image class="cloud-left" src="../../resource/img/index/loading-moon/cloud-left.svg"></image>
-
-    <image class="cloud-right" src="../../resource/img/index/loading-moon/cloud-right.svg"></image>
-
-    <image class="sleep-z" src="../../resource/img/index/loading-moon/sleep-z.svg"></image>
-
-    <view class="blank-block"></view>
-    <text class="text">等等嘛，你要等阳光照进来～</text>
-</view>
+<navigationBar />

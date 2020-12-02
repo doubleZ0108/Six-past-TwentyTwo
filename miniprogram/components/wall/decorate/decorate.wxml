@@ -1,9 +1,15 @@
 <!--components/wall/decorate/decorate.wxml-->
 <view class="decorate-container" style="height: {{ win_height }}rpx;">
   <text>{{ win_height }}</text>
-  <view class="decorate-0-layer {{ decorate_0_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_0.svg);"></view>
+  <!-- <view class="decorate-0-layer {{ decorate_0_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_0.svg);"></view>
   <view class="decorate-1-layer {{ decorate_1_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_1.svg);"></view>
   <view class="decorate-2-layer {{ decorate_2_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_0.svg);"></view>
   <view class="decorate-3-layer {{ decorate_3_effect ? 'shown' : '' }}" style="background-image: url(../../../resource/img/decorate_bg/decorate_bg_1.svg);"></view>
+ -->
+
+  <view class="decorate-0-layer {{ decorate_0_effect ? 'shown' : '' }}" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/decorate_bg/decorate_bg_0.svg?sign=faa39f7472889988980dc8032cddcf90&t=1606878290);"></view>
+  <view class="decorate-1-layer {{ decorate_1_effect ? 'shown' : '' }}" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/decorate_bg/decorate_bg_1.svg?sign=c8bc4c8a59fe3beec97b55b9d6c24659&t=1606878306);"></view>
+  <view class="decorate-2-layer {{ decorate_2_effect ? 'shown' : '' }}" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/decorate_bg/decorate_bg_0.svg?sign=faa39f7472889988980dc8032cddcf90&t=1606878290);"></view>
+  <view class="decorate-3-layer {{ decorate_3_effect ? 'shown' : '' }}" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/decorate_bg/decorate_bg_1.svg?sign=c8bc4c8a59fe3beec97b55b9d6c24659&t=1606878306);"></view>
 
 </view>

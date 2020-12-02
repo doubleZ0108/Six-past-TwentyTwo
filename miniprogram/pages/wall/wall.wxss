@@ -1,5 +1,6 @@
 /* miniprogram/pages/wall/wall.wxss */
 .wall-page {
+  /** TODO **/
   background: url(https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201116211446.png);
   background-position: center center;
   background-repeat: no-repeat;

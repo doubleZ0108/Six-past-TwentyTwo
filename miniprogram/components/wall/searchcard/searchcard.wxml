@@ -2,7 +2,8 @@
 <view class="searchcard-container"
   style="left: {{ posLeft }};">
   
-  <view class="searchcard-info" style="background-image: url(../../../resource/img/search/bg_decorate.png);">
+  <!-- ../../../resource/img/search/bg_decorate.png -->
+  <view class="searchcard-info" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/search/bg_decorate.png?sign=be79b1d06c5bcfe89d38f6e92216ad96&t=1606877829);">
     <view class="searchcard-info-row1">
 
       <view class="searchcard-academy">
@@ -53,7 +54,8 @@
 
   </view>
 
-  <image class="searchcard-magnifier {{ animate ? 'magnifier-animate' : '' }}" src="../../../resource/img/search/magnifier.png"
+  <!-- ../../../resource/img/search/magnifier.png -->
+  <image class="searchcard-magnifier {{ animate ? 'magnifier-animate' : '' }}" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/search/magnifier.png?sign=a43d0528eeba8ec660fd374a142d129d&t=1606877851"
     bindtap="onSearchTap"></image>
 
 </view>

@@ -16,7 +16,7 @@
   /* background-position: 75% 0%; */
   background-repeat: no-repeat;
   background-size: cover;
-  top: 900rpx;
+  top: 1200rpx;
   height: 1000rpx;
   z-index: -1;
   opacity: 0;

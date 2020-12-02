@@ -4,7 +4,8 @@
   bindtap="{{ vipcard_tap_able ? 'onVipCardTap' : ''}}" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
-  <image class="vipcard-bgdecorate" style="background-image: url(../../../resource/img/card/vipcard_bgdecorate.svg);"></image>
+  <!-- ../../../resource/img/card/vipcard_bgdecorate.svg -->
+  <image class="vipcard-bgdecorate" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/card/vipcard_bgdecorate.svg?sign=562a91063914c9f4cdcfedabcfb83a35&t=1606878419);"></image>
 
   <view class="vipcard-people">
     <text>{{ name_left }}</text>
@@ -19,7 +20,8 @@
 
   <view class="vipcard-info-unfold">
 
-    <image class="vipcard-bgdecorate-unfold" src="../../../resource/img/card/vipcard_bgdecorate_unfold.svg"></image>
+    <!-- ../../../resource/img/card/vipcard_bgdecorate_unfold.svg -->
+    <image class="vipcard-bgdecorate-unfold" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/card/vipcard_bgdecorate_unfold.svg?sign=6313522eee31f591f524b4f8d058a6f6&t=1606878433"></image>
 
     <view class="vipcard-info-unfold-tag">
       <text>{{ academy }}</text>
@@ -60,12 +62,16 @@
     </view>
 
     <view class="vipcard-envelop {{ turn_over_class }}" catchtap="onEnvelopTap">
-      <image class="envelop-head" src="../../../resource/img/envelop/head.png"></image>
+      <!-- <image class="envelop-head" src="../../../resource/img/envelop/head.png"></image>
       <image class="envelop-beneath" src="../../../resource/img/envelop/beneath.png"></image>
-      <image class="envelop-body" src="../../../resource/img/envelop/body.png"></image>
+      <image class="envelop-body" src="../../../resource/img/envelop/body.png"></image> -->
+      <image class="envelop-head" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/head.png?sign=99a631e51423d7067ef912cca79e54a9&t=1606878244"></image>
+      <image class="envelop-beneath" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/beneath.png?sign=a057565f8dff0305442073c2385e0a9e&t=1606878223"></image>
+      <image class="envelop-body" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/body.png?sign=cdd657bd1d843cd37dc2a6a1245f3392&t=1606878234"></image>
       <scroll-view class="envelop-content" scroll-y enable-flex>
         <text class="envelop-content-word">{{ description }}</text>
-        <image src="../../../resource/img/envelop/picture.png"></image>
+        <!-- <image src="../../../resource/img/envelop/picture.png"></image> -->
+        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/picture.png?sign=91a6bb63059481652b09b6aa172c21d4&t=1606878252"></image>
         <text class="envelop-content-motto">有情人终成眷属</text>
         <text class="envelop-content-sign">—— 二十二点零六团队</text>
         <view class="envelop-gap"></view>

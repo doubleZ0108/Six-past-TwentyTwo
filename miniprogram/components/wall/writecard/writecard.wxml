@@ -11,7 +11,8 @@
   <view class="writecard-info {{ showVipPayBox ? 'writecard-info-blur' : '' }}" style="background-image: url({{ writecard_bg }});">
     <text class="writecard-info-motto">写下你的表白</text>
 
-    <image class="writecard-pen {{ animate ? 'pen-animate' : '' }}" src="../../../resource/img/write/pen.png"></image>
+    <!-- ../../../resource/img/write/pen.png -->
+    <image class="writecard-pen {{ animate ? 'pen-animate' : '' }}" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/pen.png?sign=b4f2e18c38131f9f5cc9301843828517&t=1606878034"></image>
 
     <view class="writecard-info-unfold">
 
@@ -85,7 +86,8 @@
   </view>
 
   <view class="vippay-container {{ showVipPayBox ? 'shown' : ''}}">
-    <view class="vippay-group" style="background-image: url(../../resource/img/write/paycardbg.png)">
+    <!-- ../../resource/img/write/paycardbg.png -->
+    <view class="vippay-group" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/paycardbg.png?sign=c63dbfadc188fda4426f0250b62a0b12&t=1606878054)">
       <view class="userinfo-title-group">
         <text>请输入验证码</text>
         <text></text>
@@ -98,7 +100,8 @@
             <text>请在同济邮箱中查收验证码</text>
           </view>
         </view>
-        <view class="vippay-img" style="background-image: url(../../../resource/img/write/unfold_bg.png)">
+        <!-- ../../../resource/img/write/unfold_bg.png -->
+        <view class="vippay-img" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/unfold_bg.png?sign=d44ae2bdf9b846e0876f170405d84cc6&t=1606878091)">
         </view>
       </view>
 
