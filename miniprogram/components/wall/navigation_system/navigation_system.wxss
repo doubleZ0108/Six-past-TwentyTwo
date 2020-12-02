@@ -2,7 +2,7 @@
 @import '../../../style/iconfont.wxss';
 
 .icons-container {
-  --icons-position: 365rpx;
+  --icons-position: 540rpx;
   --icons-height: 90rpx;
   position: absolute;
   top: var(--icons-position);

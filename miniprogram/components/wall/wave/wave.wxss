@@ -1,7 +1,7 @@
 /* components/wall/wave/wave.wxss */
 .wave-container {
   background: linear-gradient(189.16deg, rgb(43, 16, 131) 13.57%, rgb(67, 22, 219) 13.57%, rgb(144, 118, 231) 98.38%);
-  height: 70vh;
+  height: 65vh;
   /* 这个背景container跟卡片不应该是并列关系*/
   position: relative;
   overflow: hidden;
@@ -19,7 +19,7 @@
   background-position: 25% 0%;      /* TODO */
   background-repeat: no-repeat;
   /* background-size: 100%; */
-  top: 250rpx;
+  top: 400rpx;
   height: 1700rpx;
   transition: .4s cubic-bezier(.8,.2,.8,1);
 }
@@ -38,7 +38,7 @@
   background-position: 50% 0%;  /* TODO */
   background-repeat: no-repeat;
   background-size: 180%;
-  top: 560rpx;
+  top: 675rpx;
   left: 0;
   height: 1100rpx;
   transition: .4s cubic-bezier(.8,.2,.8,1);
@@ -51,7 +51,7 @@
   width: 100%;
   background-position: 75% 0%;
   background-repeat: no-repeat;
-  top: 500rpx;
-  height: 900rpx;
+  top: 675rpx;
+  height: 700rpx;
 }
 

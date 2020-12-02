@@ -1,7 +1,8 @@
 <!--miniprogram/pages/userinfo/userinfo.wxml-->
 <mp-toptips msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
 
-<view class="userinfo-container {{ showVerifyBox ? 'userinfo-container-blur' : '' }}" style="background-image: url(../../resource/img/userinfo/bg.png);">
+<!-- ../../resource/img/userinfo/bg.png -->
+<view class="userinfo-container {{ showVerifyBox ? 'userinfo-container-blur' : '' }}" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/userinfo/bg.png?sign=b1f27e01e4e147af29f3115b746abc91&t=1606877958);">
 
   <form>
     <view class="userinfo-logo">
@@ -68,7 +69,8 @@
 </view>
 
 <view class="userinfo-verify-container {{ showVerifyBox ? 'shown' : ''}}">
-  <view class="verify-group" style="background-image: url(../../resource/img/userinfo/verify_bg.png)">
+  <!-- ../../resource/img/userinfo/verify_bg.png -->
+  <view class="verify-group" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/userinfo/verify_bg.png?sign=75f43d60c60a3a355b310251a76e61e4&t=1606877939)">
     
     <view class="userinfo-title-group">
       <text>请输入验证码</text>

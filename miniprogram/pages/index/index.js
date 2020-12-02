@@ -48,7 +48,10 @@ Page({
                     commentList: []
                   },
                   success: function() {
-                    wx.switchTab({
+                    // wx.switchTab({
+                    //   url: '../wall/wall',
+                    // })
+                    wx.redirectTo({
                       url: '../wall/wall',
                     })
                   }
@@ -67,7 +70,7 @@ Page({
   },
 
   timeAdapt: function() {
-    let date = new Date('2000-01-08 22:06:00')
+    let date = new Date()
     // let date = new Date()
     let hour = date.getHours()
 
@@ -112,7 +115,10 @@ Page({
                         
                         setTimeout(function(){
                           // switch tab
-                          wx.switchTab({
+                          // wx.switchTab({
+                          //   url: '../wall/wall',
+                          // })
+                          wx.redirectTo({
                             url: '../wall/wall',
                           })
                         }, 1000)
@@ -157,7 +163,10 @@ Page({
                       app.globalData._verified_secret = res.data[0]._verified_secret
 
                       // switch tab
-                      wx.switchTab({
+                      // wx.switchTab({
+                      //   url: '../wall/wall',
+                      // })
+                      wx.redirectTo({
                         url: '../wall/wall',
                       })
                     }

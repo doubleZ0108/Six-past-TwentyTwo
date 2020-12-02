@@ -1,6 +1,8 @@
 <!--components/wall/favoritecard/favoritecard.wxml-->
+
+<!-- ../../../../../resource/img/favorite/calculatecard.png -->
 <view class="favoritecard-container {{ fold_class }}"
-  style="height: {{ favorite_height }}; left: {{ posLeft }}; background-image: url(../../../../../resource/img/favorite/calculatecard.png)"
+  style="height: {{ favorite_height }}; left: {{ posLeft }}; background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/favorite/calculatecard.png?sign=cbea04b59bb252adbb3f281a1d3e5ed4&t=1606877734)"
   bindtap="onFavoriteCardTap" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
@@ -14,7 +16,8 @@
 
   <view class="favoritecard-info-unfold">
 
-    <image class="favoritecard-bgdecorate-unfold" src="../../../resource/img/favorite/bg.png"></image>
+    <!-- ../../../resource/img/favorite/bg.png -->
+    <image class="favoritecard-bgdecorate-unfold" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/favorite/bg.png?sign=4f8116c0aa45450726d5676ed7aa40dc&t=1606877749"></image>
 
     <view class="favoritecard-container-unfold">
       <form>
@@ -54,7 +57,8 @@
 
       </form>
 
-      <view class="favoritecard-wave" style="background-image: url(../../../resource/img/favorite/wave.svg)">
+      <!-- ../../../resource/img/favorite/wave.svg -->
+      <view class="favoritecard-wave" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/favorite/wave.svg?sign=e5a1c12aaa2b5b83a22ecd38cdf74713&t=1606878373)">
       </view>
     </view>
 

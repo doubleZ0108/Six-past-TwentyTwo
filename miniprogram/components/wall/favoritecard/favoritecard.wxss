@@ -4,7 +4,7 @@
 .favoritecard-container {
   --favoritecard-height: 290rpx;
   position: absolute;
-  top: 550rpx;
+  top: 725rpx;
   height: var(--favoritecard-height);
 
   width: 80%;

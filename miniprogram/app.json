@@ -1,32 +1,24 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/test/test",
     "pages/wall/wall",
-    "pages/comment/comment",
+    "pages/test/test",
     "pages/userinfo/userinfo",
+    "pages/comment/comment",
     "pages/delete/delete"
   ],
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/wall/wall",
-        "text": "表白墙",
-        "iconPath": "resource/img/icon/wall/wall.png",
-        "selectedIconPath": "resource/img/icon/wall/wall_selected.png"
-      },
-      {
-        "pagePath": "pages/test/test",
-        "text": "测试"
-      }
-    ]
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/navigationBar"
   },
   "window": {
-    "backgroundColor": "#333",
+    "backgroundColor": "#1F1F47",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#333",
+    "navigationBarBackgroundColor": "#1F1F4740",
     "navigationBarTitleText": "二十二点零六",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "backgroundColorTop": "#1F1F47",
+    "backgroundColorBottom": "#1F1F47",
+    "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",

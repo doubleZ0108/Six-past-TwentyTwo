@@ -1,4 +1,7 @@
 <!--miniprogram/pages/wall/wall.wxml-->
+
+<navigationBar />
+
 <view class="wall-page">
   <view class="wall-slidebar {{ drawer ? 'wall-slidebar-display' : ''}}">
     <navigator url="../userinfo/userinfo">个人信息</navigator>
@@ -9,6 +12,8 @@
 
   <view class="wall-container {{ drawer ? 'wall-contaienr-drawer' : ''}}">
     <confetti id='confetti' duration="1000" />
+
+    <!-- <view style="height: 175rpx; width: 100%;"></view> -->
 
     <wave current_tab="{{ current_tab }}">
       <hero bindtap="heroTap" userinfo_flag="{{ userinfo_flag}}" />  <!-- 150px height / 25px margin-top -->

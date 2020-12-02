@@ -1,0 +1,29 @@
+/* components/navigationBar/navigationBar.wxss */
+.navbar {
+  width: 100%;
+  height: 175rpx;     /* hint!!! */
+  background-color: rgba(14,14,15,0.63);
+  border: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 666;
+}
+
+.navbar .blur {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(15px);
+}
+
+.navbar text {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  color: rgba(255,255,255,.83);
+}

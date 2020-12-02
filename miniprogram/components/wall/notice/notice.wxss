@@ -5,7 +5,7 @@
   --notice-width: 90%;
   --notice-height: 30rpx;
   position: absolute;
-  top: 305rpx;
+  top: 480rpx;
   height: var(--notice-height);
   width: var(--notice-width);
   left: calc(calc(100% - var(--notice-width)) / 2);

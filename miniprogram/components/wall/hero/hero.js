@@ -12,7 +12,8 @@ Component({
   },
 
   data: {
-    avatarUrl: '../../../resource/img/avatar/default_avatar.png',
+    // avatarUrl: '../../../resource/img/avatar/default_avatar.png',
+    avatarUrl: 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/avatar/default_avatar.png?sign=f70275ce508590366284689d3c108dcb&t=1606877788',
     nickName: "起个名字吧",
     gender: "神秘",
     academy: "未知学院",

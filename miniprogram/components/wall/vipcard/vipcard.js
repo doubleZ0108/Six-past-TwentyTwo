@@ -36,7 +36,8 @@ Component({
     },
     avatar_url: {
       type: String,
-      value: "../../../resource/img/avatar/default_avatar.png"
+      // value: "../../../resource/img/avatar/default_avatar.png"
+      value: "https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/avatar/default_avatar.png?sign=905b2e6353245270f516c7438369a2bc&t=1606877876"
     },
     description: {
       type: String,
