@@ -1,1 +1,38 @@
 /* miniprogram/pages/test/test.wxss */
+.paper {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  width: 80%;
+  height: 290rpx;
+  margin: 50rpx auto;
+
+  background: white;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  transform: perspective(500px) translate3d(0,0,0);
+  -webkit-transform: perspective(500px) translate3d(0,0,0);
+
+  animation: SwipAnimation 2.5s linear infinite;
+}
+
+@keyframes SwipAnimation {
+  0% {
+    transform: perspective(500px) translate3d(0,0,0);
+    -webkit-transform: perspective(500px) translate3d(0,0,0);
+  }
+  30% {
+    transform: perspective(500px) translate3d(-30rpx,-30rpx,30rpx);
+    -webkit-transform: perspective(500px) translate3d(-30rpx,-30rpx,30rpx);
+  }
+  60%, 70% {
+    transform: perspective(500px) translate3d(-700rpx,-50px,-100px);
+    -webkit-transform: perspective(500px) translate3d(-700rpx,-50px,-100px);
+  }
+  100% {
+    transform: perspective(500px) translate3d(0,0,0);
+    -webkit-transform: perspective(500px) translate3d(0,0,0);
+  }
+}

@@ -1013,7 +1013,6 @@ Component({
             vip_card_total: bin_cards.length
           })
           that.initVipCardEffect()
-          that.adaptHeight()
         },
         fail: function() {
           console.log("刷新vip卡片列表出错")

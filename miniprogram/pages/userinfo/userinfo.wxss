@@ -137,7 +137,7 @@
   color: rgba(255,255,255,.6);
   width: 200rpx;
   height: 35rpx;
-  right: 175rpx;
+  right: 180rpx;
   top: 17.5rpx;
   font-size: 25rpx;
 }
