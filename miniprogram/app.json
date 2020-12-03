@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/feedback/feedback",
+    "pages/announcement/announcement",
     "pages/index/index",
     "pages/userinfo/userinfo",
     "pages/test/test",

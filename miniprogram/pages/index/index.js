@@ -68,8 +68,8 @@ Page({
   },
 
   timeAdapt: function() {
+    // let date = new Date('2000-02-20 22:06')
     let date = new Date()
-    // let date = new Date()
     let hour = date.getHours()
 
     if(hour > 6 && hour < 17) {
@@ -201,7 +201,7 @@ Page({
     this.timeAdapt()
 
     // this.loadingAnimation()
-    // this._quickLogin_secret()
+    this._quickLogin_secret()
   },
 
   /**
