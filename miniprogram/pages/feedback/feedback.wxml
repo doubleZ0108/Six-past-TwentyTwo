@@ -1,0 +1,42 @@
+<!--miniprogram/pages/feedback/feedback.wxml-->
+
+<mp-toptips ext-class="toptips" msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
+
+<view class="feedback-container">
+  <!-- ../../resource/img/feedback/bg.png -->
+  <image class="feedback-bgdecorate" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/feedback/bg.png?sign=015ecd36933dc4d9236324f8a060169c&t=1606991960"></image>
+
+  <view class="feedback-group">
+    <view class="feedback-content-group">
+      <view class="feedback-logo">
+        <text class="iconfont icontongji"></text>
+      </view>
+
+      <view class="feedback-title-group">
+        <text>留下你想对我们说的话吧</text>
+        <view></view>
+      </view>
+
+      <textarea class="feedback-textarea"
+        name="content" value="{{ content }}"
+        bindinput="onContentInput" bindtap="onContentTap"></textarea>
+
+      <view class="feedback-append">
+        <text>如果想有更深入的交流, </text>
+        <text>也欢迎留下自己的联系方式丫。</text>
+        <textarea name="contact" value="{{ contact }}"
+          bindinput="onContactInput" bindtap="onContactTap"></textarea>
+        <text class="append-info"> <text class="iconfont icontishi"></text> 此项为选填项, 填写时请注明联系渠道, 如: 微信、QQ、邮箱、电话...</text>
+      </view>
+
+      <view catchtap="feedbackSubmit">
+        <text class="iconfont iconqueren feedback-button {{ colorful ? 'feedback-button-colorful' : '' }}"></text>
+      </view>
+
+    </view>
+
+    <!-- ../../resource/img/feedback/line.svg -->
+    <view class="feedback-wave" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/feedback/line.svg?sign=31064bf584a55ceb1839b76cda0efbae&t=1606991895)"></view>
+  </view>
+
+</view>

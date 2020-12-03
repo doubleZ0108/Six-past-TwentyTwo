@@ -33,6 +33,23 @@ Page({
       url: '../userinfo/userinfo',
     })
   },
+  feedbackTap: function() {
+    wx.vibrateShort()
+    
+    wx.navigateTo({
+      url: '../feedback/feedback',
+    })
+  },
+  announcementTap: function() {
+    wx.vibrateShort()
+    
+    wx.navigateTo({
+      url: '../announcement/announcement',
+    })
+  },
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,0 +1,135 @@
+/* miniprogram/pages/announcement/announcement.wxss */
+@import '../../style/iconfont.wxss';
+
+
+
+.announcement-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.announcement-bgdecorate {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
+}
+
+/*============ logo ============*/
+.announcement-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+  margin-top: 150rpx;
+}
+
+.announcement-logo .iconfont {
+  font-size: 130rpx;
+  background: linear-gradient(130deg, rgb(253,194,89),rgb(252, 134,136), rgb(251,112,153)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 auto;
+}
+
+/*============ title ============*/
+.announcement-title-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.announcement-title-group text {
+  background: linear-gradient(130deg, rgb(253,194,89),rgb(252, 134,136), rgb(251,112,153)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 15rpx auto;
+  font-size: 35rpx;
+}
+.announcement-title-group view {
+  width: 60%;
+  border-bottom: 2rpx solid rgba(255,255,255,.6);
+}
+
+
+/*============ announcement ============*/
+.announcement-group {
+  width: 80%;
+  margin: 30rpx auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcement-item-container {
+  width: 100%;
+  background-color: rgba(255,255,255,.4);
+  border-radius: 15rpx;
+  color: rgba(255, 255, 255, .83);
+  margin: 20rpx auto;
+}
+
+.announcement-header {
+  height: 30rpx;
+  width: 90%;
+  margin: 25rpx auto 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.announcement-header text:nth-child(1) {
+  width: 35%;
+  color: rgba(255,255,255,.83);
+  font-family: Microsoft YaHei;
+}
+.announcement-header text:nth-child(2) {
+  width: 65%;
+  border-top: solid rgba(255,255,255,.6) 2rpx; 
+  margin: 13rpx 0;
+}
+
+.announcement-item-container image {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+}
+
+.announcement-content {
+  width: 80%;
+  margin: 15rpx auto;
+  color: rgba(255, 255, 255, .83);
+  font-size: 25rpx;
+}
+
+.announcement-footer {
+  width: 90%;
+  border-top: solid rgba(255,255,255,.6) 2rpx; 
+  margin: 15rpx auto 25rpx;
+}
+
+/*============ wave ============*/
+.announcement-wave {
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.6);
+}
+.announcement-wave image {
+  height: 100rpx;
+  width: 70rpx;
+  object-fit: cover;
+  margin-right: 25rpx;
+}

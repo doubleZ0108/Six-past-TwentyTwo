@@ -1,0 +1,153 @@
+/* miniprogram/pages/feedback/feedback.wxss */
+@import '../../style/iconfont.wxss';
+
+.toptips {
+  top: 80rpx;
+}
+
+.feedback-container {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+}
+
+.feedback-bgdecorate {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
+}
+
+.feedback-group {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedback-group .feedback-content-group {
+  width: 80%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*============ wave ============*/
+.feedback-wave {
+  height: 150rpx;
+  width: 100%;
+  margin-top: 50rpx;
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/*============ logo ============*/
+.feedback-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+}
+
+.feedback-logo .iconfont {
+  font-size: 130rpx;
+  background: linear-gradient(130deg, rgb(253,194,89),rgb(252, 134,136), rgb(251,112,153)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 auto;
+}
+
+/*============ title ============*/
+.feedback-title-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.feedback-title-group text {
+  background: linear-gradient(130deg, rgb(253,194,89),rgb(252, 134,136), rgb(251,112,153)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 15rpx auto;
+  font-size: 35rpx;
+}
+.feedback-title-group view {
+  width: 100%;
+  border-bottom: 2rpx solid rgba(255,255,255,.6);
+}
+
+/*============ big textarea ============*/
+.feedback-textarea {
+  width: 80%;
+  height: 400rpx;
+  margin: 50rpx auto;
+
+  color: rgba(255,255,255,.83);
+  
+  padding: 20rpx;
+  border: 2rpx rgba(181, 218, 211, 0.2) solid;
+  background: linear-gradient(120deg, rgba(126, 230, 212, 0.2),rgba(126, 230, 212,0.1),rgba(147,147,147,0.05),rgba(255, 235, 121, 0.3));
+  border-radius: 20rpx;
+}
+
+/*============ bototm append info ============*/
+.feedback-append {
+  width: 100%;
+  color: rgba(255,255,255,.83);
+}
+
+.feedback-append > text {
+  text-align: center;
+  display: block;
+}
+
+.feedback-append textarea {
+  width: 80%;
+  height: 75rpx;
+  margin: 25rpx auto;
+
+  padding: 20rpx;
+  border: 2rpx rgba(181, 218, 211, 0.2) solid;
+  background: linear-gradient(120deg, rgba(126, 230, 212, 0.2),rgba(126, 230, 212,0.1),rgba(147,147,147,0.05),rgba(255, 235, 121, 0.3));
+  border-radius: 20rpx;
+}
+
+.feedback-append .append-info {
+  font-size: 25rpx;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*============ button ============*/
+.feedback-button.iconfont {
+  position: absolute;
+  right: 8%;
+  bottom: 8%;
+
+  display: block;
+  font-size: 160rpx;
+  background: rgb(30,31,66); 
+  /* 亮时候的颜色：linear-gradient(130deg, rgb(94,233,203),rgb(212,248,174))*/
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.feedback-button-colorful.iconfont {
+  background: linear-gradient(130deg, rgb(141, 209, 194),rgb(197, 224, 168));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
