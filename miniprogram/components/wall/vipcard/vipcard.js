@@ -72,7 +72,8 @@ Component({
     smallcard_touchDotX: 0, // 检测小卡片下滑动
     smallcard_touchDotY: 0,
 
-    animate: false,
+    ios_animate: false,
+    android_animate: false,
     vipcard_tap_able: true,
 
 
@@ -116,7 +117,8 @@ Component({
       let pages = getCurrentPages()
       let currpage = pages[pages.length-1]
       currpage.setData({
-        switch_from_user: true
+        switch_from_user: true,
+        outdrop: true
       })
     },
 
@@ -127,6 +129,18 @@ Component({
       }
     },
 
+    shrinkCallBack: function() {
+      this.setData({ 
+        fold_class: "",
+        turn_over_class: ""
+      })
+
+      let pages = getCurrentPages()
+      let currpage = pages[pages.length-1]
+      currpage.setData({
+        outdrop: false
+      })
+    },
     touchStart: function(e) {
       if(this.data.fold_class === "vipcard-container-unfold") {
         this.setData({
@@ -155,10 +169,7 @@ Component({
             console.log("左滑=====")
           }else if(tmX > this.data.slip_tolerance) {
             console.log("右滑=====")
-            this.setData({ 
-              fold_class: "",
-              turn_over_class: ""
-            })
+            this.shrinkCallBack()
             return
           }
         }
@@ -167,10 +178,7 @@ Component({
             console.log("上滑动=====  x")
           } else if(tmY > this.data.slip_tolerance) {
             console.log("下滑动=====")
-            this.setData({ 
-              fold_class: "",
-              turn_over_class: ""
-            })
+            this.shrinkCallBack()
             return
           }
         } 
@@ -184,9 +192,10 @@ Component({
         let absX = Math.abs(tmX)
         let absY = Math.abs(tmY)
 
-        if (absX > 2 * absY) {
-          if (tmX < 0 && -tmX > this.data.slip_tolerance*0.5){
-            console.log("左滑=====")
+        if (absX > absY) {
+          if (tmX < 0 ){
+            console.log("vip小卡左滑=====")
+            wx.vibrateShort()
             // TODO 
            this.vipcardEffect()
 
@@ -202,17 +211,18 @@ Component({
     },
 
     vipcardEffect: function() {
-      this.setData({ 
-        animate: true,
-        vipcard_tap_able: false
-      })
       let that = this
-      setTimeout(function(){
-        that.setData({ 
-          animate: false,
-          vipcard_tap_able: true
-        })
-      }, 2500)
+
+      this.setData({ vipcard_tap_able: false })
+
+      if(app.globalData.platform == "ios") {
+        this.setData({ ios_animate: true })
+      } else if(app.globalData.platform == "android" || app.globalData.platform == "devtools") {
+        this.setData({ android_animate: true })
+      } else {
+        this.setData({ ios_animate: true }) // ios版本的动画要求比较低
+      }
+      
       setTimeout(function() {
         /* z-index adaptive */
         let pages = getCurrentPages()
@@ -220,7 +230,18 @@ Component({
         currpage.setData({
           switch_vipcard: true
         })
-      }, 1500)
+      }, 1700)
+      setTimeout(function(){
+        that.setData({ vipcard_tap_able: true })
+
+        if(app.globalData.platform == "ios") {
+          that.setData({ ios_animate: false })
+        } else if(app.globalData.platform == "android" || app.globalData.platform == "devtools") {
+          that.setData({ android_animate: false })
+        } else {
+          that.setData({ ios_animate: false })
+        }
+      }, 2500)
     },
 
 

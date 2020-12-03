@@ -111,17 +111,22 @@ Page({
                       success: function(res) {
                         app.globalData._verified_secret = res.data[0]._verified_secret
 
-                        that.setData({ near_end: true })
-                        
-                        setTimeout(function(){
-                          // switch tab
-                          // wx.switchTab({
-                          //   url: '../wall/wall',
-                          // })
-                          wx.redirectTo({
-                            url: '../wall/wall',
-                          })
-                        }, 1000)
+                        /* platform */
+                        wx.getSystemInfo({
+                          success:function(res){
+                            app.globalData.platform = res.platform
+
+                            that.setData({ near_end: true })
+
+                            setTimeout(function(){
+                              /******** redirect **********/
+                              wx.redirectTo({
+                                url: '../wall/wall',
+                              })
+                            }, 1000)
+                          }
+                        })
+
                       }
                     })
 
@@ -150,25 +155,30 @@ Page({
             complete: function(login_res) {
               app.globalData.openid = login_res.result.openid
 
-              // get user info
+              /* get user info */
               wx.getUserInfo({
                 success: function(userInfo_res) {
                   app.globalData.userInfo = userInfo_res.userInfo
 
-                  // get verified or not
+                  /* get verified or not */
                   db.collection('user').where({
                     _openid: app.globalData.openid
                   }).get({
                     success: function(res) {
                       app.globalData._verified_secret = res.data[0]._verified_secret
 
-                      // switch tab
-                      // wx.switchTab({
-                      //   url: '../wall/wall',
-                      // })
-                      wx.redirectTo({
-                        url: '../wall/wall',
+                      /* platform */
+                      wx.getSystemInfo({
+                        success:function(res){
+                          app.globalData.platform = res.platform
+
+                          /******** redirect **********/
+                          wx.redirectTo({
+                            url: '../wall/wall',
+                          })
+                        }
                       })
+
                     }
                   })
 

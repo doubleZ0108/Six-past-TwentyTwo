@@ -1,2 +1,4 @@
 <!--miniprogram/pages/test/test.wxml-->
 <navigationBar />
+
+<view class="paper"></view>
