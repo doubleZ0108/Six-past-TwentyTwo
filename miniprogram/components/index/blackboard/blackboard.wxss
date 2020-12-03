@@ -7,13 +7,6 @@
   height: 90%;
   top: 10%;
   left: 0;
-
-  display: grid;
-  grid-template-rows: 2fr 3fr 1fr;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  grid-gap: 15rpx;
 }
 
 .guide-group .title {
@@ -42,7 +35,8 @@
 }
 
 .guide-group .content swiper-item text {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -50,6 +44,9 @@
 .guide-group .navigator-button {
   width: 100%;
   margin-bottom: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .guide-group .navigator-button .iconfont {
   font-size: 100rpx;

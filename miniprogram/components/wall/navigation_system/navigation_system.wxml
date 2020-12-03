@@ -60,12 +60,16 @@
         refresh_flag="{{ item.refresh_flag }}"
       />
 
-      <view data-weui-theme="dark">
-        <mp-loading type="circle" tips="正在加载中～" show="{{ show_loading }}" animated="true"></mp-loading>
+      <!-- ../../resource/img/global/loading.gif -->
+      <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
+        <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading.gif?sign=c6703df520ed32c1035a1cefcbbfca05&t=1607002237"></image>
+        <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
-      <view class="swiper-item-bottom">
-        <text class="bottom-text" style="opacity: {{ world_bottom_show ? 1 : 0}}">今天没有更多表白了, 我是有底线的～</text>
+      <view class="swiper-item-bottom" style="opacity: {{ world_bottom_show ? 1 : 0 }};">
+        <!-- ../../resource/img/global/fish-bone.png -->
+        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+        <text>今天没有更多表白了, 我是有底线的～</text>
       </view>
 
     </view>
@@ -94,12 +98,16 @@
         is_vipcard="{{ item.is_vipcard }}"
       />
 
-      <view data-weui-theme="dark">
-        <mp-loading type="circle" tips="正在加载中～" show="{{ show_loading }}" animated="true"></mp-loading>
+      <!-- ../../resource/img/global/loading.gif -->
+      <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
+        <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading.gif?sign=c6703df520ed32c1035a1cefcbbfca05&t=1607002237"></image>
+        <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
-      <view class="swiper-item-bottom">
-        <text class="bottom-text" style="opacity: {{ my_bottom_show ? 1 : 0}}">我没有更多表白了, 我是有底线的～</text>
+      <view class="swiper-item-bottom" style="opacity: {{ my_bottom_show ? 1 : 0 }};">
+        <!-- ../../resource/img/global/fish-bone.png -->
+        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+        <text>我没有更多表白了, 我是有底线的～</text>
       </view>
 
     </view>
@@ -124,12 +132,16 @@
         is_vipcard="{{ item.is_vipcard }}"
       />
 
-      <view data-weui-theme="dark">
-        <mp-loading type="circle" tips="正在加载中～" show="{{ show_loading }}" animated="true"></mp-loading>
+      <!-- ../../resource/img/global/loading.gif -->
+      <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
+        <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading.gif?sign=c6703df520ed32c1035a1cefcbbfca05&t=1607002237"></image>
+        <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
-      <view class="swiper-item-bottom">
-        <text class="bottom-text" style="opacity: {{ favorite_bottom_show ? 1 : 0}}">没收藏更多表白了, 我是有底线的～</text>
+      <view class="swiper-item-bottom" style="opacity: {{ favorite_bottom_show ? 1 : 0 }};">
+        <!-- ../../resource/img/global/fish-bone.png -->
+        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+        <text>没收藏更多表白了, 我是有底线的～</text>
       </view>
 
     </view>
@@ -154,12 +166,16 @@
         is_vipcard="{{ item.is_vipcard }}"
       />
 
-      <view data-weui-theme="dark">
-        <mp-loading type="circle" tips="正在加载中～" show="{{ show_loading }}" animated="true"></mp-loading>
+      <!-- ../../resource/img/global/loading.gif -->
+      <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
+        <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading.gif?sign=c6703df520ed32c1035a1cefcbbfca05&t=1607002237"></image>
+        <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
-      <view class="swiper-item-bottom">
-        <text class="bottom-text" style="opacity: {{ filter_bottom_show ? 1 : 0}}">这个filter下没有更多表白了, 我是有底线的～</text>
+      <view class="swiper-item-bottom" style="opacity: {{ filter_bottom_show ? 1 : 0 }};">
+        <!-- ../../resource/img/global/fish-bone.png -->
+        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+        <text>这个filter下没有更多表白了, 我是有底线的～</text>
       </view>
 
     </view>

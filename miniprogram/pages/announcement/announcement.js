@@ -58,6 +58,8 @@ Page({
       })
   },
   loadMoreAnnouncement: function() {
+    wx.vibrateShort()
+    
     let that = this
     this.setData({ 
       show_loading: true,

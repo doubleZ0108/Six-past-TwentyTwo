@@ -32,9 +32,10 @@
       <view class="announcement-footer"></view>
     </view>
 
-
-    <view data-weui-theme="dark" style="width: 100%;">
-      <mp-loading type="circle" tips="正在加载中～" show="{{ show_loading }}" animated="true"></mp-loading>
+    <!-- ../../resource/img/global/loading.gif -->
+    <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
+      <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading.gif?sign=c6703df520ed32c1035a1cefcbbfca05&t=1607002237"></image>
+      <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
     </view>
 
   </view>
