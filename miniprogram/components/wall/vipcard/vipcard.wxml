@@ -1,5 +1,5 @@
 <!--components/wall/vipcard/vipcard.wxml-->
-<view class="vipcard-container {{ fold_class }} {{ animate ? 'animate' : '' }}"
+<view class="vipcard-container {{ fold_class }} {{ ios_animate ? 'ios-animate' : '' }} {{ android_animate ? 'android-animate' : ' '}}"
   style="height: {{ vipcard_height }}; left: {{ posLeft }};z-index: {{ z_index }};"
   bindtap="{{ vipcard_tap_able ? 'onVipCardTap' : ''}}" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">

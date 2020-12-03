@@ -72,7 +72,8 @@ Component({
     smallcard_touchDotX: 0, // 检测小卡片下滑动
     smallcard_touchDotY: 0,
 
-    animate: false,
+    ios_animate: false,
+    android_animate: false,
     vipcard_tap_able: true,
 
 
@@ -191,8 +192,6 @@ Component({
         let absX = Math.abs(tmX)
         let absY = Math.abs(tmY)
 
-        console.log(absX, absY)
-
         if (absX > absY) {
           if (tmX < 0 ){
             console.log("vip小卡左滑=====")
@@ -212,12 +211,18 @@ Component({
     },
 
     vipcardEffect: function() {
-      this.setData({ 
-        animate: true,
-        vipcard_tap_able: false
-      })
-      
       let that = this
+
+      this.setData({ vipcard_tap_able: false })
+
+      if(app.globalData.platform == "ios") {
+        this.setData({ ios_animate: true })
+      } else if(app.globalData.platform == "android" || app.globalData.platform == "devtools") {
+        this.setData({ android_animate: true })
+      } else {
+        this.setData({ ios_animate: true }) // ios版本的动画要求比较低
+      }
+      
       setTimeout(function() {
         /* z-index adaptive */
         let pages = getCurrentPages()
@@ -225,12 +230,17 @@ Component({
         currpage.setData({
           switch_vipcard: true
         })
-      }, 1000)
+      }, 1700)
       setTimeout(function(){
-        that.setData({ 
-          animate: false,
-          vipcard_tap_able: true
-        })
+        that.setData({ vipcard_tap_able: true })
+
+        if(app.globalData.platform == "ios") {
+          that.setData({ ios_animate: false })
+        } else if(app.globalData.platform == "android" || app.globalData.platform == "devtools") {
+          that.setData({ android_animate: false })
+        } else {
+          that.setData({ ios_animate: false })
+        }
       }, 2500)
     },
 
@@ -442,7 +452,7 @@ Component({
     },
     'which_vipcard': function(which_vipcard) {      
       if(which_vipcard == this.data.index) {
-        // this.vipcardEffect()
+        this.vipcardEffect()
       }
     },
     'pull_down_flag_root': function(pull_down_flag_root) {
