@@ -15,8 +15,8 @@
   </swiper>
 
   <view class="navigator-button">
-    <text class="iconfont iconshezhi {{ left_btn_end ? 'colorful' : '' }}" bindtap="onLeftBtnTap"></text>
-    <text class="iconfont iconshezhi {{ right_btn_end ? 'colorful' : '' }}" bindtap="onRightBtnTap"></text>
+    <text class="iconfont iconziyuan90 {{ left_btn_end ? 'colorful' : '' }}" bindtap="onLeftBtnTap"></text>
+    <text class="iconfont iconziyuan95 {{ right_btn_end ? 'colorful' : '' }}" bindtap="onRightBtnTap"></text>
   </view>
 
 </view>

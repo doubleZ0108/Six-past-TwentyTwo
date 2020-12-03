@@ -18,7 +18,7 @@
 
 .guide-group .title {
   text-align: center;
-  color: rgba(255,255,255,.9);
+  color: rgba(255,255,255,.83);
   font-size: 50rpx;
   margin-top: 50rpx;
   font-weight: 500;
@@ -30,7 +30,7 @@
   margin: 0 auto;
   text-align: center;
 
-  color: white;
+  color: rgba(255,255,255,.6);
   font-size: 30rpx;
 }
 
@@ -49,10 +49,11 @@
 
 .guide-group .navigator-button {
   width: 100%;
+  margin-bottom: 80rpx;
 }
 .guide-group .navigator-button .iconfont {
   font-size: 100rpx;
-  background: linear-gradient(104deg, rgb(255,255,255),rgb(255,255,255),rgb(255,255,255),rgb(255,255,255),rgb(152, 163, 223), rgb(66, 210, 247)); 
+  background: linear-gradient(104deg, rgba(255,255,255,.8),rgba(255,255,255,.8),rgba(255,255,255,.8),rgba(255,255,255,.8),rgba(152, 163, 223,.9), rgba(66, 210, 247,.9)); 
   background-size: 400%;
   background-position: 0% 100%;
   -webkit-background-clip: text;

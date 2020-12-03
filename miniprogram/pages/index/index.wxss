@@ -12,8 +12,9 @@
 .index-guide-container {
   z-index: 2;
 
-  width: 70%;
-  height: 600rpx;
+  width: 64%;
+  height: 40%;
+  min-height: 600rpx;
   position: relative;
 
   transition: 2s linear;
