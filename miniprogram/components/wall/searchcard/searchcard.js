@@ -40,6 +40,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    bindAcademyPickerTap: function() {
+      wx.vibrateShort()
+    },
     bindAcademyPickerChange: function(e) {
       this.setData({
         academyIndex: e.detail.value
@@ -71,31 +74,45 @@ Component({
       this.setData(data)
     },
 
+    bindGradeTap: function() {
+      wx.vibrateShort()
+    },
     bindGradeChange: function(e) {
       this.setData({ grade_index: e.detail.value })
     },
 
+    bindDateTap: function() {
+      wx.vibrateShort()
+    },
     bindDateChange: function(e) {
       console.log(e.detail.value)
       this.setData({ date: e.detail.value })
     },
 
     onGenderLeftTap: function() {
+      wx.vibrateShort()
+
       let that = this
       this.setData({ gender_left_isMale: !that.data.gender_left_isMale })
     },
 
     onGenerRightTap: function() {
+      wx.vibrateShort()
+
       let that = this
       this.setData({ gender_right_isFemale: !that.data.gender_right_isFemale })
     },
 
     onGenderNoneTap: function() {
+      wx.vibrateShort()
+
       let that = this
       this.setData({ gender_none: !that.data.gender_none })
     },
 
     onSearchTap: function() {
+      wx.vibrateShort()
+      
       this.setData({ animate: true })
 
       let searchData = {

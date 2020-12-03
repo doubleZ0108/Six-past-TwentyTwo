@@ -67,6 +67,7 @@ Component({
     // vipcard_height: "100vh",
     turn_over_class: "",
     slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
+    vipcard_switch_slip_tolerance: -50,
     touchDotX: 0,
     touchDotY: 0,
     smallcard_touchDotX: 0, // 检测小卡片下滑动
@@ -108,6 +109,8 @@ Component({
       // let fold_now = this.data.fold_class == "" ? "vipcard-container-unfold" : "";
       // this.setData({ fold_class: fold_now })
 
+      wx.vibrateShort()
+
       this.backToTop()
 
       if(this.data.fold_class != "vipcard-container-unfold") {
@@ -123,6 +126,8 @@ Component({
     },
 
     onEnvelopTap: function() {
+      wx.vibrateShort()
+
       // let turn_over_now = this.data.turn_over_class=="" ? "envelop-turn-over": ""
       if(this.data.turn_over_class != "envelop-turn-over") {
         this.setData({ turn_over_class: "envelop-turn-over" })
@@ -130,6 +135,8 @@ Component({
     },
 
     shrinkCallBack: function() {
+      wx.vibrateShort()
+
       this.setData({ 
         fold_class: "",
         turn_over_class: ""
@@ -192,19 +199,20 @@ Component({
         let absX = Math.abs(tmX)
         let absY = Math.abs(tmY)
 
-        if (absX > absY) {
-          if (tmX < 0 ){
-            console.log("vip小卡左滑=====")
-            wx.vibrateShort()
-            // TODO 
-           this.vipcardEffect()
+        console.log(absX, absY)
+        console.log(tmX)
 
-           let pages = getCurrentPages()
-           let currpage = pages[pages.length-1]
-           currpage.setData({
-             switch_from_user: true
-           })
-          }
+        if (tmX < this.data.vipcard_switch_slip_tolerance){
+          console.log("vip小卡左滑=====")
+          wx.vibrateShort()
+
+          this.vipcardEffect()
+
+          let pages = getCurrentPages()
+          let currpage = pages[pages.length-1]
+          currpage.setData({
+            switch_from_user: true
+          })
         }
 
       }
@@ -246,6 +254,8 @@ Component({
 
 
     onFavoriteTap: function() {
+      wx.vibrateShort()
+
       this.setData({ 
         able_navigate: false,
         prohibit_favorite: true
@@ -302,6 +312,8 @@ Component({
 
     },
     onStarTap: function() {
+      wx.vibrateShort()
+
       this.setData({ able_navigate: false })
 
       let that = this
@@ -365,6 +377,8 @@ Component({
 
     },
     onNavigatorTap: function() {
+      wx.vibrateShort()
+      
       if(this.data.able_navigate) {
         let that = this
         wx.navigateTo({

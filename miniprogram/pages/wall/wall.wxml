@@ -4,7 +4,7 @@
 
 <view class="wall-page">
   <view class="wall-slidebar {{ drawer ? 'wall-slidebar-display' : ''}}">
-    <navigator url="../userinfo/userinfo">个人信息</navigator>
+    <text bindtap="userInfoTap">个人信息</text>
     <text>应用设置</text>
     <text>联系我们</text>
     <text>这是名字</text>

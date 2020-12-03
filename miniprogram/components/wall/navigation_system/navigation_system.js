@@ -95,6 +95,8 @@ Component({
   methods: {
     /** for navigator */
     swichNavigator: function(e) {
+      wx.vibrateShort()
+
       let current = e.currentTarget.dataset.current
       if(this.data.currentTab == current) {
         return false
@@ -105,6 +107,8 @@ Component({
 
     /** for content */
     switchTab: function(e) {
+      wx.vibrateShort()
+
       if(e.detail.current != this.data.currentTab) {
         this.setData({ currentTab: e.detail.current })
       }
@@ -1129,6 +1133,8 @@ Component({
     },
     'reach_bottom_flag_root': function(reach_bottom_flag_root) {  // 监听触底
       if(reach_bottom_flag_root) {
+        wx.vibrateShort()
+        
         console.log(this.data.currentTab, "加载更多...")
 
         this.setData({

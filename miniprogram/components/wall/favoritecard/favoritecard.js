@@ -55,9 +55,11 @@ Component({
     },
 
     onFavoriteCardTap: function() {
-      this.backToTop()
       
       if(this.data.fold_class != "favoritecard-container-unfold") {   // 展开favorite card
+        wx.vibrateShort()
+        this.backToTop()
+
         this.setData({ fold_class: "favoritecard-container-unfold" })
 
         // 隐藏顶部bar
@@ -70,6 +72,8 @@ Component({
     },
 
     shrinkCallBack: function() {
+      wx.vibrateShort()
+      
       this.setData({ 
         fold_class: "",
         turn_over_class: ""

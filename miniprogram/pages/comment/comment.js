@@ -67,6 +67,8 @@ Page({
     let that = this
 
     if(that.data.textarea == "") {
+      wx.vibrateLong()
+
       that.setData({ 
         toptip: {
           msg: "请填写你的评论:)",
@@ -75,6 +77,8 @@ Page({
         }
       })
     } else {
+      wx.vibrateShort()
+
       that.setData({
         prohibit_comment: true
       })
@@ -128,6 +132,8 @@ Page({
 
 
   onFavoriteTap: function() {
+    wx.vibrateShort()
+
     let that = this
     this.setData({ favorite_flag: !that.data.favorite_flag })
 
@@ -171,6 +177,8 @@ Page({
 
   },
   onStarTap: function() {
+    wx.vibrateShort()
+
     let starNow = this.data.star_flag
     let starNumNow = this.data.star_num_flag
     this.setData({ 
@@ -342,6 +350,8 @@ Page({
    *  下拉刷新只更新评论列表 不更新点赞数量
    */
   onPullDownRefresh: function () {
+    wx.vibrateShort()
+    
     let that = this
     that.setData({ commentItem: [] })
     db.collection('comment').where({
