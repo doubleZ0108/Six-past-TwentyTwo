@@ -1,7 +1,8 @@
 <!--miniprogram/pages/announcement/announcement.wxml-->
 
 <view class="announcement-container">
-  <image class="announcement-bgdecorate" src="../../resource/img/announcement/bg.png"></image>
+  <!-- ../../resource/img/announcement/bg.png -->
+  <image class="announcement-bgdecorate" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/announcement/bg.png?sign=58b2e4821a90749d4b32ae2c6f83c6cb&t=1606996661"></image>
 
   <view class="announcement-logo">
     <text class="iconfont icontongji"></text>
@@ -22,7 +23,7 @@
       </view>
 
       <image wx:if="{{ item.imgSrc != '' }}" mode="widthFix" src="{{ item.imgSrc }}"
-        data-index="{{ index }}"  bindtap="onImageTap"></image>
+        data-imgSrc="{{ item.imgSrc }}"  bindtap="onImageTap"></image>
 
       <view class="announcement-content">
        <text>{{ item.content }}</text>
@@ -31,10 +32,16 @@
       <view class="announcement-footer"></view>
     </view>
 
+
+    <view data-weui-theme="dark" style="width: 100%;">
+      <mp-loading type="circle" tips="正在加载中～" show="{{ show_loading }}" animated="true"></mp-loading>
+    </view>
+
   </view>
 
-  <view class="announcement-wave">
-    <image src="../../resource/img/global/fish-bone.png"></image>
+  <view class="announcement-wave" style="opacity: {{ bottom_show ? 1 : 0 }};">
+    <!-- ../../resource/img/global/fish-bone.png -->
+    <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
     <text>这里什么都没有了哦</text>
   </view>
 

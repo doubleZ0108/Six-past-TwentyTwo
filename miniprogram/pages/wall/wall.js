@@ -40,6 +40,13 @@ Page({
       url: '../feedback/feedback',
     })
   },
+  announcementTap: function() {
+    wx.vibrateShort()
+    
+    wx.navigateTo({
+      url: '../announcement/announcement',
+    })
+  },
 
 
 
