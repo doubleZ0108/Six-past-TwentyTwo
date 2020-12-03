@@ -32,7 +32,7 @@
 
 .announcement-logo .iconfont {
   font-size: 130rpx;
-  background: linear-gradient(130deg, rgb(253,194,89),rgb(252, 134,136), rgb(251,112,153)); 
+  background: linear-gradient(130deg, rgb(233, 224, 176),rgb(243, 204, 204), rgb(228, 181, 216)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 auto;
@@ -47,7 +47,7 @@
   flex-direction: column;
 }
 .announcement-title-group text {
-  background: linear-gradient(130deg, rgb(253,194,89),rgb(252, 134,136), rgb(251,112,153)); 
+  background: linear-gradient(130deg, rgb(233, 224, 176),rgb(243, 204, 204), rgb(228, 181, 216)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
@@ -56,7 +56,7 @@
 }
 .announcement-title-group view {
   width: 60%;
-  border-bottom: 2rpx solid rgba(255,255,255,.6);
+  border-bottom: 2rpx solid rgba(255,255,255,.38);
 }
 
 
@@ -72,16 +72,18 @@
 
 .announcement-item-container {
   width: 100%;
-  background-color: rgba(255,255,255,.4);
+  background-color: rgba(255,255,255,.11);
   border-radius: 15rpx;
-  color: rgba(255, 255, 255, .83);
+  border: 1rpx rgba(214, 208, 156, 0.6) solid;
+  color: rgba(255, 255, 255, .38);
+  padding: 15rpx 0;
   margin: 20rpx auto;
 }
 
 .announcement-header {
   height: 30rpx;
   width: 90%;
-  margin: 25rpx auto 15rpx;
+  margin: 25rpx auto 35rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,7 +92,7 @@
 
 .announcement-header text:nth-child(1) {
   width: 35%;
-  color: rgba(255,255,255,.83);
+  color: rgba(255,255,255,.6);
   font-family: Microsoft YaHei;
 }
 .announcement-header text:nth-child(2) {
@@ -108,15 +110,15 @@
 
 .announcement-content {
   width: 80%;
-  margin: 15rpx auto;
+  margin: 25rpx auto;
   color: rgba(255, 255, 255, .83);
   font-size: 25rpx;
 }
 
 .announcement-footer {
   width: 90%;
-  border-top: solid rgba(255,255,255,.6) 2rpx; 
-  margin: 15rpx auto 25rpx;
+  border-top: solid rgba(255,255,255,.38) 2rpx; 
+  margin: 35rpx auto 25rpx;
 }
 
 /*============ wave ============*/
