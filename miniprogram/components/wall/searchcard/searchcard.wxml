@@ -11,21 +11,24 @@
         <!-- <picker mode="selector" bindchange="bindAcademyChange" name="academy"
             range="{{ academy_array }}" index="{{ academy_index }}">
             {{ academy_array[academy_index]}} </picker> -->
-        <picker mode="multiSelector" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
+        <picker mode="multiSelector" 
+          bindtap="bindAcademyPickerTap" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
         {{ academyArray[1][academyIndex[1]] }}
         </picker>
       </view>
 
       <view class="searchcard-grade">
         <text>年级: </text>
-        <picker mode="selector" bindchange="bindGradeChange" name="grade"
+        <picker mode="selector" 
+          bindtap="bindGradeTap" bindchange="bindGradeChange" name="grade"
             range="{{ grade_array }}" index="{{ grade_index }}">
             {{ grade_array[grade_index] }} </picker>
       </view>
 
       <view class="searchcard-date">
         <text>日期: </text>
-        <picker mode="date" bindchange="bindDateChange" name="date" value="{{ date }}">
+        <picker mode="date"
+          bindtap="bindDateTap" bindchange="bindDateChange" name="date" value="{{ date }}">
           {{ date }} </picker>
       </view>
 

@@ -79,6 +79,7 @@ Component({
 
     onWriteCardTap: function() {
       if(this.data.fold_class != "writecard-container-unfold") {
+        wx.vibrateShort()
         this.backToTop()
         this.setData({ animate: true })
       }
@@ -102,6 +103,8 @@ Component({
     },
 
     onSwitcher1Tap: function() {
+      wx.vibrateShort()
+
       let that = this
       if(this.data.switcher1_gender_now == "" || this.data.switcher1_gender_now == "gender-now-male") {
         this.setData({ switcher1_gender_now: "gender-now-female" })
@@ -116,6 +119,8 @@ Component({
       }
     },
     onSwitcher2Tap: function() {
+      wx.vibrateShort()
+
       let that = this
       if(this.data.switcher2_gender_now == "" || this.data.switcher2_gender_now == "gender-now-female") {
         this.setData({ switcher2_gender_now: "gender-now-male" })
@@ -130,7 +135,16 @@ Component({
       }
     },
 
+    bindMyNameTap: function() {
+      wx.vibrateShort()
+    },
+    bindTaNameTap: function() {
+      wx.vibrateShort()
+    },
 
+    bindAcademyPickerTap: function() {
+      wx.vibrateShort()
+    },
     bindAcademyPickerChange: function(e) {
       this.setData({
         academyIndex: e.detail.value
@@ -162,9 +176,22 @@ Component({
       this.setData(data)
     },
 
-
+    bindGradeTap: function() {
+      wx.vibrateShort()
+    },
     bindGradeChange: function(e) {
       this.setData({ grade_index: e.detail.value })
+    },
+
+    bindMyDescriptionTap: function() {
+      wx.vibrateShort()
+    },
+    bindTaDescriptionTap: function() {
+      wx.vibrateShort()
+    },
+    
+    bindTextareaTap: function() {
+      wx.vibrateShort()
     },
 
     formSubmit: function(e) {
@@ -186,6 +213,9 @@ Component({
       for(var index in writeData){
         if(writeData[index] == ""){
           console.log("请完善所有信息")
+
+          wx.vibrateLong()
+
           this.setData({ 
             toptip: {
               msg: "请完善所有内容:)",
@@ -198,6 +228,7 @@ Component({
         }
       }
 
+      wx.vibrateShort()
       // @BACK √
 
       this.setData({ prohibit_submit: true })
@@ -214,6 +245,7 @@ Component({
         success (res) {
           if (res.confirm) {
             console.log('用户点击确定')
+            wx.vibrateShort()
 
             let timeNow = new Date()
             if(that.data.write_vipcard == false) {    // 发布普通card
@@ -314,6 +346,8 @@ Component({
 
           } else if (res.cancel) {
             console.log('用户点击取消')
+            wx.vibrateShort()
+
             that.setData({ prohibit_submit: false })
           }
         }
@@ -324,20 +358,28 @@ Component({
 
 
     onVipPayTap: function() {
+      wx.vibrateShort()
+
       this.setData({ showVipPayBox: true })
     },
     onVipPaySubmit: function() {
+      wx.vibrateShort()
+
       this.setData({ 
         showVipPayBox: false,
         write_vipcard: true
       })
     },
     onVipPayCancel: function() {
+      wx.vibrateShort()
+
       this.setData({ showVipPayBox: false })
     },
 
 
     shrinkCallBack: function() {
+      wx.vibrateShort()
+
       this.setData({ 
         fold_class: "",
         showVipPayBox: false,
@@ -384,8 +426,6 @@ Component({
         } 
       }
     }
-
-    // TODO 提交表单的时候要恢复性别信息
   },
 
   observers: {

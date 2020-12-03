@@ -73,7 +73,8 @@ Component({
    */
   methods: {
     onCardTap: function(e) {
-      // console.log("card tap..")
+      wx.vibrateShort()
+
       this.setData({
         unfold: "card-container-unfold"
       })
@@ -81,6 +82,8 @@ Component({
 
     // TODO 要绑定 user 和 card间 收藏点赞评论的关系 让对应的icon高亮
     onFavoriteTap: function() {
+      wx.vibrateShort()
+
       this.setData({ able_navigate: false })
 
       let that = this
@@ -128,6 +131,8 @@ Component({
 
     },
     onStarTap: function() {
+      wx.vibrateShort()
+
       this.setData({ able_navigate: false })
 
       let that = this
@@ -191,6 +196,8 @@ Component({
 
     },
     onNavigatorTap: function() {
+      wx.vibrateShort()
+      
       if(this.data.able_navigate) {
         let that = this
         if(this.data.is_vipcard) {

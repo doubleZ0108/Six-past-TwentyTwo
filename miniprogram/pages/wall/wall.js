@@ -12,6 +12,8 @@ Page({
   },
 
   heroTap: function() {
+    wx.vibrateShort()
+    
     let that = this
     this.setData({ drawer: !that.data.drawer })
     
@@ -23,6 +25,14 @@ Page({
     })
   },
 
+
+  userInfoTap: function() {
+    wx.vibrateShort()
+    
+    wx.navigateTo({
+      url: '../userinfo/userinfo',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,6 +72,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.vibrateShort()
+
     this.setData({ pull_down_flag: true })
     this.showConfetti()
   },

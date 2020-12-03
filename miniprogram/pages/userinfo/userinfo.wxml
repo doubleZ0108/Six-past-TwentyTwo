@@ -31,17 +31,17 @@
         <text></text>
       </view>
 
-      <picker mode="multiSelector" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
+      <picker mode="multiSelector" bindtap="bindAcademyPickerTap" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
         学院: {{ academyArray[1][academyIndex[1]] }}
       </picker>
-      <picker mode="selector" bindchange="bindGradeChange" name="grade"
+      <picker mode="selector" bindtap="bindGradeTap" bindchange="bindGradeChange" name="grade"
         range="{{ grade_array }}" index="{{ grade_index }}">
         年级: {{ grade_array[grade_index] }} </picker>
       <view class="userinfo-verify">
         <input type="number" name="myDescription" value="{{ student_num }}"
         placeholder="学号: 175xxxx"
         placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" 
-        bindinput="onStudentNumInput" />
+        bindtap="onStudentNumTap" bindinput="onStudentNumInput" />
         <text>@tongji.edu.cn</text>
         <view bindtap="onVerifyTap">发送验证码</view>
       </view>
@@ -54,7 +54,8 @@
         <text></text>
       </view>
 
-      <textarea name="textarea" value="{{ motto }}" bindinput="onMottoInput" bindtap=""></textarea>
+      <textarea name="textarea" value="{{ motto }}" 
+        bindinput="onMottoInput" bindtap="onMottoTap"></textarea>
     </view>
 
     <view catchtap="userinfoSubmit">

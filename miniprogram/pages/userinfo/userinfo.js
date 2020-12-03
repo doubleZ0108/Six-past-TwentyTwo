@@ -32,7 +32,9 @@ Page({
     is_verified: false
   },
  
-
+  bindAcademyPickerTap: function() {
+    wx.vibrateShort()
+  },
   bindAcademyPickerChange: function(e) {
     this.setData({
       academyIndex: e.detail.value
@@ -64,14 +66,23 @@ Page({
     this.setData(data)
   },
 
+  bindGradeTap: function() {
+    wx.vibrateShort()
+  },
   bindGradeChange: function(e) {
     this.setData({ grade_index: e.detail.value })
   },
 
+  onStudentNumTap: function() {
+    wx.vibrateShort()
+  },
   onStudentNumInput: function(e) {
     this.setData({ student_num: e.detail.value })
   },
 
+  onMottoTap: function() {
+    wx.vibrateShort()
+  },
   onMottoInput: function(e) {
     this.setData({ motto: e.detail.value })
   },
@@ -81,6 +92,8 @@ Page({
     this.setData({ colorful: true })
 
     if(this.data.student_num=="" || this.data.motto=="") {
+      wx.vibrateLong()
+
       this.setData({ 
         toptip: {
           msg: "请完善个人信息:)",
@@ -90,6 +103,8 @@ Page({
       })
       setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
     } else if(this.data.student_num.length != 7) {
+      wx.vibrateLong()
+
       this.setData({ 
         toptip: {
           msg: "请输入正确的学号:)",
@@ -99,6 +114,8 @@ Page({
       })
       setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
     } else {
+      wx.vibrateShort()
+
       // @BACK
       let userinfoData = {
         academy: that.data.academyArray[1][that.data.academyIndex[1]],
@@ -155,6 +172,7 @@ Page({
     this.setData({ verify_code_input: e.detail.value })
   },
   onVerifyCancel: function() {
+    wx.vibrateShort()
     this.setData({
       showVerifyBox: false,
       verify_code_input: ""
@@ -163,13 +181,19 @@ Page({
   // 输入完验证码 -> 确定
   onVerifyCodeSubmit: function() {
     if(this.data.verify_code_input == this.data.verifyCode) {   // 验证成功
+      wx.vibrateShort()
       this.setData({ 
         is_verified: true,
         showVerifyBox: false,
-        verify_code_input: ""
+        verify_code_input: "",
+        toptip: {
+          msg: "学号验证成功～",
+          type: "error",
+          show: true
+        }
       })
-
     } else {
+      wx.vibrateLong()
       this.setData({
         toptip: {
           msg: "验证码错误:)",
@@ -183,6 +207,7 @@ Page({
   // 发送验证码
   onVerifyTap: function() {
     if(this.data.student_num.length != 7) {
+      wx.vibrateLong()
       this.setData({ 
         toptip: {
           msg: "请输入正确的学号:)",
@@ -193,6 +218,7 @@ Page({
       return
     }
 
+    wx.vibrateShort()
     // 发送邮箱验证码
     let emileInfo = {
       studentNum: this.data.student_num,

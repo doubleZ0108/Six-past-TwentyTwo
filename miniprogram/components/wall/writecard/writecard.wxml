@@ -32,6 +32,7 @@
               <text>{{ switcher1_text }}｜切换</text>
             </view>
             <input type="text" name="myName" value="{{ myName }}"
+              bindtap="bindMyNameTap"
               placeholder="我的昵称" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
           </view>
           <view class="name-gender-group">
@@ -39,6 +40,7 @@
               <text>{{ switcher2_text }}｜切换</text>
             </view>
             <input type="text" name="taName" value="{{ taName }}"
+              bindtap="bindTaNameTap"
               placeholder="TA的昵称" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
           </view>
         </view>
@@ -51,10 +53,12 @@
           <!-- <picker mode="selector" bindchange="bindAcademyChange" name="academy"
             range="{{ academy_array }}" index="{{ academy_index }}">
             学院: {{ academy_array[academy_index]}} </picker> -->
-            <picker mode="multiSelector" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
+            <picker mode="multiSelector"
+              bindtap="bindAcademyPickerTap" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
             学院: {{ academyArray[1][academyIndex[1]] }}
             </picker>
-          <picker mode="selector" bindchange="bindGradeChange" name="grade"
+          <picker mode="selector"
+            bindtap="bindGradeTap" bindchange="bindGradeChange" name="grade"
             range="{{ grade_array }}" index="{{ grade_index }}">
             年级: {{ grade_array[grade_index] }}
           </picker>
@@ -66,8 +70,10 @@
             <text></text>
           </view>
           <input class="{{ switcher1_gender_now }}" type="text" name="myDescription" value="{{ myDescription }}"
+            bindtap="bindMyDescriptionTap"
             placeholder="我对自己的描述" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
           <input class="{{ switcher2_gender_now }}" type="text" name="taDescription" value="{{ taDescription }}"
+            bindtap="bindTaDescriptionTap"
             placeholder="我对TA的描述" placeholder-style="font-size:26rpx; color: rgba(255,255,255,.6);" />
         </view>
 
@@ -76,7 +82,7 @@
             <text>想说的话</text>
             <text></text>
           </view>
-          <textarea name="textarea" value="{{ textarea }}"></textarea>
+          <textarea name="textarea" value="{{ textarea }}" bindtap="bindTextareaTap"></textarea>
         </view>
 
         <button class="{{ colorful ? 'writecard-button-colorful' : '' }}" form-type="submit" catchtap="console.log('catch')">发送表白</button>
