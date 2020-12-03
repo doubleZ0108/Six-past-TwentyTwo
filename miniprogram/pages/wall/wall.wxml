@@ -5,7 +5,7 @@
 <view class="wall-page">
   <view class="wall-slidebar {{ drawer ? 'wall-slidebar-display' : ''}}">
     <text bindtap="userInfoTap">个人信息</text>
-    <text>应用设置</text>
+    <text bindtap="feedbackTap">用户反馈</text>
     <text>联系我们</text>
     <text>这是名字</text>
   </view>

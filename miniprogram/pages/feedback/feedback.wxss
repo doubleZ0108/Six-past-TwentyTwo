@@ -1,6 +1,10 @@
 /* miniprogram/pages/feedback/feedback.wxss */
 @import '../../style/iconfont.wxss';
 
+.toptips {
+  top: 80rpx;
+}
+
 .feedback-container {
   min-height: 100vh;
   height: 100vh;
@@ -92,6 +96,8 @@
   height: 400rpx;
   margin: 50rpx auto;
 
+  color: rgba(255,255,255,.83);
+  
   padding: 20rpx;
   border: 2rpx rgba(181, 218, 211, 0.2) solid;
   background: linear-gradient(120deg, rgba(126, 230, 212, 0.2),rgba(126, 230, 212,0.1),rgba(147,147,147,0.05),rgba(255, 235, 121, 0.3));
@@ -140,7 +146,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.feedbak-button-colorful.iconfont {
+.feedback-button-colorful.iconfont {
   background: linear-gradient(130deg, rgb(141, 209, 194),rgb(197, 224, 168));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
