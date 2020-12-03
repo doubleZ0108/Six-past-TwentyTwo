@@ -36,7 +36,7 @@
     </view>
 
     <!-- ../../resource/img/feedback/line.svg -->
-    <view class="favoritecard-wave" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/feedback/line.svg?sign=31064bf584a55ceb1839b76cda0efbae&t=1606991895)"></view>
+    <view class="feedback-wave" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/feedback/line.svg?sign=31064bf584a55ceb1839b76cda0efbae&t=1606991895)"></view>
   </view>
 
 </view>

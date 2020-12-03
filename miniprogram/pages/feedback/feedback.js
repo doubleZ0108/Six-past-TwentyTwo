@@ -1,66 +1,90 @@
 // miniprogram/pages/feedback/feedback.js
+
+const timeUtil = require('../../utils/time')
+const app = getApp()
+const db = wx.cloud.database()
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    content: "",
+    contact: "",
+    toptip: {
+      msg: "",
+      type: "success",
+      show: false
+    },
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  onContentTap: function() {
+    wx.vibrateShort()
+  },
+  onContentInput: function(e) {
+    this.setData({
+      content: e.detail.value
+    })
+  },
+
+  onContactTap: function() {
+    wx.vibrateShort()
+  },
+  onContactInput: function(e) {
+    this.setData({
+      contact: e.detail.value
+    })
+  },
+
+  feedbackSubmit: function() {
+    let that = this
+    this.setData({ colorful: true })
+
+    if(this.data.content == "") {
+      wx.vibrateLong()
+      this.setData({
+        toptip: {
+          msg: "请输入反馈:)",
+          type: "error",
+          show: true
+        }
+      })
+      setTimeout(function(){ that.setData({ colorful: false}) }, 2000)
+    } else {
+      wx.vibrateShort()
+
+      let feedbackData = {
+        openid: app.globalData.openid,
+        content: this.data.content,
+        contact: this.data.contact,
+        time: timeUtil.formatTime(new Date)
+      }
+
+      db.collection('feedback').add({
+        data: {
+          openid: feedbackData.openid,
+          content: feedbackData.content,
+          contact: feedbackData.contact,
+          time: feedbackData.time,
+          isHandle: false       // 还没处理过
+        },
+        success: function() {
+          that.setData({
+            toptip: {
+              msg: "感谢您宝贵的意见, 我们会进一步完善哦～",
+              type: "success",
+              show: true
+            },
+            content: "",
+            contact: ""
+          })
+        }
+      })
+    }
+  },
+
+
   onLoad: function (options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

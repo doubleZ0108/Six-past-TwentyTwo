@@ -1,0 +1,41 @@
+<!--miniprogram/pages/announcement/announcement.wxml-->
+
+<view class="announcement-container">
+  <image class="announcement-bgdecorate" src="../../resource/img/announcement/bg.png"></image>
+
+  <view class="announcement-logo">
+    <text class="iconfont icontongji"></text>
+  </view>
+
+  <view class="announcement-title-group">
+    <text>这里是一句话</text>
+    <view></view>
+  </view>
+
+  <view class="announcement-group">
+
+    <view class="announcement-item-container" 
+      wx:for="{{ announcement_list }}" wx:key="{{ index }}">
+      <view class="announcement-header">
+        <text>{{ item.time }}</text>
+        <text></text>
+      </view>
+
+      <image wx:if="{{ item.imgSrc != '' }}" mode="widthFix" src="{{ item.imgSrc }}"
+        data-index="{{ index }}"  bindtap="onImageTap"></image>
+
+      <view class="announcement-content">
+       <text>{{ item.content }}</text>
+      </view>
+
+      <view class="announcement-footer"></view>
+    </view>
+
+  </view>
+
+  <view class="announcement-wave">
+    <image src="../../resource/img/global/fish-bone.png"></image>
+    <text>这里什么都没有了哦</text>
+  </view>
+
+</view>

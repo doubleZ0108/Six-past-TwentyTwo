@@ -42,7 +42,7 @@
 }
 
 /*============ wave ============*/
-.favoritecard-wave {
+.feedback-wave {
   height: 150rpx;
   width: 100%;
   margin-top: 50rpx;
