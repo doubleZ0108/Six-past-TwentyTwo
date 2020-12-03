@@ -1,36 +1,48 @@
 // components/wall/notice/notice.js
+
+const db = wx.cloud.database()
+
 Component({
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
 
   },
 
-  /**
-   * 组件的初始数据
-   */
+
   data: {
-    notices: [
-      "这里是一条公告，它很长很长很长很长它很长很长很长很长它很长很长很长很长",
-      "111",
-      "2222",
-      "333",
-      "444"
-    ],
+    notices: [],
     notice_index: 0,
     animate: false
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
+    initNotice: function() {
+      let that = this
+      db.collection('announcement')
+        .limit(16)
+        .orderBy("time", "desc")
+        .get({
+          success: function(res) {
+            let bin_notices = []
+            res.data.forEach(function(notice) {
+              bin_notices.push(notice.content)
+            })
+            that.setData({ notices: bin_notices })
+          }
+        })
+    },
 
+    onNoticeTap: function() {
+      wx.navigateTo({
+        url: '../announcement/announcement',
+      })
+    }
   },
 
   lifetimes: {
     attached: function() {
+      this.initNotice()
+
       let that = this
       setInterval(function(){
         let notice_index_now = that.data.notice_index

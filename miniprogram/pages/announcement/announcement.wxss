@@ -1,7 +1,9 @@
 /* miniprogram/pages/announcement/announcement.wxss */
 @import '../../style/iconfont.wxss';
 
-
+.loading {
+  height: 100rpx;
+}
 
 .announcement-container {
   min-height: 100vh;
@@ -126,6 +128,7 @@
   align-items: center;
   justify-content: center;
   color: rgba(255,255,255,.6);
+  transition: .4s cubic-bezier(.2,.8,.2,1);
 }
 .announcement-wave image {
   height: 100rpx;
