@@ -87,7 +87,7 @@
 }
 .feedback-title-group view {
   width: 100%;
-  border-bottom: 2rpx solid rgba(255,255,255,.6);
+  border-bottom: 2rpx solid rgba(255,255,255,.38);
 }
 
 /*============ big textarea ============*/
@@ -96,7 +96,7 @@
   height: 400rpx;
   margin: 50rpx auto;
 
-  color: rgba(255,255,255,.83);
+  color: rgba(255,255,255,.6);
   
   padding: 20rpx;
   border: 2rpx rgba(181, 218, 211, 0.2) solid;
@@ -107,7 +107,7 @@
 /*============ bototm append info ============*/
 .feedback-append {
   width: 100%;
-  color: rgba(255,255,255,.83);
+  color: rgba(255,255,255,.6);
 }
 
 .feedback-append > text {
@@ -130,6 +130,7 @@
   font-size: 25rpx;
   width: 80%;
   margin: 0 auto;
+  color: rgba(255,255,255,.45);
 }
 
 /*============ button ============*/
@@ -140,7 +141,7 @@
 
   display: block;
   font-size: 160rpx;
-  background: rgb(30,31,66); 
+  background: rgb(48, 23, 20); 
   /* 亮时候的颜色：linear-gradient(130deg, rgb(94,233,203),rgb(212,248,174))*/
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

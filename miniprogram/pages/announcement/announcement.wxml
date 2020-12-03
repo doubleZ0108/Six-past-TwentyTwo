@@ -5,7 +5,7 @@
   <image class="announcement-bgdecorate" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/announcement/bg.png?sign=58b2e4821a90749d4b32ae2c6f83c6cb&t=1606996661"></image>
 
   <view class="announcement-logo">
-    <text class="iconfont icontongji"></text>
+    <text class="iconfont icongonggao1"></text>
   </view>
 
   <view class="announcement-title-group">
@@ -34,7 +34,7 @@
 
     <!-- ../../resource/img/global/loading.gif -->
     <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
-      <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading.gif?sign=c6703df520ed32c1035a1cefcbbfca05&t=1607002237"></image>
+      <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a3dcbec65baac715b393e182fd2dffc0&t=1607004619"></image>
       <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
     </view>
 

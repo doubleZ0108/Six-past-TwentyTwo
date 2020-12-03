@@ -9,7 +9,7 @@
   <view class="feedback-group">
     <view class="feedback-content-group">
       <view class="feedback-logo">
-        <text class="iconfont icontongji"></text>
+        <text class="iconfont iconfankui"></text>
       </view>
 
       <view class="feedback-title-group">
