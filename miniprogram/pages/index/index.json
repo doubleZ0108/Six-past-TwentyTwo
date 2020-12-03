@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "blackboard": "../../components/index/blackboard/blackboard"
+  }
 }

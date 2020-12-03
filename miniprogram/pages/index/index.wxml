@@ -1,7 +1,16 @@
 <!--miniprogram/pages/index/index.wxml-->
 <view class="index-container">
-  <view class="index-guide-container" style="display: {{ guide_show ? 'flex' : 'none' }}">
-    <button open-type="getUserInfo" bindgetuserinfo="onUserInfoTap">获取用户信息</button>
+  <view class="index-guide-container" style="opacity: {{ guide_show ? '1' : '0' }};">
+    <!-- <image src="../../resource/img/index/blackboard.png"></image> -->
+    <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/index/blackboard.png?sign=d5d93ed17746fca29bf86050124dc022&t=1606976130"></image>
+
+    <blackboard />
+
+    <view class="authorization-group" style="display: {{ show_getUserInfo_btn ? 'flex' : 'none' }};">
+      <view class="authorization-blur"></view>
+      <button open-type="getUserInfo" bindgetuserinfo="onUserInfoTap">授权登陆</button>
+    </view>
+
   </view>
 
 
@@ -17,7 +26,6 @@
     <view class="blank-block"></view>
     <text class="text">等等嘛，你要等阳光照进来～</text>
   </view>
-
 
   <view class="LoadingMoonGroup {{ bg_blur ? 'blur' : '' }} {{ near_end ? 'end' : ''}} {{ day_or_night=='night' ? '' : 'end' }}">
       <!-- <image class="moon" src="../../resource/img/index/loading-moon/moon.svg"></image>

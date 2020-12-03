@@ -1,4 +1,3 @@
-
 // miniprogram/pages/index/index.js
 
 const app = getApp()
@@ -7,13 +6,17 @@ const db = wx.cloud.database()
 Page({
 
   data: {
-    guide_show: true,   // 显示button
+    guide_show: true,   // 显指导信息
     bg_blur: true,    // 背景模糊
     near_end: false,   // 接近跳转界面时切换背景颜色
     day_or_night: "day",
+    show_getUserInfo_btn: false
   },
 
+
+
   onUserInfoTap: function() { 
+    let that = this
     wx.getUserInfo({
       success: function(userInfo_res) {
         app.globalData.userInfo = userInfo_res.userInfo
@@ -48,12 +51,7 @@ Page({
                     commentList: []
                   },
                   success: function() {
-                    // wx.switchTab({
-                    //   url: '../wall/wall',
-                    // })
-                    wx.redirectTo({
-                      url: '../wall/wall',
-                    })
+                    that.loadingAnimation()
                   }
                 })
               }
@@ -203,7 +201,7 @@ Page({
     this.timeAdapt()
 
     // this.loadingAnimation()
-    this._quickLogin_secret()
+    // this._quickLogin_secret()
   },
 
   /**

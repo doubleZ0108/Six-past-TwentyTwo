@@ -1,0 +1,22 @@
+<!--components/index/blackboard/blackboard.wxml-->
+<view class="guide-group">
+
+  <view class="title">
+    <text>开始之前</text>
+  </view>
+
+  <swiper class="content" current="{{ currentTab }}" 
+    bindchange="switchTab">
+
+    <swiper-item wx:for="{{ info_list }}" wx:key="{{ index }}">
+      <text>{{ item }}</text>
+    </swiper-item>
+
+  </swiper>
+
+  <view class="navigator-button">
+    <text class="iconfont iconshezhi {{ left_btn_end ? 'colorful' : '' }}" bindtap="onLeftBtnTap"></text>
+    <text class="iconfont iconshezhi {{ right_btn_end ? 'colorful' : '' }}" bindtap="onRightBtnTap"></text>
+  </view>
+
+</view>
