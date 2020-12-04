@@ -33,6 +33,8 @@ Component({
     },
 
     onNoticeTap: function() {
+      wx.vibrateShort()
+      
       wx.navigateTo({
         url: '../announcement/announcement',
       })

@@ -17,7 +17,7 @@
   min-height: 600rpx;
   position: relative;
 
-  transition: 2s linear;
+  transition: 1.6s linear;
 }
 
 .index-guide-container image {
