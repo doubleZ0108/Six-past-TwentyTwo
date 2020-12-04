@@ -19,7 +19,7 @@
 
 .guide-group .content {
   width: 100%;
-  height: 200rpx;
+  height: 250rpx;
   margin: 0 auto;
   text-align: center;
 
@@ -32,6 +32,8 @@
   display: flex;
   align-items: center;
   justify-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .guide-group .content swiper-item text {
@@ -40,6 +42,26 @@
   text-align: center;
 }
 
+.guide-group .content swiper-item.content-time-part {
+  font-size: 25rpx;
+}
+
+.guide-group .content swiper-item.content-time-part .time-item {
+  text-align: left;
+  margin-left: 65rpx;
+}
+
+.guide-group .content swiper-item.content-time-part .colorful-time {
+  background-image: linear-gradient( 104deg, #43caffc7 10%, #9808ccd0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.guide-group .content swiper-item.content-time-part .colorful-duration {
+  background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .guide-group .navigator-button {
   width: 100%;
@@ -57,10 +79,14 @@
   -webkit-text-fill-color: transparent;
   transition: .8s cubic-bezier(.2,.8,.2,1);
 }
-.guide-group .navigator-button .iconfont:nth-child(1) {
+.guide-group .navigator-button .iconfont:first-child {
   margin-right: 80rpx;
 }
-.guide-group .navigator-button .iconfont:nth-child(2) {
+.guide-group .navigator-button .page-num {
+  color: rgba(255, 255, 255, .6);
+  font-size: 25rpx;
+}
+.guide-group .navigator-button .iconfont:last-child {
   margin-left: 80rpx;
 }
 
