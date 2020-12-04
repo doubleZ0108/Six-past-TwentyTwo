@@ -22,6 +22,10 @@
         <text></text>
       </view>
 
+      <view class="announcement-title">
+        <text>「{{ item.title }}」</text>
+      </view>
+
       <image wx:if="{{ item.imgSrc != '' }}" mode="widthFix" src="{{ item.imgSrc }}"
         data-imgSrc="{{ item.imgSrc }}"  bindtap="onImageTap"></image>
 
