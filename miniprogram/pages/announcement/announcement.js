@@ -21,9 +21,10 @@ Page({
     wx.vibrateShort()
 
     let that = this
+
     wx.previewImage({
-      current: e.target.dataset.imgSrc,
-      urls: that.data.announcement_imageSrc_list
+      current: e.target.dataset.imgsrc,
+      urls: [e.target.dataset.imgsrc]
     })
   },
 
