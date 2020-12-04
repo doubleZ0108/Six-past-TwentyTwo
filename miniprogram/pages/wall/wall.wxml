@@ -4,10 +4,23 @@
 
 <view class="wall-page">
   <view class="wall-slidebar {{ drawer ? 'wall-slidebar-display' : ''}}">
-    <text bindtap="userInfoTap">个人信息</text>
-    <text bindtap="feedbackTap">用户反馈</text>
-    <text bindtap="announcementTap">公告通知</text>
-    <text>关于我们</text>
+    <view class="wall-slidebar-block userinfo-block">
+      <text class="iconfont iconshezhi"></text>
+      <text bindtap="userInfoTap">个人信息</text>
+    </view>
+    <view class="wall-slidebar-block feedback-block">
+      <text class="iconfont iconfankui"></text>
+      <text bindtap="feedbackTap">用户反馈</text>
+    </view>
+    <view class="wall-slidebar-block announcement-block">
+      <text class="iconfont icongonggao1"></text>
+      <text bindtap="announcementTap">公告通知</text>
+    </view>
+    <view class="wall-slidebar-block aboutus-block">
+      <text class="iconfont iconjinrujiantou"></text>
+      <text>关于我们</text>
+    </view>
+    
   </view>
 
   <view class="wall-container {{ drawer ? 'wall-contaienr-drawer' : ''}}">

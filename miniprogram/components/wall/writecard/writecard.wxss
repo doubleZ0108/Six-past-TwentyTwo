@@ -336,7 +336,8 @@
 
 .vippay-group {
   width: 80%;
-  height: 350rpx;
+  height: 25%;
+  min-height: 400rpx;
   border-radius: 20rpx;
   transform: rotate(20deg);
 
@@ -361,9 +362,9 @@
 
 /*============ title & line ============*/
 .userinfo-title-group {
-  height: 30rpx;
+  height: 25%;
   width: 90%;
-  margin: 15rpx;
+  margin-top: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -384,7 +385,7 @@
 .vippay-group .vippay-content {
   width: 90%;
   height: 40%;
-  margin: 10rpx;
+  /* margin: 10rpx; */
   justify-content: space-between;
   align-items: center;
   display:flex;
@@ -420,7 +421,7 @@
   display: block;
   width: 60%;
   height: 100%;
-  margin: 20rpx;
+  /* margin: 20rpx; */
   background-color: rgba(255,255,255,.6);
   overflow: hidden;
   background-size: contain;
@@ -430,12 +431,20 @@
 /* =========== button ======== */
 
 .vippay-function-group {
-  right: 5%;
-  width: 100rpx;
+  /* right: 5%; */
+  display: flex;
+  width: 100%;
+  min-width: 180rpx;
+  height: 20%;
+  min-height: 80rpx;
+  margin: 3% 0 7% 0;
+  justify-content: center;
 }
 .vippay-function-group .iconfont {
-  font-size: 50rpx;
+  line-height: 80rpx;
+  font-size: 80rpx;
   margin: 0 5rpx;
+  text-align: center;
 }
 
 .vippay-function-group .iconfont:nth-child(1) {
