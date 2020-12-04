@@ -222,6 +222,10 @@ Component({
     /********************** card list logic *******************************/
     initWorldCardList: function() {
       let that = this
+      this.setData({
+        world_cards: []
+      })
+
       db.collection('card')
       .limit(that.data.init_step)   // 初始加载多少
       .orderBy('timestamp', 'desc')

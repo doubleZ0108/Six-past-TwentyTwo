@@ -8,14 +8,51 @@
   <swiper class="content" current="{{ currentTab }}" 
     bindchange="switchTab">
 
-    <swiper-item wx:for="{{ info_list }}" wx:key="{{ index }}">
+    <!-- <swiper-item wx:for="{{ info_list }}" wx:key="{{ index }}">
       <text>{{ item }}</text>
+    </swiper-item> -->
+    <swiper-item>
+      <text>欢迎来到</text>
+      <text>「二十二点零六」</text>
+    </swiper-item>
+
+    <swiper-item>
+      <text>这里不仅仅是一个</text>
+      <text>「表白墙」</text>
+      <text>更是分享感动</text>
+      <text>收获遇见的神奇小屋子</text>
+    </swiper-item>
+
+    <swiper-item>
+      <text>而我</text>
+      <text>是「软件学院」大四</text>
+      <text>一名造梦工程师🌨</text>
+      <text>希望能在这里见到有趣的你</text>
+    </swiper-item>
+
+    <swiper-item>
+      <text>虽然这里是社交平台，但希望你能在平时专心学业心无旁骛，因此制定</text>
+      <text>开放时间如下➡️</text>
+    </swiper-item>
+
+    <swiper-item class="content-time-part">
+      <text class="time-item">周一～五：<text class="colorful-time">22:06</text>开放<text class="colorful-duration">16</text>分钟</text>
+      <text class="time-item">周末/节假日：全天开放</text>
+      <text class="time-item">特殊纪念日：系统通知开放时间</text>
+      <text>--------------------------</text>
+      <text>(注：其他未开放时间可以自由编辑表白并查看自己发出的所有表白)</text>
+    </swiper-item>
+
+    <swiper-item>
+      <text>「二十二点零六」</text>
+      <text>“每个夜晚都会遇见🌙”</text>
     </swiper-item>
 
   </swiper>
 
   <view class="navigator-button">
     <text class="iconfont iconziyuan90 {{ left_btn_end ? 'colorful' : '' }}" bindtap="onLeftBtnTap"></text>
+    <text class="page-num">{{ currentTab + 1 }}/{{ info_list.length }}</text>
     <text class="iconfont iconziyuan95 {{ right_btn_end ? 'colorful' : '' }}" bindtap="onRightBtnTap"></text>
   </view>
 

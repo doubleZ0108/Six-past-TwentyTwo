@@ -24,7 +24,8 @@ Page({
 
     wx.previewImage({
       current: e.target.dataset.imgsrc,
-      urls: [e.target.dataset.imgsrc]
+      // urls: [e.target.dataset.imgsrc]    // single image preview
+      urls: that.data.announcement_imageSrc_list
     })
   },
 
@@ -44,6 +45,7 @@ Page({
           res.data.forEach(function(announcement){
             bin_announcements.push({
               imgSrc: announcement.imgSrc,
+              title: announcement.title,
               content: announcement.content,
               time: timeUtil.formatDate(announcement.time)
             })
@@ -87,6 +89,7 @@ Page({
           res.data.forEach(function(announcement){
             bin_announcements.push({
               imgSrc: announcement.imgSrc,
+              title: announcement.title,
               content: announcement.content,
               time: timeUtil.formatDate(announcement.time)
             })
