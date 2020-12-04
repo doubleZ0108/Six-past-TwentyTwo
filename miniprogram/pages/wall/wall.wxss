@@ -1,4 +1,5 @@
 /* miniprogram/pages/wall/wall.wxss */
+@import '../../style/iconfont.wxss';
 
 .loading {
   height: 100rpx;
@@ -29,11 +30,19 @@
 
   transition: .8s cubic-bezier(.2,.8,.2,1);
 }
-.wall-slidebar text,
+
+.wall-slidebar .wall-slidebar-block, 
 .wall-slidebar navigator {
-  margin: 25rpx auto;
+  margin: 15rpx auto;
+  font-size: 45rpx;
+  color: rgba(255,255,255,.83);
+}
+
+.wall-slidebar .wall-slidebar-block .iconfont {
+  line-height: 50rpx;
   font-size: 50rpx;
-  color: white;
+  color: rgba(255,255,255,.83);
+  margin-right: 10rpx;
 }
 
 .wall-slidebar.wall-slidebar-display {

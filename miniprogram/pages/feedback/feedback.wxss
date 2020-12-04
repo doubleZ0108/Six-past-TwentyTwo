@@ -100,7 +100,7 @@
   
   padding: 20rpx;
   border: 2rpx rgba(181, 218, 211, 0.2) solid;
-  background: linear-gradient(120deg, rgba(126, 230, 212, 0.2),rgba(126, 230, 212,0.1),rgba(147,147,147,0.05),rgba(255, 235, 121, 0.3));
+  background: linear-gradient(120deg, rgba(240, 135, 213, 0.2),rgba(230, 220, 126, 0.1),rgba(236, 205, 118, 0.05),rgba(248, 132, 23, 0.3));
   border-radius: 20rpx;
 }
 
@@ -122,7 +122,7 @@
 
   padding: 20rpx;
   border: 2rpx rgba(181, 218, 211, 0.2) solid;
-  background: linear-gradient(120deg, rgba(126, 230, 212, 0.2),rgba(126, 230, 212,0.1),rgba(147,147,147,0.05),rgba(255, 235, 121, 0.3));
+  background: linear-gradient(120deg, rgba(211, 230, 126, 0.2),rgba(230, 220, 126, 0.1),rgba(236, 205, 118, 0.05),rgba(248, 132, 23, 0.3));
   border-radius: 20rpx;
 }
 
@@ -148,7 +148,7 @@
 }
 
 .feedback-button-colorful.iconfont {
-  background: linear-gradient(130deg, rgb(141, 209, 194),rgb(197, 224, 168));
+  background: linear-gradient(130deg, rgb(245, 179, 126),rgb(223, 69, 82));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
