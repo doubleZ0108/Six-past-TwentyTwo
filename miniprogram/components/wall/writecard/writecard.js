@@ -454,7 +454,7 @@ Component({
       if(this.data.fold_class == "writecard-container-unfold") {
         this.setData({
           // writecard_bg: write_vipcard ? '../../../resource/img/write/vip_unfold_bg.png' : '../../../resource/img/write/unfold_bg.png'
-          writecard_bg: write_vipcard ? 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/vip_unfold_bg.png?sign=44a38a1a065a5138c5640a4438e843df&t=1606878152' : 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/unfold_bg.png?sign=d44ae2bdf9b846e0876f170405d84cc6&t=1606878091'
+          writecard_bg: write_vipcard ? 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/vip_unfold_write_bg_small.png?sign=fba0ec750848c799c05d8e85c1922eef&t=1607068410' : 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/unfold_bg.png?sign=d44ae2bdf9b846e0876f170405d84cc6&t=1606878091'
         })
       }
     }
