@@ -20,6 +20,7 @@
 
         <view class="write-logo" catchtap="onVipPayTap">
           <text class="iconfont icon19shuxie3x"></text>
+          <mp-badge ext-class="vip-badge" style="position: absolute; transform: translateX(15rpx) translateY(30rpx);" content="点我发布vip表白"/>
         </view>
 
         <view class="writecard-block writecard-name-gender">

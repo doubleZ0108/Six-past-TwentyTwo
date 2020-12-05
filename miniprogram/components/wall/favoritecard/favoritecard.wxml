@@ -30,9 +30,17 @@
           <view class="default-container">
             <image src="{{ userInfo.avatarUrl }}"></image>
             <view class="default-text-group">
-              <text>{{ userInfo.nickName }}</text>
-              <text>{{ userInfo.gender==1 ? '男生' : ( userInfo.gender==2 ? '女生' : '未知' ) }}</text>
-              <text> <text class="iconfont icontishi"></text> 默认信息和微信账号同步，如欲修改请直接修改微信账号下个人信息</text>
+              <view class="default-info-content">
+                <text>{{ userInfo.nickName }}</text>
+                <text>{{ userInfo.gender==1 ? '男生' : ( userInfo.gender==2 ? '女生' : '未知' ) }}</text>
+              </view>
+              <view class="hint-info-group"> 
+                <text class="iconfont icontishi"></text> 
+                <view class="hint-info-content-group">
+                  <text>数据统计可能有稍许延迟和不同步等问题</text>
+                  <text>可刷新小程序改善</text>
+                </view>
+              </view>
             </view>
           </view>
         </view>

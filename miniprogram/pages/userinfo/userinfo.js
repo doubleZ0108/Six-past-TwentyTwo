@@ -253,8 +253,9 @@ Page({
         to_emile: emileInfo.studentNum + '@tongji.edu.cn',
         from: '二十二点零六团队 <Six_past_TwentyTwo@163.com>',    // 发件人必须是这个格式
         subject: '【二十二点零六】验证码',                // 主题
-        text: '您的验证码是: ' + emileInfo.verifyCode   // 邮件内容，text或者html格式
+        text: '“每个夜晚都会遇见🌙”\n您的验证码是: ' + emileInfo.verifyCode + '\n\n\n/* zzzzzzzzzzzzzzzz\n同济大学软件学院\n造梦工程师🌨'
       },
+              // text: '您的验证码是: ' + emileInfo.verifyCode,   // 邮件内容，text或者html格式
       complete: function(res) {
         console.log(res)
       }

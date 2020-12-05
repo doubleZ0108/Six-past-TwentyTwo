@@ -13,7 +13,7 @@
       </view>
 
       <view class="feedback-title-group">
-        <text>留下你想对我们说的话吧</text>
+        <text>留下想对我们说的话吧</text>
         <view></view>
       </view>
 
@@ -22,8 +22,9 @@
         bindinput="onContentInput" bindtap="onContentTap"></textarea>
 
       <view class="feedback-append">
-        <text>如果想有更深入的交流, </text>
-        <text>也欢迎留下自己的联系方式丫。</text>
+        <text>如果想有更深入的交流</text>
+        <text>甚至加入我们</text>
+        <text>也欢迎留下自己的联系方式</text>
         <textarea name="contact" value="{{ contact }}"
           bindinput="onContactInput" bindtap="onContactTap"></textarea>
         <text class="append-info"> <text class="iconfont icontishi"></text> 此项为选填项, 填写时请注明联系渠道, 如: 微信、QQ、邮箱、电话...</text>

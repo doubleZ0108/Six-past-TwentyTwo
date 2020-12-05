@@ -157,23 +157,33 @@
 .default-text-group {
   border-left: 2rpx rgba(255,255,255,.5) solid;
 }
-.default-text-group > text {
+.default-info-content text {
   display: block;
   margin-left: 20rpx;
   color: rgba(255,255,255,.6);
 }
 
-.default-text-group text:nth-child(1) {
+.default-info-content text:nth-child(1) {
   font-size: 35rpx;
 }
-.default-text-group text:nth-child(2) {
+.default-info-content text:nth-child(2) {
   font-size: 25rpx;
 }
-.default-text-group text:nth-child(3) {
+
+.hint-info-group {
   margin-top: 20rpx;
   font-size: 18rpx;
   color: rgba(255,255,255,.6);
   line-height: 1.25;
+  margin-left: 20rpx;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 5rpx;
+}
+.hint-info-content-group text {
+  display: block;
+  color: rgba(255,255,255,.6);
+  font-size: 20rpx;
 }
 
 .default-text-group .iconfont.icontishi {
