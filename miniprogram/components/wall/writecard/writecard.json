@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "mp-toptips": "/miniprogram_npm/weui-miniprogram/toptips/toptips"
+    "mp-toptips": "/miniprogram_npm/weui-miniprogram/toptips/toptips",
+    "mp-badge": "/miniprogram_npm/weui-miniprogram/badge/badge"
   }
 }

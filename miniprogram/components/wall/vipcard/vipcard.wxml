@@ -22,7 +22,7 @@
 
     <!-- ../../../resource/img/card/vipcard_bgdecorate_unfold.svg -->
     <!-- <image class="vipcard-bgdecorate-unfold" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/card/vipcard_bgdecorate_unfold.svg?sign=6313522eee31f591f524b4f8d058a6f6&t=1606878433"></image> -->
-    <image class="vipcard-bgdecorate-unfold" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/card/vip-unfold-bg.png?sign=d70b0cdb427a030798cdf916966001e9&t=1607068224"></image>
+    <image class="vipcard-bgdecorate-unfold" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/vip/vip-unfold-bg.png?sign=1be0b13b7bf032589a8c314391758908&t=1607165028"></image>
     
 
     <view class="vipcard-info-unfold-tag">

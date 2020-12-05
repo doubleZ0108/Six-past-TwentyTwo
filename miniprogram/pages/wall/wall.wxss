@@ -1,6 +1,26 @@
 /* miniprogram/pages/wall/wall.wxss */
 @import '../../style/iconfont.wxss';
 
+.vip-badge {
+  background: linear-gradient(130deg, rgb(201,247,244),rgb(249,214,134));   /* TODO 高贵金色待改 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: VipBadgeAnimation 6s infinite;
+  transition: .4s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes VipBadgeAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .loading {
   height: 100rpx;
 }

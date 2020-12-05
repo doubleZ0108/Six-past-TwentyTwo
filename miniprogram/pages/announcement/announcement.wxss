@@ -111,7 +111,7 @@
 }
 
 .announcement-item-container image {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: block;
   object-fit: cover;
