@@ -70,7 +70,7 @@
       <image class="envelop-head" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/head.png?sign=99a631e51423d7067ef912cca79e54a9&t=1606878244"></image>
       <image class="envelop-beneath" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/beneath.png?sign=a057565f8dff0305442073c2385e0a9e&t=1606878223"></image>
       <image class="envelop-body" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/body.png?sign=cdd657bd1d843cd37dc2a6a1245f3392&t=1606878234"></image>
-      <scroll-view class="envelop-content" scroll-y enable-flex>
+      <scroll-view class="envelop-content" scroll-y>
         <text class="envelop-content-word">{{ description }}</text>
         <!-- <image src="../../../resource/img/envelop/picture.png"></image> -->
         <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/picture.png?sign=91a6bb63059481652b09b6aa172c21d4&t=1606878252"></image>

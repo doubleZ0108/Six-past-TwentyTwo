@@ -336,7 +336,7 @@
 
 .vippay-group {
   width: 80%;
-  height: 25%;
+  height: 35%;
   min-height: 400rpx;
   border-radius: 20rpx;
   transform: rotate(20deg);
@@ -373,6 +373,7 @@
 .userinfo-title-group text:nth-child(1) {
   width: 40%;
   color: rgba(255,255,255,.83);
+  font-weight: 500;
   font-family: Microsoft YaHei;
 }
 .userinfo-title-group text:nth-child(2) {
@@ -383,17 +384,17 @@
 
 /* ============ content = intro + img ============== */
 .vippay-group .vippay-content {
-  width: 90%;
-  height: 40%;
-  /* margin: 10rpx; */
-  justify-content: space-between;
+  width: 100%;
+  height: 90%;
+  justify-content: center;
   align-items: center;
   display:flex;
+  flex-direction: row;
   align-items: center;
 }
 
 .vippay-info-group {
-  width: 30%;
+  width: 60%;
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-gap: 5rpx;
@@ -404,25 +405,21 @@
   color: rgba(255,255,255,.6);
 }
 .vippay-text-group {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 20rpx;
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.83);
+}
+.vippay-text-group text {
+  display: block;
 }
 
-/* .vippay-group .vippay-content text:nth-child(1) {
-  width: 30%;
-  color: rgba(255,255,255,.6);
-}*/
-
-.vippay-group .vippay-content .vippay-img {
+.vippay-group .vippay-content image {
   display: block;
-  width: 60%;
-  height: 100%;
-  /* margin: 20rpx; */
-  background-color: rgba(255,255,255,.6);
+  width: 175rpx;
+  height: 80%;
+  margin: 0 15rpx;
   overflow: hidden;
   background-size: contain;
 } 
@@ -443,7 +440,7 @@
 .vippay-function-group .iconfont {
   line-height: 80rpx;
   font-size: 80rpx;
-  margin: 0 5rpx;
+  margin: 0 25rpx;
   text-align: center;
 }
 
