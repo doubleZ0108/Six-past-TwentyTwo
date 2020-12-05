@@ -1,4 +1,8 @@
 // components/wall/decorate/decorate.js
+
+const app = getApp()
+const db = wx.cloud.database()
+
 Component({
 
   properties: {
@@ -7,41 +11,55 @@ Component({
 
   data: {
     win_height: 0,
-    decorate_0_effect: false,
-    decorate_1_effect: false,
-    decorate_2_effect: false,
-    decorate_3_effect: false
+    decorate_bg_list: []
   },
 
   methods: {
+    decorateScroll: function(e) {
+      console.log(e)
+    }
+  },
 
+  lifetimes: {
+    attached: function() {
+      let that = this
+      this.setData({ decorate_bg_list: [] })
+
+      db.collection('decorate')
+        .orderBy('time', 'asc')
+        .get({
+          success: function(res) {
+            let bin_decorate_list = []
+            res.data.forEach(function(decorate) {
+              bin_decorate_list.push({
+                imgSrc: decorate.imgSrc,
+                show: false
+              })
+            })
+            that.setData({ decorate_bg_list: bin_decorate_list })
+          }
+        })
+    }
   },
 
   observers: {
     'win_height_root': function(win_height_root) {
-      this.setData({ win_height: win_height_root })
-      if(win_height_root > 0 && win_height_root < 2000) {   // #1
-        this.setData({ 
-          decorate_0_effect: true,
-          decorate_1_effect: false,
-          decorate_2_effect: false,
-          decorate_3_effect: false
-        })
-      } else if(win_height_root > 2000 && win_height_root < 3000) {   // #2
-        this.setData({ 
-          decorate_1_effect: true,
-          decorate_2_effect: false,
-          decorate_3_effect: false
-        })
-      } else if(win_height_root > 3000 && win_height_root < 4000) {   // #3
-        this.setData({ 
-          decorate_2_effect: true,
-          decorate_3_effect: false
-        })
-      } else if(win_height_root > 4000 && win_height_root < 5000) {   // #4        // #2
-        this.setData({ 
-          decorate_3_effect: true
-        })
+      if(this.data.decorate_bg_list.length != 0) {
+        let that = this
+
+        this.setData({ win_height: win_height_root })
+        let index = parseInt(win_height_root / 2500)
+
+        let i = 0
+        for(i=0; i < (index < this.data.decorate_bg_list.length ? index : this.data.decorate_bg_list.length); ++i) {
+          this.data.decorate_bg_list[i].show = true
+        }
+        for(;i < this.data.decorate_bg_list.length; ++i) {
+          this.data.decorate_bg_list[i].show = false
+        }
+        this.data.decorate_bg_list[0].show = true
+
+        this.setData({ decorate_bg_list: that.data.decorate_bg_list}) 
       }
     }
   }
