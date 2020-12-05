@@ -109,11 +109,10 @@ Component({
       // let fold_now = this.data.fold_class == "" ? "vipcard-container-unfold" : "";
       // this.setData({ fold_class: fold_now })
 
-      wx.vibrateShort()
-
       this.backToTop()
 
       if(this.data.fold_class != "vipcard-container-unfold") {
+        wx.vibrateShort()
         this.setData({ fold_class: "vipcard-container-unfold" })
       }
 

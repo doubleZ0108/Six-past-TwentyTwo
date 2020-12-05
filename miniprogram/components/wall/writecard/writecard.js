@@ -77,6 +77,14 @@ Component({
       }
     },
 
+    onQRcodeTap: function(e) {
+      wx.vibrateShort()
+      wx.previewImage({
+        current: e.target.dataset.qrcode,
+        urls: [e.target.dataset.qrcode]
+      })
+    },
+
     onWriteCardTap: function() {
       if(this.data.fold_class != "writecard-container-unfold") {
         wx.vibrateShort()

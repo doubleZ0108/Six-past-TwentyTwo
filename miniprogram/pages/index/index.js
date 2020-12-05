@@ -201,7 +201,7 @@ Page({
     this.timeAdapt()
 
     // this.loadingAnimation()
-    // this._quickLogin_secret()
+    this._quickLogin_secret()
   },
 
   /**
