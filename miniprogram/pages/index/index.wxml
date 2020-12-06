@@ -8,6 +8,7 @@
 
     <view class="authorization-group" style="display: {{ show_getUserInfo_btn ? 'flex' : 'none' }};">
       <view class="authorization-blur"></view>
+      <button bindtap="onSubscribeTap">接受订阅信息</button>
       <button open-type="getUserInfo" bindgetuserinfo="onUserInfoTap">授权登陆</button>
     </view>
 

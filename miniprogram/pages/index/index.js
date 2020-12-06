@@ -14,6 +14,14 @@ Page({
   },
 
 
+  onSubscribeTap: function() {
+    wx.requestSubscribeMessage({
+      tmplIds: ['KSrfOtJCMHZlzoX1IzPsFAJ_yBmGN0bRI2eK_SK-lxc'],
+      success (res) { 
+        
+      }
+    })
+  },
 
   onUserInfoTap: function() { 
     let that = this
@@ -200,8 +208,8 @@ Page({
   onLoad: function (options) {
     this.timeAdapt()
 
-    // this.loadingAnimation()
-    this._quickLogin_secret()
+    this.loadingAnimation()
+    // this._quickLogin_secret()
   },
 
   /**

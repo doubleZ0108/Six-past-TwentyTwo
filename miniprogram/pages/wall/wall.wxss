@@ -85,3 +85,23 @@
 .toptips {
   top: 80rpx;
 }
+
+.copyright {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 25rpx;
+  font-size: 25rpx;
+  left: 0;
+  font-family: Weibei SC, NSimSun, STXinwei, STSong;
+  color: rgba(255,255,255,.6);
+  opacity: 0;
+  transition: .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.wall-slidebar-display .copyright {
+  opacity: 1;
+}
