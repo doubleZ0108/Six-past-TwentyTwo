@@ -37,6 +37,7 @@
   left: 5%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -50,6 +51,7 @@
 .authorization-group button {
   height: 75rpx;
   width: 200rpx;
+  margin: 25rpx auto;
   padding: 0;
   text-align: center;
   display: flex;

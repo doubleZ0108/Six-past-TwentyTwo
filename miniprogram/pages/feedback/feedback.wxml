@@ -23,7 +23,7 @@
 
       <view class="feedback-append">
         <text>如果想有更深入的交流</text>
-        <text>甚至加入我们</text>
+        <text>商业合作 / 加入我们 / ...</text>
         <text>也欢迎留下自己的联系方式</text>
         <textarea name="contact" value="{{ contact }}"
           bindinput="onContactInput" bindtap="onContactTap"></textarea>

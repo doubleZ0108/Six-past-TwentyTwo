@@ -21,6 +21,11 @@
       <text>关于我们</text>
     </view>
     
+    <view class="copyright">
+      <text>Copyright © Tongji Univ. SSE</text>
+      <text>Six past Twenty Two</text>
+      <text>All Right Reserved.</text>
+    </view>
   </view>
 
   <view class="wall-container {{ drawer ? 'wall-contaienr-drawer' : ''}}">
@@ -43,5 +48,6 @@
 
     <decorate win_height_root="{{ win_height_root }}" />
   </view>
+
 </view>
 
