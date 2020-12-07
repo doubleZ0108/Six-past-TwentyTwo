@@ -1,6 +1,6 @@
 <!--miniprogram/pages/wall/wall.wxml-->
 
-<navigationBar outdrop="{{ outdrop }}" />
+<navigationBar outdrop="{{ outdrop }}" pull_down="{{ pull_down_flag }}" />
 
 <view class="wall-page">
   <view class="wall-slidebar {{ drawer ? 'wall-slidebar-display' : ''}}">
