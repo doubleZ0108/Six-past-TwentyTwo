@@ -1,6 +1,7 @@
 <!--components/navigationBar/navigationBar.wxml-->
-<view class="navbar {{ outdrop_root ? 'outdrop' : ''}}">
-  <view class="blur"></view>
+<view class="navbar {{ outdrop_root ? 'outdrop' : ''}}" 
+  style="height: {{ navigationBarHeight }}px; top: {{ outdrop_root ? -navigationBarHeight : '0'}}px;">
+  <view class="blur" style="height: {{ navigationBarHeight }}px;"></view>
   <view class="navbar-group">
     <text>二十二点零六</text>
     <image class="{{ animate ? 'animate' : '' }}" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
