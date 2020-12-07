@@ -198,9 +198,6 @@ Component({
         let absX = Math.abs(tmX)
         let absY = Math.abs(tmY)
 
-        console.log(absX, absY)
-        console.log(tmX)
-
         if (tmX < this.data.vipcard_switch_slip_tolerance){
           console.log("vip小卡左滑=====")
           wx.vibrateShort()

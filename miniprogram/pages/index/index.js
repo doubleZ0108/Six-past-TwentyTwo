@@ -15,15 +15,29 @@ Page({
 
 
   onSubscribeTap: function() {
+    let that = this
     wx.requestSubscribeMessage({
-      tmplIds: ['KSrfOtJCMHZlzoX1IzPsFAJ_yBmGN0bRI2eK_SK-lxc'],
-      success (res) { 
-        
+      // tmplIds: ['KSrfOtJCMHZlzoX1IzPsFAJ_yBmGN0bRI2eK_SK-lxc'],   // 提醒上线
+      tmplIds: ['-ZaqZUukqxjxBjk_IMEPr_TYoUJIEE7j7ot3tUVWuxg'],   // 提醒支付
+      success: function (res) { }
+    })
+  },
+
+  sendSubscribe: function() {
+    wx.vibrateShort()
+
+    wx.cloud.callFunction({
+      name: "subscribe",
+      data: {},
+      complete: function(res) {
+        console.log(res)
       }
     })
   },
 
   onUserInfoTap: function() { 
+    wx.vibrateShort()
+
     let that = this
     wx.getUserInfo({
       success: function(userInfo_res) {
