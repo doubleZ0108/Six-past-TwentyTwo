@@ -13,22 +13,24 @@ exports.main = async (event, context) => {
         page: 'index',      // TODO 这里可能需要更换路径
         lang: 'zh_CN',
         data: {
+          thing5: {
+            value: 'vip表白发布'
+          },
+          amount2: {
+            value: '¥9.99'
+          },
           thing1: {
-            value: '表白墙系统开放'
+            value: '请于今晚21:30前完成支付'
           },
-          time2: {
-            value: '22:06'
-          },
-          thing3: {
+          thing4: {
             value: '每个晚上都会遇见🌙'
           }
         },
-        templateId: 'KSrfOtJCMHZlzoX1IzPsFAJ_yBmGN0bRI2eK_SK-lxc',
+        templateId: '-ZaqZUukqxjxBjk_IMEPr_TYoUJIEE7j7ot3tUVWuxg',
         // miniprogramState: 'developer'
       })
     return result
   } catch (err) {
     return err
   }
-
 }

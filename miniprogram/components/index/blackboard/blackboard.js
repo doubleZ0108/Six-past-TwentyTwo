@@ -25,6 +25,8 @@ Component({
   methods: {
     switchTab: function(e) {
       if(e.detail.current != this.data.currentTab) {
+        wx.vibrateShort()
+
         this.setData({ currentTab: e.detail.current })
       }
     },

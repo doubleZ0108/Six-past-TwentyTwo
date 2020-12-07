@@ -377,6 +377,16 @@ Component({
     },
 
 
+    sendVipPaySubscribe: function() {
+      wx.cloud.callFunction({
+        name: "vippaysubscribe",
+        data: {},
+        complete: function(res) {
+          console.log(res)
+        }
+      })
+    },
+
     onVipPayTap: function() {
       wx.vibrateShort()
 
@@ -385,6 +395,8 @@ Component({
     onVipPaySubmit: function() {
       wx.vibrateShort()
 
+      this.sendVipPaySubscribe()
+      
       this.setData({ 
         showVipPayBox: false,
         write_vipcard: true
