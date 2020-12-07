@@ -8,6 +8,12 @@ Component({
       type: Boolean,
       value: false
     },
+    pull_down: {
+      type: Boolean,
+      value: false
+    },
+
+
     text: {
       type: String,
       value: 'Wechat'
@@ -24,7 +30,8 @@ Component({
   data: {
     statusBarHeight: app.globalData.statusBarHeight + 'px',
     navigationBarHeight: (app.globalData.statusBarHeight + 44) + 'px',
-    outdrop_root: false
+    outdrop_root: false,
+    animate: false
   },
 
   methods: {
@@ -44,6 +51,15 @@ Component({
   observers: {
     'outdrop': function(outdrop) {
       this.setData({ outdrop_root: outdrop })
+    },
+    'pull_down': function(pull_down) {
+      console.log(pull_down)
+      this.setData({ animate: true })
+
+      let that = this
+      setTimeout(function() {
+        that.setData({ animate: false })
+      }, 2000)
     }
   }
 })

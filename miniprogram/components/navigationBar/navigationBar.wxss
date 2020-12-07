@@ -25,10 +25,53 @@
   backdrop-filter: blur(15px);
 }
 
-.navbar text {
-  position: absolute;
-  bottom: 30rpx;
+.navbar-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  height: 100rpx;
   width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.navbar-group text {
   text-align: center;
   color: rgba(255,255,255,.83);
+  position: relative;
+}
+
+.navbar-group image {
+  height: 50rpx;
+  width: 35rpx;
+  object-fit: cover;
+  position: absolute;
+  left: 235rpx;
+  opacity: 0;
+  
+  transition: .4s cubic-bezier(.2,.8,.2,1);
+}
+.navbar-group image.animate {
+  animation: 2s NavbarImageAnimation ease-out;
+}
+
+@keyframes NavbarImageAnimation {
+  0% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  10% {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+  90% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
 }
