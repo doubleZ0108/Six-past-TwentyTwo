@@ -135,6 +135,7 @@ Page({
                         wx.getSystemInfo({
                           success:function(res){
                             app.globalData.platform = res.platform
+                            app.globalData.statusBarHeight = res.statusBarHeight
 
                             that.setData({ near_end: true })
 
@@ -191,6 +192,7 @@ Page({
                       wx.getSystemInfo({
                         success:function(res){
                           app.globalData.platform = res.platform
+                          app.globalData.statusBarHeight = res.statusBarHeight
 
                           /******** redirect **********/
                           wx.redirectTo({

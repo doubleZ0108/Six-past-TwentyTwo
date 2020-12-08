@@ -28,8 +28,7 @@ Component({
     }
   },
   data: {
-    statusBarHeight: app.globalData.statusBarHeight + 'px',
-    navigationBarHeight: (app.globalData.statusBarHeight + 44) + 'px',
+    navigationBarHeight: 88,
     outdrop_root: false,
     animate: false
   },
@@ -45,6 +44,12 @@ Component({
       wx.navigateBack({
         delta: 1
       })
+    }
+  },
+
+  lifetimes: {
+    attached: function() {
+      this.setData({ navigationBarHeight: app.globalData.statusBarHeight + 44 })
     }
   },
 
