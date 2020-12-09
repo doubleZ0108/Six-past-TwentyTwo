@@ -76,10 +76,10 @@
 
 
 swiper {
-  min-height: 100px;
+  min-height: 60vh;
 }
 swiper-item {
-  min-height: 100px;
+  min-height: 60vh;
 }
 
 .swiper-item-bottom{
