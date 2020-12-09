@@ -36,6 +36,7 @@ Component({
                 show: false
               })
             })
+            bin_decorate_list[0].show = true
             that.setData({ decorate_bg_list: bin_decorate_list })
           }
         })
