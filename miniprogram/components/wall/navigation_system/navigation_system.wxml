@@ -66,10 +66,10 @@
         <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
-      <view class="swiper-item-bottom" style="opacity: {{ world_bottom_show ? 1 : 0 }};">
+      <view class="swiper-item-bottom" style="opacity: {{ world_bottom.show ? 1 : 0 }};">
         <!-- ../../resource/img/global/fish-bone.png -->
         <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
-        <text>今天没有更多表白了, 我是有底线的～</text>
+        <text>{{ world_bottom.text }}</text>
       </view>
 
     </view>
@@ -104,10 +104,10 @@
         <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
-      <view class="swiper-item-bottom" style="opacity: {{ my_bottom_show ? 1 : 0 }};">
+      <view class="swiper-item-bottom" style="opacity: {{ my_bottom.show ? 1 : 0 }};">
         <!-- ../../resource/img/global/fish-bone.png -->
         <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
-        <text>我没有更多表白了, 我是有底线的～</text>
+        <text>{{ my_bottom.text }}</text>
       </view>
 
     </view>
@@ -138,10 +138,10 @@
         <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
-      <view class="swiper-item-bottom" style="opacity: {{ favorite_bottom_show ? 1 : 0 }};">
+      <view class="swiper-item-bottom" style="opacity: {{ favorite_bottom.show ? 1 : 0 }};">
         <!-- ../../resource/img/global/fish-bone.png -->
         <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
-        <text>没收藏更多表白了, 我是有底线的～</text>
+        <text>{{ favorite_bottom.text }}</text>
       </view>
 
     </view>
@@ -172,10 +172,10 @@
         <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
-      <view class="swiper-item-bottom" style="opacity: {{ filter_bottom_show ? 1 : 0 }};">
+      <view class="swiper-item-bottom" style="opacity: {{ filter_bottom.show ? 1 : 0 }};">
         <!-- ../../resource/img/global/fish-bone.png -->
         <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
-        <text>这个filter下没有更多表白了, 我是有底线的～</text>
+        <text>{{ filter_bottom.text }}</text>
       </view>
 
     </view>
