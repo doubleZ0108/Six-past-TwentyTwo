@@ -24,6 +24,24 @@ const checkingTime = () => {
   return false
 }
 
+/** 现在到22:06的时间 */
+const lengthToTime = () => {
+  let now = new Date()
+  let hour = now.getHours()
+  let length = (22 - hour) > 6 ? 6 : (22 - hour)
+  return length
+}
+
+/** 获取 再再再 字符串 */
+const getZaiArray = () => {
+  let str = ''
+  for(let i=0;i<lengthToTime(); ++i) {
+    str = str.concat('再')
+  }
+  return str
+}
+
 module.exports = {
-  checkingTime: checkingTime
+  checkingTime: checkingTime,
+  getZaiArray: getZaiArray
 }

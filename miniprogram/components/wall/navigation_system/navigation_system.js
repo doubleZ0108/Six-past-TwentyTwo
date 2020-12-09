@@ -1089,8 +1089,14 @@ Component({
         }
         this.initVipCardList()
       } else {
-        console.log("未到时间")
         this.initDefaultVipCardList()
+        console.log(TimingMachine.getZaiArray())
+        this.setData({
+          world_bottom: {
+            show: true,
+            text: "请" + TimingMachine.getZaiArray() + "期待一下，每个晚上都会相遇🌙"
+          }
+        })
       }
     },
   },
@@ -1104,18 +1110,27 @@ Component({
     },
     'filterInfo': function(filterInfo) {    // 接受filter传递的信息 在navigation system中产生filter cards
       if(filterInfo) {
-        this.setData({ 
-          filter_info: filterInfo,
-          filter_bottom: {
-            show: false
+        if(TimingMachine.checkingTime()) {
+          this.setData({ 
+            filter_info: filterInfo,
+            filter_bottom: {
+              show: false
+            }
+          })
+          this.initFilterCardList()
+          if(this.data.filter_cards.length == 0) {
+            this.setData({
+              filter_bottom: {
+                show: true,
+                text: "没有更多搜索到的表白了, 这里是有底线的～"
+              }
+            })
           }
-        })
-        this.initFilterCardList()
-        if(this.data.filter_cards.length == 0) {
+        } else {
           this.setData({
             filter_bottom: {
               show: true,
-              text: "没有更多搜索到的表白了, 这里是有底线的～"
+              text: "请" + TimingMachine.getZaiArray() + "期待一下，每次搜索都值得期待🌙"
             }
           })
         }
@@ -1143,6 +1158,7 @@ Component({
         posLeft_base: this.data.currentTab * -1 + 0.1
       })
 
+      // 清空底部状态
       this.setData({
         world_bottom: { 
           show: false
@@ -1162,18 +1178,51 @@ Component({
       this.backToTop()
       this.adaptHeight()
 
-      if(this.data.my_cards.length == 0 && currentTab == 1) {
-        this.initMyCardList()
-      } else if(this.data.favorite_cards.length ==0 && currentTab == 2) {
-        this.initFavoriteCardList()
-      }
-
       // wave position
       let pages = getCurrentPages()
       let currpage = pages[pages.length-1]
       currpage.setData({
         current_tab: currentTab
       })
+
+      // 不在规定时间内
+      if(!TimingMachine.checkingTime()) {
+        switch(currentTab) {
+          case 0: {
+            this.setData({
+              world_bottom: {
+                show: true,
+                text: "请" + TimingMachine.getZaiArray() + "期待一下，每个晚上都会相遇🌙"
+              }
+            })
+            break
+          }
+          case 2: {
+            this.setData({
+              favorite_bottom: {
+                show: true,
+                text: "请" + TimingMachine.getZaiArray() + "期待一下，每条收藏都值得回味🌙"
+              }
+            })
+            break
+          }
+          case 3: {
+            this.setData({
+              filter_bottom: {
+                show: true,
+                text: "请" + TimingMachine.getZaiArray() + "期待一下，每次搜索都值得期待🌙"
+              }
+            })
+            break
+          }
+        }
+      }
+
+      if(this.data.my_cards.length == 0 && currentTab == 1) {
+        this.initMyCardList()
+      } else if(this.data.favorite_cards.length ==0 && currentTab == 2 && TimingMachine.checkingTime()) {
+        this.initFavoriteCardList()
+      }
     },
     'pull_down_flag_root': function(pull_down_flag_root) {  // 监听下拉刷新
       if(pull_down_flag_root) {
@@ -1182,8 +1231,17 @@ Component({
         // @BACK 根据不同的tab重新拉取该tab的cards
         switch(this.data.currentTab) {
           case 0: {
-            this.initWorldCardList()
-            this.initVipCardList()
+            if(TimingMachine.checkingTime) {
+              this.initWorldCardList()
+              this.initVipCardList()
+            } else {
+              this.setData({
+                world_bottom: {
+                  show: true,
+                  text: "请" + TimingMachine.getZaiArray() + "期待一下，每个晚上都会相遇🌙"
+                }
+              })
+            }
             break
           }
           case 1: {
@@ -1191,11 +1249,29 @@ Component({
             break
           }
           case 2: {
-            this.initFavoriteCardList()
+            if(TimingMachine.checkingTime()) {
+              this.initFavoriteCardList()
+            } else {
+              this.setDate({
+                favorite_bottom: {
+                  show: true,
+                  text: "请" + TimingMachine.getZaiArray() + "期待一下，每条收藏都值得回味🌙"
+                }
+              })
+            }
             break
           }
           case 3: {
-            this.initFilterCardList()
+            if(TimingMachine.checkingTime()) {
+              this.initFilterCardList()
+            } else {
+              this.setDate({
+                filter_bottom: {
+                  show: true,
+                  text: "请" + TimingMachine.getZaiArray() + "期待一下，每次搜索都值得期待🌙"
+                }
+              })
+            }
             break
           }
         }
@@ -1206,9 +1282,10 @@ Component({
     'reach_bottom_flag_root': function(reach_bottom_flag_root) {  // 监听触底
       if(reach_bottom_flag_root) {
         wx.vibrateShort()
-        
+        let that = this
         console.log(this.data.currentTab, "加载更多...")
 
+        // 清空底部状态
         this.setData({
           world_bottom: { 
             show: false
@@ -1227,7 +1304,16 @@ Component({
         // @BACK 根据不同的tab拉取触底的新cards
         switch(this.data.currentTab) {
           case 0: {
-            this.loadMoreWorldCardList()
+            if(TimingMachine.checkingTime()) {
+              this.loadMoreWorldCardList()
+            } else {
+              this.setData({
+                world_bottom: {
+                  show: true,
+                  text: "请" + TimingMachine.getZaiArray() + "期待一下，每个晚上都会相遇🌙"
+                }
+              })
+            }
             break
           }
           case 1: {
@@ -1235,17 +1321,35 @@ Component({
             break
           }
           case 2: {
-            this.loadMoreFavoriteCardList()
+            if(TimingMachine.checkingTime()) {
+              this.loadMoreFavoriteCardList()
+            } else {
+              this.setData({
+                favorite_bottom: {
+                  show: true,
+                  text: "请" + TimingMachine.getZaiArray() + "期待一下，每条收藏都值得回味🌙"
+                }
+              })
+            }
             break
           }
           case 3: {
-            if(this.data.filter_info) {   // 如果用户曾搜索过
-              this.loadMoreFilterCardList()
+            if(TimingMachine.checkingTime()) {
+              if(this.data.filter_info) {   // 如果用户曾搜索过
+                this.loadMoreFilterCardList()
+              } else {
+                this.setData({ 
+                  filter_bottom: {
+                    show: true,
+                    text: "没有更多搜索到的表白了, 这里是有底线的～"
+                  }
+                })
+              }
             } else {
-              this.setData({ 
+              this.setData({
                 filter_bottom: {
                   show: true,
-                  text: "没有更多搜索到的表白了, 这里是有底线的～"
+                  text: "请" + TimingMachine.getZaiArray() + "期待一下，每次搜索都值得期待🌙"
                 }
               })
             }
