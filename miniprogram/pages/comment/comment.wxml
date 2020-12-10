@@ -1,7 +1,7 @@
 <!--miniprogram/pages/comment/comment.wxml-->
 
 <!-- fromVip ? '../../resource/img/comment/vipbg.png' : '../../resource/img/comment/bg.png' -->
-<image class="bg-container" src="{{ fromVip ? 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/comment/vipbg.png?sign=69cf63c450d81a4c2221fe6ebbb67550&t=1606877998' : 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/comment/bg.png?sign=094e47bb4e150bf3e3b40110348ec928&t=1606878008' }}"></image>
+<image class="bg-container" src="{{ fromVip ? 'https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/comment/vipbg.png?sign=d901a468dc74490d5f7247e3334bb2f6&t=1607589564' : 'https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/comment/bg.png?sign=df97a83b1e056456e25115e4e8941f56&t=1607589584' }}"></image>
 
 <text class="iconfont iconpinglun card-title-icon"></text>
 

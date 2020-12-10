@@ -36,7 +36,7 @@ Component({
     touchDotX: 0,
     touchDotY: 0,
     // writecard_bg: "../../../resource/img/write/fold_bg.svg",
-    writecard_bg: "https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/fold_bg.svg?sign=5d52b41d0e3fa96f03bff8658dce8767&t=1606878512",
+    writecard_bg: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/write/fold_bg.svg?sign=f6b5baa0c6115d817f925095dcbe4f56&t=1607589361",
     switcher1_gender_now: "gender-now-male",
     switcher1_text: "男生",
     switcher2_gender_now: "gender-now-female",
@@ -467,14 +467,14 @@ Component({
         writecard_height: that.data.fold_class == "writecard-container-unfold"? "100vh" : "330rpx",
         posLeft: that.data.fold_class == "writecard-container-unfold" ? "0" : "10%",
         // writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "../../../resource/img/write/unfold_bg.png" :  '../../../resource/img/write/fold_bg.svg'
-        writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/unfold_bg.png?sign=4618b7895932a5020e1be119a5413623&t=1606878179" :  'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/fold_bg.svg?sign=0b037fd52e233e68131097a6bff8a9ac&t=1606878189'
+        writecard_bg: that.data.fold_class == "writecard-container-unfold" ? "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/write/unfold_bg.png?sign=10de73ca9e76e49844227b078c3e4e10&t=1607589378" :  'https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/write/fold_bg.svg?sign=d1670b385b976ca67cca0e0d0ef7052a&t=1607589391'
       })
     },
     'write_vipcard': function(write_vipcard) {
       if(this.data.fold_class == "writecard-container-unfold") {
         this.setData({
           // writecard_bg: write_vipcard ? '../../../resource/img/write/vip_unfold_bg.png' : '../../../resource/img/write/unfold_bg.png'
-          writecard_bg: write_vipcard ? 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/vip_unfold_write_bg_small.png?sign=fba0ec750848c799c05d8e85c1922eef&t=1607068410' : 'https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/unfold_bg.png?sign=d44ae2bdf9b846e0876f170405d84cc6&t=1606878091'
+          writecard_bg: write_vipcard ? 'https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/write/vip_unfold_write_bg_small.png?sign=2e590c64f4dd3862c45eba29ee5195bb&t=1607590677' : 'https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/write/unfold_bg.png?sign=8bad8f0c2d540ea1e2a8aa94efef414d&t=1607589427'
         })
       }
     }

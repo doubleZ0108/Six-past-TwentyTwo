@@ -4,6 +4,6 @@
   <view class="blur" style="height: {{ navigationBarHeight }}px;"></view>
   <view class="navbar-group">
     <text>二十二点零六</text>
-    <image class="{{ animate ? 'animate' : '' }}" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+    <image class="{{ animate ? 'animate' : '' }}" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=48213864deccec4a0e16ab28b04c2809&t=1607586940"></image>
   </view>
 </view>

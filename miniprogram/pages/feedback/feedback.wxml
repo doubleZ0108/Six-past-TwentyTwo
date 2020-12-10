@@ -4,7 +4,7 @@
 
 <view class="feedback-container">
   <!-- ../../resource/img/feedback/bg.png -->
-  <image class="feedback-bgdecorate" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/feedback/bg.png?sign=015ecd36933dc4d9236324f8a060169c&t=1606991960"></image>
+  <image class="feedback-bgdecorate" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/feedback/bg.png?sign=3a9ed6933fe9220ac324079d64d83ce2&t=1607589596"></image>
 
   <view class="feedback-group">
     <view class="feedback-content-group">
@@ -37,7 +37,7 @@
     </view>
 
     <!-- ../../resource/img/feedback/line.svg -->
-    <view class="feedback-wave" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/feedback/line.svg?sign=31064bf584a55ceb1839b76cda0efbae&t=1606991895)"></view>
+    <view class="feedback-wave" style="background-image: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/feedback/line.svg?sign=8c9324c6711be80e8561d3cedccfc7e0&t=1607589608)"></view>
   </view>
 
 </view>

@@ -58,7 +58,6 @@ Component({
       this.setData({ outdrop_root: outdrop })
     },
     'pull_down': function(pull_down) {
-      console.log(pull_down)
       this.setData({ animate: true })
 
       let that = this

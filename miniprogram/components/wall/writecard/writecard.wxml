@@ -12,7 +12,7 @@
     <text class="writecard-info-motto">写下你的表白</text>
 
     <!-- ../../../resource/img/write/pen.png -->
-    <image class="writecard-pen {{ animate ? 'pen-animate' : '' }}" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/pen.png?sign=b4f2e18c38131f9f5cc9301843828517&t=1606878034"></image>
+    <image class="writecard-pen {{ animate ? 'pen-animate' : '' }}" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/write/pen.png?sign=79da4eb34f3e5a62e29034e58a19b680&t=1607589442"></image>
 
     <view class="writecard-info-unfold">
 
@@ -94,7 +94,7 @@
 
   <view class="vippay-container {{ showVipPayBox ? 'shown' : ''}}">
     <!-- ../../resource/img/write/paycardbg.png -->
-    <view class="vippay-group" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/write/paycardbg.png?sign=c63dbfadc188fda4426f0250b62a0b12&t=1606878054)">
+    <view class="vippay-group" style="background-image: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/write/paycardbg.png?sign=ec063eeb59e41149526c73facbf63fe1&t=1607589461)">
       <view class="userinfo-title-group">
         <text>vip表白发布</text>
         <text></text>
@@ -106,7 +106,7 @@
           <view class="vippay-text-group">
             <text>请保存二维码进行支付</text>
             <text>并备注表白昵称等提示信息</text>
-            <text>请于当天21:30前完成支付</text>
+            <text>请于当天21:21前完成支付</text>
             <text>过时会第二天发送哦～</text>
             <text>----------------</text>
             <text>如果发生任何支付/退款等问题</text>
@@ -118,7 +118,8 @@
           </view>
         </view>
         <!-- ../../../resource/img/vip/QRcode.jpg -->
-        <image catchtap="onQRcodeTap" data-qrcode="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/vip/QRcode.jpg?sign=c05709c0b2bdbaddad1d9dc2b03c4d1c&t=1607138430" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/vip/QRcode.jpg?sign=c05709c0b2bdbaddad1d9dc2b03c4d1c&t=1607138430"></image>
+        <image catchtap="onQRcodeTap" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/vip/QRcode.jpg?sign=33b549ae464d69906ef277a5eaced11d&t=1607589490" 
+          data-qrcode="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/vip/QRcode.jpg?sign=33b549ae464d69906ef277a5eaced11d&t=1607589490"></image>
       </view>
 
       <view class="vippay-function-group">

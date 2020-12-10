@@ -2,7 +2,7 @@
 <mp-toptips ext-class="toptips" msg="{{ toptip.msg }}" type="{{ toptip.type }}" show="{{ toptip.show }}" delay="2000"></mp-toptips>
 
 <!-- ../../resource/img/userinfo/bg.png -->
-<view class="userinfo-container {{ showVerifyBox ? 'userinfo-container-blur' : '' }}" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/userinfo/bg.png?sign=8ab3143042ad52257416d50af5e96e2f&t=1606894323);">
+<view class="userinfo-container {{ showVerifyBox ? 'userinfo-container-blur' : '' }}" style="background-image: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/userinfo/bg.png?sign=5be20c2baa65d2a7b119c00166cca495&t=1607589739);">
 
   <form>
     <view class="userinfo-logo">
@@ -68,7 +68,7 @@
 
 <view class="userinfo-verify-container {{ showVerifyBox ? 'shown' : ''}}">
   <!-- ../../resource/img/userinfo/verify_bg.png -->
-  <view class="verify-group" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/userinfo/verify_bg.png?sign=75f43d60c60a3a355b310251a76e61e4&t=1606877939)">
+  <view class="verify-group" style="background-image: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/userinfo/verify_bg.png?sign=1cb3f3a70de9ba0f8b6108d3ce4b97fa&t=1607589752)">
     
     <view class="userinfo-title-group">
       <text>请输入验证码</text>
