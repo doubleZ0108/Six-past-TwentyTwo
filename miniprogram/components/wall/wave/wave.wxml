@@ -7,10 +7,10 @@
     <view class="wave-4-layer" style="background-image: url(../../../resource/img/wave/wave4.svg);"></view> -->
     
     <!-- for mobile test -->
-    <view class="wave-1-layer" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/wave/wave1.svg?sign=056708b48e3e31aeaba6715c1223e6c4&t=1606878469);background-position: {{ warm_position_x }} 0%;"></view>
+    <view class="wave-1-layer" style="background-image: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/wave/wave1.svg?sign=2e89b87c18b86dd118d2daff105fe43a&t=1607589294);background-position: {{ warm_position_x }} 0%;"></view>
     <view class="wave-2-layer"></view>
-    <view class="wave-3-layer" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/wave/wave3.svg?sign=119427246982019510f300db6b192bd0&t=1606878481);"></view>
-    <view class="wave-4-layer" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/wave/wave4.svg?sign=b9be3562473d2204176ff008b1cd3f41&t=1606878490);"></view>
+    <view class="wave-3-layer" style="background-image: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/wave/wave3.svg?sign=52e8d64631cc6178f78667d1747b1232&t=1607589322);"></view>
+    <view class="wave-4-layer" style="background-image: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/wave/wave4.svg?sign=6fc04c74ca9c5256af05644f218c0c04&t=1607589332);"></view>
 
   </view>
 

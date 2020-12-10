@@ -2,7 +2,7 @@
 
 <view class="announcement-container">
   <!-- ../../resource/img/announcement/bg.png -->
-  <image class="announcement-bgdecorate" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/announcement/announce_bg.png?sign=cc32cf99988fb75572ce4ec82ce4c645&t=1607068618"></image>
+  <image class="announcement-bgdecorate" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/announcement/bg.png?sign=006f3f1bf49c615b79a4de3daa208b83&t=1607589511"></image>
 
   <view class="announcement-logo">
     <text class="iconfont icongonggao1"></text>
@@ -38,7 +38,7 @@
 
     <!-- ../../resource/img/global/loading.gif -->
     <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
-      <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a3dcbec65baac715b393e182fd2dffc0&t=1607004619"></image>
+      <image style="width: 35rpx; height: 35rpx;" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=f99f83e021c36149c5a615952ff36b15&t=1607589541"></image>
       <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
     </view>
 
@@ -46,7 +46,7 @@
 
   <view class="announcement-wave" style="opacity: {{ bottom_show ? 1 : 0 }};">
     <!-- ../../resource/img/global/fish-bone.png -->
-    <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+    <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=eb54ea34967f04cdf805e5fbd9172763&t=1607589530"></image>
     <text>这里什么都没有了哦</text>
   </view>
 

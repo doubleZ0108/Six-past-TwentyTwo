@@ -27,7 +27,7 @@ Component({
     avatar_url: {
       type: String,
       // value: "../../../resource/img/avatar/default_avatar.png"
-      value: "https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/avatar/default_avatar.png?sign=db85d182d0f0ce62ceb03950f9a452e9&t=1606877688"
+      value: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/avatar/default_avatar.png?sign=945a1986bfcc43cbe57e6c7f3558e1cf&t=1607586968"
     },
     description: {
       type: String,
@@ -216,7 +216,6 @@ Component({
 
         let pages = getCurrentPages()
         let currpage = pages[pages.length-1]
-        console.log(currpage)
 
         if(currpage.data.current_tab == 1) {   // 我的主页随时都可以跳转
           this.navigateCallBack()

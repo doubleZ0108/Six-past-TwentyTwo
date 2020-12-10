@@ -154,9 +154,9 @@ Page({
 
           if(!that.data.is_verified) {
             wx.showModal({
-              title: '二十二点零六',
+              title: '学号验证提示',
               showCancel: false,
-              content: '未验证学号仅能使用<表白墙>，无法进行<聊天>',
+              content: '未验证学号仅支持使用「表白墙」功能，后续待发布「神秘功能」必须验证学号使用',
               success (res) {
                 if (res.confirm) {
                   console.log('用户点击确定')
@@ -246,7 +246,6 @@ Page({
   },
 
   sendEmile: function(emileInfo) {
-    let that = this
     wx.cloud.callFunction({
       name: "emile",
       data: {

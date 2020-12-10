@@ -5,7 +5,7 @@
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
   <!-- ../../../resource/img/card/vipcard_bgdecorate.svg -->
-  <image class="vipcard-bgdecorate" style="background-image: url(https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/card/vipcard_bgdecorate.svg?sign=562a91063914c9f4cdcfedabcfb83a35&t=1606878419);"></image>
+  <image class="vipcard-bgdecorate" style="background-image: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/vip/vipcard_bgdecorate.svg?sign=3beb61cd2aeb21e894f9b86840a13137&t=1607589209);"></image>
 
   <view class="vipcard-people">
     <text>{{ name_left }}</text>
@@ -21,8 +21,7 @@
   <view class="vipcard-info-unfold">
 
     <!-- ../../../resource/img/card/vipcard_bgdecorate_unfold.svg -->
-    <!-- <image class="vipcard-bgdecorate-unfold" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/card/vipcard_bgdecorate_unfold.svg?sign=6313522eee31f591f524b4f8d058a6f6&t=1606878433"></image> -->
-    <image class="vipcard-bgdecorate-unfold" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/vip/vip-unfold-bg.png?sign=1be0b13b7bf032589a8c314391758908&t=1607165028"></image>
+    <image class="vipcard-bgdecorate-unfold" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/vip/vip-unfold-bg.png?sign=c0a8dbd0f8537cbb36f919ccbf09fbe2&t=1607589229"></image>
     
 
     <view class="vipcard-info-unfold-tag">
@@ -67,13 +66,13 @@
       <!-- <image class="envelop-head" src="../../../resource/img/envelop/head.png"></image>
       <image class="envelop-beneath" src="../../../resource/img/envelop/beneath.png"></image>
       <image class="envelop-body" src="../../../resource/img/envelop/body.png"></image> -->
-      <image class="envelop-head" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/head.png?sign=99a631e51423d7067ef912cca79e54a9&t=1606878244"></image>
-      <image class="envelop-beneath" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/beneath.png?sign=a057565f8dff0305442073c2385e0a9e&t=1606878223"></image>
-      <image class="envelop-body" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/body.png?sign=cdd657bd1d843cd37dc2a6a1245f3392&t=1606878234"></image>
+      <image class="envelop-head" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/head.png?sign=981e38a9fc69a9b07020539d6317d251&t=1607589267"></image>
+      <image class="envelop-beneath" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/beneath.png?sign=652656e7650fc8d9dae51431ac8a3487&t=1607589245"></image>
+      <image class="envelop-body" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/body.png?sign=8ce6953e3302b3f3dfaceaffab4ed628&t=1607589257"></image>
       <scroll-view class="envelop-content" scroll-y>
         <text class="envelop-content-word">{{ description }}</text>
         <!-- <image src="../../../resource/img/envelop/picture.png"></image> -->
-        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/envelop/picture.png?sign=91a6bb63059481652b09b6aa172c21d4&t=1606878252"></image>
+        <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/picture.png?sign=626b00dce44b5b7535806b660541d189&t=1607589276"></image>
         <text class="envelop-content-motto">有情人终成眷属</text>
         <text class="envelop-content-sign">—— 二十二点零六团队</text>
         <view class="envelop-gap"></view>

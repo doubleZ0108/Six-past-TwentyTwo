@@ -112,7 +112,7 @@ const getSystemCloseWord = (currentTab) => {
   let str = ""
   switch(currentTab) {
     case 0:
-      str = "请" + getZaiArray() + "等一会儿，每个晚上都会相遇🌙"
+      str = "请" + getZaiArray() + "等一会儿，每个夜晚都会遇见🌙"
       break
     case 2:
       str = "请" + getZaiArray() + "等一会儿，每条收藏都值得回味🌙"

@@ -62,13 +62,13 @@
 
       <!-- ../../resource/img/global/loading.gif -->
       <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
-        <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a3dcbec65baac715b393e182fd2dffc0&t=1607004619"></image>
+        <image style="width: 35rpx; height: 35rpx;" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a908f1bef438bca4233aed9d8cc91fac&t=1607588997"></image>
         <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
       <view class="swiper-item-bottom" style="opacity: {{ world_bottom.show ? 1 : 0 }};">
         <!-- ../../resource/img/global/fish-bone.png -->
-        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+        <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=838de4610fe00ee1eea60d3f2319cbcc&t=1607589039"></image>
         <text>{{ world_bottom.text }}</text>
       </view>
 
@@ -100,13 +100,13 @@
 
       <!-- ../../resource/img/global/loading.gif -->
       <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
-        <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a3dcbec65baac715b393e182fd2dffc0&t=1607004619"></image>
+        <image style="width: 35rpx; height: 35rpx;" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a908f1bef438bca4233aed9d8cc91fac&t=1607588997"></image>
         <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
       <view class="swiper-item-bottom" style="opacity: {{ my_bottom.show ? 1 : 0 }};">
         <!-- ../../resource/img/global/fish-bone.png -->
-        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+        <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=838de4610fe00ee1eea60d3f2319cbcc&t=1607589039"></image>
         <text>{{ my_bottom.text }}</text>
       </view>
 
@@ -134,13 +134,13 @@
 
       <!-- ../../resource/img/global/loading.gif -->
       <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
-        <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a3dcbec65baac715b393e182fd2dffc0&t=1607004619"></image>
+        <image style="width: 35rpx; height: 35rpx;" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a908f1bef438bca4233aed9d8cc91fac&t=1607588997"></image>
         <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
       <view class="swiper-item-bottom" style="opacity: {{ favorite_bottom.show ? 1 : 0 }};">
         <!-- ../../resource/img/global/fish-bone.png -->
-        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+        <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=838de4610fe00ee1eea60d3f2319cbcc&t=1607589039"></image>
         <text>{{ favorite_bottom.text }}</text>
       </view>
 
@@ -168,13 +168,13 @@
 
       <!-- ../../resource/img/global/loading.gif -->
       <view class="loading-group" style=" opacity: {{ show_loading ? 1 : 0 }}; width: 100%; height: {{ show_loading ? '35rpx' : '0' }}; margin: 25rpx auto; display: flex; align-item: center; justify-content: center; transition: .4s linear;">
-        <image style="width: 35rpx; height: 35rpx;" src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a3dcbec65baac715b393e182fd2dffc0&t=1607004619"></image>
+        <image style="width: 35rpx; height: 35rpx;" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/loading-mirrorball.gif?sign=a908f1bef438bca4233aed9d8cc91fac&t=1607588997"></image>
         <text style="color: rgba(255,255,255,.6);margin-left: 25rpx; font-size: 25rpx;">正在加载...</text>
       </view>
 
       <view class="swiper-item-bottom" style="opacity: {{ filter_bottom.show ? 1 : 0 }};">
         <!-- ../../resource/img/global/fish-bone.png -->
-        <image src="https://636b-ckkkx-7gnxqsp7c5938afc-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=67d65861dbfc91e842b31f74656cf2b9&t=1606996702"></image>
+        <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=838de4610fe00ee1eea60d3f2319cbcc&t=1607589039"></image>
         <text>{{ filter_bottom.text }}</text>
       </view>
 

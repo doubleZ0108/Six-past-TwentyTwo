@@ -1,7 +1,8 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-
-cloud.init()
+cloud.init({
+  env: 'six-past-twenty-two-8cvx689cf6da'
+})
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -23,7 +24,7 @@ exports.main = async (event, context) => {
             value: '请于今晚21:30前完成支付'
           },
           thing4: {
-            value: '每个晚上都会遇见🌙'
+            value: '每个夜晚都会遇见🌙'
           }
         },
         templateId: '-ZaqZUukqxjxBjk_IMEPr_TYoUJIEE7j7ot3tUVWuxg',
