@@ -294,6 +294,14 @@ Component({
           })
                         
           that.setData({ world_cards: bin_cards })
+          if(that.data.world_cards.length == 0){
+            that.setData({
+              world_bottom: {
+                show: true,
+                text: "今天没有更多表白了, 这里是有底线的～"
+              }
+            })
+          }
 
           that.adaptHeight()
   
@@ -438,6 +446,14 @@ Component({
 
               /** concat */
               that.setData({ my_cards: that.data.my_cards_vip.concat(that.data.my_cards_normal) })
+              if(that.data.my_cards.length == 0) {
+                that.setData({
+                  my_bottom: {
+                    show: true,
+                    text: "我没有更多表白了, 这里是有底线的～"
+                  },
+                })
+              }
               that.adaptHeight()
             },
             fail: function() {
@@ -636,6 +652,14 @@ Component({
 
                   /** concat */
                   that.setData({ favorite_cards: that.data.favorite_cards_vip.concat(that.data.favorite_cards_normal) })
+                  if(that.data.favorite_cards.length == 0) {
+                    that.setData({
+                      favorite_bottom: {
+                        show: true,
+                        text: "没有更多收藏的表白了, 这里是有底线的～"
+                      },
+                    })
+                  }
                   that.adaptHeight()
                 },
                 fail: function() {
@@ -849,7 +873,15 @@ Component({
               that.setData({ filter_cards_normal: bin_cards })
               
               that.setData({ filter_cards: that.data.filter_cards_vip.concat(that.data.filter_cards_normal) })
-              
+              if(that.data.filter_cards.length == 0) {
+                that.setData({
+                  filter_bottom: {
+                    show: true,
+                    text: "没有更多搜索到的表白了, 这里是有底线的～"
+                  }
+                })
+              }
+
               that.adaptHeight()
 
               wx.showToast({
@@ -1229,6 +1261,22 @@ Component({
             break
           }
         }
+      } else {
+        if(currentTab==0 && this.data.world_cards.length == 0) {
+          this.setData({ 
+            world_bottom: {
+              show: true,
+              text: "今天没有更多表白了, 这里是有底线的～"
+            }
+          })
+        } else if(currentTab==3 && this.data.filter_cards.length == 0) {
+          this.setData({
+            filter_bottom: {
+              show: true,
+              text: "没有更多搜索到的表白了, 这里是有底线的～"
+            }
+          })
+        }
       }
 
       if(this.data.my_cards.length == 0 && currentTab == 1) {
@@ -1242,6 +1290,7 @@ Component({
         console.log(this.data.currentTab, "下拉刷新...")
 
         this.clearBottom()
+        this.backToTop()
  
         // @BACK 根据不同的tab重新拉取该tab的cards
         if(TimingMachine.checkingTime()) {
@@ -1259,9 +1308,13 @@ Component({
               this.initFavoriteCardList()
               break
             }
-            case 3: {
-              this.initFilterCardList()
-              break
+            case 3 : {
+              this.setData({
+                filter_bottom: {
+                  show: true,
+                  text: "没有更多搜索到的表白了, 这里是有底线的～"
+                },
+              })
             }
           }
         } else {
@@ -1281,7 +1334,7 @@ Component({
               break
             }
             case 2: {
-              this.setDate({
+              this.setData({
                 favorite_bottom: {
                   show: true,
                   text: TimingMachine.getSystemCloseWord(2)
@@ -1290,7 +1343,7 @@ Component({
               break
             }
             case 3: {
-              this.setDate({
+              this.setData({
                 filter_bottom: {
                   show: true,
                   text: TimingMachine.getSystemCloseWord(3)

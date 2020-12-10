@@ -15,7 +15,6 @@ Page({
 
 
   onSubscribeTap: function() {
-    let that = this
     wx.requestSubscribeMessage({
       // tmplIds: ['KSrfOtJCMHZlzoX1IzPsFAJ_yBmGN0bRI2eK_SK-lxc'],   // 提醒上线
       tmplIds: ['-ZaqZUukqxjxBjk_IMEPr_TYoUJIEE7j7ot3tUVWuxg'],   // 提醒支付
@@ -137,14 +136,24 @@ Page({
                             app.globalData.platform = res.platform
                             app.globalData.statusBarHeight = res.statusBarHeight
 
-                            that.setData({ near_end: true })
+                            /* timemachine */
+                            db.collection('timemachine').get({
+                              success: function(res) {
+                                app.globalData.allDayOpenList = res.data[0].allDayOpenList
+                                app.globalData.specialDayObj = res.data[0].specialDayObj
 
-                            setTimeout(function(){
-                              /******** redirect **********/
-                              wx.redirectTo({
-                                url: '../wall/wall',
-                              })
-                            }, 1000)
+                                /*********** really to do something *********/
+                                that.setData({ near_end: true })
+                                setTimeout(function(){
+                                  wx.redirectTo({
+                                    url: '../wall/wall',
+                                  })
+                                }, 1000)
+                                /*********** really to do something *********/
+
+                              }
+                            })
+
                           }
                         })
 
@@ -194,10 +203,21 @@ Page({
                           app.globalData.platform = res.platform
                           app.globalData.statusBarHeight = res.statusBarHeight
 
-                          /******** redirect **********/
-                          wx.redirectTo({
-                            url: '../wall/wall',
-                          })
+                           /* timemachine */
+                            db.collection('timemachine').get({
+                              success: function(res) {                                app.globalData.allDayOpenList = res.data[0].allDayOpenList
+                                app.globalData.specialDayObj = res.data[0].specialDayObj
+
+                                /*********** really to do something *********/
+                                wx.redirectTo({
+                                  url: '../wall/wall',
+                                })
+                                /*********** really to do something *********/
+
+                              }
+                            })
+
+                         
                         }
                       })
 

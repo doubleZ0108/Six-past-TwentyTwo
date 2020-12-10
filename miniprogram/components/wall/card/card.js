@@ -1,5 +1,6 @@
 // components/wall/card/card.js
 
+const TimingMachine = require('../../../utils/TimingMachine')
 const app = getApp()
 const db = wx.cloud.database()
 
@@ -195,20 +196,41 @@ Component({
       }
 
     },
+
+    navigateCallBack: function() {
+      let that = this
+      if(this.data.is_vipcard) {
+        wx.navigateTo({
+          url: "../comment/comment?vipcard=true&cardId=" + that.data.card_id
+        })
+      } else {
+        wx.navigateTo({
+          url: "../comment/comment?cardId=" + that.data.card_id
+        })
+      }
+    },
     onNavigatorTap: function() {
       wx.vibrateShort()
       
       if(this.data.able_navigate) {
-        let that = this
-        if(this.data.is_vipcard) {
-          wx.navigateTo({
-            url: "../comment/comment?vipcard=true&cardId=" + that.data.card_id
-          })
+
+        let pages = getCurrentPages()
+        let currpage = pages[pages.length-1]
+        console.log(currpage)
+
+        if(currpage.data.current_tab == 1) {   // 我的主页随时都可以跳转
+          this.navigateCallBack()
         } else {
-          wx.navigateTo({
-            url: "../comment/comment?cardId=" + that.data.card_id
-          })
+          if(TimingMachine.checkingTime()) {    // 时间ok的话其他界面可以跳转评论
+            this.navigateCallBack()
+          } else {
+            // 开放结束点击跳转界面强制刷新
+            currpage.setData({
+              pull_down_flag: true
+            })
+          }
         }
+  
       }
     },
 
