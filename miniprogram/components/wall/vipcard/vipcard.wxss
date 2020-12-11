@@ -46,7 +46,7 @@
 .vipcard-people text {
   max-width: 100%;      /* @BUG 这里的文字没法超过一行省略号 */
   color: rgb(174,125,79);
-  font-size: 45rpx;
+  font-size: 35rpx;
   font-weight: 600;
 
   background: linear-gradient(170deg, rgb(214, 165, 57),rgba(174,125,79)); 

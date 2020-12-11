@@ -129,7 +129,7 @@ button {
   margin: 40rpx auto 0 30rpx;
 
   display: grid;
-  grid-template-columns: 7fr 1.5fr 1.5fr;
+  grid-template-columns: 12fr 1fr 1fr;
   align-items: center;
   justify-content: center;
 }
