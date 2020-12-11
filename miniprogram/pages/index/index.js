@@ -2,6 +2,7 @@
 
 const app = getApp()
 const db = wx.cloud.database()
+const _ = db.command
 
 Page({
 
@@ -137,21 +138,25 @@ Page({
                             app.globalData.statusBarHeight = res.statusBarHeight
 
                             /* timemachine */
-                            db.collection('timemachine').get({
-                              success: function(res) {
-                                app.globalData.allDayOpenList = res.data[0].allDayOpenList
-                                app.globalData.specialDayObj = res.data[0].specialDayObj
+                            db.collection('contentful')
+                              .where({
+                                what_is_this: _.eq("TimeMachine")
+                              })
+                              .get({
+                                success: function(res) {
 
-                                /*********** really to do something *********/
-                                that.setData({ near_end: true })
-                                setTimeout(function(){
-                                  wx.redirectTo({
-                                    url: '../wall/wall',
-                                  })
-                                }, 1000)
-                                /*********** really to do something *********/
+                                  app.globalData.allDayOpenList = res.data[0].allDayOpenList
+                                  app.globalData.specialDayObj = res.data[0].specialDayObj
 
-                              }
+                                  /*********** really to do something *********/
+                                  that.setData({ near_end: true })
+                                  setTimeout(function(){
+                                    wx.redirectTo({
+                                      url: '../wall/wall',
+                                    })
+                                  }, 1000)
+                                  /*********** really to do something *********/
+                              },
                             })
 
                           }
@@ -204,8 +209,13 @@ Page({
                           app.globalData.statusBarHeight = res.statusBarHeight
 
                            /* timemachine */
-                            db.collection('timemachine').get({
-                              success: function(res) {                                app.globalData.allDayOpenList = res.data[0].allDayOpenList
+                           db.collection('contentful')
+                              .where({
+                                what_is_this: _.eq("TimeMachine")
+                              })
+                              .get({
+                              success: function(res) {                      
+                                app.globalData.allDayOpenList = res.data[0].allDayOpenList
                                 app.globalData.specialDayObj = res.data[0].specialDayObj
 
                                 /*********** really to do something *********/

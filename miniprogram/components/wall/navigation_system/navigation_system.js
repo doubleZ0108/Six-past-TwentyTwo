@@ -1023,9 +1023,18 @@ Component({
       this.setData({
         vipcard_auto_switch_timer: null,
       })
+
       let buf_vip_cards_zindex = []
       for(let i=this.data.vip_card_total; i>0; --i) {
         buf_vip_cards_zindex.push(i+1)
+      }
+
+      if(this.data.vip_cards.length == 0 || this.data.vip_cards.length == 1) {
+        this.setData({ 
+          vip_cards_zindex: buf_vip_cards_zindex,
+          which_vipcard: -1
+        })
+        return
       }
 
       let that = this
@@ -1041,49 +1050,53 @@ Component({
        
     },
     initStartDefaultVipCard: function() {
-      let default_vipcard = {
-        card_id: "_default_vipcard_001",
-        name_left: "22:06",
-        name_right: "同济大学",
-        gender_left: "男生",
-        gender_right: "女生",
-        // avatar_url: "../../../resource/img/avatar/avatar.jpg",
-        avatar_url: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/avatar/avatar.jpg?sign=c5dedebdcf5582f4235033f43e302b55&t=1607588966",
-        description: "这里是对同济的❤️和磕衿提示",
-        academy: "软件学院",
-        grade: "大四",
-        bubble_left: "左气泡内容",
-        bubble_right: "左气泡内容",
-      }
-      return default_vipcard
-    },
-    initEndDefaultVipCard: function() {
-      let default_vipcard = {
-        card_id: "_default_vipcard_100",
-        name_left: "22:06",
-        name_right: "16分钟",
-        gender_left: "男生",
-        gender_right: "女生",
-        // avatar_url: "../../../resource/img/avatar/avatar.jpg",
-        avatar_url: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/avatar/avatar.jpg?sign=c5dedebdcf5582f4235033f43e302b55&t=1607588966",
-        description: "这里是结束的card",
-        academy: "软件学院",
-        grade: "大四",
-        bubble_left: "左气泡内容",
-        bubble_right: "左气泡内容",
-      }
-      return default_vipcard
+      let that = this
+      db.collection('contentful')
+        .where({
+          what_is_this: _.eq("DefaultVipCard")
+        })
+        .get({
+          success: function(res) {
+            let defaultVipCardData = res.data[0]
+            that.data.vip_cards.unshift({
+              card_id: defaultVipCardData.card_id,
+              name_left: defaultVipCardData.name_left,
+              name_right: defaultVipCardData.name_right,
+              gender_left: defaultVipCardData.gender_left,
+              gender_right: defaultVipCardData.gender_right,
+              avatar_url: defaultVipCardData.avatar_url,
+              academy: defaultVipCardData.academy,
+              grade: defaultVipCardData.grade,
+              bubble_left: defaultVipCardData.bubble_left,
+              bubble_right: defaultVipCardData.bubble_right,
+              description: defaultVipCardData.description
+            })
+            that.setData({ vip_cards: that.data.vip_cards })
+          }
+        })
+      // let default_vipcard = {
+      //   card_id: "_default_vipcard_001",
+      //   name_left: "22:06",
+      //   name_right: "同济大学",
+      //   gender_left: "男生",
+      //   gender_right: "女生",
+      //   // TODO 更换小程序logo
+      //   avatar_url: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/avatar/avatar.jpg?sign=c5dedebdcf5582f4235033f43e302b55&t=1607588966",
+      //   academy: "软件学院",
+      //   grade: "大四",
+      //   bubble_left: "左气泡内容",
+      //   bubble_right: "左气泡内容",
+      //   description: "这里是对同济的❤️和磕衿提示",
+      // }
+      // return default_vipcard
     },
     initDefaultVipCardList: function() {
       this.setData({ vip_cards: [] })
 
-      let bin_cards = []
-      bin_cards.unshift(this.initStartDefaultVipCard())
-      bin_cards.push(this.initEndDefaultVipCard())
+      this.initStartDefaultVipCard()
 
       this.setData({ 
-        vip_cards: bin_cards,
-        vip_card_total: bin_cards.length
+        vip_card_total: 1
       })
       this.initVipCardEffect()
     },
@@ -1116,8 +1129,7 @@ Component({
             }
           })
    
-          bin_cards.unshift(that.initStartDefaultVipCard())
-          bin_cards.push(that.initEndDefaultVipCard())
+          that.initStartDefaultVipCard()
 
           that.setData({ 
             vip_cards: bin_cards,
