@@ -1,0 +1,30 @@
+<!--miniprogram/pages/about/about.wxml-->
+
+<view class="about-container">
+  <!-- ../../resource/img/about/bg.png -->
+  <image class="about-bgdecorate" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/announcement/bg.png?sign=006f3f1bf49c615b79a4de3daa208b83&t=1607589511"></image>
+
+  <view class="about-logo">
+    <text class="iconfont icongonggao1"></text>
+  </view>
+
+  <view class="about-title-group">
+    <text>一事精致, 便能动人</text>
+    <view></view>
+  </view>
+
+  <view class="about-group">
+
+    <image class="about-us-img" mode="widthFix" data-imgSrc="https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201212231635.PNG"
+      src="https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201212231635.PNG"
+      catchtap="onImageTap"></image>
+
+    <view class="about-wave">
+      <!-- ../../resource/img/global/fish-bone.png -->
+      <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=eb54ea34967f04cdf805e5fbd9172763&t=1607589530"></image>
+      <text>关于我们还可以有更多</text>
+    </view>
+
+  </view>
+
+</view>

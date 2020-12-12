@@ -1,0 +1,89 @@
+/* miniprogram/pages/about/about.wxss */
+@import '../../style/iconfont.wxss';
+
+.loading {
+  height: 100rpx;
+}
+
+.about-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.about-bgdecorate {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
+}
+
+/*============ logo ============*/
+.about-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+  margin-top: 150rpx;
+}
+
+.about-logo .iconfont {
+  font-size: 130rpx;
+  background: linear-gradient(130deg, rgb(233, 224, 176),rgb(243, 204, 204), rgb(228, 181, 216)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 auto;
+}
+
+/*============ title ============*/
+.about-title-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.about-title-group text {
+  background: linear-gradient(130deg, rgb(233, 224, 176),rgb(243, 204, 204), rgb(228, 181, 216)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 15rpx auto;
+  font-size: 35rpx;
+}
+.about-title-group view {
+  width: 60%;
+  border-bottom: 2rpx solid rgba(255,255,255,.38);
+}
+
+/*============ wave ============*/
+.about-wave {
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.6);
+  transition: .4s cubic-bezier(.2,.8,.2,1);
+}
+.about-wave image {
+  height: 100rpx;
+  width: 70rpx;
+  object-fit: cover;
+  margin-right: 25rpx;
+}
+
+
+.about-group {
+  width: 80%;
+  height: auto;
+  margin: 35rpx auto;
+}
+
+.about-us-img {
+  
+}

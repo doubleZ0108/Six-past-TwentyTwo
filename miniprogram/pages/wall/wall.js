@@ -29,23 +29,26 @@ Page({
 
   userInfoTap: function() {
     wx.vibrateShort()
-    
     wx.navigateTo({
       url: '../userinfo/userinfo',
     })
   },
   feedbackTap: function() {
     wx.vibrateShort()
-    
     wx.navigateTo({
       url: '../feedback/feedback',
     })
   },
   announcementTap: function() {
     wx.vibrateShort()
-    
     wx.navigateTo({
       url: '../announcement/announcement',
+    })
+  },
+  aboutTap: function() {
+    wx.vibrateShort()
+    wx.navigateTo({
+      url: '../about/about',
     })
   },
 
