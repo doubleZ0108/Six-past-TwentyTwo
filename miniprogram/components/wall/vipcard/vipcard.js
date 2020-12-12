@@ -37,7 +37,7 @@ Component({
     avatar_url: {
       type: String,
       // value: "../../../resource/img/avatar/default_avatar.png"
-      value: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/avatar/default_avatar.png?sign=ad8d79a9b6c432f0a24bd9818d074bd6&t=1607589186"
+      value: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/logo.svg?sign=c30d5c6d5c9d4fa3c182ef789e2d0953&t=1607785696"
     },
     description: {
       type: String,

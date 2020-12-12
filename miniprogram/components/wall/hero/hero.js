@@ -13,7 +13,7 @@ Component({
 
   data: {
     // avatarUrl: '../../../resource/img/avatar/default_avatar.png',
-    avatarUrl: 'https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/avatar/default_avatar.png?sign=4c641da11029064a36c8b4f2914a7ef4&t=1607588947',
+    avatarUrl: 'https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/logo.svg?sign=c30d5c6d5c9d4fa3c182ef789e2d0953&t=1607785696',
     nickName: "起个名字吧",
     gender: "神秘",
     academy: "未知学院",

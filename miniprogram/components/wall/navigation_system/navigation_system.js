@@ -1072,23 +1072,9 @@ Component({
               description: defaultVipCardData.description
             })
             that.setData({ vip_cards: that.data.vip_cards })
+            that.initVipCardEffect()
           }
         })
-      // let default_vipcard = {
-      //   card_id: "_default_vipcard_001",
-      //   name_left: "22:06",
-      //   name_right: "同济大学",
-      //   gender_left: "男生",
-      //   gender_right: "女生",
-      //   // TODO 更换小程序logo
-      //   avatar_url: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/avatar/avatar.jpg?sign=c5dedebdcf5582f4235033f43e302b55&t=1607588966",
-      //   academy: "软件学院",
-      //   grade: "大四",
-      //   bubble_left: "左气泡内容",
-      //   bubble_right: "左气泡内容",
-      //   description: "这里是对同济的❤️和磕衿提示",
-      // }
-      // return default_vipcard
     },
     initDefaultVipCardList: function() {
       this.setData({ vip_cards: [] })
@@ -1133,7 +1119,7 @@ Component({
 
           that.setData({ 
             vip_cards: bin_cards,
-            vip_card_total: bin_cards.length
+            vip_card_total: bin_cards.length + 1
           })
           that.initVipCardEffect()
         },
