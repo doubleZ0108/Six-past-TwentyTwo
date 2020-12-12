@@ -15,14 +15,14 @@
 
   <view class="about-group">
 
-    <image class="about-us-img" mode="widthFix" data-imgSrc="https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201212231635.PNG"
-      src="https://doublez-site-bed.oss-cn-shanghai.aliyuncs.com/img/20201212231635.PNG"
+    <image class="about-us-img" mode="widthFix" 
+      data-imgSrc="{{ about_our_img }}" src="{{ about_our_img }}"
       catchtap="onImageTap"></image>
 
     <view class="about-wave">
       <!-- ../../resource/img/global/fish-bone.png -->
       <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/fish-bone.png?sign=eb54ea34967f04cdf805e5fbd9172763&t=1607589530"></image>
-      <text>关于我们还可以有更多</text>
+      <text>还想了解我们更多可以联系我们哦～</text>
     </view>
 
   </view>

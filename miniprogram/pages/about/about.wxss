@@ -85,5 +85,5 @@
 }
 
 .about-us-img {
-  
+  margin-bottom: 50rpx;
 }
