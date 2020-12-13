@@ -72,9 +72,9 @@
       <scroll-view class="envelop-content" scroll-y>
         <text class="envelop-content-word">{{ description }}</text>
         <!-- <image src="../../../resource/img/envelop/picture.png"></image> -->
-        <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/picture.png?sign=626b00dce44b5b7535806b660541d189&t=1607589276"></image>
-        <text class="envelop-content-motto">有情人终成眷属</text>
-        <text class="envelop-content-sign">—— 二十二点零六团队</text>
+        <image src="{{ flower_src }}" mode="widthFix"></image>
+        <text class="envelop-content-motto" style="background-image: {{ gender_left == '男生' ? 'linear-gradient( 104deg, #43caffc7 10%, #9808ccd0 100%)' : 'linear-gradient( 135deg, #FEB692 10%, #EA5455 100%)' }}; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">祝有情人终成眷属</text>
+        <text class="envelop-content-sign"  style="background-image: {{ gender_left == '男生' ? 'linear-gradient( 104deg, #43caffc7 10%, #9808ccd0 100%)' : 'linear-gradient( 135deg, #FEB692 10%, #EA5455 100%)' }}; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">—— 二十二点零六</text>
         <view class="envelop-gap"></view>
       </scroll-view>
     </view>

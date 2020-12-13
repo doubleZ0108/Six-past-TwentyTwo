@@ -63,6 +63,7 @@ Component({
   data: {
     fold_class: "",
     vipcard_height: "290rpx",
+    flower_src: null,
     // fold_class: "vipcard-container-unfold",    // for vipcard unfold test
     // vipcard_height: "100vh",
     turn_over_class: "",
@@ -451,6 +452,13 @@ Component({
     'unfold_refresh_flag': function(unfold_refresh_flag) {
       if(unfold_refresh_flag && this.data.fold_class == "vipcard-container-unfold") {
         this.updateVipCardFunctionInfo()
+      }
+    },
+    'gender_left': function(gender_left) {
+      if(gender_left == "男生") {
+        this.setData({ flower_src: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/blue-flower.png?sign=6b97b87b7c5b0e05eadd48425f2a41c9&t=1607863405" })
+      } else if(gender_left == "女生") {
+        this.setData({ flower_src: "https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/pink-flower.png?sign=fcf581affbcaac074b513ec84c8eda7f&t=1607863398" })
       }
     },
     'fold_class': function() {

@@ -1,9 +1,4 @@
 /* miniprogram/pages/about/about.wxss */
-@import '../../style/iconfont.wxss';
-
-.loading {
-  height: 100rpx;
-}
 
 .about-container {
   min-height: 100vh;
@@ -30,11 +25,9 @@
   margin-top: 150rpx;
 }
 
-.about-logo .iconfont {
-  font-size: 130rpx;
-  background: linear-gradient(130deg, rgb(233, 224, 176),rgb(243, 204, 204), rgb(228, 181, 216)); 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.about-logo image {
+  height: 100rpx;
+  width: 100rpx;
   margin: 0 auto;
 }
 
@@ -47,9 +40,7 @@
   flex-direction: column;
 }
 .about-title-group text {
-  background: linear-gradient(130deg, rgb(233, 224, 176),rgb(243, 204, 204), rgb(228, 181, 216)); 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: rgba(255,255,255,.83);
   text-align: center;
   margin: 15rpx auto;
   font-size: 35rpx;
