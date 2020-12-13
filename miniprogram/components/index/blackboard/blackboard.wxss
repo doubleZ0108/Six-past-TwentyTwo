@@ -63,6 +63,14 @@
   -webkit-text-fill-color: transparent;
 }
 
+.guide-group .content swiper-item.content-logo-slogan {
+
+}
+
+.guide-group .content swiper-item.content-logo-slogan image {
+  height: 125rpx;
+}
+
 .guide-group .navigator-button {
   width: 100%;
   margin-bottom: 80rpx;
