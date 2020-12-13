@@ -20,7 +20,7 @@
   transition: 1.6s linear;
 }
 
-.index-guide-container image {
+.index-guide-container > image {
   position: absolute;
   top: 0;
   left: 0;

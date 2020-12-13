@@ -43,7 +43,8 @@
       <text>(注：其他未开放时间可以自由编辑表白并查看自己发出的所有表白)</text>
     </swiper-item>
 
-    <swiper-item>
+    <swiper-item class="content-logo-slogan">
+      <image src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/global/logo.svg?sign=c30d5c6d5c9d4fa3c182ef789e2d0953&t=1607785696"></image>
       <text>「二十二点零六」</text>
       <text>“每个夜晚都会遇见🌙”</text>
     </swiper-item>
