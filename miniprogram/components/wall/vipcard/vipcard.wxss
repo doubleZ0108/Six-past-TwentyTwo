@@ -297,7 +297,10 @@
 .vipcard-envelop .envelop-content .envelop-content-motto {
   display: block;
   width: 100%;
-  color: rgba(151, 68, 86, .8);
+  /* color: rgba(151, 68, 86, .8); */
+  background-image: linear-gradient( 104deg, #43caffc7 10%, #9808ccd0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: center;
   margin-top: 50rpx;
 }
@@ -305,12 +308,18 @@
 .vipcard-envelop .envelop-content .envelop-content-sign {
   display: block;
   width: 100%;
-  color: rgba(151, 68, 86, .8);
+  /* color: rgba(151, 68, 86, .8); */
+  background-image: linear-gradient( 104deg, #43caffc7 10%, #9808ccd0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: right;
 }
 
 .envelop-content image {
   display: block;
+  height: 300rpx;
+  width: 300rpx;
+  margin: 0 auto;
 }
 
 .envelop-content .envelop-gap {
