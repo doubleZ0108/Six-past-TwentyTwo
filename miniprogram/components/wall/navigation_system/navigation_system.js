@@ -142,7 +142,7 @@ Component({
 
       let cardsNum = 0
       let cardHeight = 300
-      let blankHeight = -200
+      let blankHeight = -100
 
       switch(this.data.currentTab) {
         case 0: {
@@ -808,7 +808,7 @@ Component({
       .limit(that.data.init_step)
       .orderBy('timestamp', 'asc')
       .where({
-        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array).concat(["四平校区","嘉定校区","沪西校区","沪北校区"])) : filterInfo.academy,
         grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
         time: filterInfo.date,
         myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
@@ -843,7 +843,7 @@ Component({
           .limit(that.data.init_step)
           .orderBy('timestamp', 'asc')
           .where({
-            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array).concat(["四平校区","嘉定校区","沪西校区","沪北校区"])) : filterInfo.academy,
             grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
             time: filterInfo.date,
             myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
@@ -918,7 +918,7 @@ Component({
       .skip(that.data.filter_cards_vip.length)
       .orderBy('timestamp', 'asc')
       .where({
-        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array).concat(["四平校区","嘉定校区","沪西校区","沪北校区"])) : filterInfo.academy,
         grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
         time: filterInfo.date,
         myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
@@ -957,7 +957,7 @@ Component({
           .skip(that.data.filter_cards_normal.length)
           .orderBy('timestamp', 'asc')
           .where({
-            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array).concat(["四平校区","嘉定校区","沪西校区","沪北校区"])) : filterInfo.academy,
             grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
             time: filterInfo.date,
             myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,

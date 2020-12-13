@@ -315,7 +315,7 @@
 .vippay-container {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: -120%;
   background-size: cover;
 
   height: 100vh;
@@ -336,7 +336,7 @@
 
 .vippay-group {
   width: 80%;
-  height: 35%;
+  height: 40%;
   min-height: 400rpx;
   border-radius: 20rpx;
   transform: rotate(20deg);
@@ -418,7 +418,7 @@
 .vippay-group .vippay-content image {
   display: block;
   width: 175rpx;
-  height: 80%;
+  height: 65%;
   margin: 0 15rpx;
   overflow: hidden;
   background-size: contain;

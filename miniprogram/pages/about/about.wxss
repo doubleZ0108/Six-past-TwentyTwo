@@ -70,11 +70,12 @@
 
 
 .about-group {
-  width: 80%;
+  width: 90%;
   height: auto;
   margin: 35rpx auto;
 }
 
 .about-us-img {
+  width: 100%;
   margin-bottom: 50rpx;
 }
