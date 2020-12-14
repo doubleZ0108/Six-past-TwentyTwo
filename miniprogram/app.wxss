@@ -5,3 +5,7 @@ page {
   background: rgb(31, 31, 71);
   color: rgba(31, 31, 71, .83);
 }
+
+view {
+  -webkit-overflow-scrolling: touch;
+}

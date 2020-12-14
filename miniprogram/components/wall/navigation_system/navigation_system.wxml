@@ -20,7 +20,7 @@
 <view>
   <vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}"
   wx:for="{{ vip_cards }}" wx:key="{{ index }}" index="{{ index }}"
-  z_index="{{ vip_cards_zindex[index] }}"  which_vipcard="{{ which_vipcard }}"
+  z_index="{{ vip_cards_zindex[index] }}"
   pull_down_flag_root="{{ pull_down_flag_root }}"
   unfold_refresh_flag="{{ unfold_refresh_flag_naviagtion_system }}"
   card_id="{{ item.card_id }}"
@@ -30,6 +30,13 @@
   description="{{ item.description }}"
   academy="{{ item.academy }}" grade="{{ item.grade }}"
   bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}" />
+
+  <view class="vipcard-bulb-group" style="left: {{ currentTab*(-100)+ '%' }};">
+    <text class="vipcard-bulb-text">{{ '<' }}=</text>
+    <view wx:for="{{ vip_cards }}" wx:key="{{ index }}"
+      class="vipcard-bulb {{ (which_vipcard==index || (which_vipcard==NaN && index==0)) ? 'active' : '' }}"></view>
+    <text class="vipcard-bulb-text">={{ '>' }}</text>
+  </view>
 </view>
 <writecard posLeft="{{ (posLeft_base + 1)*100+ '%' }}"/>
 <favoritecard posLeft="{{ (posLeft_base + 2)*100+ '%' }}"/>
