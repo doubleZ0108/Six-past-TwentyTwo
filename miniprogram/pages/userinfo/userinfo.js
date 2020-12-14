@@ -200,7 +200,7 @@ Page({
         verify_code_input: "",
         toptip: {
           msg: "学号验证成功～",
-          type: "error",
+          type: "success",
           show: true
         }
       })

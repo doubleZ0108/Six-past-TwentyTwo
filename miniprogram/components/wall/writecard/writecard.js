@@ -23,7 +23,7 @@ Component({
     writecard_height: "330rpx",
     // fold_class: "writecard-container-unfold",    // for vipcard unfold test
     // writecard_height: "100vh",
-    slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
+    slip_tolerance: 100,  // 手指下滑退出滑动距离最小值
     animate: false,
     toptip: {
       msg: "",

@@ -117,6 +117,19 @@ Component({
         this.setData({ currentTab: current })
       }
     },
+    onNavigatorLongTap: function(e) {
+      if(this.data.currentTab == e.currentTarget.dataset.current) {
+        console.log("long long ago")
+        wx.vibrateShort()
+        this.setData({ show_loading: true })
+
+        let pages = getCurrentPages()
+        let currpage = pages[pages.length-1]
+        currpage.setData({
+          pull_down_flag: true
+        })
+      }
+    },
 
     /** for content */
     switchTab: function(e) {
@@ -142,7 +155,7 @@ Component({
 
       let cardsNum = 0
       let cardHeight = 300
-      let blankHeight = -200
+      let blankHeight = -100
 
       switch(this.data.currentTab) {
         case 0: {
@@ -293,13 +306,16 @@ Component({
             })
           })
                         
-          that.setData({ world_cards: bin_cards })
+          that.setData({ 
+            world_cards: bin_cards,
+            show_loading: false
+          })
           if(that.data.world_cards.length == 0){
             that.setData({
               world_bottom: {
                 show: true,
                 text: "今天没有更多表白了, 这里是有底线的～"
-              }
+              },
             })
           }
 
@@ -374,7 +390,6 @@ Component({
       })
     },
 
-
     initMyCardList: function() {
       let that = this
       this.setData({ 
@@ -442,7 +457,10 @@ Component({
                   is_vipcard: false
                 })
               })         
-              that.setData({ my_cards_normal: bin_cards })
+              that.setData({ 
+                my_cards_normal: bin_cards,
+                show_loading: false
+              })
 
               /** concat */
               that.setData({ my_cards: that.data.my_cards_vip.concat(that.data.my_cards_normal) })
@@ -648,7 +666,10 @@ Component({
                       is_vipcard: false
                     })
                   })         
-                  that.setData({ favorite_cards_normal: bin_cards })
+                  that.setData({ 
+                    favorite_cards_normal: bin_cards,
+                    show_loading: false
+                  })
 
                   /** concat */
                   that.setData({ favorite_cards: that.data.favorite_cards_vip.concat(that.data.favorite_cards_normal) })
@@ -808,7 +829,7 @@ Component({
       .limit(that.data.init_step)
       .orderBy('timestamp', 'asc')
       .where({
-        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array).concat(["四平校区","嘉定校区","沪西校区","沪北校区"])) : filterInfo.academy,
         grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
         time: filterInfo.date,
         myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
@@ -843,7 +864,7 @@ Component({
           .limit(that.data.init_step)
           .orderBy('timestamp', 'asc')
           .where({
-            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array).concat(["四平校区","嘉定校区","沪西校区","沪北校区"])) : filterInfo.academy,
             grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
             time: filterInfo.date,
             myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
@@ -870,7 +891,10 @@ Component({
                   is_vipcard: false
                 })
               })                 
-              that.setData({ filter_cards_normal: bin_cards })
+              that.setData({ 
+                filter_cards_normal: bin_cards,
+                show_loading: false
+              })
               
               that.setData({ filter_cards: that.data.filter_cards_vip.concat(that.data.filter_cards_normal) })
               if(that.data.filter_cards.length == 0) {
@@ -918,7 +942,7 @@ Component({
       .skip(that.data.filter_cards_vip.length)
       .orderBy('timestamp', 'asc')
       .where({
-        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+        academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array).concat(["四平校区","嘉定校区","沪西校区","沪北校区"])) : filterInfo.academy,
         grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
         time: filterInfo.date,
         myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
@@ -957,7 +981,7 @@ Component({
           .skip(that.data.filter_cards_normal.length)
           .orderBy('timestamp', 'asc')
           .where({
-            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array)) : filterInfo.academy,
+            academy: filterInfo.academy=="全部" ? _.in(["未知"].concat(app.globalData.academy_array).concat(["四平校区","嘉定校区","沪西校区","沪北校区"])) : filterInfo.academy,
             grade: filterInfo.grade=="全部" ? _.in(["未知"].concat(app.globalData.grade_array)) : filterInfo.grade,
             time: filterInfo.date,
             myGender: filterInfo.gender_none ? _.in(['男生','女生']) : filterInfo.gender_left,
@@ -1082,7 +1106,8 @@ Component({
       this.initStartDefaultVipCard()
 
       this.setData({ 
-        vip_card_total: 1
+        vip_card_total: 1,
+        show_loading: false
       })
       this.initVipCardEffect()
     },
@@ -1119,7 +1144,8 @@ Component({
 
           that.setData({ 
             vip_cards: bin_cards,
-            vip_card_total: bin_cards.length + 1
+            vip_card_total: bin_cards.length + 1,
+            show_loading: false
           })
           that.initVipCardEffect()
         },
@@ -1312,6 +1338,7 @@ Component({
                   show: true,
                   text: "没有更多搜索到的表白了, 这里是有底线的～"
                 },
+                show_loading: false
               })
             }
           }

@@ -67,7 +67,7 @@ Component({
     // fold_class: "vipcard-container-unfold",    // for vipcard unfold test
     // vipcard_height: "100vh",
     turn_over_class: "",
-    slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
+    slip_tolerance: 100,  // 手指下滑退出滑动距离最小值
     vipcard_switch_slip_tolerance: -50,
     touchDotX: 0,
     touchDotY: 0,

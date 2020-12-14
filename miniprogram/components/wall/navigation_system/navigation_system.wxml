@@ -8,7 +8,7 @@
 
   <view wx:for="{{ tabbarItem }}" wx:key="{{ index }}"
     class="icon-group {{ currentTab == index ? 'icon-selected' : '' }}"
-    data-current="{{ index }}" catchtap="swichNavigator">
+    data-current="{{ index }}" catchtap="swichNavigator" catchlongtap="onNavigatorLongTap">
     <view class="icon-wrapper">
       <text class="iconfont {{ item.iconfont }}"></text>
       <text class="icon-text">{{ item.name }}</text>

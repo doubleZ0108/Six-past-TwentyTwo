@@ -79,11 +79,11 @@ const checkingTime = () => {
   }
 
   /** for test */
-  // if(time.day == 5) {
-  //   return true
-  // }
-  // if(time.hour == 14) {
-  //   if(time.min >= 50 && time.min <= 59) {   // 22:06～22:22  16分钟
+  if(time.day == 1) {
+    return true
+  }
+  // if(time.hour == 22) {
+  //   if(time.min >= 4 && time.min <= 6) {   // 22:06～22:22  16分钟
   //     return true
   //   }
   // }
@@ -108,7 +108,8 @@ const getZaiArray = () => {
 const getSystemCloseWord = (currentTab) => {
   let now = new Date()
   let hour = now.getHours()
-  if(hour >= 22) {
+  let min = now.getMinutes()
+  if(hour > 22 || (hour==22 && min>22)) {
     return "明天晚上也会相遇🌙"
   }
 

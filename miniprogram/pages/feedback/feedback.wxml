@@ -18,14 +18,14 @@
       </view>
 
       <textarea class="feedback-textarea"
-        name="content" value="{{ content }}"
+        name="content" value="{{ content }}" maxlength="-1"
         bindinput="onContentInput" bindtap="onContentTap"></textarea>
 
       <view class="feedback-append">
         <text>如果想有更深入的交流</text>
         <text>商业合作 / 加入我们 / ...</text>
         <text>也欢迎留下自己的联系方式</text>
-        <textarea name="contact" value="{{ contact }}"
+        <textarea name="contact" value="{{ contact }}" maxlength="-1"
           bindinput="onContactInput" bindtap="onContactTap"></textarea>
         <text class="append-info"> <text class="iconfont icontishi"></text> 此项为选填项, 填写时请注明联系渠道, 如: 微信、QQ、邮箱、电话...</text>
       </view>

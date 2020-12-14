@@ -83,7 +83,7 @@
             <text>想说的话</text>
             <text></text>
           </view>
-          <textarea name="textarea" value="{{ textarea }}" bindtap="bindTextareaTap"></textarea>
+          <textarea name="textarea" value="{{ textarea }}" bindtap="bindTextareaTap" maxlength="-1"></textarea>
         </view>
 
         <button class="{{ colorful ? 'writecard-button-colorful' : '' }}" form-type="submit" catchtap="console.log('catch')">发送表白</button>
