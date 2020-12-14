@@ -20,7 +20,7 @@
 <view>
   <vipcard posLeft="{{ (posLeft_base + 0)*100+ '%' }}"
   wx:for="{{ vip_cards }}" wx:key="{{ index }}" index="{{ index }}"
-  z_index="{{ vip_cards_zindex[index] }}"
+  z_index="{{ vip_cards_zindex[index] }}" prohibit_stretch="{{ prohibit_vipcards_stretch }}"
   pull_down_flag_root="{{ pull_down_flag_root }}"
   unfold_refresh_flag="{{ unfold_refresh_flag_naviagtion_system }}"
   card_id="{{ item.card_id }}"
@@ -65,6 +65,7 @@
         academy="{{ item.academy }}" grade="{{ item.grade }}"
         bubble_left="{{ item.bubble_left }}" bubble_right="{{ item.bubble_right }}"
         refresh_flag="{{ item.refresh_flag }}"
+        is_vipcard="{{ item.is_vipcard }}"
       />
 
       <!-- ../../resource/img/global/loading.gif -->

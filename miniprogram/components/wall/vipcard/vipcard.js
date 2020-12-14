@@ -4,9 +4,7 @@ const app = getApp()
 const db = wx.cloud.database()
 
 Component({
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
     posLeft: {
       type: String,
@@ -52,12 +50,13 @@ Component({
     pull_down_flag_root: {
       type: Boolean,
       value: false
+    },
+    prohibit_stretch: {
+      type: Boolean,
+      value: false
     }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
     fold_class: "",
     vipcard_height: "290rpx",
@@ -192,19 +191,13 @@ Component({
         let touchMoveX = e.changedTouches[0].pageX
         let touchMoveY = e.changedTouches[0].pageY
         let tmX = touchMoveX - this.data.smallcard_touchDotX
-        let tmY = touchMoveY - this.data.smallcard_touchDotX
 
         if (tmX < this.data.vipcard_switch_slip_tolerance){
-          console.log("vip小卡左滑=====")
+          console.log("vip小卡左滑<<<<")
           wx.vibrateShort()
-
           this.vipcardEffect()
-
-          // let pages = getCurrentPages()
-          // let currpage = pages[pages.length-1]
-          // currpage.setData({
-          //   switch_from_user: true
-          // })
+        } else if(tmX > -this.data.vipcard_switch_slip_tolerance) {
+          console.log("vip小卡右滑>>>>")
         }
 
       }
@@ -212,8 +205,13 @@ Component({
 
     vipcardEffect: function() {
       let that = this
+      let pages = getCurrentPages()
+      let currpage = pages[pages.length-1]
 
       this.setData({ vipcard_tap_able: false })
+      currpage.setData({
+        prohibit_vipcards_stretch_root: true
+      })
 
       if(app.globalData.platform == "ios") {
         this.setData({ ios_animate: true })
@@ -224,16 +222,18 @@ Component({
       }
       
       setTimeout(function() {
-        /* z-index adaptive */
-        let pages = getCurrentPages()
-        let currpage = pages[pages.length-1]
+        /* z-index & blub adaptive */
         currpage.setData({
           switch_vipcard: true,
           which_vipcard_root: that.properties.index
         })
       }, 1700)
+
       setTimeout(function(){
         that.setData({ vipcard_tap_able: true })
+        currpage.setData({
+          prohibit_vipcards_stretch_root: false
+        })
 
         if(app.globalData.platform == "ios") {
           that.setData({ ios_animate: false })
