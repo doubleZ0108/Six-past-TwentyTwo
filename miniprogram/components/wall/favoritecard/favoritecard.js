@@ -21,7 +21,7 @@ Component({
     fold_class: "",
     favorite_height: "290rpx",
     turn_over_class: "",
-    slip_tolerance: 200,  // 手指下滑退出滑动距离最小值
+    slip_tolerance: 100,  // 手指下滑退出滑动距离最小值
     touchDotX: 0,
     touchDotY: 0,
 

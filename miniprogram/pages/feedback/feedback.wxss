@@ -33,6 +33,7 @@
 }
 
 .feedback-group .feedback-content-group {
+  margin-top: 10%;
   width: 80%;
 
   display: flex;

@@ -28,6 +28,7 @@
 }
 
 .userinfo-container form {
+  margin-top: 10%;
   width: 80%;
 }
 
