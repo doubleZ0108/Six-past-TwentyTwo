@@ -30,10 +30,10 @@
 </view>
 
 <view class="card-info-unfold-function {{ fromVip ? 'vipcard-confirm' : ''}}">
-  <view class="function-favorite" bindtap="onFavoriteTap">
+  <view class="function-favorite" catchtap="onFavoriteTap">
     <text class="iconfont iconxingxing {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
   </view>
-  <view class="function-star" bindtap="{{ prohibit_star ? '' : 'onStarTap'}}">
+  <view class="function-star" catchtap="{{ prohibit_star ? '' : 'onStarTap'}}">
     <text class="iconfont icondianzan {{ star_flag ? 'iconfont-star-colorful' : '' }}"></text>
     <text>{{ star_num_flag }}</text>
   </view>

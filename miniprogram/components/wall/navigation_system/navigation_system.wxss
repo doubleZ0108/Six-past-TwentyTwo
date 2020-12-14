@@ -119,3 +119,48 @@ swiper-item {
 .delete-btn .iconfont {
   font-size: 50rpx;
 }
+
+
+.vipcard-bulb-group {
+  position: absolute;
+  top: 1015rpx;
+  width: 100%;
+  margin: 25rpx auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vipcard-bulb-text {
+  color: rgba(255,255,255,.38);
+  margin: 0 25rpx;
+
+  animation: BulbTextBlinkAnimation 4s infinite linear;
+}
+
+@keyframes BulbTextBlinkAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.vipcard-bulb {
+  --bulb-circle-radius: 15rpx;
+  width: var(--bulb-circle-radius);
+  height: var(--bulb-circle-radius);
+  border-radius: 50%;
+  margin: 0 10rpx;
+  background-color: rgba(255,255,255,.38);
+  transition: .8s cubic-bezier(.2,.8,.2,1);
+}
+.vipcard-bulb.active {
+  background-color: rgba(255,255,255,.83);
+  transition: .8s cubic-bezier(.2,.8,.2,1);
+}

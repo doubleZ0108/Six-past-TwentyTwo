@@ -9,7 +9,8 @@ Page({
     drawer: false,
     reach_bottom_flag: false,
     pull_down_flag: false,
-    unfold_refresh_flag: false
+    unfold_refresh_flag: false,
+    which_vipcard_root: -1
   },
 
   heroTap: function() {

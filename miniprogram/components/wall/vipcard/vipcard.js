@@ -14,8 +14,6 @@ Component({
     },
     z_index: Number,
     index: Number,
-    which_vipcard: Number,
-
 
     card_id: String,
     name_left: {
@@ -196,20 +194,17 @@ Component({
         let tmX = touchMoveX - this.data.smallcard_touchDotX
         let tmY = touchMoveY - this.data.smallcard_touchDotX
 
-        let absX = Math.abs(tmX)
-        let absY = Math.abs(tmY)
-
         if (tmX < this.data.vipcard_switch_slip_tolerance){
           console.log("vip小卡左滑=====")
           wx.vibrateShort()
 
           this.vipcardEffect()
 
-          let pages = getCurrentPages()
-          let currpage = pages[pages.length-1]
-          currpage.setData({
-            switch_from_user: true
-          })
+          // let pages = getCurrentPages()
+          // let currpage = pages[pages.length-1]
+          // currpage.setData({
+          //   switch_from_user: true
+          // })
         }
 
       }
@@ -233,7 +228,8 @@ Component({
         let pages = getCurrentPages()
         let currpage = pages[pages.length-1]
         currpage.setData({
-          switch_vipcard: true
+          switch_vipcard: true,
+          which_vipcard_root: that.properties.index
         })
       }, 1700)
       setTimeout(function(){
@@ -467,11 +463,6 @@ Component({
         vipcard_height: that.data.fold_class == "vipcard-container-unfold"? "100vh" : "290rpx",
         posLeft: that.data.fold_class == "vipcard-container-unfold" ? "0" : "10%"
       })
-    },
-    'which_vipcard': function(which_vipcard) {      
-      if(which_vipcard == this.data.index) {
-        this.vipcardEffect()
-      }
     },
     'pull_down_flag_root': function(pull_down_flag_root) {
       if(pull_down_flag_root) {

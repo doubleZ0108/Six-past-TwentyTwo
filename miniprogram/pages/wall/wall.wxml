@@ -44,7 +44,7 @@
       unfold_refresh_flag="{{ unfold_refresh_flag }}" 
       filterInfo="{{ filterInfo }}"
       switch_vipcard="{{ switch_vipcard }}"
-      switch_from_user="{{ switch_from_user }}" />
+      which_vipcard_root="{{ which_vipcard_root }}" />
 
     <decorate win_height_root="{{ win_height_root }}" />
   </view>

@@ -43,10 +43,10 @@
     </view>
 
     <view class="vipcard-info-unfold-function">
-      <view class="function-favorite" bindtap="{{ prohibit_favorite ? '' : 'onFavoriteTap'}}">
+      <view class="function-favorite" catchtap="{{ prohibit_favorite ? '' : 'onFavoriteTap'}}">
         <text class="iconfont iconxingxing {{ favorite_flag ? 'iconfont-favorite-colorful' : ''}}"></text>
       </view>
-      <view class="function-star" bindtap="{{ prohibit_star ? '' : 'onStarTap'}}">
+      <view class="function-star" catchtap="{{ prohibit_star ? '' : 'onStarTap'}}">
         <text class="iconfont icondianzan {{ star_flag ? 'iconfont-star-colorful' : '' }}"></text>
         <text>{{ star_num_flag }}</text>
       </view>
@@ -55,7 +55,7 @@
           <text class="iconfont icontubiaozhizuo- {{ comment_flag ? 'iconfont-comment-colorful' : '' }}"></text>
           <text>{{ comment_num_flag }}</text>
         </view>
-        <view class="function-comment-write {{ able_navigate ? '' : 'unable-navigate' }}" bindtap="onNavigatorTap">
+        <view class="function-comment-write {{ able_navigate ? '' : 'unable-navigate' }}" catchtap="onNavigatorTap">
           <text class="iconfont iconpinglun"></text>
           <text>编写评论</text>
         </view>

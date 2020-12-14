@@ -31,6 +31,10 @@ Component({
     switch_from_user: {
       type: Boolean,
       value: false
+    },
+    which_vipcard_root: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -79,8 +83,7 @@ Component({
     vip_card_total: 0,
     vip_cards_zindex: [],
     vip_cards: [],
-    vipcard_auto_switch_timer: null,
-    which_vipcard: -1,
+    which_vipcard: 0,
 
     /** 底部提示信息 */
     world_bottom: {
@@ -1041,37 +1044,13 @@ Component({
 
 
     initVipCardEffect: function() {
-      /** vipcard init */
-
-      clearInterval(this.data.vipcard_auto_switch_timer)
-      this.setData({
-        vipcard_auto_switch_timer: null,
-      })
-
       let buf_vip_cards_zindex = []
       for(let i=this.data.vip_card_total; i>0; --i) {
         buf_vip_cards_zindex.push(i+1)
       }
-
-      if(this.data.vip_cards.length == 0 || this.data.vip_cards.length == 1) {
-        this.setData({ 
-          vip_cards_zindex: buf_vip_cards_zindex,
-          which_vipcard: -1
-        })
-        return
-      }
-
-      let that = this
-      this.setData({
+      this.setData({ 
         vip_cards_zindex: buf_vip_cards_zindex,
-        which_vipcard: -1,
-        vipcard_auto_switch_timer: setInterval(function(){
-          that.setData({
-            which_vipcard: (that.data.which_vipcard + 1) % that.data.vip_card_total,
-          })
-        }, 5000),   // double time
       })
-       
     },
     initStartDefaultVipCard: function() {
       let that = this
@@ -1226,13 +1205,9 @@ Component({
         })
       }
     },
-    'switch_from_user': function(switch_from_user) {    // 当用户自行切换vipcard时停止卡片轮播定时器
-      if(switch_from_user) {
-        clearInterval(this.data.vipcard_auto_switch_timer)
-        this.setData({
-          vipcard_auto_switch_timer: null,
-        })
-      }
+    'which_vipcard_root': function(which_vipcard_root) {
+      this.setData({ which_vipcard: (which_vipcard_root + 1) % this.data.vip_card_total })
+      
     },
     'currentTab': function(currentTab) {    // 监听tab切换，
       this.setData({ 
