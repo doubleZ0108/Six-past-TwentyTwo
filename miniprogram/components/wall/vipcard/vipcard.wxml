@@ -1,7 +1,7 @@
 <!--components/wall/vipcard/vipcard.wxml-->
 <view class="vipcard-container {{ fold_class }} {{ ios_animate ? 'ios-animate' : '' }} {{ android_animate ? 'android-animate' : ' '}}"
   style="height: {{ vipcard_height }}; left: {{ posLeft }};z-index: {{ z_index }};"
-  bindtap="{{ vipcard_tap_able ? 'onVipCardTap' : ''}}" catchtouchmove="true"
+  bindtap="{{ vipcard_tap_able && !prohibit_stretch ? 'onVipCardTap' : ''}}" catchtouchmove="true"
   bindtouchstart="touchStart" bindtouchend="touchEnd">
 
   <!-- ../../../resource/img/card/vipcard_bgdecorate.svg -->

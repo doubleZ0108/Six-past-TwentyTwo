@@ -79,9 +79,9 @@ const checkingTime = () => {
   }
 
   /** for test */
-  if(time.day == 1) {
-    return true
-  }
+  // if(time.day == 1) {
+  //   return true
+  // }
   // if(time.hour == 22) {
   //   if(time.min >= 4 && time.min <= 6) {   // 22:06～22:22  16分钟
   //     return true

@@ -35,6 +35,10 @@ Component({
     which_vipcard_root: {
       type: Number,
       value: 0
+    },
+    prohibit_vipcards_stretch_root: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -66,6 +70,8 @@ Component({
 
     /** 各tab下的数组 */
     world_cards: [],
+    world_cards_vip: [],
+    world_cards_normal: [],
 
     my_cards: [],
     my_cards_vip: [],
@@ -84,6 +90,7 @@ Component({
     vip_cards_zindex: [],
     vip_cards: [],
     which_vipcard: 0,
+    prohibit_vipcards_stretch: false,   // 禁止所有vipcard展开
 
     /** 底部提示信息 */
     world_bottom: {
@@ -105,7 +112,7 @@ Component({
     filter_info: null,
 
     init_step: 16,   // 初始/下拉刷新个数
-    load_more_step: 10,  // 触底刷新个数
+    load_more_step: 16,  // 触底刷新个数
   },
 
   methods: {
@@ -277,22 +284,24 @@ Component({
     initWorldCardList: function() {
       let that = this
       this.setData({
-        world_cards: []
+        world_cards: [],
+        world_cards_vip: [],
+        world_cards_normal: []
       })
 
-      db.collection('card')
+      /** vip cards */
+      db.collection('vipcard')
       .limit(that.data.init_step)   // 初始加载多少
       .orderBy('timestamp', 'desc')
       .where({
-        time: timeUtil.formatDate(new Date())
+        time: timeUtil.formatDate(new Date()),
+        pay: true
       })
       .get({
-        success: function(res) {
-          // @BACK 第一次进入主页时加载主页的卡x张
-          
-          let bin_cards = []
+        success: function(res) {          
+          let bin_vipcards = []
           res.data.forEach(function(bin){
-            bin_cards.push({
+            bin_vipcards.push({
               card_id: bin._id,
               name_left: bin.myName,
               name_right: bin.taName,
@@ -305,30 +314,70 @@ Component({
               bubble_left: bin.myDescription,
               bubble_right: bin.taDescription,
               refresh_flag: "refresh",
-              animate: false
+              animate: false,
+              is_vipcard: true
             })
           })
-                        
-          that.setData({ 
-            world_cards: bin_cards,
-            show_loading: false
-          })
-          if(that.data.world_cards.length == 0){
-            that.setData({
-              world_bottom: {
-                show: true,
-                text: "今天没有更多表白了, 这里是有底线的～"
-              },
-            })
-          }
+          that.setData({ world_cards_vip: bin_vipcards })
 
-          that.adaptHeight()
-  
+          /** normal cards */
+          db.collection('card')
+          .limit(that.data.init_step)   // 初始加载多少
+          .orderBy('timestamp', 'desc')
+          .where({
+            time: timeUtil.formatDate(new Date())
+          })
+          .get({
+            success: function(res) {              
+              let bin_cards = []
+              res.data.forEach(function(bin){
+                bin_cards.push({
+                  card_id: bin._id,
+                  name_left: bin.myName,
+                  name_right: bin.taName,
+                  gender_left: bin.myGender,
+                  gender_right: bin.taGender,
+                  avatar_url: bin.avatarUrl,
+                  description: bin.textarea,
+                  academy: bin.academy,
+                  grade: bin.grade,
+                  bubble_left: bin.myDescription,
+                  bubble_right: bin.taDescription,
+                  refresh_flag: "refresh",
+                  animate: false,
+                  is_vipcard: false
+                })
+              })
+                            
+              that.setData({ 
+                world_cards_normal: bin_cards,
+                show_loading: false
+              })
+
+              /** concat */
+              that.setData({ world_cards: that.data.world_cards_vip.concat(that.data.world_cards_normal)})
+
+              if(that.data.world_cards.length == 0){
+                that.setData({
+                  world_bottom: {
+                    show: true,
+                    text: "今天没有更多表白了, 这里是有底线的～"
+                  },
+                })
+              }
+              that.adaptHeight()
+            },
+            fail: function(res) {
+              console.log("主页刷新卡片列表出错")
+            }
+          })
+        
         },
         fail: function(res) {
-          console.log("主页刷新卡片列表出错")
+          console.log("主页刷新vip卡片列表出错")
         }
       })
+  
     },
     loadMoreWorldCardList: function() {
       this.setData({ 
@@ -340,31 +389,20 @@ Component({
 
       let that = this
 
-      db.collection('card')
+      /** vip cards */
+      db.collection('vipcard')
       .limit(that.data.load_more_step)   // 每次触底新加载多少
-      .skip(that.data.world_cards.length)
+      .skip(that.data.world_cards_vip.length)
       .orderBy('timestamp', 'desc')
       .where({
-        time: timeUtil.formatDate(new Date())
+        time: timeUtil.formatDate(new Date()),
+        pay: true
       })
       .get({
-        success: function(res) {
-          // @BACK 第一次进入主页时加载主页的卡x张
-          
-          if(res.data.length == 0) {
-            console.log("我是有底线的～")
-            that.setData({ 
-              world_bottom: {
-                show: true,
-                text: "今天没有更多表白了, 这里是有底线的～"
-              },
-              show_loading: false 
-            })
-            return
-          }
-          let bin_cards = []
+        success: function(res) {          
+          let bin_vipcards = []
           res.data.forEach(function(bin){
-            bin_cards.push({
+            bin_vipcards.push({
               card_id: bin._id,
               name_left: bin.myName,
               name_right: bin.taName,
@@ -377,20 +415,77 @@ Component({
               bubble_left: bin.myDescription,
               bubble_right: bin.taDescription,
               refresh_flag: "refresh",
-              animate: false
+              animate: false,
+              is_vipcard: true
             })
           })
                         
-          that.setData({ world_cards: that.data.world_cards.concat(bin_cards) })
+          that.setData({ 
+            world_cards_vip: that.data.world_cards_vip.concat(bin_vipcards),
+            world_cards: that.data.world_cards.concat(bin_vipcards)
+          })
 
-          that.adaptHeight()
-  
-          that.setData({ show_loading: false })
+
+          /** normal cards */
+          db.collection('card')
+          .limit(that.data.load_more_step)   // 每次触底新加载多少
+          .skip(that.data.world_cards_normal.length)
+          .orderBy('timestamp', 'desc')
+          .where({
+            time: timeUtil.formatDate(new Date())
+          })
+          .get({
+            success: function(res) {              
+              if(res.data.length == 0) {
+                console.log("我是有底线的～")
+                that.setData({ 
+                  world_bottom: {
+                    show: true,
+                    text: "今天没有更多表白了, 这里是有底线的～"
+                  },
+                  show_loading: false 
+                })
+                return
+              }
+              let bin_cards = []
+              res.data.forEach(function(bin){
+                bin_cards.push({
+                  card_id: bin._id,
+                  name_left: bin.myName,
+                  name_right: bin.taName,
+                  gender_left: bin.myGender,
+                  gender_right: bin.taGender,
+                  avatar_url: bin.avatarUrl,
+                  description: bin.textarea,
+                  academy: bin.academy,
+                  grade: bin.grade,
+                  bubble_left: bin.myDescription,
+                  bubble_right: bin.taDescription,
+                  refresh_flag: "refresh",
+                  animate: false,
+                  is_vipcard: false
+                })
+              })
+                            
+              that.setData({ 
+                world_cards_normal: that.data.world_cards_normal.concat(bin_cards),
+                world_cards: that.data.world_cards.concat(bin_cards)
+              })
+              that.adaptHeight()
+              that.setData({ show_loading: false })
+            },
+            fail: function(res) {
+              console.log("主页加载更多卡片列表出错")
+            }
+          })
+        
+
         },
         fail: function(res) {
-          console.log("主页加载更多卡片列表出错")
+          console.log("主页加载更多vip卡片列表出错")
         }
       })
+    
     },
 
     initMyCardList: function() {
@@ -530,7 +625,7 @@ Component({
           })
                         
           that.setData({ 
-            my_cards_vip: that.data.my_cards_normal.concat(bin_vipcards),
+            my_cards_vip: that.data.my_cards_vip.concat(bin_vipcards),
             my_cards: that.data.my_cards.concat(bin_vipcards)
           })
 
@@ -1207,8 +1302,11 @@ Component({
     },
     'which_vipcard_root': function(which_vipcard_root) {
       this.setData({ which_vipcard: (which_vipcard_root + 1) % this.data.vip_card_total })
-      
     },
+    'prohibit_vipcards_stretch_root': function(prohibit_vipcards_stretch_root) {
+      this.setData({ prohibit_vipcards_stretch: prohibit_vipcards_stretch_root })
+    },
+
     'currentTab': function(currentTab) {    // 监听tab切换，
       this.setData({ 
         navigatorLeft: this.data.currentTab * 25 + "%",
