@@ -283,14 +283,14 @@
   display: block;
 
   /* TODO 这里都很怪 定位/居中/border 等等都有问题 交给你美化了 */
-  width: 80%;
+  width: 85%;
   /* height: 100%; */
   min-height: calc(var(--envelop-body-height)*0.9 - 5rpx);
   margin: 50rpx auto;
   text-align: left;
   border-bottom: 3rpx solid rgba(0,0,0,.11);
   font-size: 28rpx;
-  line-height: 30rpx;
+  line-height: 40rpx;
   letter-spacing: 5rpx;
 }
 

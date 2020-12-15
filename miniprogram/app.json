@@ -2,13 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/userinfo/userinfo",
-    "pages/test/test",
     "pages/wall/wall",
     "pages/feedback/feedback",
     "pages/announcement/announcement",
     "pages/comment/comment",
-    "pages/about/about",
-    "pages/delete/delete"
+    "pages/about/about"
   ],
   "usingComponents": {
     "navigationBar": "/components/navigationBar/navigationBar"

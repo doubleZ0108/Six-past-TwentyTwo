@@ -1,20 +1,5 @@
 //app.js
 
-// "tabBar": {
-//   "list": [
-//     {
-//       "pagePath": "pages/wall/wall",
-//       "text": "表白墙",
-//       "iconPath": "resource/img/icon/wall/wall.png",
-//       "selectedIconPath": "resource/img/icon/wall/wall_selected.png"
-//     },
-//     {
-//       "pagePath": "pages/test/test",
-//       "text": "测试"
-//     }
-//   ]
-// },
-
 App({
   onLaunch: function () {
 
@@ -30,7 +15,6 @@ App({
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
-      // env: 'ckkkx-7gnxqsp7c5938afc',  // TODO 换成release的库
       wx.cloud.init({
         env: 'six-past-twenty-two-8cvx689cf6da',
         traceUser: true,
