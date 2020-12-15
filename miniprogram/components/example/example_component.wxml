@@ -1,6 +1,0 @@
-<!--components/example/example_component.wxml-->
-<view class="example-component">
-  <text>{{mytext}}</text>
-  <slot></slot>
-</view>
-
