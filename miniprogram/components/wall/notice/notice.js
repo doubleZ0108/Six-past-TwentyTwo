@@ -26,6 +26,7 @@ Component({
             let bin_notices = []
             res.data.forEach(function(notice) {
               bin_notices.push(notice.content)
+              // bin_notices.push(notice.title)   // v1.x TODO
             })
             that.setData({ notices: bin_notices })
           }
