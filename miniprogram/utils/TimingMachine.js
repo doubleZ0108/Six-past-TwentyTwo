@@ -79,7 +79,7 @@ const checkingTime = () => {
   }
 
   /** for test */
-  // if(time.day == 1) {
+  // if(time.day == 5) {
   //   return true
   // }
   // if(time.hour == 22) {

@@ -154,7 +154,7 @@ Page({
                                     wx.redirectTo({
                                       url: '../wall/wall',
                                     })
-                                  }, 1000)
+                                  }, 500)
                                   /*********** really to do something *********/
                               },
                             })
@@ -173,7 +173,7 @@ Page({
 
             }
           })   
-          }, 5000)
+          }, 2000)
         }
       }
     })
