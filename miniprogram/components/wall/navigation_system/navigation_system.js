@@ -294,7 +294,7 @@ Component({
       .limit(that.data.init_step)   // 初始加载多少
       .orderBy('timestamp', 'desc')
       .where({
-        time: timeUtil.formatDate(new Date()),
+        // time: timeUtil.formatDate(new Date()),
         pay: true
       })
       .get({
@@ -325,7 +325,7 @@ Component({
           .limit(that.data.init_step)   // 初始加载多少
           .orderBy('timestamp', 'desc')
           .where({
-            time: timeUtil.formatDate(new Date())
+            // time: timeUtil.formatDate(new Date())
           })
           .get({
             success: function(res) {              
@@ -395,7 +395,7 @@ Component({
       .skip(that.data.world_cards_vip.length)
       .orderBy('timestamp', 'desc')
       .where({
-        time: timeUtil.formatDate(new Date()),
+        // time: timeUtil.formatDate(new Date()),
         pay: true
       })
       .get({
@@ -432,7 +432,7 @@ Component({
           .skip(that.data.world_cards_normal.length)
           .orderBy('timestamp', 'desc')
           .where({
-            time: timeUtil.formatDate(new Date())
+            // time: timeUtil.formatDate(new Date())
           })
           .get({
             success: function(res) {              
