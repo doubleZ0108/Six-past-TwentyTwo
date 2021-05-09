@@ -292,7 +292,7 @@ Component({
       /** vip cards */
       db.collection('vipcard')
       .limit(that.data.init_step)   // 初始加载多少
-      .orderBy('timestamp', 'desc')
+      .orderBy('timestamp', 'asc')
       .where({
         // time: timeUtil.formatDate(new Date()),
         pay: true
@@ -393,7 +393,7 @@ Component({
       db.collection('vipcard')
       .limit(that.data.load_more_step)   // 每次触底新加载多少
       .skip(that.data.world_cards_vip.length)
-      .orderBy('timestamp', 'desc')
+      .orderBy('timestamp', 'asc')
       .where({
         // time: timeUtil.formatDate(new Date()),
         pay: true
@@ -1188,9 +1188,10 @@ Component({
     initVipCardList: function() {
       let that = this
       db.collection('vipcard')
-      .limit(20)   // TODO 这里应该没限制
+      .limit(10)
       .where({
-        time: timeUtil.formatDate(new Date())
+        // time: timeUtil.formatDate(new Date())
+        pay: true
       })
       .orderBy('timestamp', 'asc')
       .get({
