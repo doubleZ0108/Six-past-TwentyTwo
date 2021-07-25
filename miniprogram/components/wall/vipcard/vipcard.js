@@ -61,8 +61,6 @@ Component({
     fold_class: "",
     vipcard_height: "290rpx",
     flower_src: null,
-    // fold_class: "vipcard-container-unfold",    // for vipcard unfold test
-    // vipcard_height: "100vh",
     turn_over_class: "",
     slip_tolerance: 100,  // 手指下滑退出滑动距离最小值
     vipcard_switch_slip_tolerance: -50,
@@ -75,7 +73,6 @@ Component({
     android_animate: false,
     vipcard_tap_able: true,
 
-
     favorite_flag: false,
     star_flag: false,
     star_num_flag: 0,
@@ -86,9 +83,6 @@ Component({
     able_navigate: true     // 收藏 点赞完 写完库才可以跳转
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
     backToTop: function() {
       if (wx.pageScrollTo) {
@@ -104,8 +98,6 @@ Component({
     },
 
     onVipCardTap: function() {
-      // let fold_now = this.data.fold_class == "" ? "vipcard-container-unfold" : "";
-      // this.setData({ fold_class: fold_now })
 
       this.backToTop()
 
@@ -125,7 +117,6 @@ Component({
     onEnvelopTap: function() {
       wx.vibrateShort()
 
-      // let turn_over_now = this.data.turn_over_class=="" ? "envelop-turn-over": ""
       if(this.data.turn_over_class != "envelop-turn-over") {
         this.setData({ turn_over_class: "envelop-turn-over" })
       }
@@ -244,7 +235,6 @@ Component({
         }
       }, 2500)
     },
-
 
     onFavoriteTap: function() {
       wx.vibrateShort()

@@ -2,7 +2,7 @@
 @import '../../style/iconfont.wxss';
 
 .vip-badge {
-  background: linear-gradient(130deg, rgb(201,247,244),rgb(249,214,134));   /* TODO 高贵金色待改 */
+  background: linear-gradient(130deg, rgb(201,247,244),rgb(249,214,134));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: VipBadgeAnimation 6s infinite;
@@ -26,7 +26,6 @@
 }
 
 .wall-page {
-  /** TODO **/
   background: url(https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/drawer/bg.png?sign=8a2df8f4119db737a97fc6f6d441c89a&t=1607589773);
   background-position: center center;
   background-repeat: no-repeat;

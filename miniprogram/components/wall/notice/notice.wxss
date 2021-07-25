@@ -43,7 +43,6 @@
   width: 90%;
   height: var(--notice-height);
   position: relative;
-  /* overflow: hidden; */
   transition: .8s cubic-bezier(.8,.2,.8,1);
 }
 

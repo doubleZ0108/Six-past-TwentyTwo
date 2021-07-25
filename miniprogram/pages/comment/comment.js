@@ -35,24 +35,18 @@ Page({
     }, function (resList) {
       resList.forEach((res)=>{
         wx.createIntersectionObserver().relativeToViewport().observe('#'+res.id, (node) => {
-          // console.log(res.id, node.intersectionRatio)
           let commentIndex = parseInt(res.id.substr(8))
           // 仅第一次进行observe 播放动画
           if(node.intersectionRatio != 0) {
             that.data.commentItem[commentIndex].animate = true
             wx.createIntersectionObserver().relativeToViewport().disconnect('#'+res.id)
           } 
-          // else {
-          //   that.data.commentItem[commentIndex].animate = false
-          // }
           that.setData({ commentItem: that.data.commentItem })
         })
       })
     }).exec()
 
-    
   },
-
 
   onTextareaInput: function(e) {
     this.setData({ 
@@ -129,7 +123,6 @@ Page({
 
     }
   },
-
 
   onFavoriteTap: function() {
     wx.vibrateShort()
@@ -230,7 +223,6 @@ Page({
     }
   },
 
-
   initCommentList: function() {
     let that = this
     db.collection('comment')
@@ -255,14 +247,11 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
     this.setData({ card_id: options.cardId })
 
     if(options.vipcard) {
-      // console.log("this is from vipcard navigator!!!")
       this.setData({ fromVip: true })
     }
 
@@ -313,17 +302,10 @@ Page({
   
   },
 
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     this.handleIntersectionObserver()
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
     // console.log("comment page unload")
     let pages = getCurrentPages()
@@ -333,9 +315,6 @@ Page({
     })
   },
 
-  /**
-   *  下拉刷新只更新评论列表 不更新点赞数量
-   */
   onPullDownRefresh: function () {
     wx.vibrateShort()
     

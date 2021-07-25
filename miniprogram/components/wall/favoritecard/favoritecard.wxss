@@ -6,10 +6,7 @@
   position: absolute;
   top: 725rpx;
   height: var(--favoritecard-height);
-
   width: 80%;
-  /* left: 10%; */
-
   margin: 0px auto 90rpx;
   overflow: hidden;
 
@@ -62,7 +59,6 @@
   margin: 0 auto;
 }
 
-
 /**************** fold ***************/
 .favoritecard-info {
   display: flex;
@@ -81,7 +77,6 @@
   font-size: 80rpx;
 }
 
-
 /**************** unfold ***************/
 .favoritecard-container-unfold {
   width: 100%;
@@ -94,7 +89,6 @@
 .favoritecard-container-unfold form {
   width: 80%;
 }
-
 
 .favoritecard-logo {
   display: flex;
@@ -136,14 +130,12 @@
   margin: 13rpx 0;
 } 
 
-
 /*============ defalut ============*/
 .default-container {
   width: 90%;
   margin: 25rpx auto;
   display: grid;
   grid-template-columns: .8fr 1fr;
-  /* grid-gap: 20rpx; */
   align-items: center;
   justify-content: center;
 }
@@ -200,7 +192,6 @@
   background-position: center center;
   background-size: cover;
 }
-
 
 /*============ statistic ============*/
 .favorite-statistic-group {

@@ -27,7 +27,6 @@
   font-size: 30rpx;
 }
 
-
 .guide-group .content swiper-item {
   display: flex;
   align-items: center;
@@ -61,10 +60,6 @@
   background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.guide-group .content swiper-item.content-logo-slogan {
-
 }
 
 .guide-group .content swiper-item.content-logo-slogan image {

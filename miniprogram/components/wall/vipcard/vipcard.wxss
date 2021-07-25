@@ -6,10 +6,7 @@
   position: absolute;
   top: 725rpx;
   height: var(--vipcard-height);
-
   width: 80%;
-  /* left: 10%; */
-
   margin: 0px auto 90rpx;
 
   background: linear-gradient(104deg, rgb(243, 237, 231), rgb(240, 223, 186));
@@ -44,7 +41,7 @@
 }
 
 .vipcard-people text {
-  max-width: 100%;      /* @BUG 这里的文字没法超过一行省略号 */
+  max-width: 100%;
   color: rgb(174,125,79);
   font-size: 35rpx;
   font-weight: 600;
@@ -89,8 +86,6 @@
 
 .vipcard-info text {
   color: rgba(0, 0, 0, .6);
-  /* width: 90%; */
-
   font-size: 25rpx;
   align-self: center;
   justify-self: center;
@@ -128,17 +123,12 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  /* TODO 不太好做示意图里下半部分充满 全屏充满比较好实现*/
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-position: center center;
-  /* background-size: cover; */
-  /* object-fit: cover; */
   z-index: -1;
 }
-
-
 
 /*========== function ============*/
 .vipcard-info-unfold-function {
@@ -146,7 +136,6 @@
   height: 35rpx;
   margin: 10rpx auto 0;
   padding-top: 15rpx;
-  /* background-color: green; */
   display: flex;
   flex-direction: row;
   font-size: 28rpx;
@@ -281,10 +270,7 @@
 .vipcard-envelop .envelop-content .envelop-content-word {
   color: rgba(0,0,0,.83);
   display: block;
-
-  /* TODO 这里都很怪 定位/居中/border 等等都有问题 交给你美化了 */
   width: 85%;
-  /* height: 100%; */
   min-height: calc(var(--envelop-body-height)*0.9 - 5rpx);
   margin: 50rpx auto;
   text-align: left;
@@ -297,7 +283,6 @@
 .vipcard-envelop .envelop-content .envelop-content-motto {
   display: block;
   width: 100%;
-  /* color: rgba(151, 68, 86, .8); */
   background-image: linear-gradient( 104deg, #43caffc7 10%, #9808ccd0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -309,7 +294,6 @@
   font-size: 20rpx;
   display: block;
   width: 100%;
-  /* color: rgba(151, 68, 86, .8); */
   background-image: linear-gradient( 104deg, #43caffc7 10%, #9808ccd0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -329,13 +313,10 @@
 }
 
 .envelop-turn-over .envelop-head {
-  /* z-index: -1;
-  transform: rotateX(179deg) translate3d(0, 0, 0); */
   animation: 2s HeadTurnOverAnimation linear forwards;
 }
 
 .envelop-turn-over .envelop-content {
-  /* height: 60vh; */
   animation: 2s ContentStretchAnimation ease-out forwards;
   animation-delay: 2s;  /* >= time of HeadTurnOverAnimation*/
 }
@@ -489,8 +470,6 @@
 
   font-size: 0;
 }
-
-
 
 /*************** vip swip animation*****************/
 .vipcard-container.android-animate {

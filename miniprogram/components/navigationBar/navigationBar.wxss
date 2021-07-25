@@ -12,13 +12,9 @@
 
   transition: .8s cubic-bezier(.2,.8,.2,1);
 }
-.navbar.outdrop {
-  /* top: -180rpx; */
-}
 
 .navbar .blur {
   width: 100%;
-  /* height: 175rpx; */
   position: absolute;
   top: 0;
   left: 0;
@@ -31,7 +27,6 @@
   align-items: center;
   justify-content: center;
 
-  /* height: 100rpx; */
   width: 100%;
   position: absolute;
   bottom: 10px;

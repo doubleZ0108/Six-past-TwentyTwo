@@ -6,9 +6,6 @@
   margin-top: 220rpx;
   display: grid;
   grid-template-rows: repeat(2, auto);
-  /* justify-content: center; */
-
-  /* TODO: font setting */
   color: white;
   font-size: 30rpx;
 }
@@ -47,7 +44,6 @@
 
 .hero-container .info-name {
   font-size: 45rpx;
-
   word-break: break-all;
   word-wrap: break-word;
   overflow: hidden;
@@ -83,13 +79,12 @@
 
 .hero-container .other-info-container {
   display: grid;
-  grid-template-columns: repeat(3, auto);   /* TODO: 如果还有其他信息 修改这里 */
+  grid-template-columns: repeat(3, auto);
   grid-gap: 30rpx;
 }
 
 .hero-container .other-info-container text {
   max-width: 300rpx;
-
   word-break: break-all;
   word-wrap: break-word;
   overflow: hidden;

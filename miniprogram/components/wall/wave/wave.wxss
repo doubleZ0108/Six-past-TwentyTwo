@@ -2,7 +2,6 @@
 .wave-container {
   background: linear-gradient(189.16deg, rgb(43, 16, 131) 13.57%, rgb(67, 22, 219) 13.57%, rgb(144, 118, 231) 98.38%);
   height: 1100rpx;
-  /* 这个背景container跟卡片不应该是并列关系*/
   position: relative;
   overflow: hidden;
   overflow-x: hidden;
@@ -16,9 +15,8 @@
 .wave-1-layer {
   position: absolute;
   width: 100%;
-  background-position: 25% 0%;      /* TODO */
+  background-position: 25% 0%;
   background-repeat: no-repeat;
-  /* background-size: 100%; */
   top: 400rpx;
   height: 1700rpx;
   transition: .4s cubic-bezier(.8,.2,.8,1);
@@ -35,7 +33,7 @@
 .wave-3-layer {
   position: absolute;
   width: 100%;
-  background-position: 50% 0%;  /* TODO */
+  background-position: 50% 0%;
   background-repeat: no-repeat;
   background-size: 180%;
   top: 675rpx;
@@ -45,7 +43,6 @@
 }
 
 .wave-4-layer {
-  /* background: linear-gradient(rgba(190, 255, 255, 0.25) -18.72%, rgb(242, 246, 255) 37.6%); */
   background: linear-gradient(rgba(31, 31, 71, 0.25) -18.72%, rgb(31, 31, 71) 37.6%);
   position: absolute;
   width: 100%;

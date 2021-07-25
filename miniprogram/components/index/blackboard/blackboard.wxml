@@ -8,9 +8,11 @@
   <swiper class="content" current="{{ currentTab }}" 
     bindchange="switchTab">
 
-    <!-- <swiper-item wx:for="{{ info_list }}" wx:key="{{ index }}">
+    <!-- 
+    <swiper-item wx:for="{{ info_list }}" wx:key="{{ index }}">
       <text>{{ item }}</text>
-    </swiper-item> -->
+    </swiper-item> 
+    -->
     <swiper-item>
       <text>欢迎来到</text>
       <text>「二十二点零六」</text>

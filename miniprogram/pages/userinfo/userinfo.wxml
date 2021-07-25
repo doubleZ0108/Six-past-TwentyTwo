@@ -95,18 +95,4 @@
 
   </view>
 
-  <!-- <view class="blog-sticky">
-    <view class="todo-group">
-      <view class="todo-paper">
-          <view class="todo-paper-bg">
-          </view>
-      </view>
-      <view class="cover-content-container">
-          <view class="cover-content">
-
-          </view>
-      </view>
-      </view>
-  </view> -->
-
 </view>

@@ -1,6 +1,5 @@
 <!--components/wall/decorate/decorate.wxml-->
 <view class="decorate-container" style="height: {{ win_height }}rpx;" bindscroll="decorateScroll">
-  <!-- <text>{{ win_height }}</text> -->
 
   <view wx:for="{{ decorate_bg_list }}" wx:key="{{ index }}"
     class="decorate-layer {{ item.show ? 'shown' : '' }}"

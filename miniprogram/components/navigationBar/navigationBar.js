@@ -13,7 +13,6 @@ Component({
       value: false
     },
 
-
     text: {
       type: String,
       value: 'Wechat'
@@ -27,6 +26,7 @@ Component({
       value: false
     }
   },
+  
   data: {
     navigationBarHeight: 88,
     outdrop_root: false,

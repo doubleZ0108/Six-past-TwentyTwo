@@ -8,7 +8,6 @@ Page({
     about_our_img: null
   },
 
-
   onImageTap: function(e){
     wx.vibrateShort()
     wx.previewImage({

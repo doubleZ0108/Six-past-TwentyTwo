@@ -221,11 +221,7 @@ Component({
       }
     },
 
-    /**
-     * TAP
-     */
     onCardGroupTap: function(e) {
-      // console.log("card group tap...")
       for(let index=0; index<this.data.world_cards.length; ++index){
         this.data.world_cards[index].refresh_flag = "refresh";
       }
@@ -253,7 +249,6 @@ Component({
         url: '../delete/delete',
       })
     },
-
 
     /********************** card list logic *******************************/
     clearCardList: function() {
@@ -1260,7 +1255,6 @@ Component({
   observers: {
     'unfold_refresh_flag': function(unfold_refresh_flag) {  // 用于控制只有一张卡会展开，某一个展开时其余关闭
       if(unfold_refresh_flag) {
-        // console.log("navigation system is signialed")
         this.setData({ unfold_refresh_flag_naviagtion_system : unfold_refresh_flag })
       }
     },
@@ -1459,9 +1453,6 @@ Component({
     'reach_bottom_flag_root': function(reach_bottom_flag_root) {  // 监听触底
       if(reach_bottom_flag_root) {
         wx.vibrateShort()
-
-        console.log(this.data.currentTab, "加载更多...")
-
         this.clearBottom()
 
         // @BACK 根据不同的tab拉取触底的新cards

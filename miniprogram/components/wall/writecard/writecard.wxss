@@ -32,7 +32,7 @@
   font-size: 40rpx;
   color: rgb(44,37,86);
   letter-spacing: 10rpx;
-  font-family: Weibei SC, NSimSun, STXinwei, STSong;  /* TODO 这里要换个字体 太丑了 */
+  font-family: Weibei SC, NSimSun, STXinwei, STSong;
   transition: 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -113,7 +113,7 @@
 .writecard-container-unfold .write-logo .iconfont {
   font-size: 100rpx;
   line-height:  100rpx;
-  background: linear-gradient(130deg, rgb(201,247,244),rgb(249,214,134));   /* TODO 高贵金色待改 */
+  background: linear-gradient(130deg, rgb(201,247,244),rgb(249,214,134));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 auto;
@@ -297,15 +297,12 @@
   color: rgba(255,255,255,.83);
   background: rgb(30,31,66); 
   transition: .4s cubic-bezier(.8,.2,.8,1);
-  /* background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210)); */
 }
 
 .writecard-container-unfold button.writecard-button-colorful {
   color: rgb(44,42,85);
   background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210));
 }
-
-
 
 /************** vip pay ***************/
 .writecard-info.writecard-info-blur {
@@ -355,10 +352,6 @@
 .vippay-container.shown .vippay-group {
   transform: rotate(0deg);
 }
-
-/* .vippay-group view {
-  background-color: lightpink;
-} */
 
 /*============ title & line ============*/
 .userinfo-title-group {
@@ -426,7 +419,6 @@
 
 
 /* =========== button ======== */
-
 .vippay-function-group {
   /* right: 5%; */
   display: flex;

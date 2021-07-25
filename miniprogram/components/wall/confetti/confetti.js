@@ -3,13 +3,10 @@ Component({
   properties: {
     duration: {
       type: Number,
-      value: 6000//效果持续的时间。时间太短，纸片还未飘出屏幕，时间太长交互体验受影响
+      value: 6000   //效果持续的时间。时间太短，纸片还未飘出屏幕，时间太长交互体验受影响
     },
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
     COLORS: ["#EF5350", "#EC407A", "#AB47BC", "#7E57C2", "#5C6BC0", "#42A5F5", "#29B6F6", "#26C6DA", "#26A69A", "#66BB6A", "#9CCC65", "#D4E157", "#FFEE58", "#FFCA28", "#FFA726", "#FF7043", "#8D6E63", "#BDBDBD", "#78909C"],//纸片色彩
     SPRITE_WIDTH: 18,
@@ -22,9 +19,6 @@ Component({
     confettisDisplay: false
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
     showConfetti() {
       var DURATION = this.properties.duration;

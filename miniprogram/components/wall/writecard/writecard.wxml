@@ -1,6 +1,5 @@
 <!--components/wall/writecard/writecard.wxml-->
 
-
 <view class="writecard-container {{ fold_class }}"
   style="height: {{ writecard_height }}; left: {{ posLeft }};"
   catchtap="onWriteCardTap" catchtouchmove="true"
@@ -51,9 +50,11 @@
             <text>TA的信息</text>
             <text></text>
           </view>
-          <!-- <picker mode="selector" bindchange="bindAcademyChange" name="academy"
+          <!-- 
+            <picker mode="selector" bindchange="bindAcademyChange" name="academy"
             range="{{ academy_array }}" index="{{ academy_index }}">
-            学院: {{ academy_array[academy_index]}} </picker> -->
+            学院: {{ academy_array[academy_index]}} </picker> 
+          -->
             <picker mode="multiSelector"
               bindtap="bindAcademyPickerTap" bindchange="bindAcademyPickerChange" bindcolumnchange="bindAcademyPickerColumnChange" value="{{ academyIndex }}" range="{{ academyArray }}">
             学院: {{ academyArray[1][academyIndex[1]] }}
