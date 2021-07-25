@@ -1,4 +1,4 @@
-<h1 align="center">二十二点零六</h1>
+<h1 align="center">二 十 二 点 零 六</h1>
 
 <div align="center"><img src="README.assets/toplogoImg.png" alt="toplogoImg" width="30%;" /></div>
 
@@ -8,31 +8,22 @@
 
 <br/>
 
-## ❤️‍🔥遇见22:06
+## 🌙 遇见22:06
 
 ![readmeShowImg](README.assets/readmeShowImg.png)
 
 <br/>
 
-## <img src="README.assets/成员介绍.png" alt="成员介绍" align="middle" width="10%"/>关于我们
+## <img src="README.assets/成员介绍.png" alt="成员介绍" align="middle" width="8%"/>关于我们
 
-### 大包子
-
-| - **学历**：同济大学软件学院本科生，北京大学信息工程学院硕士研究生 <br />- **分工**：项目发起人、PM、前后端数据库测试全栈 <br />- **个人邮箱**：[doublez@alumni.tongji.edu.cn](mailto:doublez@alumni.tongji.edu.cn) <br />- **想说的话**：以这种特殊的方式告别同济，希望在这里能见证很多遇见，记得每晚都会有🌙 | <img src="README.assets/doubleZ.png" alt="doubleZ" width="50%;" /> |
-| :----------------------------------------------------------- | :----------------------------------------------------------: |
-
-
-
-### 大包子<img src="README.assets/doubleZ.png" alt="doubleZ" width="10%;" />
+### 	  大包子<img src="README.assets/doubleZ.png" alt="doubleZ" width="10%;" />
 
 - **学历**：同济大学软件学院本科生，北京大学信息工程学院硕士研究生
 - **分工**：项目发起人、PM、前后端数据库测试全栈
 - **个人邮箱**：[doublez@alumni.tongji.edu.cn](mailto:doublez@alumni.tongji.edu.cn)
 - **想说的话**：以这种特殊的方式告别同济，希望在这里能见证很多遇见，记得每晚都会有🌙
 
-
-
-### 嘟噜嘟噜啪
+### 嘟噜嘟噜啪<img src="README.assets/ckx.png" alt="ckx" width="10%;" />
 
 - **学历**：同济大学软件学院本科生 & 硕士研究生
 - **分工**：我只是一个毫无感情的美术
@@ -42,13 +33,13 @@
 
 <br/>
 
-## <img src="README.assets/时间轴.png" alt="时间轴" align="middle" width="10%" />时间轴
+## <img src="README.assets/时间轴.png" alt="时间轴" align="middle" width="8%" />时间轴
 
 <div align="center"><img src="README.assets/scheduleImg.png" alt="scheduleImg" width="55%;" /></div>
 
 <br/>
 
-## <img src="README.assets/联系方式.png" alt="联系方式"  align="middle" width="10%" />联系方式
+## <img src="README.assets/联系方式.png" alt="联系方式"  align="middle" width="8%" />联系方式
 
 - **邮箱**：[Six_past_TwentyTwo@163.com](mailto:Six_past_TwentyTwo@163.com)
 - **Github**：[https://github.com/doubleZ0108/Six-past-Twenty-Two](https://github.com/doubleZ0108/Six-past-Twenty-Two)
