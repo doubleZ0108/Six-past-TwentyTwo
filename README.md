@@ -14,7 +14,7 @@
 
 <br/>
 
-## <img src="README.assets/成员介绍.png" alt="成员介绍" style="zoom:60%;" />关于我们
+## <img src="README.assets/成员介绍.png" alt="成员介绍"  width="10%"/>关于我们
 
 ### 大包子<img src="README.assets/doubleZ.png" alt="doubleZ" width="10%;" />
 
@@ -35,13 +35,13 @@
 
 <br/>
 
-## <img src="README.assets/时间轴.png" alt="时间轴" style="zoom:75%;" />时间轴
+## <img src="README.assets/时间轴.png" alt="时间轴" width="10%;" />时间轴
 
 <div align="center"><img src="README.assets/scheduleImg.png" alt="scheduleImg" width="55%;" /></div>
 
 <br/>
 
-## <img src="README.assets/联系方式.png" alt="联系方式" style="zoom:75%;" />联系方式
+## <img src="README.assets/联系方式.png" alt="联系方式"  width="10%;" />联系方式
 
 - **邮箱**：[Six_past_TwentyTwo@163.com](mailto:Six_past_TwentyTwo@163.com)
 - **Github**：[https://github.com/doubleZ0108/Six-past-Twenty-Two](https://github.com/doubleZ0108/Six-past-Twenty-Two)
