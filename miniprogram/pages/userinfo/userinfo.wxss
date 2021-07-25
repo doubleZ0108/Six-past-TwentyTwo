@@ -78,7 +78,6 @@
   margin: 25rpx auto;
   display: grid;
   grid-template-columns: .8fr 1fr;
-  /* grid-gap: 20rpx; */
   align-items: center;
   justify-content: center;
 }
@@ -154,7 +153,6 @@
   font-size: 20rpx;
   text-align: center;
   color: rgb(30,31,66); 
-  /* background-color: rgba(160, 192, 126, 0.8); */
   background: linear-gradient(130deg, rgb(141, 209, 194),rgb(197, 224, 168));
 
   border-radius: 50rpx;

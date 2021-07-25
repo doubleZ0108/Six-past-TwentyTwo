@@ -19,7 +19,6 @@
   margin-top: 65rpx;
   text-align: center;
   font-size: 80rpx;
-  /* color: linear-gradient(130deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210),rgb(211, 170, 201));  */
   background: linear-gradient(130deg, rgb(125,179,209),rgb(241, 149, 185)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -214,12 +213,9 @@
   padding: 15rpx;
   background: rgba(29,32,65,.38);
   color: rgba(255,255,255,.6);
-  /* backdrop-filter: blur(30rpx); */
-  /* border: 1rpx rgba(40,52,78,.83) solid; */
 }
 
 .comment-textarea-container text {
-  /* TODO button有默认padding 只能去掉之后调小 */
   position: absolute;
   display: block;
   bottom: 20rpx;
@@ -240,7 +236,6 @@
 }
 .comment-textarea-container text.comment-submit-colorful {
   color: rgba(44,42,85,1);
-  /* background: linear-gradient(104deg, rgb(111, 200, 209),rgb(125,179,209), rgb(129, 167, 210)); */
   background-position: 100%;
   transition: .4s cubic-bezier(.8,.2,.8,1);
 }
@@ -315,8 +310,6 @@
   color: rgba(255,255,255,.6);
 }
 
-
-
 /* =======  vipcard  ======= */
 .vipcard-confirm.card-container {
   --card-width: 80%;
@@ -333,8 +326,6 @@
 
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-
-
 
 .vipcard-confirm .card-people .iconfont {
   font-size: 50rpx;
@@ -387,12 +378,9 @@
   padding: 15rpx;
   background: rgba(94, 67, 51, 0.38);
   color: rgba(255,255,255,.6);
-  /* backdrop-filter: blur(30rpx); */
-  /* border: 1rpx rgba(40,52,78,.83) solid; */
 }
 
 .vipcard-confirm.comment-textarea-container text {
-  /* TODO button有默认padding 只能去掉之后调小 */
   position: absolute;
   display: block;
   bottom: 20rpx;
@@ -414,13 +402,11 @@
 
 .vipcard-confirm.comment-textarea-container text.comment-submit-colorful {
   color: rgb(59, 37, 29);
-  /* background: linear-gradient(104deg, rgb(238, 171, 202),rgb(252, 134, 144), rgb(241, 154, 143)); */
   background-position: 100%;
   transition: .4s cubic-bezier(.8,.2,.8,1);
 }
 
 .vipcard-confirm .comment-text-group {
-
   padding-top: 20rpx;
   border-top: 2rpx rgba(112,87,71,.38) solid;
   color: rgba(112,87,71,.83);

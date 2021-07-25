@@ -23,8 +23,8 @@ const isSameDate = (date1, date2) => {
   }
   return false
 }
-/* ⚠注意起止必须为同一天 */
 const inSpecialDate = (now, start, end) => {
+  /* 注意起止必须为同一天 */
   if(isSameDate(now, start)) {
     let [nowDateInfo, startDateInfo, endDateInfo] = [getDateInfo(now), getDateInfo(start), getDateInfo(end)]
     if(nowDateInfo.hour > startDateInfo.hour && nowDateInfo.hour < endDateInfo.hour) {
@@ -78,19 +78,8 @@ const checkingTime = () => {
     }
   }
 
-  /** for test */
-  // if(time.day == 5) {
-  //   return true
-  // }
-  // if(time.hour == 22) {
-  //   if(time.min >= 4 && time.min <= 6) {   // 22:06～22:22  16分钟
-  //     return true
-  //   }
-  // }
-
   return false
 }
-
 
 const lengthToTime = () => {
   let now = new Date()

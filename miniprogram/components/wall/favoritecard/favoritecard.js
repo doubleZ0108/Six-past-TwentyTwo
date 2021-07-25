@@ -4,9 +4,7 @@ const app = getApp()
 const db = wx.cloud.database()
 
 Component({
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
     posLeft: {
       type: String,
@@ -14,9 +12,6 @@ Component({
     }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
     fold_class: "",
     favorite_height: "290rpx",
@@ -37,9 +32,7 @@ Component({
     ]
   },
 
-  /**
-   * 组件的方法列表
-   */
+
   methods: {
     backToTop: function() {
       if (wx.pageScrollTo) {
@@ -149,8 +142,6 @@ Component({
               that.setData({ statistic_array: buf_that.data.statistic_array })
             }
           })
-          // let buf_that = that
-          // that.setData({ statistic_array: buf_that.statistic_array })
         }
       })
     }

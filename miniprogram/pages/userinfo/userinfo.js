@@ -12,8 +12,6 @@ Page({
       type: "success",
       show: false
     },
-    // academy_array: app.globalData.academy_array,
-    // academy_index: 0,
     academyIndex: [0, 0],
     academyArray: [
       ["全部","校区","新生院","中外交流","字典排序","长度排序","除此之外"],
@@ -179,7 +177,6 @@ Page({
     }
   },
 
-
   onVerifyCodeInput: function(e) {
     this.setData({ verify_code_input: e.detail.value })
   },
@@ -254,7 +251,6 @@ Page({
         subject: '【二十二点零六】验证码',                // 主题
         text: '“每个夜晚都会遇见🌙”\n\n您的验证码是: ' + emileInfo.verifyCode + '  (⚠️区分大小写)' + '\n\n\n/* zzzzzzzzzzzzzzzz\n同济大学软件学院\n造梦工程师🌨'
       },
-              // text: '您的验证码是: ' + emileInfo.verifyCode,   // 邮件内容，text或者html格式
       complete: function(res) {
         console.log(res)
       }
@@ -279,7 +275,6 @@ Page({
         let userInfo = res.data[0]
         if(userInfo.academy != "未知学院") {
           that.setData({
-            // academy_index: that.data.academy_array.indexOf(userInfo.academy)
             academyIndex: [0, app.globalData.academy_array.indexOf(userInfo.academy)]
           })
         }

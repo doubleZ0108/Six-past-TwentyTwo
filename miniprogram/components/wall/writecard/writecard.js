@@ -5,9 +5,7 @@ const app = getApp()
 const db = wx.cloud.database()
 
 Component({
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
     posLeft: {
       type: String,
@@ -15,14 +13,9 @@ Component({
     }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
     fold_class: "",
     writecard_height: "330rpx",
-    // fold_class: "writecard-container-unfold",    // for vipcard unfold test
-    // writecard_height: "100vh",
     slip_tolerance: 100,  // 手指下滑退出滑动距离最小值
     animate: false,
     toptip: {
@@ -41,8 +34,7 @@ Component({
     switcher1_text: "男生",
     switcher2_gender_now: "gender-now-female",
     switcher2_text: "女生",
-    // academy_array: ["未知"].concat(app.globalData.academy_array),
-    // academy_index: 0,
+
     academyIndex: [0, 0],
     academyArray: [
       ["全部","校区","新生院","中外交流","字典排序","长度排序","除此之外"],
@@ -60,9 +52,6 @@ Component({
     write_vipcard: false
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
     backToTop: function() {
       if (wx.pageScrollTo) {
@@ -250,7 +239,6 @@ Component({
 
       wx.vibrateShort()
       // @BACK √
-
       this.setData({ prohibit_submit: true })
       console.log(writeData)
 
@@ -259,7 +247,7 @@ Component({
         content: "发送表白后无法修改和删除，确认发送吗？",
         showCancel: true,
         cancelText: "继续编辑",
-        cancelColor: '#000000',   // TODO 等待调整
+        cancelColor: '#000000',
         confirmText: "确认发送",
         confirmColor: that.data.write_vipcard ? '#576B95' : '#576B91', // 金色 or 背景色
         success (res) {
@@ -375,7 +363,6 @@ Component({
       })
      
     },
-
 
     sendVipPaySubscribe: function() {
       wx.cloud.callFunction({

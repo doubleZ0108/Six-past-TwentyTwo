@@ -64,7 +64,7 @@ Page({
           content: feedbackData.content,
           contact: feedbackData.contact,
           time: feedbackData.time,
-          isHandle: false       // 还没处理过
+          isHandle: false
         },
         success: function() {
           that.setData({
@@ -81,10 +81,8 @@ Page({
     }
   },
 
-
   onLoad: function (options) {
 
   },
-
 
 })

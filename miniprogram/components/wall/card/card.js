@@ -54,9 +54,6 @@ Component({
     }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
     unfold: "",
     favorite_flag: false,
@@ -69,9 +66,6 @@ Component({
     able_navigate: true     // 收藏 点赞完 写完库才可以跳转
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
     onCardTap: function(e) {
       wx.vibrateShort()
@@ -81,7 +75,7 @@ Component({
       })
     },
 
-    // TODO 要绑定 user 和 card间 收藏点赞评论的关系 让对应的icon高亮
+    // 要绑定 user 和 card间 收藏点赞评论的关系 让对应的icon高亮
     onFavoriteTap: function() {
       wx.vibrateShort()
 
@@ -292,8 +286,7 @@ Component({
     },
     'refresh_flag': function(fold_class) {
       this.setData({
-        unfold: ""   // this is correct
-        // unfold: "card-container-unfold"  // for card unfold style
+        unfold: ""
       })
     },
     'pull_down_flag_root': function(pull_down_flag_root) {

@@ -6,9 +6,7 @@ const db = wx.cloud.database()
 const _ = db.command
 
 Component({
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
     posLeft: {
       type: String,
@@ -16,12 +14,7 @@ Component({
     }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
-    // academy_array: ["全部"].concat(app.globalData.academy_array),
-    // academy_index: 0,
     academyIndex: [0, 0],
     academyArray: [
       ["全部","校区","新生院","中外交流","字典排序","长度排序","除此之外"],
@@ -36,9 +29,6 @@ Component({
     animate: false
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
     bindAcademyPickerTap: function() {
       wx.vibrateShort()
@@ -107,14 +97,12 @@ Component({
       let that = this
       this.setData({ gender_left_isMale: !that.data.gender_left_isMale })
     },
-
     onGenerRightTap: function() {
       wx.vibrateShort()
 
       let that = this
       this.setData({ gender_right_isFemale: !that.data.gender_right_isFemale })
     },
-
     onGenderNoneTap: function() {
       wx.vibrateShort()
 
@@ -149,7 +137,7 @@ Component({
       let that = this
       setTimeout(function(){
         that.setData({ animate: false })
-      }, 2000)  // TODO 动画播放时间
+      }, 2000)
 
     }
   }

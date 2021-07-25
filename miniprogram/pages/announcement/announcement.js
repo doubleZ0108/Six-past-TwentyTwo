@@ -60,6 +60,7 @@ Page({
         }
       })
   },
+  
   loadMoreAnnouncement: function() {
     wx.vibrateShort()
     

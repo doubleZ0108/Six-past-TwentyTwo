@@ -8,20 +8,16 @@ Component({
     }
   },
 
-
   data: {
     warm_position_x: "25%",
     cool_position_x: "50%",
   },
 
-
-  methods: {
-    
-  },
+  methods: {},
 
   observers: {
     'current_tab': function(current_tab) {
-      /** TODO
+      /*
        * current_tab: 0/1/2/3
        * 初始warm橙色wave position = 25%
        * 初始cool白色wave position = 50%

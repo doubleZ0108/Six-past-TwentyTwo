@@ -63,9 +63,11 @@
     </view>
 
     <view class="vipcard-envelop {{ turn_over_class }}" catchtap="onEnvelopTap">
-      <!-- <image class="envelop-head" src="../../../resource/img/envelop/head.png"></image>
+      <!-- 
+      <image class="envelop-head" src="../../../resource/img/envelop/head.png"></image>
       <image class="envelop-beneath" src="../../../resource/img/envelop/beneath.png"></image>
-      <image class="envelop-body" src="../../../resource/img/envelop/body.png"></image> -->
+      <image class="envelop-body" src="../../../resource/img/envelop/body.png"></image> 
+      -->
       <image class="envelop-head" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/head.png?sign=981e38a9fc69a9b07020539d6317d251&t=1607589267"></image>
       <image class="envelop-beneath" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/beneath.png?sign=652656e7650fc8d9dae51431ac8a3487&t=1607589245"></image>
       <image class="envelop-body" src="https://7369-six-past-twenty-two-8cvx689cf6da-1304135300.tcb.qcloud.la/in-project-resources/envelop/body.png?sign=8ce6953e3302b3f3dfaceaffab4ed628&t=1607589257"></image>

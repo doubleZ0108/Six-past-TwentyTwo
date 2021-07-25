@@ -1,10 +1,7 @@
 // components/index/blackboard/blackboard.js
 Component({
 
-  properties: {
-
-  },
-
+  properties: {},
 
   data: {
     currentTab: 0,
@@ -20,7 +17,6 @@ Component({
     left_btn_end: false,
     right_btn_end: false
   },
-
 
   methods: {
     switchTab: function(e) {

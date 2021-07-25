@@ -3,7 +3,6 @@
   <view class="hero-inner-container">
     <view>
       <image class="hero-avatar" src="{{ avatarUrl }}"></image>
-      <!-- <mp-badge style="position: absolute; transform: translateX(-25rpx);" content="New"/> -->
     </view>
     <view class="info-container">
       <text class="info-name">{{ nickName }}</text>

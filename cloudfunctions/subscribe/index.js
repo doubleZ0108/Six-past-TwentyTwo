@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
   try {
     const result = await cloud.openapi.subscribeMessage.send({
         touser: wxContext.OPENID,
-        page: 'index',      // TODO 这里可能需要更换路径
+        page: 'index', 
         lang: 'zh_CN',
         data: {
           thing1: {
