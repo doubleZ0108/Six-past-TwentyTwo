@@ -42,7 +42,7 @@
 ## <img src="README.assets/联系方式.png" alt="联系方式"  align="middle" width="8%" />联系方式
 
 - **邮箱**：[Six_past_TwentyTwo@163.com](mailto:Six_past_TwentyTwo@163.com)
-- **Github**：[https://github.com/doubleZ0108/Six-past-Twenty-Two](https://github.com/doubleZ0108/Six-past-Twenty-Two)
+- **Github**：[https://github.com/doubleZ0108/Six-past-TwentyTwo](https://github.com/doubleZ0108/Six-past-TwentyTwo)
 - **doubleZ的个人网站**：[https://www.doublez.site](https://www.doublez.site)
 
 <div align="center"><img src="README.assets/contactImg.png" alt="contactImg" width="30%;" /></div>
