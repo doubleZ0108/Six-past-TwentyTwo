@@ -16,7 +16,7 @@
 
 ## <img src="README.assets/成员介绍.png" alt="成员介绍" align="middle" width="8%"/>关于我们
 
-### 	  大包子<img src="README.assets/doubleZ.png" alt="doubleZ" width="10%;" />
+### 大包子<img src="README.assets/doubleZ.png" alt="doubleZ" width="10%;" />
 
 - **学历**：同济大学软件学院本科生，北京大学信息工程学院硕士研究生
 - **分工**：项目发起人、PM、前后端数据库测试全栈
@@ -44,6 +44,7 @@
 - **邮箱**：[Six_past_TwentyTwo@163.com](mailto:Six_past_TwentyTwo@163.com)
 - **Github**：[https://github.com/doubleZ0108/Six-past-TwentyTwo](https://github.com/doubleZ0108/Six-past-TwentyTwo)
 - **doubleZ的个人网站**：[https://www.doublez.site](https://www.doublez.site)
+- **本文链接**：[电脑端阅读](http://www.doublez.site/blogs/Six-past-TwentyTwo/)｜[手机端阅读](https://mp.weixin.qq.com/s/bE2J2isbjGvo85hwQJl3xQ)
 
 <div align="center"><img src="README.assets/contactImg.png" alt="contactImg" width="30%;" /></div>
 
